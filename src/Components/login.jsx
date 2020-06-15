@@ -57,32 +57,32 @@ export class Login extends React.Component {
         <div className="usernameLogin">
             <TextField
                 margin="dense"
-                size="small"
+                size="medium"
                 name="email"
                 id="outlined-required"
                 label="username"
                 variant="outlined"
                 style={{ width: "80%" }}
+                inputProps={{style:{ fontSize:'16px'}}}
             />
         </div>
         <br></br>
         <div className="passwordLogin">
             <TextField
                 style={{ width: "80%" }}
-                size="small"
+                size="medium"
                 margin="dense"
                 id="outlined-adornment-password"
                 variant="outlined"
                 name="password"
                 type="password"
                 label="password"
+                inputProps={{style:{ fontSize:'16px'}}}
             />
-            <br /><br />
         </div>
         <div className="buttonLogin">
             <Button
-                variant="contained"
-                color="primary"
+                style={{ width:"150px",padding: "7px 0px",color:'#0423ce',fontSize:'15px'}}
                 onClick={() => this.props.history.push('/register')}
             >
             Create account
@@ -90,12 +90,13 @@ export class Login extends React.Component {
             <Button
                 variant="contained"
                 color="primary"
+                style={{ width:"90px",padding: "7px 0px",fontSize:'12px'}}
             >
             Login
             </Button>
         </div>
         <div className="Forgotpassword">
-                <Button onClick={() => this.props.history.push('/forgotpassword')} style={{ textTransform: 'lowercase', color: '#0423ce' }}>Forgot Password?</Button>
+                <Button onClick={() => this.props.history.push('/forgotpassword')} style={{ textTransform: 'lowercase', color: '#0423ce',fontSize:'13px' }}>Forgot Password?</Button>
         </div>
     </Card>
     );

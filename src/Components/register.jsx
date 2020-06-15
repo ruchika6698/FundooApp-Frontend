@@ -84,6 +84,7 @@ export class Register extends React.Component {
               margin="dense"
               size="medium"
               style={{ width: "48%" }}
+              inputProps={{style:{ fontSize:'16px'}}}
             />
             <span>
 
@@ -96,6 +97,7 @@ export class Register extends React.Component {
               margin="dense"
               size="medium"
               style={{ width: "48%" }}
+              inputProps={{style:{ fontSize:'16px'}}}
             />                  
           </div>
           <br/>
@@ -106,6 +108,7 @@ export class Register extends React.Component {
               label='Username'
               margin='dense'
               style={{ width: "96%" }}
+              inputProps={{style:{ fontSize:'16px'}}}
             />
             <h1 className='usermailline'>Use my current email address instead</h1>
             <div className='confirmPass'>
@@ -116,6 +119,7 @@ export class Register extends React.Component {
                 label='Password'
                 margin='dense'
                 style={{ width: "48%" }}
+                inputProps={{style:{ fontSize:'16px'}}}
               />
               <span>
 
@@ -127,15 +131,20 @@ export class Register extends React.Component {
                 label='Confirm'
                 margin='dense'
                 style={{ width: "48%" }}
+                inputProps={{style:{ fontSize:'16px'}}}
               />
             </div>
               <h1 className='passline' >Use 8 or more characters with a mix of letters, numbers & symbols</h1>
               <div className="signbutton">
-                  <Button href="#text-buttons" color="primary" >
+                  <Button color="primary"
+                    style={{ width:"150px",padding: "7px 0px",color:'#0423ce',fontSize:'13px'}} 
+                    onClick={() => this.props.history.push('/')}>
                     Sign in instead
                   </Button>
 
-                  <Button variant="contained" color="primary" >
+                  <Button variant="contained"
+                    style={{ width:"90px",padding: "7px 0px",fontSize:'12px'}} 
+                    color="primary" >
                     Submit
                   </Button>
               </div>
