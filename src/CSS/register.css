@@ -2,21 +2,25 @@
     margin: 0;
     padding: 0;
 }
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
 .root{
-    margin-top:90px;
+    margin-top:130px;
     margin-bottom:90px;
-    margin-left:90px;
-    width:45%;
-    height:550px;
+    width:100%;
+    height:500px;
     padding-left: 55px;
+    justify-content:center;
 }
 .fundoofont { 
     display: flex;
-    margin-top:15px;
-    font-size: 1.5em;
+    padding-top: 45px;
+    font-size: 2.0em;
     font-weight:bold;
     justify-content:flex-start;
-    padding:.7em;
 }
 .text{
     display: flex;
@@ -24,7 +28,6 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
     justify-content:flex-start;
-    margin-left: .5em;
 }
 .continue{
     display: flex;
@@ -33,7 +36,6 @@
     font-weight: 70;
     justify-content:flex-start;
     color:#4d4d4d;
-    margin-left: .6em;
 }
 .main{
     display: flex;
@@ -43,21 +45,21 @@
 
 .flname{
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
     flex-direction: row;
-    padding: .7em;
     size:medium;
 }
 .username{
-    display: block; 
-    width: 27em;
-    padding-left: 55px;
+    width: 32em !important;
+    padding-left: 65px;
+    justify-content:center;
 }
 
 .usermailline{
     font-size: 15px;
     font-family: 'Roboto', sans-serif;
     color: black;
+    justify-content:center;
 }
 .confirmPass{
     display: flex;

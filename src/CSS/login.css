@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.loginbox{
+    margin-top:160px;
+    margin-bottom:90px;
+    width:400px;
+    height:450px;
+}
+.loginfundoofont{
+    padding-top: 35px;
+    justify-content:center;
+    align-items:center;
+    display: flex;
+    font-size: 2.0em;
+    font-weight:bold;
+}
+.signIn{
+    color: black;
+    font-size: 120%;
+    padding-top: 4%;
+    justify-content:center;
+    align-items:center;
+    display: flex;
+}
+.usernameLogin{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+}
+.passwordLogin{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+}
+.buttonLogin{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 3em;
+    font-size: 16px;
+    font-weight:bold;
+}
+
+.Forgotpassword{
+    display: flex;
+    justify-content:center;
+    align-items:left;
+    flex-direction: column;
+    padding-bottom:4em;   
+}
