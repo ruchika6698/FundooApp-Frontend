@@ -13,6 +13,24 @@ body{
     width:400px;
     height:450px;
 }
+.f{
+    color: #4285F4;
+}
+.u{
+    color: #DB4437;
+}
+.n{
+    color: #F4B400;
+}
+.d{
+    color: #4285F4;
+}
+.o{
+    color: #0F9D58;
+}
+.oo{
+    color: #DB4437;
+}
 .loginfundoofont{
     padding-top: 35px;
     justify-content:center;
@@ -20,6 +38,12 @@ body{
     display: flex;
     font-size: 2.0em;
     font-weight:bold;
+}
+.email{
+    font-size:16px;
+}
+.password{
+    font-size:16px;
 }
 .signIn{
     color: black;
@@ -34,6 +58,7 @@ body{
     justify-content:center;
     align-items:center;
     flex-direction: column;
+    width:100%;
 }
 .passwordLogin{
     display: flex;
@@ -48,6 +73,7 @@ body{
     padding: 3em;
     font-size: 16px;
     font-weight:bold;
+    size:large;
 }
 
 .Forgotpassword{
@@ -56,4 +82,5 @@ body{
     align-items:left;
     flex-direction: column;
     padding-bottom:4em;   
+    width:50%;
 }
