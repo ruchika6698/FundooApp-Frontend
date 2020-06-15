@@ -30,7 +30,7 @@ export class Register extends React.Component {
             errors['lastName'] = '*Enter the Last Name'
             formIsValid = false
         }
-        if (!RegExp("^[_A-Za-z0-9-//+]+(//.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\. [A-Za-z0-9]+)*(//.[A-Za-z]{2,})$").test(this.state.email)) {
+        if (!RegExp("^[_A-Za-z0-9-//+]+(//.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(//. [A-Za-z0-9]+)*(//.[A-Za-z]{2,})$").test(this.state.email)) {
             errors['email'] = '*Enter valid Email id'
         }
         if (!this.state.email) {
@@ -65,12 +65,12 @@ export class Register extends React.Component {
   return (
     <Card className="root" variant="outlined">
       <div className='fundoofont' align="center">
-          <span style={{ color: '#4285F4' }}>F</span>
-          <span style={{ color: '#DB4437' }}>u</span>
-          <span style={{ color: '#F4B400' }}>n</span>
-          <span style={{ color: '#4285F4' }}>d</span>
-          <span style={{ color: '#0F9D58' }}>o</span>
-          <span style={{ color: '#DB4437' }}>o</span>
+          <span class="f">F</span>
+          <span class="u">u</span>
+          <span class="n">n</span>
+          <span class="d">d</span>
+          <span class="o">o</span>
+          <span class="oo">o</span>
       </div>
       <p className='text'>Create your Fundoo Account</p>
       <p className='continue'>Continue to Fundoo</p>
@@ -78,12 +78,11 @@ export class Register extends React.Component {
         <div class="input">
           <div className='flname'>
             <TextField
-              classname='firstname'
+              classname='name'
               variant='outlined'
-              label='First name'
+              label={ <div class="password">First name</div>}
               margin="dense"
               size="medium"
-              style={{ width: "48%" }}
               inputProps={{style:{ fontSize:'16px'}}}
             />
             <span>
@@ -91,12 +90,11 @@ export class Register extends React.Component {
 
             </span>
             <TextField
-              className='lastname'
+              className='name'
               variant='outlined'
-              label='Last name'
+              label={ <div class="password">Last name</div>}
               margin="dense"
               size="medium"
-              style={{ width: "48%" }}
               inputProps={{style:{ fontSize:'16px'}}}
             />                  
           </div>
@@ -105,9 +103,8 @@ export class Register extends React.Component {
             <TextField
               className='username'
               variant='outlined'
-              label='Username'
+              label={ <div class="email">Email</div>}
               margin='dense'
-              style={{ width: "96%" }}
               inputProps={{style:{ fontSize:'16px'}}}
             />
             <h1 className='usermailline'>Use my current email address instead</h1>
@@ -116,7 +113,7 @@ export class Register extends React.Component {
                 className='pass'
                 type='password'
                 variant='outlined'
-                label='Password'
+                label={ <div class="password">Password</div>}
                 margin='dense'
                 style={{ width: "48%" }}
                 inputProps={{style:{ fontSize:'16px'}}}
@@ -128,7 +125,7 @@ export class Register extends React.Component {
                 className='cpassword'
                 type='password'
                 variant='outlined'
-                label='Confirm'
+                label={ <div class="password">Confirm Password</div>}
                 margin='dense'
                 style={{ width: "48%" }}
                 inputProps={{style:{ fontSize:'16px'}}}

@@ -15,40 +15,16 @@ export class ForgotPassword extends Component {
         };
     }
 
-    handleChangeText = (event) => {
-
-        this.setState({
-            [event.target.name]: event.target.value
-        }, () => console.log(this.state, '------>name'))
-    }
-
-    validateForm = () => {
-        let errors = {}
-        let formIsValid = true
-
-        if (!RegExp("^[_A-Za-z0-9-//+]+(//.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(//. [A-Za-z0-9]+)*(//.[A-Za-z]{2,})$").test(this.state.email)) {
-            errors['email'] = '*Enter valid Email id'
-        }
-        if (!this.state.email) {
-            errors['email'] = '*Enter the Email Id'
-            formIsValid = false
-        }
-        this.setState({
-            errors: errors
-        })
-        return formIsValid
-    }
-
     render() {
         return (
         <Card className="loginbox" variant="outlined">
             <div className="loginfundoofont" align="center">
-                <span style={{ color: '#4285F4' }}>F</span>
-                <span style={{ color: '#DB4437' }}>u</span>
-                <span style={{ color: '#F4B400' }}>n</span>
-                <span style={{ color: '#4285F4' }}>d</span>
-                <span style={{ color: '#0F9D58' }}>o</span>
-                <span style={{ color: '#DB4437' }}>o</span>
+                <span class="f">F</span>
+                <span class="u">u</span>
+                <span class="n">n</span>
+                <span class="d">d</span>
+                <span class="o">o</span>
+                <span class="oo">o</span>
             </div>
             <span class="signIn">Find your email</span>
             <span class="signIn">Enter your recovery email</span>
@@ -57,7 +33,7 @@ export class ForgotPassword extends Component {
                 <TextField id="outlined-required" 
                     margin="dense"
                     size="small"
-                    label="Enter the Email id"
+                    label={ <div class="email">Email the Email Id</div>}
                     type="search"
                     variant="outlined"
                     name="email"

@@ -14,30 +14,6 @@ export class Login extends React.Component {
       errors: {}
     }
   }
-  validateForm = () => {
-        let errors = {}
-        let formIsValid = true
-
-        if (!RegExp("^[_A-Za-z0-9-//+]+(//.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(//. [A-Za-z0-9]+)*(//.[A-Za-z]{2,})$").test(this.state.email)) {
-            errors['email'] = '*Enter valid Email id'
-        }
-        if (!this.state.email) {
-            errors['email'] = '*Enter the Email Id'
-            formIsValid = false
-        }
-        if (!RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#/$%/^&/*])(?=.{8,})").test(this.state.password)) {
-            errors['password'] = '*Enter the valid password'
-            formIsValid = false
-        }
-        if (!this.state.password) {
-            errors['password'] = '*Enter the password'
-            formIsValid = false
-        }
-        this.setState({
-            errors: errors
-        })
-        return formIsValid
-    }
 
 
   render() 
@@ -45,12 +21,12 @@ export class Login extends React.Component {
     return (
     <Card className="loginbox" variant="outlined">
         <div className="loginfundoofont" align="center">
-          <span style={{ color: '#4285F4' }}>F</span>
-          <span style={{ color: '#DB4437' }}>u</span>
-          <span style={{ color: '#F4B400' }}>n</span>
-          <span style={{ color: '#4285F4' }}>d</span>
-          <span style={{ color: '#0F9D58' }}>o</span>
-          <span style={{ color: '#DB4437' }}>o</span>
+         <span class="f">F</span>
+          <span class="u">u</span>
+          <span class="n">n</span>
+          <span class="d">d</span>
+          <span class="o">o</span>
+          <span class="oo">o</span>
         </div>
         <span class="signIn">Sign in</span>
         <br></br>
@@ -60,7 +36,7 @@ export class Login extends React.Component {
                 size="medium"
                 name="email"
                 id="outlined-required"
-                label="username"
+                label={ <div class="email">Email</div>}
                 variant="outlined"
                 style={{ width: "80%" }}
                 inputProps={{style:{ fontSize:'16px'}}}
@@ -76,7 +52,7 @@ export class Login extends React.Component {
                 variant="outlined"
                 name="password"
                 type="password"
-                label="password"
+                label={ <div class="password">Password</div>}
                 inputProps={{style:{ fontSize:'16px'}}}
             />
         </div>
@@ -91,6 +67,7 @@ export class Login extends React.Component {
                 variant="contained"
                 color="primary"
                 style={{ width:"90px",padding: "7px 0px",fontSize:'12px'}}
+                onClick={() => this.props.history.push('/dashboard')}
             >
             Login
             </Button>
