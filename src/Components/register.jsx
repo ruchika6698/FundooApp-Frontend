@@ -19,11 +19,52 @@ export class Register extends React.Component {
     }
   } 
 
+  validateForm = () => {
+        let errors = {}
+        let formIsValid = true
+        if (!this.state.firstName) {
+            errors['firstName'] = '*Enter the First Name'
+            formIsValid = false
+        }
+        if (!this.state.lastName) {
+            errors['lastName'] = '*Enter the Last Name'
+            formIsValid = false
+        }
+        if (!RegExp("^[_A-Za-z0-9-//+]+(//.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\. [A-Za-z0-9]+)*(//.[A-Za-z]{2,})$").test(this.state.email)) {
+            errors['email'] = '*Enter valid Email id'
+        }
+        if (!this.state.email) {
+            errors['email'] = '*Enter the Email Id'
+            formIsValid = false
+        }
+        if (!RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#/$%/^&/*])(?=.{8,})").test(this.state.password)) {
+            errors['password'] = '*Enter the valid password'
+            formIsValid = false
+        }
+        if (!this.state.password) {
+            errors['password'] = '*Enter the password'
+            formIsValid = false
+        }
+        if (!this.state.confirmPassword) {
+            errors['confirmPassword'] = '*Enter the confirm password'
+            formIsValid = false
+        }
+        if (this.state.password !== this.state.confirmPassword) {
+            errors['confirmPassword'] = '*Password doesn\'t match'
+            formIsValid = false
+        }
+
+        this.setState({
+            errors: errors
+        })
+        return formIsValid
+    }
+
   render() 
   {
   return (
     <Card className="root" variant="outlined">
-      <div className='fundoofont'>
+      <div className='fundoofont' align="center">
           <span style={{ color: '#4285F4' }}>F</span>
           <span style={{ color: '#DB4437' }}>u</span>
           <span style={{ color: '#F4B400' }}>n</span>
@@ -57,6 +98,7 @@ export class Register extends React.Component {
               style={{ width: "48%" }}
             />                  
           </div>
+          <br/>
           <div>
             <TextField
               className='username'
@@ -69,6 +111,7 @@ export class Register extends React.Component {
             <div className='confirmPass'>
               <TextField
                 className='pass'
+                type='password'
                 variant='outlined'
                 label='Password'
                 margin='dense'
@@ -79,6 +122,7 @@ export class Register extends React.Component {
               </span>
               <TextField
                 className='cpassword'
+                type='password'
                 variant='outlined'
                 label='Confirm'
                 margin='dense'
