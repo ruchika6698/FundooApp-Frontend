@@ -30,30 +30,7 @@ export class ForgotPassword extends Component {
         })
         return formIsValid
     }
-    submit = () => {
-        if (this.validateForm()) {
-            let user = {};
-            user.email = this.state.email;
-        //     userLogin(user)
-        //         .then(Response => {
-        //             console.log('data', Response.data.data);
-
-        //             localStorage.setItem("FirstName", Response.data.userData.firstName)
-        //             localStorage.setItem("LastName", Response.data.userData.lastName)
-        //             localStorage.setItem("Email", Response.data.userData.email)
-        //             localStorage.setItem("Token", Response.data.data)
-
-        //             console.log("Res", Response)
-        //             alert(`Login Successfull!!`);
-        //             this.props.history.push("/dashboard");
-
-        //         })
-        //         .catch(err => {
-        //             console.log(Response, "User login fail");
-        //             alert(err);
-        //         });
-        }
-    }
+    
     render() {
         return (
         <Card className="loginbox" variant="outlined">
