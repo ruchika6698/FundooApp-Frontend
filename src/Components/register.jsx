@@ -18,7 +18,11 @@ export class Register extends React.Component {
       errors: {},
     }
   } 
-
+  handleChangeText = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        }, () => console.log(this.state, '------>name'))
+  }
   validateForm = () => {
         let errors = {}
         let formIsValid = true
@@ -53,13 +57,24 @@ export class Register extends React.Component {
             errors['confirmPassword'] = '*Password doesn\'t match'
             formIsValid = false
         }
-
         this.setState({
             errors: errors
         })
         return formIsValid
     }
+    submitUserSignUpForm = () => {
+        if (this.validateForm()) {
+            let user = {};
+            user.firstname = this.state.firstName;
+            user.lastname = this.state.lastName;
+            user.email = this.state.email;
+            user.password = this.state.password;
 
+            console.log(user);
+
+        
+        }
+    }
   render() 
   {
   return (
@@ -83,7 +98,11 @@ export class Register extends React.Component {
               label={ <div class="password">First name</div>}
               margin="dense"
               size="medium"
+              style={{ width: "48%" }}
               inputProps={{style:{ fontSize:'16px'}}}
+              onChange={this.handleChangeText}
+              error={this.state.errors.firstName}
+              helperText={this.state.errors.firstName}
             />
             <span>
 
@@ -95,7 +114,11 @@ export class Register extends React.Component {
               label={ <div class="password">Last name</div>}
               margin="dense"
               size="medium"
+              style={{ width: "48%" }}
               inputProps={{style:{ fontSize:'16px'}}}
+              onChange={this.handleChangeText}
+              error={this.state.errors.lastName}
+              helperText={this.state.errors.lastName}
             />                  
           </div>
           <br/>
@@ -106,6 +129,9 @@ export class Register extends React.Component {
               label={ <div class="email">Email</div>}
               margin='dense'
               inputProps={{style:{ fontSize:'16px'}}}
+              onChange={this.handleChangeText}
+              error={this.state.errors.email}
+              helperText={this.state.errors.email}
             />
             <h1 className='usermailline'>Use my current email address instead</h1>
             <div className='confirmPass'>
@@ -117,6 +143,9 @@ export class Register extends React.Component {
                 margin='dense'
                 style={{ width: "48%" }}
                 inputProps={{style:{ fontSize:'16px'}}}
+                onChange={this.handleChangeText}
+                error={this.state.errors.password}
+                helperText={this.state.errors.password}
               />
               <span>
 
@@ -128,6 +157,9 @@ export class Register extends React.Component {
                 label={ <div class="password">Confirm Password</div>}
                 margin='dense'
                 style={{ width: "48%" }}
+                onChange={this.handleChangeText}
+                error={this.state.errors.confirmPassword}
+                helperText={this.state.errors.confirmPassword}
                 inputProps={{style:{ fontSize:'16px'}}}
               />
             </div>
@@ -141,7 +173,8 @@ export class Register extends React.Component {
 
                   <Button variant="contained"
                     style={{ width:"90px",padding: "7px 0px",fontSize:'12px'}} 
-                    color="primary" >
+                    color="primary" 
+                    onClick={this.submitUserSignUpForm}>
                     Submit
                   </Button>
               </div>

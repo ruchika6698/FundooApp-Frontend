@@ -56,6 +56,9 @@ export class Login extends React.Component {
                 inputProps={{style:{ fontSize:'16px'}}}
             />
         </div>
+         <div className="Forgotpassword">
+                <Button onClick={() => this.props.history.push('/forgotpassword')} style={{ textTransform: 'lowercase', color: '#0423ce',fontSize:'13px' }}>Forgot Password?</Button>
+        </div>
         <div className="buttonLogin">
             <Button
                 style={{ width:"150px",padding: "7px 0px",color:'#0423ce',fontSize:'15px'}}
@@ -71,9 +74,6 @@ export class Login extends React.Component {
             >
             Login
             </Button>
-        </div>
-        <div className="Forgotpassword">
-                <Button onClick={() => this.props.history.push('/forgotpassword')} style={{ textTransform: 'lowercase', color: '#0423ce',fontSize:'13px' }}>Forgot Password?</Button>
         </div>
     </Card>
     );
