@@ -9,12 +9,51 @@ export class ForgotPassword extends Component {
         super(props);
 
         this.state = {
-            showPassword: false,
-            email: "",
+            email: '',
             errors: {},
+            isValid: true
         };
     }
+    validateForm = () => {
+        let errors = {}
+        let formIsValid = true
+        
+        if (!RegExp("^[_A-Za-z0-9-//+]+(//.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(//. [A-Za-z0-9]+)*(//.[A-Za-z]{2,})$").test(this.state.email)) {
+            errors['email'] = '*Enter valid Email id'
+        }
+        if (!this.state.email) {
+            errors['email'] = '*Enter the Email Id'
+            formIsValid = false
+        }
+        this.setState({
+            errors: errors
+        })
+        return formIsValid
+    }
+    submit = () => {
+        if (this.validateForm()) {
+            let user = {};
+            user.email = this.state.email;
+        //     userLogin(user)
+        //         .then(Response => {
+        //             console.log('data', Response.data.data);
 
+        //             localStorage.setItem("FirstName", Response.data.userData.firstName)
+        //             localStorage.setItem("LastName", Response.data.userData.lastName)
+        //             localStorage.setItem("Email", Response.data.userData.email)
+        //             localStorage.setItem("Token", Response.data.data)
+
+        //             console.log("Res", Response)
+        //             alert(`Login Successfull!!`);
+        //             this.props.history.push("/dashboard");
+
+        //         })
+        //         .catch(err => {
+        //             console.log(Response, "User login fail");
+        //             alert(err);
+        //         });
+        }
+    }
     render() {
         return (
         <Card className="loginbox" variant="outlined">
@@ -33,7 +72,7 @@ export class ForgotPassword extends Component {
                 <TextField id="outlined-required" 
                     margin="dense"
                     size="small"
-                    label={ <div class="email">Email the Email Id</div>}
+                    label={ <div class="email">Enter the Email Id</div>}
                     type="search"
                     variant="outlined"
                     name="email"
@@ -47,6 +86,7 @@ export class ForgotPassword extends Component {
                     variant="contained"
                     color="primary"
                     style={{ width:"90px",padding: "7px 0px",fontSize:'12px'}}
+                    onClick={this.submit}
                 >
                 Submit
                 </Button>

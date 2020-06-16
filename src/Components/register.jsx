@@ -72,7 +72,16 @@ export class Register extends React.Component {
 
             console.log(user);
 
-        
+            // Registration(user)
+            //     .then(Response => {
+            //         console.log(Response, "User Registered successfully!!");
+            //         alert(`${Response.data.message}`);
+            //         this.props.history.push("/");
+            //     }).catch((error) => {
+            //         console.log("Error", error.response)
+            //         console.log(error.response.data.message, "User Registration failed");
+            //         alert(error.response.data.message);
+            //     });
         }
     }
   render() 
