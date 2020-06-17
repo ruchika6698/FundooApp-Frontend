@@ -96,6 +96,15 @@ body{
     flex-direction: column;
     width:50%;
 }
+.submit{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 3em;
+    font-size: 16px;
+    font-weight:bold;
+    size:large;
+}
 
 @media screen and (max-width: 375px){
     .loginbox{
@@ -169,6 +178,12 @@ body{
         flex-direction: column;
         margin-right:180px !important;
     }
+    .submit{
+        margin-left:20px !important;
+    }
+    .cancel{
+        margin-left:140px !important;
+    }
 }
 @media screen and (max-width: 411px){
  .loginbox{
@@ -206,6 +221,12 @@ body{
         align-items:left;
         flex-direction: column;
         margin-right:220px !important;
+    }
+    .submit{
+        margin-left:5px !important;
+    }
+    .cancel{
+        margin-left:140px !important;
     }
 }
 @media screen and (max-width: 320px){
@@ -292,6 +313,12 @@ body{
         align-items:left;
         flex-direction: column;
         margin-right:200px !important;
+    }
+    .submit{
+        margin-left:5px !important;
+    }
+    .cancel{
+        margin-left:140px !important;
     }
 }
 @media screen and (max-width: 768px){
