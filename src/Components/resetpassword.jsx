@@ -137,7 +137,7 @@ export class ResetPassword extends Component {
                         
             <br /><br />
             </div>
-            <div className="buttonLogin">
+            <div className="submit">
                 <Button
                     variant="contained"
                     color="primary"
@@ -146,7 +146,8 @@ export class ResetPassword extends Component {
                 >
                 Submit
                 </Button>
-                <Button variant="contained" 
+                <Button className="cancel"
+                    variant="contained" 
                     style={{ width:"90px",padding: "7px 0px",fontSize:'12px'}}
                     color="primary" onClick={() => this.props.history.push('/')}>
                     Cancel

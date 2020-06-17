@@ -1,7 +1,7 @@
 import React from "react";
 import "../CSS/register.css";
 import account from "../Assets/account.svg";
-import { TextField, Button } from '@material-ui/core'
+import { TextField, Button ,Snackbar} from '@material-ui/core'
 import Card from '@material-ui/core/Card';
 import IconButton from "@material-ui/core/IconButton";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -11,8 +11,9 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
-
+// import FormLabel from '@material-ui/core/FormLabel';
+import FundooService from '../Services/fundooService'
+let service = new FundooService()
 
 export class Register extends React.Component {
   constructor(props) {
@@ -25,75 +26,59 @@ export class Register extends React.Component {
       lastName: "",
       phoneNumber: "",
       confirmPassword: "",
-      errors: {},
+      service:"",
+      snackbarOpen: false,
+      snackbarMsg: "",
     }
   } 
-  handleChangeText = (event) => {
+ handleChangeText = (event) => {
         this.setState({
             [event.target.name]: event.target.value
         }, () => console.log(this.state, '------>name'))
-  }
-  validateForm = () => {
-        let errors = {}
-        let formIsValid = true
-        if (!this.state.firstName) {
-            errors['firstName'] = '*Enter the First Name'
-            formIsValid = false
+    }
+  snackbarClose = () => {
+    this.setState({ snackbarOpen: false });
+  };
+ 
+    submitUserSignInForm = () => {
+       if (this.state.email === "") {
+      this.setState({
+        snackbarOpen: true,
+        snackbarMsg: "Email is Required"
+      });
+    } else if (
+      !/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(this.state.email)
+    ) {
+      this.setState({
+        snackbarOpen: true,
+        snackbarMsg: "Invalid email..!"
+      });
+    } else if (this.state.password.length < 8) {
+      this.setState({
+        snackbarOpen: true,
+        snackbarMsg: "password must be of atleast 8 characters long..!"
+      });
+    } else {
+      //navigate to controller
+      const user = {
+        email: this.state.email,
+        password: this.state.password
+      };
+      service.login(user).then((json)=>{
+            console.log("responce data==>",json);
+            if(json.status===200){  
+            this.setState({
+                snackbarOpen: true,
+                snackbarMsg: "Login Suceesful..!"
+             }); 
         }
-        if (!this.state.lastName) {
-            errors['lastName'] = '*Enter the Last Name'
-            formIsValid = false
-        }
-        // if (!RegExp("^[_A-Za-z0-9-//+]+(//.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(//. [A-Za-z0-9]+)*(//.[A-Za-z]{2,})$").test(this.state.email)) {
-        //     errors['email'] = '*Enter valid Email id'
-        // }
-        if (!this.state.email) {
-            errors['email'] = '*Enter the Email Id'
-            formIsValid = false
-        }
-        // if (!RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#/$%/^&/*])(?=.{8,})").test(this.state.password)) {
-        //     errors['password'] = '*Enter the valid password'
-        //     formIsValid = false
-        // }
-        if (!this.state.password) {
-            errors['password'] = '*Enter the password'
-            formIsValid = false
-        }
-        if (!this.state.confirmPassword) {
-            errors['confirmPassword'] = '*Enter the confirm password'
-            formIsValid = false
-        }
-        if (this.state.password !== this.state.confirmPassword) {
-            errors['confirmPassword'] = '*Password doesn\'t match'
-            formIsValid = false
-        }
-        this.setState({
-            errors: errors
+        }).catch((err)=>{
+            console.log(err);
         })
-        return formIsValid
+        this.props.history.push("/dashboard");
     }
-    submitUserSignUpForm = () => {
-        if (this.validateForm()) {
-            let user = {};
-            user.firstname = this.state.firstName;
-            user.lastname = this.state.lastName;
-            user.email = this.state.email;
-            user.password = this.state.password;
+  };
 
-            console.log(user);
-
-            // Registration(user)
-            //     .then(Response => {
-            //         console.log(Response, "User Registered successfully!!");
-            //         alert(`${Response.data.message}`);
-            //         this.props.history.push("/");
-            //     }).catch((error) => {
-            //         console.log("Error", error.response)
-            //         console.log(error.response.data.message, "User Registration failed");
-            //         alert(error.response.data.message);
-            //     });
-        }
-    }
   render() 
   {
   return (
@@ -106,6 +91,25 @@ export class Register extends React.Component {
           <span class="o">o</span>
           <span class="oo">o</span>
       </div>
+      <Snackbar
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'center',
+              }}
+              open={this.state.snackbarOpen}
+              autoHideDuration={6000}
+              onClose={this.snackbarClose}
+              message={<span id="messege-id"> {this.state.snackbarMsg}</span>}
+              action={[
+                <IconButton
+                  key="close"
+                  arial-label="close"
+                  color='inherit'
+                  onClick={this.snackbarClose}
+                >
+                </IconButton>
+              ]}
+            />
       <p className='text'>Create your Fundoo Account</p>
       <p className='continue'>Continue to Fundoo</p>
       <div class="main">
@@ -119,9 +123,8 @@ export class Register extends React.Component {
               size="medium"
               style={{ width: "48%" }}
               inputProps={{style:{ fontSize:'16px'}}}
+              defaultValue={this.state.firstName}
               onChange={this.handleChangeText}
-              error={this.state.errors.firstName}
-              helperText={this.state.errors.firstName}
             />
             <span>
 
@@ -135,9 +138,8 @@ export class Register extends React.Component {
               size="medium"
               style={{ width: "48%" }}
               inputProps={{style:{ fontSize:'16px'}}}
+              defaultValue={this.state.lastName}
               onChange={this.handleChangeText}
-              error={this.state.errors.lastName}
-              helperText={this.state.errors.lastName}
             />                  
           </div>
           <br/>
@@ -148,37 +150,35 @@ export class Register extends React.Component {
               label={ <div class="email">Email</div>}
               margin='dense'
               inputProps={{style:{ fontSize:'16px'}}}
+              defaultValue={this.state.email}
               onChange={this.handleChangeText}
-              error={this.state.errors.email}
-              helperText={this.state.errors.email}
             />
+          </div>
             <h1 className='usermailline'>Use my current email address instead</h1>
             <div className='confirmPass'>
               <TextField
-                className='pass'
+                className='conPass'
                 type={this.state.showPassword ? "text" : "password"}
                 variant='outlined'
                 label={ <div class="password">Password</div>}
                 margin='dense'
                 style={{ width: "48%" }}
                 inputProps={{style:{ fontSize:'16px'}}}
+                defaultValue={this.state.password}
                 onChange={this.handleChangeText}
-                error={this.state.errors.password}
-                helperText={this.state.errors.password}
               />
               <span>
 
               </span>
               <TextField
-                className='cpassword'
+                className='conPass'
                 type={this.state.showPassword ? "text" : "password"}
                 variant='outlined'
-                label={ <div class="password">Confirm Password</div>}
+                label={ <div class="cpassword">Confirm Password</div>}
                 margin='dense'
                 style={{ width: "48%" }}
+               defaultValue={this.state.confirmPassword}
                 onChange={this.handleChangeText}
-                error={this.state.errors.confirmPassword}
-                helperText={this.state.errors.confirmPassword}
                 inputProps={{style:{ fontSize:'16px'}}}
                 InputProps={{
                     endAdornment: (
@@ -196,15 +196,26 @@ export class Register extends React.Component {
               />
             </div>
               <h1 className='passline' >Use 8 or more characters with a mix of letters, numbers & symbols</h1>
+            <div>
               <div className="service">
-                <FormControl component="fieldset">
-                  <FormLabel component="legend">Service</FormLabel>
-                  <RadioGroup aria-label="service" name="service" value={this.state.value} onChange={this.handleChange}>
-                  <FormControlLabel value="Basic" control={<Radio />} label="Basic" />
-                  <FormControlLabel value="Advance" control={<Radio />} label="Advance" />
+                <RadioGroup aria-label="service" name="service" value={this.state.value} onChange={this.handleChange}>
+                  <h5>Service:</h5>
+                 <div class="radio"> 
+                  <FormControlLabel 
+                    value="Basic"
+                    control={<Radio color="primary" fontSize="17px" />}
+                    label="Basic"
+                    labelPlacement="end"
+                   />
+                  <FormControlLabel 
+                    value="Advance"
+                    control={<Radio color="primary" fontSize="17px" />}
+                    label="Advance"
+                  />
+                </div>
                   </RadioGroup>
-                </FormControl>
             </div>
+          </div>
               <div className="signbutton">
                   <Button color="primary"
                     style={{ width:"150px",padding: "7px 0px",color:'#0423ce',fontSize:'13px'}} 
@@ -215,11 +226,10 @@ export class Register extends React.Component {
                   <Button variant="contained"
                     style={{ width:"90px",padding: "7px 0px",fontSize:'12px'}} 
                     color="primary" 
-                    onClick={this.submitUserSignUpForm}>
+                    onClick={this.submitUserSignInForm}>
                     Submit
                   </Button>
               </div>
-          </div>
         </div>
         <div>
             <img src={account} className='signimage' alt='fundooo'

@@ -280,7 +280,7 @@ body{
 @media screen and (max-width: 414px){
     .loginbox{
         margin-top:0;
-        border: none;
+        border: none !important;
         width:414px;
         height:736px;
         display: flex;

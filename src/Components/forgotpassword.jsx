@@ -62,7 +62,7 @@ export class ForgotPassword extends Component {
                     inputProps={{style:{ fontSize:'20px',height:'40%'}}}
                 />
             </div>
-            <div className="buttonLogin">
+            <div className="submit">
                 <Button
                     variant="contained"
                     color="primary"
@@ -71,9 +71,11 @@ export class ForgotPassword extends Component {
                 >
                 Submit
                 </Button>
-                <Button variant="contained" 
+                <Button className="cancel"
+                    variant="contained"
                     style={{ width:"90px",padding: "7px 0px",fontSize:'12px'}}
-                    color="primary" onClick={() => this.props.history.push('/')}>
+                    color="primary" 
+                    onClick={() => this.props.history.push('/')}>
                     Cancel
                 </Button>
             </div>

@@ -8,13 +8,13 @@ class Service {
         console.log(" get in axios service ");
     return   axios.get(apiUrl);
     }
-    login() {
-        console.log(" get in axios service ");
-    return   axios.post(apiUrl+"/");
+    login(data) {
+        console.log(" get in axios service ",data);
+    return   axios.post(apiUrl+"/login",data);
     }
-    Registration() {
-        console.log(" get in axios service ");
-    return   axios.post(apiUrl+"/");
+    Registration(data) {
+        console.log(" get in axios service ",data);
+    return   axios.post(apiUrl+"/register",data);
     }
 }
 export default Service;
