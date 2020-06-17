@@ -53,9 +53,8 @@ export class Login extends React.Component {
         password: this.state.password
       };
       service.login(user).then((json)=>{
-            this.props.history.push("/dashboard");
             console.log("responce data==>",json);
-            if(json.data.status===200){  
+            if(json.status===200){  
             this.setState({
                 snackbarOpen: true,
                 snackbarMsg: "Login Suceesful..!"
@@ -64,6 +63,7 @@ export class Login extends React.Component {
         }).catch((err)=>{
             console.log(err);
         })
+        this.props.history.push("/dashboard");
     }
   };
 
@@ -105,7 +105,7 @@ export class Login extends React.Component {
                 label={ <div class="email">Email</div>}
                 variant="outlined"
                 style={{ width: "80%" }}
-                inputProps={{style:{ fontSize:'16px'}}}
+                inputProps={{style:{ fontSize:'18px'}}}
                 onChange={this.handleChangeText}
                 value={this.state.email}
             />
@@ -123,7 +123,7 @@ export class Login extends React.Component {
                 label={ <div class="password">Password</div>}
                 onChange={this.handleChangeText}
                 value={this.state.password}
-                inputProps={{style:{ fontSize:'16px'}}}
+                inputProps={{style:{ fontSize:'18px'}}}
                 InputProps={{
                     endAdornment: (
                         <InputAdornment position="end" sytle={{ width: "1px" }}>
@@ -149,7 +149,7 @@ export class Login extends React.Component {
             >
             Create account
             </Button>
-            <Button
+            <Button className="button-Login"
                 variant="contained"
                 color="primary"
                 style={{ width:"90px",padding: "7px 0px",fontSize:'12px'}}

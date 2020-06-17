@@ -61,7 +61,6 @@ export class ForgotPassword extends Component {
                     style={{ width: "80%" }}
                     inputProps={{style:{ fontSize:'20px',height:'40%'}}}
                 />
-            <br /><br />
             </div>
             <div className="buttonLogin">
                 <Button

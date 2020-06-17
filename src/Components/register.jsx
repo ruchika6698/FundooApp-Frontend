@@ -7,11 +7,11 @@ import IconButton from "@material-ui/core/IconButton";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
-// import Radio from '@material-ui/core/Radio';
-// import RadioGroup from '@material-ui/core/RadioGroup';
-// import FormControlLabel from '@material-ui/core/FormControlLabel';
-// import FormControl from '@material-ui/core/FormControl';
-// import FormLabel from '@material-ui/core/FormLabel';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
 
 
 export class Register extends React.Component {
@@ -112,7 +112,7 @@ export class Register extends React.Component {
         <div class="input">
           <div className='flname'>
             <TextField
-              classname='name'
+              className='name'
               variant='outlined'
               label={ <div class="password">First name</div>}
               margin="dense"
@@ -165,19 +165,6 @@ export class Register extends React.Component {
                 onChange={this.handleChangeText}
                 error={this.state.errors.password}
                 helperText={this.state.errors.password}
-                InputProps={{
-                    endAdornment: (
-                        <InputAdornment position="end" sytle={{ width: "1px" }}>
-                            <IconButton
-                                onClick={
-                                    () => this.setState({ showPassword: !this.state.showPassword })
-                                }
-                            >
-                            {this.state.showPassword ? <Visibility /> : <VisibilityOff />}
-                            </IconButton>
-                            </InputAdornment>
-                            )
-                }}
               />
               <span>
 
@@ -208,16 +195,16 @@ export class Register extends React.Component {
                 }}
               />
             </div>
-            {/* <div className="service">
+              <h1 className='passline' >Use 8 or more characters with a mix of letters, numbers & symbols</h1>
+              <div className="service">
                 <FormControl component="fieldset">
                   <FormLabel component="legend">Service</FormLabel>
-                  <RadioGroup aria-label="service" name="service">
-                  <FormControlLabel control={<Radio />} label="Basic" />
-                  <FormControlLabel control={<Radio />} label="Advance" />
+                  <RadioGroup aria-label="service" name="service" value={this.state.value} onChange={this.handleChange}>
+                  <FormControlLabel value="Basic" control={<Radio />} label="Basic" />
+                  <FormControlLabel value="Advance" control={<Radio />} label="Advance" />
                   </RadioGroup>
                 </FormControl>
-            </div> */}
-              <h1 className='passline' >Use 8 or more characters with a mix of letters, numbers & symbols</h1>
+            </div>
               <div className="signbutton">
                   <Button color="primary"
                     style={{ width:"150px",padding: "7px 0px",color:'#0423ce',fontSize:'13px'}} 
