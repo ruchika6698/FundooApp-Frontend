@@ -1,7 +1,7 @@
 import React from "react";
 import Card from '@material-ui/core/Card';
 import "../CSS/login.css";
-import { TextField, Button } from '@material-ui/core'
+import { TextField, Button ,Snackbar} from '@material-ui/core'
 import IconButton from "@material-ui/core/IconButton";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Visibility from "@material-ui/icons/Visibility";
@@ -14,54 +14,58 @@ export class Login extends React.Component {
     super(props);
     this.state={
       showPassword: false,
-      Username:"",
-      Password:"",
-      isValid: true,
-      errors: {}
+      email:"",
+      password:"",
+      snackbarOpen: false,
+      snackbarMsg: "",
     }
   }
-  validateForm = () => {
-        let errors = {}
-        let formIsValid = true
-
-        if (!RegExp("^[_A-Za-z0-9-//+]+(//.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(//. [A-Za-z0-9]+)*(//.[A-Za-z]{2,})$").test(this.state.email)) {
-            errors['email'] = '*Enter valid Email id'
-        }
-        if (!this.state.email) {
-            errors['email'] = '*Enter the Email Id'
-            formIsValid = false
-        }
-        if (!RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#/$%/^&/*])(?=.{8,})").test(this.state.password)) {
-            errors['password'] = '*Enter the valid password'
-            formIsValid = false
-        }
-        if (!this.state.password) {
-            errors['password'] = '*Enter the password'
-            formIsValid = false
-        }
+  handleChangeText = (event) => {
         this.setState({
-            errors: errors
-        })
-        return formIsValid
+            [event.target.name]: event.target.value
+        }, () => console.log(this.state, '------>name'))
     }
-
+    snackbarClose = () => {
+    this.setState({ snackbarOpen: false });
+  };
     submitUserSignInForm = () => {
-        if (this.validateForm()) {
-            let requestData = {};
-            requestData.email = this.state.email;
-            requestData.password = this.state.password;
-
-          service.login(requestData).then((json)=>{
+      if (this.state.email === "") {
+      this.setState({
+        snackbarOpen: true,
+        snackbarMsg: "Email is Required"
+      });
+    } else if (
+      !/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(this.state.email)
+    ) {
+      this.setState({
+        snackbarOpen: true,
+        snackbarMsg: "Invalid email..!"
+      });
+    } else if (this.state.password.length < 8) {
+      this.setState({
+        snackbarOpen: true,
+        snackbarMsg: "password must be of atleast 8 characters long..!"
+      });
+    } else {
+      //navigate to controller
+      const user = {
+        email: this.state.email,
+        password: this.state.password
+      };
+      service.login(user).then((json)=>{
             this.props.history.push("/dashboard");
             console.log("responce data==>",json);
-            if(json.data.status==='Success'){  
-            alert('Login Sucessfull !!');  
-          }   
-          }).catch((err)=>{
-              console.log(err);
-          })
+            if(json.data.status===200){  
+            this.setState({
+                snackbarOpen: true,
+                snackbarMsg: "Login Suceesful..!"
+             }); 
         }
+        }).catch((err)=>{
+            console.log(err);
+        })
     }
+  };
 
   render() 
   {
@@ -75,6 +79,21 @@ export class Login extends React.Component {
           <span class="o">o</span>
           <span class="oo">o</span>
         </div>
+        <Snackbar
+              anchorOrigin={{ vertical: "top", horizontal: "center" }}
+              open={this.state.snackbarOpen}
+              autoHideDuration={6000}
+              onClose={this.snackbarClose}
+              message={<span class="Snackbar">{this.state.snackbarMsg}</span>}
+              action={
+                <IconButton
+                  key="close"
+                  arial-label="close"
+                  color="inherit"
+                  onClick={this.snackbarClose}
+                ></IconButton>
+              }
+            />
         <span class="signIn">Sign in</span>
         <br></br>
         <div className="usernameLogin">
@@ -88,8 +107,7 @@ export class Login extends React.Component {
                 style={{ width: "80%" }}
                 inputProps={{style:{ fontSize:'16px'}}}
                 onChange={this.handleChangeText}
-                error={this.state.errors.email}
-                helperText={this.state.errors.email}
+                value={this.state.email}
             />
         </div>
         <br></br>
@@ -101,12 +119,11 @@ export class Login extends React.Component {
                 id="outlined-adornment-password"
                 variant="outlined"
                 name="password"
-                type="password"
+                type={this.state.showPassword ? "text" : "password"}
                 label={ <div class="password">Password</div>}
                 onChange={this.handleChangeText}
-                error={this.state.errors.password}
-                helperText={this.state.errors.password}
-                // inputProps={{style:{ fontSize:'16px'}}}
+                value={this.state.password}
+                inputProps={{style:{ fontSize:'16px'}}}
                 InputProps={{
                     endAdornment: (
                         <InputAdornment position="end" sytle={{ width: "1px" }}>

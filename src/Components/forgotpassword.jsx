@@ -30,7 +30,12 @@ export class ForgotPassword extends Component {
         })
         return formIsValid
     }
-    
+    submit = () => {
+        if (this.validateForm()) {
+            let user = {};
+            user.email = this.state.email;
+        }
+    }
     render() {
         return (
         <Card className="loginbox" variant="outlined">

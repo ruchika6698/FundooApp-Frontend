@@ -57,18 +57,6 @@ export class ResetPassword extends Component {
             array.password = this.state.password;
             array.confirmpassword = this.state.confirmpassword;
 
-            // setNewPassword(token, array).then(Response => {
-
-            //     console.log("Password Successfully Changed!!");
-            //     alert(`${Response.data.message}`);
-
-            // }).catch(err => {
-            //     // console.log(response.data);
-            //     // console.log("Failed To Change the Password");
-            //     console.log("Error", err.response)
-            //     console.log("Failed To Change the Password");
-            //     alert(`${err.data}`);
-            // })
         }
     };
 

@@ -3,6 +3,16 @@ import "../CSS/register.css";
 import account from "../Assets/account.svg";
 import { TextField, Button } from '@material-ui/core'
 import Card from '@material-ui/core/Card';
+import IconButton from "@material-ui/core/IconButton";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
+// import Radio from '@material-ui/core/Radio';
+// import RadioGroup from '@material-ui/core/RadioGroup';
+// import FormControlLabel from '@material-ui/core/FormControlLabel';
+// import FormControl from '@material-ui/core/FormControl';
+// import FormLabel from '@material-ui/core/FormLabel';
+
 
 export class Register extends React.Component {
   constructor(props) {
@@ -34,17 +44,17 @@ export class Register extends React.Component {
             errors['lastName'] = '*Enter the Last Name'
             formIsValid = false
         }
-        if (!RegExp("^[_A-Za-z0-9-//+]+(//.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(//. [A-Za-z0-9]+)*(//.[A-Za-z]{2,})$").test(this.state.email)) {
-            errors['email'] = '*Enter valid Email id'
-        }
+        // if (!RegExp("^[_A-Za-z0-9-//+]+(//.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(//. [A-Za-z0-9]+)*(//.[A-Za-z]{2,})$").test(this.state.email)) {
+        //     errors['email'] = '*Enter valid Email id'
+        // }
         if (!this.state.email) {
             errors['email'] = '*Enter the Email Id'
             formIsValid = false
         }
-        if (!RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#/$%/^&/*])(?=.{8,})").test(this.state.password)) {
-            errors['password'] = '*Enter the valid password'
-            formIsValid = false
-        }
+        // if (!RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#/$%/^&/*])(?=.{8,})").test(this.state.password)) {
+        //     errors['password'] = '*Enter the valid password'
+        //     formIsValid = false
+        // }
         if (!this.state.password) {
             errors['password'] = '*Enter the password'
             formIsValid = false
@@ -131,7 +141,7 @@ export class Register extends React.Component {
             />                  
           </div>
           <br/>
-          <div>
+          <div id="pass">
             <TextField
               className='username'
               variant='outlined'
@@ -146,7 +156,7 @@ export class Register extends React.Component {
             <div className='confirmPass'>
               <TextField
                 className='pass'
-                type='password'
+                type={this.state.showPassword ? "text" : "password"}
                 variant='outlined'
                 label={ <div class="password">Password</div>}
                 margin='dense'
@@ -155,13 +165,26 @@ export class Register extends React.Component {
                 onChange={this.handleChangeText}
                 error={this.state.errors.password}
                 helperText={this.state.errors.password}
+                InputProps={{
+                    endAdornment: (
+                        <InputAdornment position="end" sytle={{ width: "1px" }}>
+                            <IconButton
+                                onClick={
+                                    () => this.setState({ showPassword: !this.state.showPassword })
+                                }
+                            >
+                            {this.state.showPassword ? <Visibility /> : <VisibilityOff />}
+                            </IconButton>
+                            </InputAdornment>
+                            )
+                }}
               />
               <span>
 
               </span>
               <TextField
                 className='cpassword'
-                type='password'
+                type={this.state.showPassword ? "text" : "password"}
                 variant='outlined'
                 label={ <div class="password">Confirm Password</div>}
                 margin='dense'
@@ -170,8 +193,30 @@ export class Register extends React.Component {
                 error={this.state.errors.confirmPassword}
                 helperText={this.state.errors.confirmPassword}
                 inputProps={{style:{ fontSize:'16px'}}}
+                InputProps={{
+                    endAdornment: (
+                        <InputAdornment position="end" sytle={{ width: "1px" }}>
+                            <IconButton
+                                onClick={
+                                    () => this.setState({ showPassword: !this.state.showPassword })
+                                }
+                            >
+                            {this.state.showPassword ? <Visibility /> : <VisibilityOff />}
+                            </IconButton>
+                            </InputAdornment>
+                            )
+                }}
               />
             </div>
+            {/* <div className="service">
+                <FormControl component="fieldset">
+                  <FormLabel component="legend">Service</FormLabel>
+                  <RadioGroup aria-label="service" name="service">
+                  <FormControlLabel control={<Radio />} label="Basic" />
+                  <FormControlLabel control={<Radio />} label="Advance" />
+                  </RadioGroup>
+                </FormControl>
+            </div> */}
               <h1 className='passline' >Use 8 or more characters with a mix of letters, numbers & symbols</h1>
               <div className="signbutton">
                   <Button color="primary"
@@ -192,7 +237,7 @@ export class Register extends React.Component {
         <div>
             <img src={account} className='signimage' alt='fundooo'
                   width="244" height="244" ></img>
-                <figcaption className='figcaption'>One account. All of Google </figcaption>
+                <figcaption className='figcaption'>One account. All of Fundoo </figcaption>
                 <figcaption className='figcaption'>working for you.</figcaption>
             </div>
       </div>
