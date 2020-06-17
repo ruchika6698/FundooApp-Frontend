@@ -100,7 +100,207 @@ body{
 @media screen and (max-width: 375px){
     .loginbox{
         padding-left:20px;
+        margin-top:0;
+        border: none !important;
+        width:100%;
+        display: flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction: column;
+    }
+    .usernameLogin{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+    width:415px !important;
+    }
+}
+@media screen and (max-width: 360px){
+    .loginbox{
+        margin-top:0;
+        margin-right:20px;
         border: none;
-        width: 375px;
+        width:100% !important;
+        display: flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction: column;
+    }
+    .usernameLogin{
+        display: flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction: column;
+        width:100%;
+        margin-left:20px;
+    }
+    .passwordLogin{
+        display: flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction: column;
+        width:93% !important;
+        margin-left:20px;
+    }
+    .Forgotpassword{
+        display: flex;
+        justify-content:space-between;
+        align-items:left;
+        flex-direction: column;
+        width:60%;
+    }
+    .buttonLogin{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        padding: 3em;
+        padding-left:2px;
+        font-size: 14px;
+        font-weight:bold;
+        margin-left:50px !important;
+    }
+    .button-Login{
+        margin-left:70px !important;
+    }
+    .Forgotpassword{
+        display: flex;
+        align-items:left;
+        flex-direction: column;
+        margin-right:180px !important;
+    }
+}
+@media screen and (max-width: 411px){
+ .loginbox{
+        margin-top:0;
+        border: none !important;
+        width:411px;
+        height:731px;
+        display: flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction: column;
+    }
+    .passwordLogin{
+        display: flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction: column;
+        width:411px;
+    }
+    .buttonLogin{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        padding: 3em;
+        padding-left:2px;
+        font-size: 14px;
+        font-weight:bold;
+        margin-left:30px !important;
+    }
+    .button-Login{
+        margin-left:90px !important;
+    }
+    .Forgotpassword{
+        display: flex;
+        align-items:left;
+        flex-direction: column;
+        margin-right:220px !important;
+    }
+}
+@media screen and (max-width: 320px){
+    .root{
+        margin-top:120px !important;
+    }
+    .loginbox{
+        width:320px;
+        height:568px !important;
+        display: flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction: column;
+    }
+    .usernameLogin{
+        display: flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction: column;
+        width:100%;
+        padding-left:30px;
+    }
+    .passwordLogin{
+        display: flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction: column;
+        width:420px !important;
+        padding-left:30px;
+    }
+    .buttonLogin{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        padding: 3em;
+        padding-left:2px;
+        font-size: 14px;
+        font-weight:bold;
+        margin-left:65px !important;
+    }
+    .button-Login{
+        margin-left:60px !important;
+    }
+    .Forgotpassword{
+        display: flex;
+        align-items:left;
+        flex-direction: column;
+        margin-right:150px !important;
+    }
+}
+@media screen and (max-width: 414px){
+    .loginbox{
+        margin-top:0;
+        border: none;
+        width:414px;
+        height:736px;
+        display: flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction: column;
+    }
+    .passwordLogin{
+        display: flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction: column;
+        width:414px;
+    }
+     .buttonLogin{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        padding: 3em;
+        padding-left:2px;
+        font-size: 14px;
+        font-weight:bold;
+        margin-left:45px !important;
+    }
+    .button-Login{
+        margin-left:90px !important;
+    }
+    .Forgotpassword{
+        display: flex;
+        align-items:left;
+        flex-direction: column;
+        margin-right:200px !important;
+    }
+}
+@media screen and (max-width: 768px){
+    .loginbox{
+        margin-top:250px !important;
+    }
+}
+@media screen and (max-width: 1024px){
+    .loginbox{
+       margin-top:450px !important;
     }
 }

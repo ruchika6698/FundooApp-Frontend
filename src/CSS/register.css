@@ -71,6 +71,14 @@ body{
     width:100%;
     margin-top:4px;
 }
+.lname{
+    display: flex;
+    justify-content:space-between;
+    flex-direction: row;
+    size:medium;
+    width:100%;
+    margin-top:4px;
+}
 .username{
     width: 40em !important;
     padding-left: 65px;
@@ -106,6 +114,12 @@ body{
     justify-content: space-between;
     flex-direction: row; 
 }
+.service{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row; 
+    font-size:16px !important;
+}
 .signbutton{
 
     display: flex;
@@ -137,12 +151,41 @@ body{
 @media screen and (max-width: 768px){
     .root{
        margin-top:100px;
-        margin-bottom:90px;
-        width:200px;
-        height:700px;
-        padding-left: 20px;
+        margin-bottom:170px;
+        width:100%;
+        height:1024px;
+        padding-left: 10px;
         display:flex;
         flex-direction:column;
         justify-content:center;
+    }
+    .flname{
+        display: flex;
+        justify-content:space-between;
+        flex-direction: row;
+        size:medium;
+        width:100%;
+        margin-top:4px;
+    }
+    .username{
+        width: 32em !important;
+        padding-left: 65px;
+        justify-content:center;
+    }
+    .confirmPass{
+        display: flex;
+        justify-content: space-between;
+        flex-direction:row;    
+        margin-top:7px;
+       width:100%;
+    }
+    .signbutton{
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 2em;
+    font-size: 16px;
+    font-weight:bold;
     }
 }
