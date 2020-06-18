@@ -21,7 +21,7 @@ export class ForgotPassword extends Component {
     handleChangeText = (event) => {
         this.setState({
             [event.target.name]: event.target.value
-        }, () => console.log(this.state, '------>name'))
+        })
     }
     snackbarClose = () => {
     this.setState({ snackbarOpen: false });

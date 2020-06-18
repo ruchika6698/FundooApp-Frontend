@@ -17,7 +17,7 @@ class App extends Component {
       <Route path="/register" component={Register} />
       <Route path="/forgotpassword" component={ForgotPassword} />
       <Route path="/dashboard" component={Dashboard} />
-      <Route path="/resetpassword" component={ResetPassword} />
+      <Route path="/resetpassword/:token" component={ResetPassword} />
        
       </Router>
       </div>

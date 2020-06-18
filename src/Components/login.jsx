@@ -23,7 +23,7 @@ export class Login extends React.Component {
   handleChangeText = (event) => {
         this.setState({
             [event.target.name]: event.target.value
-        }, () => console.log(this.state, '------>name'))
+        })
     }
     snackbarClose = () => {
     this.setState({ snackbarOpen: false });
@@ -52,7 +52,7 @@ export class Login extends React.Component {
         email: this.state.email,
         password: this.state.password
       };
-      service.login(user).then((json)=>{
+      service.Login(user).then((json)=>{
             console.log("responce data==>",json);
             if(json.status===200){  
             this.setState({

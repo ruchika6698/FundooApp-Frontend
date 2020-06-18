@@ -4,16 +4,26 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.10.2",
+    "@material-ui/icons": "^4.9.1",
     "@material/card": "^6.0.0",
+    "@material/icon-button": "^6.0.0",
+    "@material/radio": "^6.0.0",
+    "@material/snackbar": "^6.0.0",
     "@material/textfield": "^6.0.0",
+    "@material/toolbar": "^2.3.0",
+    "axios": "^0.19.2",
     "cra-template": "1.0.3",
+    "material-ui-form": "^1.0.0-alpha.26",
+    "material-ui-responsive-drawer": "^1.19.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-list": "^0.8.15",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "react-visibility-sensor": "^5.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set PORT=4200 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

@@ -168,7 +168,7 @@ export class Register extends React.Component {
                 variant='outlined'
                 label={ <div class="password">Password</div>}
                 margin='dense'
-                style={{ width: "48%" }}
+                style={{ width: "65%" }}
                 inputProps={{style:{ fontSize:'16px'}}}
                 defaultValue={this.state.password}
                 onChange={this.handleChangeText}
@@ -177,13 +177,13 @@ export class Register extends React.Component {
 
               </span>
               <TextField
-                className='conPass'
+                className='conPass1'
                 id="conPass1"
                 type={this.state.showPassword ? "text" : "password"}
                 variant='outlined'
                 label={ <div class="cpassword">Confirm Password</div>}
                 margin='dense'
-                style={{ width: "48%" }}
+                style={{ width: "65%" }}
                defaultValue={this.state.confirmPassword}
                 onChange={this.handleChangeText}
                 inputProps={{style:{ fontSize:'16px'}}}
@@ -232,7 +232,7 @@ export class Register extends React.Component {
                   </Button>
 
                   <Button 
-                  variant="contained"
+                    variant="contained"
                     style={{ width:"90px",padding: "7px 0px",fontSize:'12px'}} 
                     color="primary" 
                     onClick={this.submitUserSignInForm}>

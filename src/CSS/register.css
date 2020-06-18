@@ -152,46 +152,33 @@ body{
 
 @media screen and (max-width: 768px){
     .root{
-       margin-top:50px;
-       border:none !important;
-        margin-bottom:200px;
-        padding-left: 150px !important;
+        border:none !important;
+        width:768px !important;
+        margin-left:120px;
+        height:1024px;
     }
     .flname{
-
-        margin-top:4px;
-    }
-    .name{
-        width: 12em ;
-    }
-    .conPass{
-        width: 12em ;
-    }
-    .conPass1{
-         width: 12em !important;
+        width: 60em !important;
+        flex-direction:column;
     }
     .username{
-        width: 36.9em !important;
-        padding-left: 65px;
-        justify-content:center;
+        width: 28.6em !important;
     }
     .confirmPass{
-        display: flex;
-        justify-content: space-between;
         flex-direction:column;    
         margin-top:7px;
     }
-    .signbutton{
-
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    padding: 2em;
-    font-size: 16px;
-    font-weight:bold;
+    .conPass{
+        width: 28em !important;
+        margin-right:420px !important;
+    }
+    .conPass1{
+        width: 27em !important;
+        margin-right:440px !important;
     }
     .signimage{
         display:none;
+        flex-direction:column;
     }
     .figcaption{
         display:none;
@@ -200,450 +187,100 @@ body{
 @media screen and (max-width: 1024px){
     .root{
         border:none !important;
-        padding-left: 120px;
-        width:1024px;
+        padding-left: 10px;
+        padding-right:0px;
+        width:70%;
         height:1380px;
     }
-    .flname{
-        display: flex;
-        justify-content:space-between;
-        flex-direction: column;
-        size:medium;
-        width: 100% !important;
-        margin-top:4px;
-    }
-    .name{
-        width: 30em !important;
-    }
-    .conPass{
-        width: 30em !important;
-        margin-right:55px !important;
-    }
-    .conPass1{
-        width: 30em !important;
-        margin-right:75px !important;
-    }
-    .username{
-        width: 34.4em !important;
-        padding-left: 65px;
-        justify-content:center;
-    }
-    .confirmPass{
-        display: flex;
-        justify-content: space-between;
-        flex-direction:column;    
-        margin-top:7px;
-        margin-left:1px !important;
-    }
     .signbutton{
-
-        display: flex;
-        justify-content: space-between;
-        flex-direction: row;
+        flex-direction:row;
         padding: 2em;
-        margin-right:100px !important;
-    }
-    .signimage{
-        display:none;
-    }
-    .figcaption{
-        display:none;
+        margin-right:200px !important;
     }
 }
 @media screen and (max-width: 360px){
     .root{
-       border:none !important;
-        margin-bottom:200px;
-        padding-left: 40px;
+        border:none !important;
     }
     .fundoofont { 
-    display: flex;
-    padding-top: 45px;
-    font-size: 1.5em;
-    font-weight:bold;
-    justify-content:flex-start;
-    margin-left:200px !important;
+        margin-left:180px !important;
     }
     .text{
-        margin-left:200px !important;
+        margin-left:180px !important;
     }
     .continue{
-        margin-left:150px !important;
+        margin-left:180px !important;
     }
     .flname{
-        display: flex;
-        justify-content:space-between;
         flex-direction: column;
-        size:medium;
-        width: 40% !important;
-        margin-top:4px;
+        width: 60% !important;
         margin-left:180px;
     }
-    .name{
-        width: 17em !important;
-    }
-    .conPass{
-        width: 85% !important;
-        margin-right:120px !important;
-    }
-    .conPass1{
-        width: 70% !important;
-        margin-right:155px !important;
-    }
     .username{
-        width: 18.9em !important;
-        padding-left: 65px;
-        justify-content:center;
-        margin-left:200px !important;
+        width: 28% !important;
+        margin-left:180px !important;
     }
     .usermailline{
-        margin-left:200px !important;
+        margin-left:180px !important;
     }
     .confirmPass{
-        display: flex;
-        justify-content: space-between;
-        flex-direction:column;    
-        margin-top:7px;
-        margin-left:156px !important;
+        flex-direction:column;  
+        width: 12% !important;  
+        margin-left:520px !important;
     }
     .passline{
-        margin-left:200px !important;
+        margin-left:180px !important;
         font-size:12px;
     }
     .service{
-        margin-left:200px !important;
+        margin-left:180px !important;
     }
     .signbutton{
-
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    align-items:center;
-    padding: 2em;
-    margin-left:140px !important;
-    }
-    .signimage{
-        display:none;
-    }
-    .figcaption{
-        display:none;
+        flex-direction: column;
+        align-items:center;
+        margin-right:580px !important;
     }
 }
 @media screen and (max-width: 411px){
     .root{
-       border:none !important;
-        margin-bottom:200px;
-        padding-left:80px !important;
+        border:none !important;
     }
     .fundoofont { 
-    margin-left:130px !important;
+        margin-left:180px !important;
     }
     .text{
-        margin-left:130px !important;
+        margin-left:180px !important;
     }
     .continue{
-        margin-left:130px !important;
+        margin-left:180px !important;
     }
     .flname{
-        display: flex;
-        justify-content:space-between;
         flex-direction: column;
-        size:medium;
-        width: 40% !important;
-        margin-top:4px;
-        margin-left:130px;
-    }
-    .name{
-        width: 20em !important;
-    }
-    .conPass{
-        width: 23em !important;
-        margin-right:130px;
-    }
-    .conPass1{
-        width: 20em !important;
-        margin-right:170px;
+        width: 50% !important;
+        margin-left:180px;
     }
     .username{
-        width: 22.9em !important;
-        padding-left: 65px;
-        justify-content:center;
-        margin-left:130px !important;
+        width: 24% !important;
+        margin-left:180px !important;
     }
     .usermailline{
-        margin-left:130px !important;
+        margin-left:180px !important;
     }
     .confirmPass{
-        display: flex;
-        justify-content: space-between;
-        flex-direction:column;    
-        margin-top:7px;
-        margin-left:139px !important;
+        flex-direction:column;  
+        width: 5% !important;  
+        margin-left:550px !important;
     }
     .passline{
-        margin-left:130px !important;
+        margin-left:180px !important;
+        font-size:12px;
     }
     .service{
-        margin-left:130px !important;
+        margin-left:180px !important;
     }
     .signbutton{
-
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    align-items:center;
-    padding: 2em;
-    margin-left:170px !important;
-    }
-    .signimage{
-        display:none;
-    }
-    .figcaption{
-        display:none;
-    }
-}
-@media screen and (max-width: 320px){
-    .root{
-       border:none !important;
-        margin-bottom:200px;
-        padding-left:230px !important;
-    }
-    .fundoofont { 
-    display: flex;
-    padding-top: 45px;
-    font-size: 1.5em;
-    font-weight:bold;
-    justify-content:flex-start;
-    margin-left:170px;
-    }
-    .text{
-        margin-left:170px !important;
-    }
-    .continue{
-        margin-left:170px !important;
-    }
-    .flname{
-        display: flex;
-        justify-content:space-between;
         flex-direction: column;
-        size:medium;
-        width: 40% !important;
-        margin-top:4px;
-        margin-left:170px;
-    }
-    .name{
-        width: 18em !important;
-    }
-    .conPass{
-        width: 18em !important;
-    }
-    .username{
-        width: 20.9em !important;
-        padding-left: 65px;
-        justify-content:center;
-        margin-left:170px !important;
-    }
-    .usermailline{
-        margin-left:170px !important;
-    }
-    .confirmPass{
-        display: flex;
-        justify-content: space-between;
-        flex-direction:column;    
-        margin-top:7px;
-       margin-left:156px !important;
-    }
-    .passline{
-        margin-left:170px !important;
-    }
-    .service{
-        margin-left:170px !important;
-    }
-    .signbutton{
-
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    align-items:center;
-    padding: 2em;
-    font-size: 16px;
-    font-weight:bold;
-    margin-top:0px;
-    margin-left:150px !important;
-    }
-    .signimage{
-        display:none;
-    }
-    .figcaption{
-        display:none;
-    }
-}
-@media screen and (max-width: 414px){
-    .root{
-        margin-top:20px !important;
-       border:none !important;
-        margin-bottom:200px;
-        width:100% !important;
-        height:100%;
-        padding-left:130px !important;
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
-    }
-    .fundoofont { 
-    display: flex;
-    padding-top: 45px;
-    font-size: 1.5em;
-    font-weight:bold;
-    justify-content:flex-start;
-    margin-left:170px !important;
-    }
-    .text{
-        margin-left:170px !important;
-    }
-    .continue{
-        margin-left:170px !important;
-    }
-    .flname{
-        display: flex;
-        justify-content:space-between;
-        flex-direction: column;
-        size:medium;
-        width: 40% !important;
-        margin-top:4px;
-        margin-left:170px;
-    }
-    .name{
-        width: 20em !important;
-    }
-    .conPass{
-        width: 21em !important;
-        margin-right:130px;
-    }
-    .conPass1{
-        width: 20em !important;
-        margin-right:170px;
-    }
-    .username{
-        width: 22.9em !important;
-        padding-left: 65px;
-        justify-content:center;
-        margin-left:170px !important;
-    }
-    .usermailline{
-        margin-left:170px !important;
-    }
-    .confirmPass{
-        display: flex;
-        justify-content: space-between;
-        flex-direction:column;    
-        margin-top:7px;
-        margin-left:170px !important;
-    }
-    .passline{
-        margin-left:170px !important;
-    }
-    .service{
-        margin-left:170px !important;
-    }
-    .signbutton{
-
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    align-items:center;
-    padding: 2em;
-    font-size: 16px;
-    font-weight:bold;
-    margin-top:0px;
-    margin-left:170px !important;
-    }
-    .signimage{
-        display:none;
-    }
-    .figcaption{
-        display:none;
-    }
-}
-@media screen and (max-width: 375px){
-    .root{
-        margin-top:20px !important;
-       border:none !important;
-        margin-bottom:200px;
-        width:100% !important;
-        height:100%;
-        padding-left:140px !important;
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
-    }
-    .fundoofont { 
-    display: flex;
-    padding-top: 45px;
-    font-size: 1.5em;
-    font-weight:bold;
-    justify-content:flex-start;
-    margin-left:150px !important;
-    }
-    .text{
-        margin-left:150px !important;
-    }
-    .continue{
-        margin-left:150px;
-    }
-    .flname{
-        display: flex;
-        justify-content:space-between;
-        flex-direction: column;
-        size:medium;
-        width: 40% !important ;
-        margin-top:4px;
-        margin-left:150px;
-    }
-    .name{
-        width: 20em !important;
-    }
-    .conPass{
-        width: 20em !important;
-    }
-    .username{
-        width: 22.9em !important;
-        padding-left: 65px;
-        justify-content:center;
-        margin-left:150px !important;
-    }
-    .usermailline{
-        margin-left:150px !important;
-    }
-    .confirmPass{
-        display: flex;
-        justify-content: space-between;
-        flex-direction:column;    
-        margin-top:7px;
-        margin-left:150px !important;
-    }
-    .passline{
-        margin-left:150px !important;
-    }
-    .service{
-        margin-left:150px !important;
-    }
-    .signbutton{
-
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    align-items:center;
-    padding: 2em;
-    font-size: 16px;
-    font-weight:bold;
-    margin-top:0px;
-    margin-left:130px !important;
-    }
-    .signimage{
-        display:none;
-    }
-    .figcaption{
-        display:none;
+        align-items:center;
+        margin-right:780px !important;
     }
 }
