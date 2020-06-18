@@ -11,7 +11,6 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
-// import FormLabel from '@material-ui/core/FormLabel';
 import FundooService from '../Services/fundooService'
 let service = new FundooService()
 
@@ -40,42 +39,44 @@ export class Register extends React.Component {
     this.setState({ snackbarOpen: false });
   };
  
-    submitUserSignInForm = () => {
-       if (this.state.email === "") {
-      this.setState({
-        snackbarOpen: true,
-        snackbarMsg: "Email is Required"
-      });
-    } else if (
-      !/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(this.state.email)
-    ) {
-      this.setState({
-        snackbarOpen: true,
-        snackbarMsg: "Invalid email..!"
-      });
-    } else if (this.state.password.length < 8) {
-      this.setState({
-        snackbarOpen: true,
-        snackbarMsg: "password must be of atleast 8 characters long..!"
-      });
-    } else {
+  submitUserSignInForm = () => {
+     if (this.state.firstName === "" || this.state.firstName.length > 1) {
+    this.setState({ snackbarOpen: true, snackbarMsg: "firstname cannot be empty" });
+  } else if (this.state.lastName === "" || this.state.lastName.length > 1) {
+    this.setState({ snackbarOpen: true, snackbarMsg: "lastname cannot be empty" })
+  }
+  else if (this.state.password === "" || this.state.password.length > 8) {
+    this.setState({ snackbarOpen: true, snackbarMsg: "password should be min 8" });
+  }
+  else if (this.state.email === "" || this.state.email.length > 1) {
+    this.setState({ snackbarOpen: true, snackbarMsg: "email cannot be empty" });
+  }
+  //if the validation is correct we will proceed the details to controller
+  else if(
+      !/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(this.state.email)){
+        this.setState({snackbarOpen:true,snackbarMsg:"invalid email address"});
+   }else {
       //navigate to controller
       const user = {
         email: this.state.email,
-        password: this.state.password
+        password: this.state.password,
+        email: this.state.email,
+        password: this.state.password,
+        confirmPassword: this.state.confirmPassword,
+        service: this.state.service
       };
-      service.login(user).then((json)=>{
+      service.Registration(user).then((json)=>{
             console.log("responce data==>",json);
             if(json.status===200){  
             this.setState({
                 snackbarOpen: true,
-                snackbarMsg: "Login Suceesful..!"
+                snackbarMsg: "Registration Suceesful..!"
              }); 
         }
         }).catch((err)=>{
             console.log(err);
         })
-        this.props.history.push("/dashboard");
+        // this.props.history.push("/");
     }
   };
 
@@ -93,13 +94,13 @@ export class Register extends React.Component {
       </div>
       <Snackbar
               anchorOrigin={{
-                vertical: 'bottom',
+                vertical: 'top',
                 horizontal: 'center',
               }}
               open={this.state.snackbarOpen}
               autoHideDuration={6000}
               onClose={this.snackbarClose}
-              message={<span id="messege-id"> {this.state.snackbarMsg}</span>}
+              message={<span class="Snackbar"> {this.state.snackbarMsg}</span>}
               action={[
                 <IconButton
                   key="close"
@@ -172,6 +173,7 @@ export class Register extends React.Component {
               </span>
               <TextField
                 className='conPass'
+                id="conPass1"
                 type={this.state.showPassword ? "text" : "password"}
                 variant='outlined'
                 label={ <div class="cpassword">Confirm Password</div>}
