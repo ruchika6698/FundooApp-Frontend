@@ -91,11 +91,15 @@ body{
     font-size:16px;
     
 }
+.conPass1{
+    padding-right:12px !important;
+}
 .cpassword{
     font-size:16px;
+    padding-left:15px !important;
 }
 .conPass{
-    /* padding-left:100px !important; */
+    padding-left:15px !important;
 }
 .name{
     font-size:16px;
@@ -159,8 +163,11 @@ body{
     .conPass{
         width: 12em ;
     }
+    .conPass1{
+         width: 12em !important;
+    }
     .username{
-        width: 36.9em;
+        width: 36.9em !important;
         padding-left: 65px;
         justify-content:center;
     }
@@ -179,11 +186,17 @@ body{
     font-size: 16px;
     font-weight:bold;
     }
+    .signimage{
+        display:none;
+    }
+    .figcaption{
+        display:none;
+    }
 }
 @media screen and (max-width: 1024px){
     .root{
        border:none !important;
-        padding-left: 70px;
+        padding-left: 50px;
         width:73%;
         height:1366px;
     }
@@ -196,10 +209,15 @@ body{
         margin-top:4px;
     }
     .name{
-        width: 32em !important;
+        width: 28em !important;
     }
     .conPass{
-        width: 32em !important;
+        width: 28em !important;
+        margin-right:55px !important;
+    }
+    .conPass1{
+        width: 20em !important;
+        margin-right:55px !important;
     }
     .username{
         width: 36.9em !important;
@@ -211,7 +229,7 @@ body{
         justify-content: space-between;
         flex-direction:column;    
         margin-top:7px;
-        margin-left:5px !important;
+        margin-left:1px !important;
     }
     .signbutton{
 
@@ -219,6 +237,12 @@ body{
     justify-content: space-between;
     flex-direction: row;
     padding: 2em;
+    }
+    .signimage{
+        display:none;
+    }
+    .figcaption{
+        display:none;
     }
 }
 @media screen and (max-width: 360px){
@@ -248,13 +272,14 @@ body{
         size:medium;
         width: 40% !important;
         margin-top:4px;
-        margin-left:200px;
+        margin-left:180px;
     }
     .name{
         width: 17em !important;
     }
     .conPass{
         width: 17em !important;
+        margin-right:80px !important;
     }
     .username{
         width: 18.9em !important;
@@ -274,6 +299,7 @@ body{
     }
     .passline{
         margin-left:200px !important;
+        font-size:12px;
     }
     .service{
         margin-left:200px !important;
@@ -286,6 +312,12 @@ body{
     align-items:center;
     padding: 2em;
     margin-left:210px !important;
+    }
+    .signimage{
+        display:none;
+    }
+    .figcaption{
+        display:none;
     }
 }
 @media screen and (max-width: 411px){
@@ -317,6 +349,7 @@ body{
     }
     .conPass{
         width: 20em !important;
+        margin-right:130px;
     }
     .username{
         width: 22.9em !important;
@@ -348,6 +381,12 @@ body{
     align-items:center;
     padding: 2em;
     margin-left:110px !important;
+    }
+    .signimage{
+        display:none;
+    }
+    .figcaption{
+        display:none;
     }
 }
 @media screen and (max-width: 320px){
@@ -418,6 +457,12 @@ body{
     font-weight:bold;
     margin-top:0px;
     margin-left:150px !important;
+    }
+    .signimage{
+        display:none;
+    }
+    .figcaption{
+        display:none;
     }
 }
 @media screen and (max-width: 414px){
@@ -495,6 +540,12 @@ body{
     margin-top:0px;
     margin-left:170px !important;
     }
+    .signimage{
+        display:none;
+    }
+    .figcaption{
+        display:none;
+    }
 }
 @media screen and (max-width: 375px){
     .root{
@@ -570,5 +621,11 @@ body{
     font-weight:bold;
     margin-top:0px;
     margin-left:130px !important;
+    }
+    .signimage{
+        display:none;
+    }
+    .figcaption{
+        display:none;
     }
 }

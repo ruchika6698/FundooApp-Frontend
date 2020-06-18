@@ -14,7 +14,11 @@ class Service {
     }
     Registration(data) {
         console.log(" get in axios service ",data);
-    return   axios.post(apiUrl+"/register",data);
+    return   axios.post(apiUrl+"/userSignUp",data);
+    }
+    ForgotPassword(data){
+        console.log(" get in axios service ",data);
+    return   axios.post(apiUrl+"/reset",data);
     }
 }
 export default Service;
