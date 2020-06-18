@@ -24,7 +24,6 @@ export class ResetPassword extends Component {
         this.setState({
             [event.target.name]: event.target.value
         })
-        console.log(this.state, '------>name')
     }
     snackbarClose = () => {
         this.setState({ snackbarOpen: false });
@@ -39,21 +38,18 @@ export class ResetPassword extends Component {
     }  else {
       //navigate to controller
       let token=this.props.match.params.token;
-       console.log("token",token);
       const user = {
         newPassword: this.state.newPassword
       };
       service.Resetpassword(token, user).then((json)=>{
             console.log("responce data==>",json);
             if(json.status===204){  
-            this.setState({
-                snackbarOpen: true,
-                snackbarMsg: "Password reset Successfully..!"
-             }); 
+            alert('Password reset Sucessfull !!');  
         }
         }).catch((err)=>{
             console.log(err);
         })
+         this.props.history.push("/");
     }
   };
 

@@ -63,21 +63,18 @@ export class Register extends React.Component {
         lastName: this.state.lastName,
         email: this.state.email,
         password: this.state.password,
-        service: "advance"
+        service: this.state.service
       };
       console.log("USER",user);
       service.Registration(user).then((json)=>{
-            console.log("responce data==>",json);
-            if(json.status===200){  
-            this.setState({
-                snackbarOpen: true,
-                snackbarMsg: "Registration Suceesful..!"
-             }); 
+        console.log("responce data==>",json);
+        if(json.status===200){  
+            alert('Registration Sucessfull !!');  
         }
         }).catch((err)=>{
             console.log(err);
         })
-        // this.props.history.push("/");
+        this.props.history.push("/");
     }
   };
 
@@ -210,12 +207,16 @@ export class Register extends React.Component {
                  <div class="radio"> 
                   <FormControlLabel 
                     value="Basic"
+                    defaultValue={this.state.service}
+                    onChange={this.handleChangeText}
                     control={<Radio color="primary" fontSize="17px" />}
                     label="Basic"
                     labelPlacement="end"
                    />
                   <FormControlLabel 
                     value="Advance"
+                    defaultValue={this.state.service}
+                    onChange={this.handleChangeText}
                     control={<Radio color="primary" fontSize="17px" />}
                     label="Advance"
                   />
