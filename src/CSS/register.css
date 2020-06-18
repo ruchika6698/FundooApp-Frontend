@@ -89,17 +89,21 @@ body{
 }
 .password{
     font-size:16px;
+    padding-left:20px;
     
 }
 .conPass1{
-    padding-right:12px !important;
+    padding-left:10px !important;
 }
 .cpassword{
     font-size:16px;
     padding-left:15px !important;
 }
+.fullname{
+    font-size:16px;
+}
 .conPass{
-    padding-left:15px !important;
+    padding-right:24px !important;
 }
 .name{
     font-size:16px;
@@ -278,7 +282,7 @@ body{
         width: 17em !important;
     }
     .conPass{
-        width: 17em !important;
+        width: 25em !important;
         margin-right:80px !important;
     }
     .username{
