@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
 import Card from '@material-ui/core/Card';
 import "../CSS/login.css";
-import { TextField, Button } from '@material-ui/core'
+import IconButton from "@material-ui/core/IconButton";
+import { TextField, Button ,Snackbar} from '@material-ui/core'
+import FundooService from '../Services/fundooService'
+let service = new FundooService()
+
 
 export class ForgotPassword extends Component {
 
@@ -9,33 +13,51 @@ export class ForgotPassword extends Component {
         super(props);
 
         this.state = {
-            email: '',
-            errors: {},
-            isValid: true
+            email: "",
+            snackbarOpen: false,
+            snackbarMsg: "",
         };
     }
-    validateForm = () => {
-        let errors = {}
-        let formIsValid = true
-        
-        if (!RegExp("^[_A-Za-z0-9-//+]+(//.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(//. [A-Za-z0-9]+)*(//.[A-Za-z]{2,})$").test(this.state.email)) {
-            errors['email'] = '*Enter valid Email id'
-        }
-        if (!this.state.email) {
-            errors['email'] = '*Enter the Email Id'
-            formIsValid = false
-        }
+    handleChangeText = (event) => {
         this.setState({
-            errors: errors
-        })
-        return formIsValid
+            [event.target.name]: event.target.value
+        }, () => console.log(this.state, '------>name'))
     }
-    submit = () => {
-        if (this.validateForm()) {
-            let user = {};
-            user.email = this.state.email;
+    snackbarClose = () => {
+    this.setState({ snackbarOpen: false });
+  };
+   submit = () => {
+      if (this.state.email === "") {
+      this.setState({
+        snackbarOpen: true,
+        snackbarMsg: "Email is Required"
+      });
+    } else if (
+      !/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(this.state.email)
+    ) {
+      this.setState({
+        snackbarOpen: true,
+        snackbarMsg: "Invalid email..!"
+      });
+    } else {
+      //navigate to controller
+      const user = {
+        email: this.state.email
+      };
+      service.ForgotPassword(user).then((json)=>{
+            console.log("responce data==>",json);
+            if(json.status===200){  
+            this.setState({
+                snackbarOpen: true,
+                snackbarMsg: "Request send successfully..!"
+             }); 
         }
+        }).catch((err)=>{
+            console.log(err);
+        })
+        // this.props.history.push("/dashboard");
     }
+  };
     render() {
         return (
         <Card className="loginbox" variant="outlined">
@@ -47,6 +69,21 @@ export class ForgotPassword extends Component {
                 <span class="o">o</span>
                 <span class="oo">o</span>
             </div>
+            <Snackbar
+              anchorOrigin={{ vertical: "top", horizontal: "center" }}
+              open={this.state.snackbarOpen}
+              autoHideDuration={6000}
+              onClose={this.snackbarClose}
+              message={<span class="Snackbar">{this.state.snackbarMsg}</span>}
+              action={
+                <IconButton
+                  key="close"
+                  arial-label="close"
+                  color="inherit"
+                  onClick={this.snackbarClose}
+                ></IconButton>
+              }
+            />
             <span class="signIn">Find your email</span>
             <span class="signIn">Enter your recovery email</span>
             <br/>
@@ -54,11 +91,13 @@ export class ForgotPassword extends Component {
                 <TextField id="outlined-required" 
                     margin="dense"
                     size="small"
-                    label={ <div class="email">Enter the Email Id</div>}
+                    label={ <div class="email">Email</div>}
                     type="search"
                     variant="outlined"
                     name="email"
                     style={{ width: "80%" }}
+                    onChange={this.handleChangeText}
+                    value={this.state.email}
                     inputProps={{style:{ fontSize:'20px',height:'40%'}}}
                 />
             </div>

@@ -33,22 +33,23 @@ export class Register extends React.Component {
  handleChangeText = (event) => {
         this.setState({
             [event.target.name]: event.target.value
-        }, () => console.log(this.state, '------>name'))
+        })
+        // console.log(this.state, '------>name'))
     }
   snackbarClose = () => {
     this.setState({ snackbarOpen: false });
   };
  
   submitUserSignInForm = () => {
-     if (this.state.firstName === "" || this.state.firstName.length > 1) {
+     if (this.state.firstName === "" && this.state.firstName.length > 1) {
     this.setState({ snackbarOpen: true, snackbarMsg: "firstname cannot be empty" });
-  } else if (this.state.lastName === "" || this.state.lastName.length > 1) {
+  } else if (this.state.lastName === "" && this.state.lastName.length > 1) {
     this.setState({ snackbarOpen: true, snackbarMsg: "lastname cannot be empty" })
   }
-  else if (this.state.password === "" || this.state.password.length > 8) {
+  else if (this.state.password === "" && this.state.password.length > 8) {
     this.setState({ snackbarOpen: true, snackbarMsg: "password should be min 8" });
   }
-  else if (this.state.email === "" || this.state.email.length > 1) {
+  else if (this.state.email === "" && this.state.email.length > 1) {
     this.setState({ snackbarOpen: true, snackbarMsg: "email cannot be empty" });
   }
   //if the validation is correct we will proceed the details to controller
@@ -58,13 +59,13 @@ export class Register extends React.Component {
    }else {
       //navigate to controller
       const user = {
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
         email: this.state.email,
         password: this.state.password,
-        email: this.state.email,
-        password: this.state.password,
-        confirmPassword: this.state.confirmPassword,
-        service: this.state.service
+        service: "advance"
       };
+      console.log("USER",user);
       service.Registration(user).then((json)=>{
             console.log("responce data==>",json);
             if(json.status===200){  
@@ -119,6 +120,7 @@ export class Register extends React.Component {
             <TextField
               className='name'
               variant='outlined'
+              name="firstName"
               label={ <div class="password">First name</div>}
               margin="dense"
               size="medium"
@@ -134,6 +136,7 @@ export class Register extends React.Component {
             <TextField
               className='name'
               variant='outlined'
+              name="lastName"
               label={ <div class="password">Last name</div>}
               margin="dense"
               size="medium"
@@ -147,6 +150,7 @@ export class Register extends React.Component {
           <div id="pass">
             <TextField
               className='username'
+              name="email"
               variant='outlined'
               label={ <div class="email">Email</div>}
               margin='dense'
@@ -159,6 +163,7 @@ export class Register extends React.Component {
             <div className='confirmPass'>
               <TextField
                 className='conPass'
+                name="password"
                 type={this.state.showPassword ? "text" : "password"}
                 variant='outlined'
                 label={ <div class="password">Password</div>}
