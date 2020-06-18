@@ -217,13 +217,15 @@ export class Register extends React.Component {
             </div>
           </div>
               <div className="signbutton">
-                  <Button color="primary"
+                  <Button
+                    color="primary"
                     style={{ width:"150px",padding: "7px 0px",color:'#0423ce',fontSize:'13px'}} 
                     onClick={() => this.props.history.push('/')}>
                     Sign in instead
                   </Button>
 
-                  <Button variant="contained"
+                  <Button 
+                  variant="contained"
                     style={{ width:"90px",padding: "7px 0px",fontSize:'12px'}} 
                     color="primary" 
                     onClick={this.submitUserSignInForm}>
