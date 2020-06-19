@@ -60,14 +60,14 @@ export default function Dashboard() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
+          <Typography variant="h6">
             Fundoo Notes
           </Typography>
           <TextField
             color="inherit"
             className="search"
             label={<div class="searchbox">Search</div>}
-            variant="outlined"
+            variant="filled"
             InputProps={{
               endAdornment: (
                 <InputAdornment>
@@ -79,6 +79,7 @@ export default function Dashboard() {
             }}
           />
           <IconButton
+            class="account"
             color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
@@ -114,7 +115,7 @@ export default function Dashboard() {
           </IconButton>
         </div>
         <Divider />
-        <List>
+        <List class="icons">
           {["Notes", "Reminders", "Edit labels", "Archive", "Trash"].map(
             (text, index) => (
               <ListItem button key={text}>
@@ -142,7 +143,7 @@ export default function Dashboard() {
         <TextField
           className="search"
           label={<div class="searchbox">Take a note</div>}
-          variant="outlined"
+          variant="filled"
           InputProps={{
             endAdornment: (
               <InputAdornment>

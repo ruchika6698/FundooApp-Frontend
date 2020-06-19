@@ -46,11 +46,11 @@ export class ResetPassword extends Component {
           if (json.status === 204) {
             alert("Password reset Sucessfull !!");
           }
+          this.props.history.push("/");
         })
         .catch((err) => {
-          console.log(err);
+          alert("Token is not valid,again it will !!");
         });
-      this.props.history.push("/");
     }
   };
 

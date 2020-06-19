@@ -40,28 +40,27 @@ export class Register extends React.Component {
   };
 
   submitUserSignInForm = () => {
-    if (this.state.firstName === "" && this.state.firstName.length > 1) {
+    if (this.state.firstName === "") {
       this.setState({
         snackbarOpen: true,
-        snackbarMsg: "firstname cannot be empty",
+        snackbarMsg: "First name is required",
       });
-    } else if (this.state.lastName === "" && this.state.lastName.length > 1) {
+    } else if (this.state.lastName === "") {
       this.setState({
         snackbarOpen: true,
-        snackbarMsg: "lastname cannot be empty",
+        snackbarMsg: "Last name is required",
       });
-    } else if (this.state.password === "" && this.state.password.length > 8) {
+    } else if (this.state.password === "") {
       this.setState({
         snackbarOpen: true,
-        snackbarMsg: "password should be min 8",
+        snackbarMsg: "password is required and should be minimum 8 digit",
       });
-    } else if (this.state.email === "" && this.state.email.length > 1) {
+    } else if (this.state.email === "") {
       this.setState({
         snackbarOpen: true,
-        snackbarMsg: "email cannot be empty",
+        snackbarMsg: "Email cannot be empty",
       });
     }
-    //if the validation is correct we will proceed the details to controller
     else if (
       !/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(this.state.email)
     ) {
@@ -70,7 +69,6 @@ export class Register extends React.Component {
         snackbarMsg: "invalid email address",
       });
     } else {
-      //navigate to controller
       const user = {
         firstName: this.state.firstName,
         lastName: this.state.lastName,
@@ -78,7 +76,6 @@ export class Register extends React.Component {
         password: this.state.password,
         service: this.state.service,
       };
-      console.log("USER", user);
       service
         .Registration(user)
         .then((json) => {
@@ -86,11 +83,11 @@ export class Register extends React.Component {
           if (json.status === 200) {
             alert("Registration Sucessfull !!");
           }
+          this.props.history.push("/");
         })
         .catch((err) => {
           console.log(err);
         });
-      this.props.history.push("/");
     }
   };
 
@@ -125,6 +122,7 @@ export class Register extends React.Component {
         />
         <p className="text">Create your Fundoo Account</p>
         <p className="continue">Continue to Fundoo</p>
+        <br/>
         <div class="main">
           <div class="input">
             <div className="flname">
@@ -133,7 +131,7 @@ export class Register extends React.Component {
                 className="name"
                 variant="outlined"
                 name="firstName"
-                label={<div class="password">First name</div>}
+                label={<div class="email">First name*</div>}
                 margin="dense"
                 size="medium"
                 style={{ width: "48%" }}
@@ -147,7 +145,7 @@ export class Register extends React.Component {
                 className="name"
                 variant="outlined"
                 name="lastName"
-                label={<div class="password">Last name</div>}
+                label={<div class="email">Last name*</div>}
                 margin="dense"
                 size="medium"
                 style={{ width: "48%" }}
@@ -162,7 +160,7 @@ export class Register extends React.Component {
               className="username"
               name="email"
               variant="outlined"
-              label={<div class="email">Email</div>}
+              label={<div class="email">Email*</div>}
               margin="dense"
               inputProps={{ style: { fontSize: "16px" } }}
               defaultValue={this.state.email}
@@ -171,13 +169,14 @@ export class Register extends React.Component {
             <h1 className="usermailline">
               Use my current email address instead
             </h1>
+            <br/>
             <div className="flname">
               <TextField
                 className="conPass"
                 name="password"
                 type={this.state.showPassword ? "text" : "password"}
                 variant="outlined"
-                label={<div class="password">Password</div>}
+                label={<div class="email">Password*</div>}
                 margin="dense"
                 style={{ width: "68%" }}
                 inputProps={{ style: { fontSize: "16px" } }}
@@ -189,7 +188,7 @@ export class Register extends React.Component {
                 className="conPass1"
                 type={this.state.showPassword ? "text" : "password"}
                 variant="outlined"
-                label={<div class="cpassword">Confirm Password</div>}
+                label={<div class="cpassword">Confirm Password*</div>}
                 margin="dense"
                 style={{ width: "65%" }}
                 defaultValue={this.state.confirmPassword}
@@ -219,6 +218,7 @@ export class Register extends React.Component {
             <h1 className="passline">
               Use 8 or more characters with a mix of letters, numbers & symbols
             </h1>
+            <br/>
             <div>
               <div className="service">
                 <RadioGroup
@@ -227,7 +227,7 @@ export class Register extends React.Component {
                   value={this.state.value}
                   onChange={this.handleChange}
                 >
-                  <h5>Service:</h5>
+                  <h5>*Service:</h5>
                   <div class="radio">
                     <FormControlLabel
                       value="Basic"
