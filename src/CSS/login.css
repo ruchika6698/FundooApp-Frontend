@@ -1,320 +1,320 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
+	margin: 0;
+	padding: 0;
 }
-body{
-    display:flex;
-    justify-content:center;
-    align-items:center;
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-.loginbox{
-    margin-top:210px;
-    margin-bottom:90px;
-    width:400px;
-    height:450px;
+.loginbox {
+	margin-top: 210px;
+	margin-bottom: 90px;
+	width: 400px;
+	height: 450px;
 }
-.f{
-    color: #4285F4;
+.f {
+	color: #4285F4;
 }
-.u{
-    color: #DB4437;
+.u {
+	color: #DB4437;
 }
-.n{
-    color: #F4B400;
+.n {
+	color: #F4B400;
 }
-.d{
-    color: #4285F4;
+.d {
+	color: #4285F4;
 }
-.o{
-    color: #0F9D58;
+.o {
+	color: #0F9D58;
 }
-.oo{
-    color: #DB4437;
+.oo {
+	color: #DB4437;
 }
-.loginfundoofont{
-    padding-top: 35px;
-    justify-content:center;
-    align-items:center;
-    display: flex;
-    font-size: 2.0em;
-    font-weight:bold;
-    font-family: 'Roboto', sans-serif;
+.loginfundoofont {
+	padding-top: 35px;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	font-size: 2.0em;
+	font-weight: bold;
+	font-family: 'Roboto', sans-serif;
 }
-.email{
-    font-size:16px;
+.email {
+	font-size: 16px;
 }
-.password{
-    font-size:16px;
-    justify-content:center;
-    align-items:center;
-    display: flex;
+.password {
+	font-size: 16px;
+	justify-content: center;
+	align-items: center;
+	display: flex;
 }
-.confirmPass{
-    font-size:16px;
-    justify-content:center;
-    align-items:center;
-    display: flex;
+.confirmPass {
+	font-size: 16px;
+	justify-content: center;
+	align-items: center;
+	display: flex;
 }
-.Snackbar{
-    font-size:16px;
+.Snackbar {
+	font-size: 16px;
 }
-.signIn{
-    color: black;
-    font-size: 120%;
-    padding-top: 4%;
-    justify-content:center;
-    align-items:center;
-    display: flex;
+.signIn {
+	color: black;
+	font-size: 120%;
+	padding-top: 4%;
+	justify-content: center;
+	align-items: center;
+	display: flex;
 }
-.usernameLogin{
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction: column;
-    width:100%;
+.usernameLogin {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
 }
-.passwordLogin{
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction: column;
+.passwordLogin {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
-.buttonLogin{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    padding: 3em;
-    font-size: 16px;
-    font-weight:bold;
-    size:large;
+.buttonLogin {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	padding: 3em;
+	font-size: 16px;
+	font-weight: bold;
+	size: large;
+}
+.Forgotpassword {
+	display: flex;
+	justify-content: center;
+	align-items: left;
+	flex-direction: column;
+	width: 50%;
+}
+.submit {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	padding: 3em;
+	font-size: 16px;
+	font-weight: bold;
+	size: large;
 }
 
-.Forgotpassword{
-    display: flex;
-    justify-content:center;
-    align-items:left;
-    flex-direction: column;
-    width:50%;
+@media screen and (max-width: 1024px) {
+	.loginbox {
+		margin-top: 450px !important;
+	}
 }
-.submit{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    padding: 3em;
-    font-size: 16px;
-    font-weight:bold;
-    size:large;
+@media screen and (max-width: 768px) {
+	.loginbox {
+		margin-bottom: 350px !important;
+	}
+}
+@media screen and (max-width: 414px) {
+	.loginbox {
+		margin-top: 0;
+		border: none !important;
+		width: 414px;
+		height: 736px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+	.passwordLogin {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		width: 414px;
+	}
+	.buttonLogin {
+		justify-content: space-between;
+		flex-direction: row;
+		margin-left: 45px !important;
+	}
+	.button-Login {
+		margin-left: 90px !important;
+	}
+	.Forgotpassword {
+		align-items: left;
+		flex-direction: column;
+		margin-right: 200px !important;
+	}
+	.submit {
+		margin-left: 5px !important;
+	}
+	.cancel {
+		margin-left: 140px !important;
+	}
+}
+@media screen and (max-width: 411px) {
+	.loginbox {
+		margin-top: 0;
+		border: none !important;
+		width: 411px;
+		height: 731px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+	.passwordLogin {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		width: 411px;
+	}
+	.buttonLogin {
+		display: flex;
+		justify-content: space-between;
+		flex-direction: row;
+		padding: 3em;
+		padding-left: 2px;
+		font-size: 14px;
+		font-weight: bold;
+		margin-left: 30px !important;
+	}
+	.button-Login {
+		margin-left: 90px !important;
+	}
+	.Forgotpassword {
+		display: flex;
+		align-items: left;
+		flex-direction: column;
+		margin-right: 220px !important;
+	}
+	.submit {
+		margin-left: 5px !important;
+	}
+	.cancel {
+		margin-left: 140px !important;
+	}
+}
+@media screen and (max-width: 375px) {
+	.loginbox {
+		padding-left: 20px;
+		margin-top: 0;
+		border: none !important;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+	.usernameLogin {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		width: 415px !important;
+	}
+}
+@media screen and (max-width: 360px) {
+	.loginbox {
+		margin-bottom: 300px !important;
+		margin-right: 20px;
+		border: none;
+		width: 100% !important;
+		height: 100% !important;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+	.usernameLogin {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		width: 100%;
+		margin-left: 20px;
+	}
+	.passwordLogin {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		width: 93% !important;
+		margin-left: 20px;
+	}
+	.Forgotpassword {
+		display: flex;
+		justify-content: space-between;
+		align-items: left;
+		flex-direction: column;
+		width: 60%;
+	}
+	.buttonLogin {
+		display: flex;
+		justify-content: space-between;
+		flex-direction: row;
+		padding: 3em;
+		padding-left: 2px;
+		font-size: 14px;
+		font-weight: bold;
+		margin-left: 50px !important;
+	}
+	.button-Login {
+		margin-left: 70px !important;
+	}
+	.Forgotpassword {
+		display: flex;
+		align-items: left;
+		flex-direction: column;
+		margin-right: 180px !important;
+	}
+	.submit {
+		margin-left: 20px !important;
+	}
+	.cancel {
+		margin-left: 140px !important;
+	}
 }
 
-@media screen and (max-width: 375px){
-    .loginbox{
-        padding-left:20px;
-        margin-top:0;
-        border: none !important;
-        width:100%;
-        display: flex;
-        justify-content:center;
-        align-items:center;
-        flex-direction: column;
-    }
-    .usernameLogin{
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction: column;
-    width:415px !important;
-    }
-}
-@media screen and (max-width: 360px){
-    .loginbox{
-        margin-bottom:300px !important;
-        margin-right:20px;
-        border: none;
-        width:100% !important;
-        height:100% !important;
-        display: flex;
-        justify-content:center;
-        align-items:center;
-        flex-direction: column;
-    }
-    .usernameLogin{
-        display: flex;
-        justify-content:center;
-        align-items:center;
-        flex-direction: column;
-        width:100%;
-        margin-left:20px;
-    }
-    .passwordLogin{
-        display: flex;
-        justify-content:center;
-        align-items:center;
-        flex-direction: column;
-        width:93% !important;
-        margin-left:20px;
-    }
-    .Forgotpassword{
-        display: flex;
-        justify-content:space-between;
-        align-items:left;
-        flex-direction: column;
-        width:60%;
-    }
-    .buttonLogin{
-        display: flex;
-        justify-content: space-between;
-        flex-direction: row;
-        padding: 3em;
-        padding-left:2px;
-        font-size: 14px;
-        font-weight:bold;
-        margin-left:50px !important;
-    }
-    .button-Login{
-        margin-left:70px !important;
-    }
-    .Forgotpassword{
-        display: flex;
-        align-items:left;
-        flex-direction: column;
-        margin-right:180px !important;
-    }
-    .submit{
-        margin-left:20px !important;
-    }
-    .cancel{
-        margin-left:140px !important;
-    }
-}
-@media screen and (max-width: 411px){
- .loginbox{
-        margin-top:0;
-        border: none !important;
-        width:411px;
-        height:731px;
-        display: flex;
-        justify-content:center;
-        align-items:center;
-        flex-direction: column;
-    }
-    .passwordLogin{
-        display: flex;
-        justify-content:center;
-        align-items:center;
-        flex-direction: column;
-        width:411px;
-    }
-    .buttonLogin{
-        display: flex;
-        justify-content: space-between;
-        flex-direction: row;
-        padding: 3em;
-        padding-left:2px;
-        font-size: 14px;
-        font-weight:bold;
-        margin-left:30px !important;
-    }
-    .button-Login{
-        margin-left:90px !important;
-    }
-    .Forgotpassword{
-        display: flex;
-        align-items:left;
-        flex-direction: column;
-        margin-right:220px !important;
-    }
-    .submit{
-        margin-left:5px !important;
-    }
-    .cancel{
-        margin-left:140px !important;
-    }
-}
-@media screen and (max-width: 320px){
-    .root{
-        margin-top:120px !important;
-    }
-    .loginbox{
-        width:320px;
-        height:568px !important;
-        display: flex;
-        justify-content:center;
-        align-items:center;
-        flex-direction: column;
-    }
-    .usernameLogin{
-        display: flex;
-        justify-content:center;
-        align-items:center;
-        flex-direction: column;
-        width:100%;
-        padding-left:30px;
-    }
-    .passwordLogin{
-        display: flex;
-        justify-content:center;
-        align-items:center;
-        flex-direction: column;
-        width:420px !important;
-        padding-left:30px;
-    }
-    .buttonLogin{
-        flex-direction: row;
-        margin-left:120px !important;
-    }
-    .button-Login{
-        margin-left:60px !important;
-    }
-    .Forgotpassword{
-        flex-direction: column;
-        margin-right:110px !important;
-    }
-}
-@media screen and (max-width: 414px){
-    .loginbox{
-        margin-top:0;
-        border: none !important;
-        width:414px;
-        height:736px;
-        display: flex;
-        justify-content:center;
-        align-items:center;
-        flex-direction: column;
-    }
-    .passwordLogin{
-        display: flex;
-        justify-content:center;
-        align-items:center;
-        flex-direction: column;
-        width:414px;
-    }
-     .buttonLogin{
-        justify-content: space-between;
-        flex-direction: row;
-        margin-left:45px !important;
-    }
-    .button-Login{
-        margin-left:90px !important;
-    }
-    .Forgotpassword{
-        align-items:left;
-        flex-direction: column;
-        margin-right:200px !important;
-    }
-    .submit{
-        margin-left:5px !important;
-    }
-    .cancel{
-        margin-left:140px !important;
-    }
-}
-@media screen and (max-width: 768px){
-    .loginbox{
-        margin-bottom:350px !important;
-    }
-}
-@media screen and (max-width: 1024px){
-    .loginbox{
-       margin-top:450px !important;
-    }
+@media screen and (max-width: 320px) {
+	.root {
+		margin-top: 120px !important;
+	}
+	.loginbox {
+		width: 320px;
+		height: 568px !important;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+	.usernameLogin {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		width: 100%;
+		padding-left: 30px;
+	}
+	.passwordLogin {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		width: 420px !important;
+		padding-left: 30px;
+	}
+	.buttonLogin {
+		flex-direction: row;
+		margin-left: 120px !important;
+	}
+	.button-Login {
+		margin-left: 60px !important;
+	}
+	.Forgotpassword {
+		flex-direction: column;
+		margin-right: 110px !important;
+	}
 }
