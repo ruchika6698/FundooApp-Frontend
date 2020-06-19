@@ -91,7 +91,7 @@ export class ResetPassword extends Component {
                     name="newPassword"
                     inputProps={{style:{ fontSize:'16px'}}}
                     type={this.state.showPassword ? "text" : "password"}
-                    label={ <div class="password">New Password</div>}
+                    label={ <div class="email">New Password</div>}
                     margin="dense"
                     onChange={this.handleChangeText}
                     value={this.state.newPassword}
@@ -121,7 +121,7 @@ export class ResetPassword extends Component {
                                 variant="outlined"
                                 name="password"
                                 type={this.state.showPassword ? "text" : "password"}
-                                label={ <div class="confirmPass">Confirm Password</div>}
+                                label={ <div class="email">Confirm Password</div>}
                                 value={this.state.confirmPassword}
                                 onChange={this.handleChangeText}
                                 InputProps={{

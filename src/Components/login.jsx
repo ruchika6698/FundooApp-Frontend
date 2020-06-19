@@ -120,7 +120,7 @@ export class Login extends React.Component {
                 variant="outlined"
                 name="password"
                 type={this.state.showPassword ? "text" : "password"}
-                label={ <div class="password">Password</div>}
+                label={ <div class="email">Password</div>}
                 onChange={this.handleChangeText}
                 value={this.state.password}
                 inputProps={{style:{ fontSize:'18px'}}}

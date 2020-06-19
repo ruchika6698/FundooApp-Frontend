@@ -1,7 +1,7 @@
 import React from "react";
 import "../CSS/register.css";
 import account from "../Assets/account.svg";
-import { TextField, Button ,Snackbar} from '@material-ui/core'
+import { TextField, Button ,Snackbar,Hidden} from '@material-ui/core'
 import Card from '@material-ui/core/Card';
 import IconButton from "@material-ui/core/IconButton";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -115,6 +115,7 @@ export class Register extends React.Component {
         <div class="input">
           <div className='flname'>
             <TextField
+              fullWidth
               className='name'
               variant='outlined'
               name="firstName"
@@ -131,6 +132,7 @@ export class Register extends React.Component {
 
             </span>
             <TextField
+              fullWidth
               className='name'
               variant='outlined'
               name="lastName"
@@ -144,8 +146,9 @@ export class Register extends React.Component {
             />                  
           </div>
           <br/>
-          <div id="pass">
+          {/* <div id="pass"> */}
             <TextField
+              fullWidth
               className='username'
               name="email"
               variant='outlined'
@@ -155,9 +158,9 @@ export class Register extends React.Component {
               defaultValue={this.state.email}
               onChange={this.handleChangeText}
             />
-          </div>
+          {/* </div> */}
             <h1 className='usermailline'>Use my current email address instead</h1>
-            <div className='confirmPass'>
+            <div className='flname'>
               <TextField
                 className='conPass'
                 name="password"
@@ -165,7 +168,7 @@ export class Register extends React.Component {
                 variant='outlined'
                 label={ <div class="password">Password</div>}
                 margin='dense'
-                style={{ width: "65%" }}
+                style={{ width: "68%" }}
                 inputProps={{style:{ fontSize:'16px'}}}
                 defaultValue={this.state.password}
                 onChange={this.handleChangeText}
@@ -175,7 +178,6 @@ export class Register extends React.Component {
               </span>
               <TextField
                 className='conPass1'
-                id="conPass1"
                 type={this.state.showPassword ? "text" : "password"}
                 variant='outlined'
                 label={ <div class="cpassword">Confirm Password</div>}
@@ -232,7 +234,7 @@ export class Register extends React.Component {
                     Sign in instead
                   </Button>
 
-                  <Button 
+                  <Button
                     variant="contained"
                     style={{ width:"90px",padding: "7px 0px",fontSize:'12px'}} 
                     color="primary" 
@@ -241,12 +243,13 @@ export class Register extends React.Component {
                   </Button>
               </div>
         </div>
-        <div>
-            <img src={account} className='signimage' alt='fundooo'
+        <div className='signimage'>
+            <Hidden smDown><img src={account}  alt='fundooo'
                   width="244" height="244" ></img>
                 <figcaption className='figcaption'>One account. All of Fundoo </figcaption>
                 <figcaption className='figcaption'>working for you.</figcaption>
-            </div>
+            </Hidden>
+        </div>
       </div>
 
     </Card>

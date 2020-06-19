@@ -259,23 +259,15 @@ body{
         padding-left:30px;
     }
     .buttonLogin{
-        display: flex;
-        justify-content: space-between;
         flex-direction: row;
-        padding: 3em;
-        padding-left:2px;
-        font-size: 14px;
-        font-weight:bold;
-        margin-left:65px !important;
+        margin-left:120px !important;
     }
     .button-Login{
         margin-left:60px !important;
     }
     .Forgotpassword{
-        display: flex;
-        align-items:left;
         flex-direction: column;
-        margin-right:150px !important;
+        margin-right:110px !important;
     }
 }
 @media screen and (max-width: 414px){
@@ -297,20 +289,14 @@ body{
         width:414px;
     }
      .buttonLogin{
-        display: flex;
         justify-content: space-between;
         flex-direction: row;
-        padding: 3em;
-        padding-left:2px;
-        font-size: 14px;
-        font-weight:bold;
         margin-left:45px !important;
     }
     .button-Login{
         margin-left:90px !important;
     }
     .Forgotpassword{
-        display: flex;
         align-items:left;
         flex-direction: column;
         margin-right:200px !important;
@@ -324,7 +310,7 @@ body{
 }
 @media screen and (max-width: 768px){
     .loginbox{
-        margin-top:250px !important;
+        margin-bottom:350px !important;
     }
 }
 @media screen and (max-width: 1024px){

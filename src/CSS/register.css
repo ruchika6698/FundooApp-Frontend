@@ -59,10 +59,10 @@ body{
 }
 .main{
     display: flex;
+    width:60%;
     justify-content: space-between;
     flex-direction: row;
 }
-
 .flname{
     display: flex;
     justify-content:space-between;
@@ -132,7 +132,7 @@ body{
     font-size:16px !important;
 }
 .signbutton{
-
+    width:70%;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -142,6 +142,7 @@ body{
 }
 .signimage{
    margin-top:0px;
+   width:40%;
 }
 .figcaption{
     font-size: 16px;
@@ -149,47 +150,11 @@ body{
     display: block;
     text-align: center;
 }
-
-@media screen and (max-width: 768px){
-    .root{
-        border:none !important;
-        width:768px !important;
-        margin-left:120px;
-        height:1024px;
-    }
-    .flname{
-        width: 60em !important;
-        flex-direction:column;
-    }
-    .username{
-        width: 28.6em !important;
-    }
-    .confirmPass{
-        flex-direction:column;    
-        margin-top:7px;
-    }
-    .conPass{
-        width: 28em !important;
-        margin-right:420px !important;
-    }
-    .conPass1{
-        width: 27em !important;
-        margin-right:440px !important;
-    }
-    .signimage{
-        display:none;
-        flex-direction:column;
-    }
-    .figcaption{
-        display:none;
-    }
-}
 @media screen and (max-width: 1024px){
     .root{
         border:none !important;
         padding-left: 10px;
         padding-right:0px;
-        width:70%;
         height:1380px;
     }
     .signbutton{
@@ -198,89 +163,164 @@ body{
         margin-right:200px !important;
     }
 }
-@media screen and (max-width: 360px){
+@media screen and (max-width: 768px){
     .root{
-        border:none !important;
+        border:none ;
+        margin-left:120px;
+        height:1024px;
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+        align-items:center;
     }
-    .fundoofont { 
-        margin-left:180px !important;
-    }
-    .text{
-        margin-left:180px !important;
-    }
-    .continue{
-        margin-left:180px !important;
+    .main{
+        width:100% !important;
     }
     .flname{
-        flex-direction: column;
-        width: 60% !important;
-        margin-left:180px;
+        width: 60em !important;
+        flex-direction:column;
+        margin-left:630px;
     }
-    .username{
-        width: 28% !important;
-        margin-left:180px !important;
-    }
-    .usermailline{
-        margin-left:180px !important;
-    }
-    .confirmPass{
-        flex-direction:column;  
-        width: 12% !important;  
-        margin-left:520px !important;
-    }
-    .passline{
-        margin-left:180px !important;
-        font-size:12px;
-    }
-    .service{
-        margin-left:180px !important;
-    }
-    .signbutton{
+    .input{
+        display: flex;
+        justify-content: space-between;
         flex-direction: column;
         align-items:center;
-        margin-right:580px !important;
+    }
+    .username{
+        width: 28.6em !important;
+        margin-left:200px !important;
+    }
+    .confirmPass{
+        flex-direction:column;    
+        margin-top:7px;
+    }
+    .conPass{
+        width: 30em !important;
+        margin-right:440px !important;
+    }
+    .conPass1{
+        width: 28.5em !important;
+        margin-right:440px !important;
+    }
+    .usermailline{
+        margin-left:90px !important;
+    }
+    .passline{
+        margin-left:270px !important;
+    }
+    .signbutton{
+        flex-direction:column;  
+        margin-left:1265px !important;
+    }
+    .signimage{
+        width:0% !important;
+    }
+    .figcaption{
+        display:none;
+    }
+}
+@media screen and (max-width: 414px){
+    .root{
+        width:100%;
+    }
+    .flname{
+        width:35% !important;
+        flex-direction:column;
+        margin-left:400px !important;
+    }
+    .username{
+        width: 20.6em !important;
+        margin-left:100px !important;
+    }
+    .input{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items:center;
+    }
+    .passline{
+       font-size:12px;
+       margin-left:150px !important;
+    }
+    .conPass{
+        width: 22em !important;
+        margin-right:420px !important;
+    }
+    .conPass1{
+        width: 20.5em !important;
+        margin-right:480px !important;
+    }
+    .signbutton{
+        flex-direction:column;  
+        margin-left:1265px !important;
     }
 }
 @media screen and (max-width: 411px){
-    .root{
-        border:none !important;
-    }
-    .fundoofont { 
-        margin-left:180px !important;
-    }
-    .text{
-        margin-left:180px !important;
-    }
-    .continue{
-        margin-left:180px !important;
+   .root{
+        width:100%;
     }
     .flname{
-        flex-direction: column;
-        width: 50% !important;
-        margin-left:180px;
+        width:35% !important;
+        flex-direction:column;
+        margin-left:400px !important;
     }
     .username{
-        width: 24% !important;
-        margin-left:180px !important;
+        width: 20.6em !important;
+        margin-left:100px !important;
     }
-    .usermailline{
-        margin-left:180px !important;
-    }
-    .confirmPass{
-        flex-direction:column;  
-        width: 5% !important;  
-        margin-left:550px !important;
-    }
-    .passline{
-        margin-left:180px !important;
-        font-size:12px;
-    }
-    .service{
-        margin-left:180px !important;
-    }
-    .signbutton{
+    .input{
+        display: flex;
+        justify-content: space-between;
         flex-direction: column;
         align-items:center;
-        margin-right:780px !important;
+    }
+    .passline{
+       font-size:12px;
+       margin-left:150px !important;
+    }
+    .conPass{
+        width: 22em !important;
+        margin-right:420px !important;
+    }
+    .conPass1{
+        width: 20.5em !important;
+        margin-right:440px !important;
+    }
+    .signbutton{
+        flex-direction:column;  
+        margin-left:1265px !important;
+    }
+}
+@media screen and (max-width: 375px){
+    .root{
+        width:100%;
+    }
+    .flname{
+        width:35% !important;
+        flex-direction:column;
+        margin-left:400px !important;
+    }
+    .username{
+        width: 20.6em !important;
+        margin-left:100px !important;
+    }
+    .input{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items:center;
+    }
+    .conPass{
+        width: 22em !important;
+        margin-right:420px !important;
+    }
+    .conPass1{
+        width: 20em !important;
+        margin-right:440px !important;
+    }
+    .signbutton{
+        flex-direction:column;  
+        margin-left:1265px !important;
     }
 }
