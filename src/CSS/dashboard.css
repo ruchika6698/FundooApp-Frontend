@@ -1,16 +1,29 @@
 .appbar{
   width:100%;
-  color:inherit;
+  color:white;
 }
 .searchbox{
   font-size:16px;
   color:grey;
 }
+.fundootext{
+  color:grey;
+  padding-left:30px !important;
+}
 .search{
-  width:75%;
-  margin-left:130px !important;
+  width:60%;
+  margin-left:100px !important;
   background-color:white;
   border-radius:10px;
+}
+.refresh{
+  padding-left:480px !important;
+}
+.listicon{
+  padding-left:10px !important;
+}
+.dialicon{
+  padding-left:30px !important;
 }
 .icons{
   font-size:100px !important;
