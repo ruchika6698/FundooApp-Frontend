@@ -31,7 +31,7 @@ export class ForgotPassword extends Component {
         snackbarMsg: "Email is Required",
       });
     } else if (
-      !/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(this.state.email)
+      !/^[a-zA-Z0-9]{1,}([.]?[-]?[+]?[a-zA-Z0-9]{1,})?[@]{1}[a-zA-Z0-9]{1,}[.]{1}[a-z]{2,3}([.]?[a-z]{2})?$/.test(this.state.email)
     ) {
       this.setState({
         snackbarOpen: true,

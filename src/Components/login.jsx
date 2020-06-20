@@ -41,7 +41,12 @@ export class Login extends React.Component {
         snackbarOpen: true,
         snackbarMsg: "Invalid Email..!",
       });
-    } else if (this.state.password.length < 8) {
+    } else if (this.state.password === "") {
+      this.setState({
+        snackbarOpen: true,
+        snackbarMsg: "Password is required",
+      });
+    } else if (!/^[a-zA-Z0-9]*[@#$&*_+-]{1}[a-zA-Z0-9]*$/.test(this.state.password)) {
       this.setState({
         snackbarOpen: true,
         snackbarMsg: "Invalid Password..!!",

@@ -41,7 +41,7 @@ export class Register extends React.Component {
 
   submitUserSignInForm = () => {
     if (this.state.firstName === "") {
-        this.setState({
+      this.setState({
         snackbarOpen: true,
         snackbarMsg: "First Name is required",
       });
@@ -51,7 +51,7 @@ export class Register extends React.Component {
         snackbarMsg: "First Name is not in correct format",
       });
     } else if (this.state.lastName === "") {
-        this.setState({
+      this.setState({
         snackbarOpen: true,
         snackbarMsg: "Last Name is required",
       });
@@ -65,18 +65,27 @@ export class Register extends React.Component {
         snackbarOpen: true,
         snackbarMsg: "Email is required",
       });
-    }
-    else if (
-      !/^[a-zA-Z0-9]{1,}([.]?[-]?[+]?[a-zA-Z0-9]{1,})?[@]{1}[a-zA-Z0-9]{1,}[.]{1}[a-z]{2,3}([.]?[a-z]{2})?$/.test(this.state.email)
+    } else if (
+      !/^[a-zA-Z0-9]{1,}([.]?[-]?[+]?[a-zA-Z0-9]{1,})?[@]{1}[a-zA-Z0-9]{1,}[.]{1}[a-z]{2,3}([.]?[a-z]{2})?$/.test(
+        this.state.email
+      )
     ) {
       this.setState({
         snackbarOpen: true,
         snackbarMsg: "Invalid Email address",
       });
-    } else if (!/^[a-zA-Z0-9]*[@#$&*_+-]{1}[a-zA-Z0-9]*$/.test(this.state.lastName)) {
+    } else if (this.state.password === "") {
       this.setState({
         snackbarOpen: true,
-        snackbarMsg: "Password should be minimum 8 digit and have to use character number",
+        snackbarMsg: "Password is required",
+      });
+    } else if (
+      !/^[a-zA-Z0-9]*[@#$&*_+-]{1}[a-zA-Z0-9]*$/.test(this.state.password)
+    ) {
+      this.setState({
+        snackbarOpen: true,
+        snackbarMsg:
+          "Password should be minimum 8 digit and have to use atleast one characters and number",
       });
     } else {
       const user = {
@@ -133,7 +142,7 @@ export class Register extends React.Component {
         />
         <p className="text">Create your Fundoo Account</p>
         <p className="continue">Continue to Fundoo</p>
-        <br/>
+        <br />
         <div class="main">
           <div class="input">
             <div className="flname">
@@ -180,7 +189,7 @@ export class Register extends React.Component {
             <h1 className="usermailline">
               Use my current email address instead
             </h1>
-            <br/>
+            <br />
             <div className="flname">
               <TextField
                 className="conPass"
@@ -248,7 +257,7 @@ export class Register extends React.Component {
             <h1 className="passline">
               Use 8 or more characters with a mix of letters, numbers & symbols
             </h1>
-            <br/>
+            <br />
             <div>
               <div className="service">
                 <RadioGroup
