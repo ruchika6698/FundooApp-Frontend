@@ -41,32 +41,42 @@ export class Register extends React.Component {
 
   submitUserSignInForm = () => {
     if (this.state.firstName === "") {
+        this.setState({
+        snackbarOpen: true,
+        snackbarMsg: "First Name is required",
+      });
+    } else if (!/^[A-Z][a-zA-Z]{2,15}$/.test(this.state.firstName)) {
       this.setState({
         snackbarOpen: true,
-        snackbarMsg: "First name is required",
+        snackbarMsg: "First Name is not in correct format",
       });
     } else if (this.state.lastName === "") {
-      this.setState({
+        this.setState({
         snackbarOpen: true,
-        snackbarMsg: "Last name is required",
+        snackbarMsg: "Last Name is required",
       });
-    } else if (this.state.password === "") {
+    } else if (!/^[A-Z][a-zA-Z]{2,15}$/.test(this.state.lastName)) {
       this.setState({
         snackbarOpen: true,
-        snackbarMsg: "password is required and should be minimum 8 digit",
+        snackbarMsg: "Last Name is not in correct format",
       });
     } else if (this.state.email === "") {
       this.setState({
         snackbarOpen: true,
-        snackbarMsg: "Email cannot be empty",
+        snackbarMsg: "Email is required",
       });
     }
     else if (
-      !/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(this.state.email)
+      !/^[a-zA-Z0-9]{1,}([.]?[-]?[+]?[a-zA-Z0-9]{1,})?[@]{1}[a-zA-Z0-9]{1,}[.]{1}[a-z]{2,3}([.]?[a-z]{2})?$/.test(this.state.email)
     ) {
       this.setState({
         snackbarOpen: true,
-        snackbarMsg: "invalid email address",
+        snackbarMsg: "Invalid Email address",
+      });
+    } else if (!/^[a-zA-Z0-9]*[@#$&*_+-]{1}[a-zA-Z0-9]*$/.test(this.state.lastName)) {
+      this.setState({
+        snackbarOpen: true,
+        snackbarMsg: "Password should be minimum 8 digit and have to use character number",
       });
     } else {
       const user = {
@@ -76,6 +86,7 @@ export class Register extends React.Component {
         password: this.state.password,
         service: this.state.service,
       };
+      console.log("USER", user);
       service
         .Registration(user)
         .then((json) => {
@@ -83,11 +94,11 @@ export class Register extends React.Component {
           if (json.status === 200) {
             alert("Registration Sucessfull !!");
           }
-          this.props.history.push("/");
         })
         .catch((err) => {
           console.log(err);
         });
+      this.props.history.push("/");
     }
   };
 
@@ -131,7 +142,7 @@ export class Register extends React.Component {
                 className="name"
                 variant="outlined"
                 name="firstName"
-                label={<div class="email">First name*</div>}
+                label={<div class="name">First name</div>}
                 margin="dense"
                 size="medium"
                 style={{ width: "48%" }}
@@ -145,7 +156,7 @@ export class Register extends React.Component {
                 className="name"
                 variant="outlined"
                 name="lastName"
-                label={<div class="email">Last name*</div>}
+                label={<div class="name">Last name</div>}
                 margin="dense"
                 size="medium"
                 style={{ width: "48%" }}
@@ -160,7 +171,7 @@ export class Register extends React.Component {
               className="username"
               name="email"
               variant="outlined"
-              label={<div class="email">Email*</div>}
+              label={<div class="email">Email</div>}
               margin="dense"
               inputProps={{ style: { fontSize: "16px" } }}
               defaultValue={this.state.email}
@@ -176,19 +187,38 @@ export class Register extends React.Component {
                 name="password"
                 type={this.state.showPassword ? "text" : "password"}
                 variant="outlined"
-                label={<div class="email">Password*</div>}
+                label={<div class="cpassword">Password</div>}
                 margin="dense"
                 style={{ width: "68%" }}
                 inputProps={{ style: { fontSize: "16px" } }}
                 defaultValue={this.state.password}
                 onChange={this.handleChangeText}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end" sytle={{ width: "1px" }}>
+                      <IconButton
+                        onClick={() =>
+                          this.setState({
+                            showPassword: !this.state.showPassword,
+                          })
+                        }
+                      >
+                        {this.state.showPassword ? (
+                          <Visibility />
+                        ) : (
+                          <VisibilityOff />
+                        )}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
               />
               <span></span>
               <TextField
                 className="conPass1"
                 type={this.state.showPassword ? "text" : "password"}
                 variant="outlined"
-                label={<div class="cpassword">Confirm Password*</div>}
+                label={<div class="cpassword">Confirm Password</div>}
                 margin="dense"
                 style={{ width: "65%" }}
                 defaultValue={this.state.confirmPassword}
@@ -227,7 +257,7 @@ export class Register extends React.Component {
                   value={this.state.value}
                   onChange={this.handleChange}
                 >
-                  <h5>*Service:</h5>
+                  <h5>Service:</h5>
                   <div class="radio">
                     <FormControlLabel
                       value="Basic"

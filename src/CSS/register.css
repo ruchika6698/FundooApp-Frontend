@@ -96,7 +96,7 @@ body {
 }
 .cpassword {
 	font-size: 16px;
-	padding-left: 15px !important;
+	padding-left: 10px !important;
 }
 .fullname {
 	font-size: 16px;
@@ -161,8 +161,15 @@ body {
 		padding: 2em;
 		margin-right: 200px !important;
 	}
-    .service {
+    .conPass1 {
+		width: 23em !important;
+		margin-left: -8px !important;
+	}
+    .passline {
         margin-left: 5px !important;
+    }
+     .service {
+        margin-right: -34px !important;
     }
 }
 @media screen and (max-width: 768px) {
@@ -206,10 +213,10 @@ body {
 		margin-right: 440px !important;
 	}
 	.usermailline {
-		margin-left: 90px !important;
+		margin-left: 60px !important;
 	}
 	.passline {
-		margin-left: 270px !important;
+		margin-left: 250px !important;
 	}
 	.signbutton {
 		flex-direction: column;
@@ -222,7 +229,7 @@ body {
 		display: none;
 	}
     .service {
-        margin-left: 5px !important;
+        margin-left: 35px !important;
     }
 }
 @media screen and (max-width: 414px) {
@@ -260,8 +267,11 @@ body {
 		flex-direction: column;
 		margin-left: 1265px !important;
 	}
-    .service {
-        margin-left: 5px !important;
+    .passline {
+        margin-left: 180px !important;
+    }
+     .service {
+        margin-left: 38px !important;
     }
 }
 @media screen and (max-width: 411px) {
@@ -274,7 +284,7 @@ body {
 		margin-left: 400px !important;
 	}
 	.username {
-		width: 20.6em !important;
+		width: 20em !important;
 		margin-left: 100px !important;
 	}
 	.input {
@@ -283,22 +293,23 @@ body {
 		flex-direction: column;
 		align-items: center;
 	}
-	.passline {
-		font-size: 12px;
-		margin-left: 150px !important;
-	}
 	.conPass {
 		width: 22em !important;
 		margin-right: 420px !important;
 	}
 	.conPass1 {
-		width: 20.5em !important;
+		width: 20.9em !important;
 		margin-right: 440px !important;
 	}
 	.signbutton {
 		flex-direction: column;
 		margin-left: 1265px !important;
 	}
+    .passline {
+        font-size: 12px;
+		margin-left: 150px !important;
+        margin-left: 180px !important;
+    }
     .service {
         margin-left: 45px !important;
     }
@@ -313,7 +324,7 @@ body {
 		margin-left: 400px !important;
 	}
 	.username {
-		width: 20.6em !important;
+		width: 20.2em !important;
 		margin-left: 100px !important;
 	}
 	.input {
@@ -327,11 +338,17 @@ body {
 		margin-right: 420px !important;
 	}
 	.conPass1 {
-		width: 20em !important;
-		margin-right: 440px !important;
+		width: 20.8em !important;
+		margin-left: -8px !important;
 	}
 	.signbutton {
 		flex-direction: column;
 		margin-left: 1265px !important;
 	}
+    .passline {
+        margin-left: 160px !important;
+    }
+     .service {
+        margin-left: 65px !important;
+    }
 }

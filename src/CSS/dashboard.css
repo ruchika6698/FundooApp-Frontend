@@ -8,5 +8,10 @@
 }
 .search{
   width:75%;
+  margin-left:130px !important;
   background-color:white;
+  border-radius:10px;
+}
+.icons{
+  font-size:100px !important;
 }

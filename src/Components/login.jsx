@@ -35,19 +35,18 @@ export class Login extends React.Component {
         snackbarMsg: "Email is Required",
       });
     } else if (
-      !/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(this.state.email)
+      !/^[a-zA-Z0-9]{1,}([.]?[-]?[+]?[a-zA-Z0-9]{1,})?[@]{1}[a-zA-Z0-9]{1,}[.]{1}[a-z]{2,3}([.]?[a-z]{2})?$/.test(this.state.email)
     ) {
       this.setState({
         snackbarOpen: true,
-        snackbarMsg: "Invalid email..!",
+        snackbarMsg: "Invalid Email..!",
       });
     } else if (this.state.password.length < 8) {
       this.setState({
         snackbarOpen: true,
-        snackbarMsg: "password must be of atleast 8 characters long..!",
+        snackbarMsg: "Invalid Password..!!",
       });
     } else {
-      //navigate to controller
       const user = {
         email: this.state.email,
         password: this.state.password,
