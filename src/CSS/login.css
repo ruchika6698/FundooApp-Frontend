@@ -222,52 +222,26 @@ body {
 		margin-right: 20px;
 		border: none;
 		width: 100% !important;
-		height: 100% !important;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-direction: column;
+		height: 640px !important;
 	}
 	.usernameLogin {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-direction: column;
-		width: 100%;
+		width: 93% !important;
 		margin-left: 20px;
 	}
 	.passwordLogin {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-direction: column;
 		width: 93% !important;
 		margin-left: 20px;
 	}
 	.Forgotpassword {
-		display: flex;
-		justify-content: space-between;
-		align-items: left;
-		flex-direction: column;
 		width: 60%;
 	}
 	.buttonLogin {
-		display: flex;
-		justify-content: space-between;
-		flex-direction: row;
-		padding: 3em;
-		padding-left: 2px;
-		font-size: 14px;
-		font-weight: bold;
 		margin-left: 50px !important;
 	}
 	.button-Login {
 		margin-left: 70px !important;
 	}
 	.Forgotpassword {
-		display: flex;
-		align-items: left;
-		flex-direction: column;
 		margin-right: 180px !important;
 	}
 	.submit {
@@ -285,25 +259,13 @@ body {
 	.loginbox {
 		width: 320px;
 		height: 568px !important;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-direction: column;
 	}
 	.usernameLogin {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-direction: column;
 		width: 100%;
 		padding-left: 30px;
 	}
 	.passwordLogin {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-direction: column;
-		width: 420px !important;
+		width: 93% !important;
 		padding-left: 30px;
 	}
 	.buttonLogin {
