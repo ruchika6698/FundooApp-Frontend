@@ -107,6 +107,7 @@ export class Login extends React.Component {
             margin="dense"
             size="medium"
             name="email"
+            type="email"
             id="outlined-required"
             label={<div class="email">Email</div>}
             variant="outlined"

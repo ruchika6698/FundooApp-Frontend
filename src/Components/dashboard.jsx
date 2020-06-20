@@ -24,6 +24,10 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import { TextField } from "@material-ui/core";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
+import RefreshIcon from '@material-ui/icons/Refresh';
+import ListAltIcon from '@material-ui/icons/ListAlt';
+import SettingsIcon from '@material-ui/icons/Settings';
+import AppsIcon from '@material-ui/icons/Apps';
 import "../CSS/dashboard.css";
 
 export default function Dashboard() {
@@ -44,6 +48,7 @@ export default function Dashboard() {
       <CssBaseline />
       <AppBar
         position="fixed"
+        color="white"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}
@@ -60,7 +65,8 @@ export default function Dashboard() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6">
+          <img src='https://www.gstatic.com/images/branding/product/1x/keep_48dp.png' />
+          <Typography variant="h6" className="fundootext">
             Fundoo Notes
           </Typography>
           <TextField
@@ -78,15 +84,22 @@ export default function Dashboard() {
               ),
             }}
           />
+          <IconButton className="refresh">
+              <RefreshIcon />
+            </IconButton>
+            <IconButton className="listicon">
+              <ListAltIcon />
+            </IconButton>
+            <IconButton>
+              <SettingsIcon />
+            </IconButton>
+            <IconButton className="dialicon">
+              <AppsIcon />
+            </IconButton>
           <IconButton
             class="account"
             color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
             edge="end"
-            className={clsx(classes.menuButton, {
-              [classes.hide]: open,
-            })}
           >
             <AccountCircleIcon />
           </IconButton>
