@@ -1,30 +1,95 @@
-.appbar{
-  width:100%;
-  color:white;
+.mainDashboard {
+  display: flex;
+  justify-content: center;
 }
-.searchbox{
-  font-size:16px;
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  color: black;
+  background-color: white;
+ 
+}
+.dashboardSearch {
+  display: flex;
+  width: 51%;
+  border-radius: 8px;
+  justify-content: space-around;
+  flex-direction: row;
+  background-color: #e4e4e4;
+  position: relative;
+}
+.searchBox {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  top: 2%;
+  }
+
+  .backgrounddashboard{
+      width: 100%;
+    height: 100vh;
+    background: linear-gradient(to right, #002b33, #008b8b);
+  }
+
+.dashboardsearchicon {
+  display: flex;
+  justify-content: flex-start;
+  padding: 2%;
+  padding-top: 20px;
+}
+
+.keepAndLogo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.keep {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   color:grey;
+  padding-left:5%;
 }
-.fundootext{
-  color:grey;
-  padding-left:30px !important;
+.appbar {
+  background-color: white;
 }
-.search{
-  width:60%;
-  margin-left:100px !important;
-  background-color:white;
-  border-radius:10px;
+.acoounts{
+  display: flex;
+  width:4%;
+  justify-content: space-between;
 }
-.refresh{
-  padding-left:480px !important;
+.mainContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: margin .20s linear;
 }
-.listicon{
-  padding-left:10px !important;
+
+.sideContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 160px;
+  margin-right: -3.7%;
+  transition: margin .20s linear;
 }
-.dialicon{
-  padding-left:30px !important;
+.logokeep1 {
+  display: flex;
+  width: 8%;
+  justify-content: space-between;
 }
-.icons{
-  font-size:100px !important;
+.displaynotess {
+  display: flex;
+  width: 800px;
+  padding-top: 80px;
+  justify-content: start;
+  flex-wrap: wrap;
+  padding-left: 94px;
+}
+.notesDiv {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 5px;
 }

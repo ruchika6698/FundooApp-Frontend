@@ -1,0 +1,25 @@
+.noteCard{
+    display: flex;
+    flex-Wrap: wrap;
+    justify-Content: center;
+    margin-Top:2em;
+}
+.miniNote{
+    display: flex;
+    flex-Wrap: wrap;
+    justify-Content: center;
+    flex-direction:row;
+    border-radius:5px;
+    border-color:grey;
+    font-weight: 50%;
+    padding-left:1%;
+}
+.wholeMiniNoteCard{
+    margin-top:18%;
+    width:600px;
+    padding-left:3%;
+}
+.takeNote{
+    padding-top:1.5%;
+    padding-right:40%;
+}
