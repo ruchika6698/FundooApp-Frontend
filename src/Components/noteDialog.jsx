@@ -26,7 +26,7 @@ import Popover from '@material-ui/core/Popover';
 import { makeStyles } from '@material-ui/core/styles';
 // import ArchiveNotes from './ArchiveNotes'
 import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
-// import ListDropDown from './listDropDown'
+import ListDropDown from './listDropDown'
 
 export default function NoteDialog(data) {
     console.log('title=>', data.id);
@@ -58,36 +58,10 @@ export default function NoteDialog(data) {
     };
 
     const handleEditClose = () => {
-        setOpen(false);
-        let updateNote = {}
-
-        console.log(title)
-        console.log(description)
-
-        updateNote.title = title;
-        updateNote.description = description;
-
-        let token = localStorage.getItem("Token");
-
-        let noteId = noteArray.id;
-
-        updateNote(noteId, updateNote, token)
-            .then(Response => {
-                console.log('res:----- ', Response);
-                console.log('res data:----- ', Response.data.data);
-                showAllNotes();
-                alert("Note Updated Successfully!!");
-            }).catch(error => {
-                console.log("Error", error.response)
-                console.log(error.response.message, "Note Not Updated");
-                alert("Note Not Updated")
-            })
+        
     }
 
     const showAllNotes = () => {
-
-        let token = localStorage.getItem("Token");
-        console.log('show all notes');
 
     }
     return (
@@ -132,7 +106,7 @@ export default function NoteDialog(data) {
 
                     <IconButton aria-label="More">
                         <Tooltip title="More">
-                            {/* <ListDropDown /> */}
+                            <ListDropDown />
                         </Tooltip>
                     </IconButton>
 
@@ -189,7 +163,7 @@ export default function NoteDialog(data) {
 
                     <IconButton aria-label="More">
                         <Tooltip title="More">
-                            {/* <ListDropDown /> */}
+                            <ListDropDown />
                         </Tooltip>
                     </IconButton>
 
