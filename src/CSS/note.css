@@ -12,14 +12,46 @@
     border-radius:5px;
     border-color:grey;
     font-weight: 50%;
-    padding-left:1%;
+    padding-right:20%;
 }
 .wholeMiniNoteCard{
     margin-top:18%;
-    width:600px;
+    width:800px;
     padding-left:3%;
+}
+.miniIcons{
+    padding-right:0px;
 }
 .takeNote{
     padding-top:1.5%;
     padding-right:40%;
+}
+.NoteCard{
+    border-radius: 10px; 
+    width: 288px;
+    height: 180px !important;
+    display: flex;
+    flex-direction: column; 
+    border: solid rgba(128, 128, 128, 0.21);
+    margin: 5px;
+    padding: 7px;
+}
+.wholeCard{
+    margin-top:18%;
+}
+.wholeNoteCard{
+    width:800px;
+}
+.pinImage{
+    padding-left:540px;
+}
+.cancelButton{
+    padding-left:360px !important;
+}
+.wholeTitle{
+    padding-left:10px;
+}
+.moreVertIcon{
+    top: "4%" ;
+   width:"50%"
 }
