@@ -11,129 +11,122 @@ import SettingsOutlinedIcon from "@material-ui/icons/SettingsOutlined";
 import RefreshOutlinedIcon from "@material-ui/icons/RefreshOutlined";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
+import MenuIcon from "@material-ui/icons/Menu";
+import IconButton from "@material-ui/core/IconButton";
 import { Tooltip } from "@material-ui/core";
-import KeepLogo from '../Assets/KeepLogo.png'
+import KeepLogo from "../Assets/KeepLogo.png";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import AppsIcon from '@material-ui/icons/Apps';
-import DropDown from "./dropDown";
-
-const theme = createMuiTheme({
-    overrides: {
-        MuiDrawer: {
-            paper: {
-                top: "13%"
-            }
-        },
-
-        PersistentDrawerLeft: {
-            drawer: {
-                width: "100%"
-            }
-        }
-    }
-});
+import AppsIcon from "@material-ui/icons/Apps";
+import Divider from "@material-ui/core/Divider";
+import Drawer from "@material-ui/core/Drawer";
+import { Menu, MenuItem } from '@material-ui/core'
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import ArchiveOutlinedIcon from "@material-ui/icons/ArchiveOutlined";
+import NotificationsOutlinedIcon from "@material-ui/icons/NotificationsOutlined";
+import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
+import DeleteOutlinedIcon from "@material-ui/icons/DeleteOutlined";
+import EmojiObjectsIcon from "@material-ui/icons/EmojiObjects";
 
 export class Dashboard extends React.Component {
   constructor(props) {
-        super(props);
+    super(props);
 
-        this.state = {
-
-            userprofile: false,
-            allNote: [],
-            SearchData: "",
-            list: false
-        };
+    this.state = {
+      openImg: false,
+      imagetrue:true
+    };
+  }
+   handleToggle = () => {
+      this.setState({ openImg: !this.state.openImg });
+      console.log(this.state.openImg);
     }
 
   render() {
-        return (
-            <div className="toolbarbackground">
-                <div className="mainDashboard">
-                    <MuiThemeProvider theme={theme}>
-                        <AppBar position="fixed">
-                            <Toolbar className="toolbar">
-                                <div className="keepAndLogo">
-                                    <div>
-                                        <DropDown
-                                            showNoteclick={this.handleShowAllNotes}
-                                            archiveclick={this.handleShowAllArchiveNote}
-                                            {...this.props}
-                                        />
-                                    </div>
+    return (
+      <div className="toolbarbackground">
+        <div className="mainDashboard">
+          <MuiThemeProvider >
+            <AppBar position="fixed">
+              <Toolbar className="toolbar">
+                <div className="keepAndLogo">
+                  <div>
+                    <IconButton >
+                      <Tooltip title="Menu">
+                      <MenuIcon />
+                    </Tooltip>
+                    </IconButton>
+                  </div>
 
-                                    <div>
-                                        <img src={KeepLogo} alt="Kepp Logo" />
-                                    </div>
-
-                                    <Typography
-                                        className="keep"
-                                        variant="h6"
-                                        noWrap
-                                    >
-                                     Fundoo
-                                    </Typography>
-                                </div>
-                                <div className="dashboardSearch">
-                                    <div className="dashboardsearchicon">
-                                        <SearchIcon onClick={this.getAllSearchNotes} />
-                                    </div>
-                                    <div style={{ width: "90%", height: "1.7vh" }}>
-                                        <TextField
-                                            color="white"
-                                            placeholder="Search…"
-                                            onChange={this.getAllSearchNotes}
-                                            id="standard-full-width"
-                                            multiline
-                                            fullWidth
-                                            margin="normal"
-                                            InputProps={{
-                                                disableUnderline: true
-                                            }}
-                                        />
-                                    </div>
-                                </div>
-                                <div className="logokeep1">
-                                    <Tooltip title="Refresh">
-                                        <RefreshOutlinedIcon />
-                                    </Tooltip>
-                                    {this.props.view !== true ? (
-                                        <Tooltip title="Grid view ">
-                                            <img
-                                                src={gridview}
-                                                width="22px"
-                                                height="22px"
-                                                onClick={() => this.props.toggleView()}
-                                            ></img>
-                                        </Tooltip>
-                                    ) : (
-                                            <Tooltip title="Grid view ">
-                                                <img
-                                                    src={keep1}
-                                                    width="22px"
-                                                    height="22px"
-                                                    onClick={() => this.props.toggleView()}
-                                                ></img>
-                                            </Tooltip>
-                                        )}
-                                    <Tooltip title="Settings">
-                                        <SettingsOutlinedIcon />
-                                    </Tooltip>
-                                </div>
-                                <div className="acoounts">
-                                    <Tooltip title="Fundoo Apps">
-                                        <AppsIcon />
-                                    </Tooltip>
-
-                                    <Tooltip title="Fundoo Account">
-                                        <AccountCircleIcon />
-                                    </Tooltip>
-                                </div>
-                                </Toolbar>
-                        </AppBar>
-                    </MuiThemeProvider>
+                  <div>
+                    <img src={KeepLogo} alt="Kepp Logo" />
+                  </div>
+                  <Typography className="keep" variant="h6" noWrap>
+                    Fundoo
+                  </Typography>
                 </div>
-            </div>
-        );
-    }
+                <div className="dashboardSearch">
+                  <div className="dashboardsearchicon">
+                    <SearchIcon />
+                  </div>
+                  <div style={{ width: "90%", height: "1.7vh" }}>
+                    <TextField
+                      color="white"
+                      placeholder="Search…"
+                      onChange={this.getAllSearchNotes}
+                      id="standard-full-width"
+                      multiline
+                      fullWidth
+                      margin="normal"
+                      InputProps={{
+                        disableUnderline: true,
+                      }}
+                    />
+                  </div>
+                </div>
+                <div className="logokeep1">
+                  <Tooltip title="Refresh">
+                    <RefreshOutlinedIcon />
+                  </Tooltip>
+                  {this.state.openImg  !== true ? (
+                    <Tooltip title="Grid view ">
+                      <img
+                        src={gridview}
+                        width="22px"
+                        height="22px"
+                         onClick={this.handleToggle}
+                      ></img>
+                    </Tooltip>
+                  ) : (
+                    <Tooltip title="Grid view ">
+                      <img
+                        src={keep1}
+                        width="22px"
+                        height="22px"
+                        onClick={this.handleToggle}
+                      ></img>
+                    </Tooltip>
+                  )}
+                  <Tooltip title="Settings">
+                    <SettingsOutlinedIcon />
+                  </Tooltip>
+                </div>
+                <div className="acoounts">
+                  <Tooltip title="Fundoo Apps">
+                    <AppsIcon />
+                  </Tooltip>
+
+                  <Tooltip title="Fundoo Account">
+                    <AccountCircleIcon />
+                  </Tooltip>
+                </div>
+              </Toolbar>
+            </AppBar>
+          </MuiThemeProvider>
+        </div>
+      </div>
+    );
+  }
 }
