@@ -26,8 +26,9 @@ import RedoTwoToneIcon from '@material-ui/icons/RedoTwoTone';
 import CheckBoxOutlinedIcon from '@material-ui/icons/CheckBoxOutlined';
 import BrushOutlinedIcon from '@material-ui/icons/BrushOutlined';
 import PhotoLibraryOutlinedIcon from '@material-ui/icons/PhotoLibraryOutlined';
-// import ListDropDown from './listDropDown'
+import ListDropDown from './listDropDown'
 import Images from '../Assets/images.png';
+import Blackpin from '../Assets/Blackpin.png';
 
 
 class WholeNote extends Component {
@@ -35,13 +36,18 @@ class WholeNote extends Component {
         super(props);
 
         this.state = {
+            openImg: false,
+            imagetrue:true
         };
     }
 
     state = {
         anchorEl: null
     };
-
+     handleToggle = () => {
+      this.setState({ openImg: !this.state.openImg });
+      console.log(this.state.openImg);
+    }
     handleClick = event => {
         this.setState({
             anchorEl: event.currentTarget
@@ -67,8 +73,7 @@ class WholeNote extends Component {
     };
     render() {
         return (
-            // <div >
-            //     <div className="notePage">
+        <div className="wholeCard">
             <Paper className="wholeNoteCard" onClick={this.clickNote}>
                 <Paper className='titleAndPin'>
                     <InputBase
@@ -82,10 +87,27 @@ class WholeNote extends Component {
                             disableUnderline: true
                         }}
                     />
+                    {this.state.openImg  !== true ? (
                     <Tooltip title="Pin note">
-                        <img className="pinImage"
-                            src={Images} alt="pin logo" /></Tooltip>
-                    {/* <image src={KeepLogo} /> */}
+                      <img
+                        className="pinImage"
+                        src={Images}
+                        alt="pin logo"
+                        width="50" height="40"
+                         onClick={this.handleToggle}
+                      ></img>
+                    </Tooltip>
+                  ) : (
+                    <Tooltip title="Pin note">
+                      <img
+                        className="pinImage"
+                        src={Blackpin}
+                        alt="pin logo"
+                        width="40" height="30"
+                        onClick={this.handleToggle}
+                      ></img>
+                    </Tooltip>
+                  )}
                 </Paper>
 
                 <Paper>
@@ -133,7 +155,7 @@ class WholeNote extends Component {
 
                     <IconButton aria-label="More">
                         <Tooltip title="More">
-                            {/* <ListDropDown /> */}
+                            <ListDropDown />
                         </Tooltip>
                     </IconButton>
 
@@ -152,20 +174,18 @@ class WholeNote extends Component {
                             <RedoTwoToneIcon />
                         </Tooltip>
                     </IconButton>
-                    <div className="closeButton">
-                        <Tooltip title="Close">
+                    <Tooltip title="Close">
                             <Button
+                                className="cancelButton"
                                 margin="dense"
                                 size="small"
-                                // variant="contained"
                                 color="primary"
                                 onHandleClickaway={this.props.onHandleClickaway}
                             >Close</Button>
                         </Tooltip>
-                    </div>
                 </Paper>
             </Paper >
-
+        </div>
         );
     }
 }

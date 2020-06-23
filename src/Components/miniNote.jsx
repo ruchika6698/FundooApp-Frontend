@@ -33,19 +33,6 @@ class MiniNote extends Component {
         };
     }
 
-    handleChangeText = (event) => {
-        this.setState({
-            [event.target.name]: event.target.value
-        }, () => console.log(this.state, '------>name'))
-    }
-
-    clickNote = () => {
-        let note = {};
-        note.title = this.state.title;
-        note.description = this.state.description;
-        console.log(note);
-    }
-
     render() {
         return (
             <Card className="wholeMiniNoteCard">

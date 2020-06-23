@@ -50,8 +50,7 @@ export default function SimplePopover(props) {
                 onClick={handleClick}
             />
             <Menu
-                id="simple-menu"
-                style={{ top: "6%" }}
+                className="simple-menu"
                 anchorEl={anchorEl}
                 keepMounted
                 open={Boolean(anchorEl)}

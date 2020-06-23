@@ -24,7 +24,7 @@ import Images from '../Assets/images.png'
 import Tooltip from '@material-ui/core/Tooltip';
 import Popover from '@material-ui/core/Popover';
 import { makeStyles } from '@material-ui/core/styles';
-// import ArchiveNotes from './ArchiveNotes'
+import ArchiveNotes from './archiveNotes'
 import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
 import ListDropDown from './listDropDown'
 
@@ -100,7 +100,7 @@ export default function NoteDialog(data) {
 
                     <IconButton aria-label="Archive note">
                         <Tooltip title="Archive">
-                            {/* <ArchiveNotes onSelectArchive={handleArchive} data={data} /> */}
+                            <ArchiveNotes onSelectArchive={handleArchive} data={data} />
                         </Tooltip>
                     </IconButton>
 
@@ -156,7 +156,7 @@ export default function NoteDialog(data) {
 
                     <IconButton aria-label="Archive note">
                         <Tooltip title="Archive">
-                            {/* <ArchiveNotes onSelectArchive={handleArchive} data={data} /> */}
+                            <ArchiveNotes onSelectArchive={handleArchive} data={data} />
                         </Tooltip>
                     </IconButton>
 
