@@ -43,7 +43,6 @@ export class Dashboard extends React.Component {
       this.setState({ openImg: !this.state.openImg });
       console.log(this.state.openImg);
     }
-
   render() {
     return (
       <div className="toolbarbackground">
@@ -71,10 +70,9 @@ export class Dashboard extends React.Component {
                   <div className="dashboardsearchicon">
                     <SearchIcon />
                   </div>
-                  <div style={{ width: "90%", height: "1.7vh" }}>
+                  <div className="search">
                     <TextField
-                      color="white"
-                      placeholder="Search…"
+                      placeholder="Search"
                       onChange={this.getAllSearchNotes}
                       id="standard-full-width"
                       multiline

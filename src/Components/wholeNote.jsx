@@ -103,7 +103,7 @@ class WholeNote extends Component {
                         className="pinImage"
                         src={Blackpin}
                         alt="pin logo"
-                        width="40" height="30"
+                        width="40" height="35"
                         onClick={this.handleToggle}
                       ></img>
                     </Tooltip>
@@ -159,10 +159,6 @@ class WholeNote extends Component {
                         </Tooltip>
                     </IconButton>
 
-                    {/* <IconButton aria-label="pen link">
-                        <LinkIcon />
-                    </IconButton> */}
-
                     <IconButton aria-label="Undo">
                         <Tooltip title="Undo">
                             <UndoTwoToneIcon />
@@ -174,9 +170,8 @@ class WholeNote extends Component {
                             <RedoTwoToneIcon />
                         </Tooltip>
                     </IconButton>
-                    <Tooltip title="Close">
+                    <Tooltip className="cancelButton" title="Close">
                             <Button
-                                className="cancelButton"
                                 margin="dense"
                                 size="small"
                                 color="primary"

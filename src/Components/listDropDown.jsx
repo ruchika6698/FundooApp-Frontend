@@ -1,6 +1,4 @@
 import React from "react";
-import Popover from "@material-ui/core/Popover";
-import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Divider from "@material-ui/core/Divider";
 import Snackbar from '@material-ui/core/Snackbar';
@@ -9,17 +7,12 @@ import { IconButton } from "@material-ui/core";
 import {
     Menu,
     MenuItem,
-    Avatar,
-    TextField,
-    Dialog,
-    DialogContent,
-    DialogContentText
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Badge from "@material-ui/core/Badge";
 import CameraAltIcon from "@material-ui/icons/CameraAlt";
 import MoreVertIcon from '@material-ui/icons/MoreVert'
-import '../CSS/listDropDown.css'
+import '../CSS/note.css';
 // import AddLabel from "./AddLabel";
 // import TrashNote from './TrashNote';
 
