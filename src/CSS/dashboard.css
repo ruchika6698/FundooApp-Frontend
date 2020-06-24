@@ -30,6 +30,7 @@
       width: 100%;
     height: 100vh;
     background: linear-gradient(to right, #002b33, #008b8b);
+    margin-left: 100px;
   }
 
 .dashboardsearchicon {
@@ -49,7 +50,7 @@
   justify-content: center;
   flex-direction: column;
   color:grey;
-  padding-left:0.6%;
+  padding-left:1%;
 }
 .appbar {
   background-color: white;
@@ -72,6 +73,11 @@
 .dashboardSearch{
   margin-top:6px;
   margin-bottom:6px;
+  width: 70%;
+}
+.searchbar{
+  padding-left:4%;
+  width: 70%;
 }
 .sideContainer{
   display: flex;
@@ -94,6 +100,12 @@
   flex-wrap: wrap;
   padding-left: 94px;
 }
+.tool{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-left:4%;
+}
 .notesDiv {
   display: flex;
   justify-content: center;
@@ -107,4 +119,13 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+.refresh{
+  padding-left:40% !important;
+}
+.grid{
+  padding-right:8% !important;
+}
+.setting{
+  padding-left:0.4% !important;
 }

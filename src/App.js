@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Login} from './Components/login'
 import { Register} from './Components/register'
 import { ForgotPassword} from './Components/forgotpassword'
-import { Dashboard} from './Components/dashboard'
+import  Dashboard from './Components/dashboard'
 import { ResetPassword} from './Components/resetpassword'
 import { Note} from './Components/note'
 
