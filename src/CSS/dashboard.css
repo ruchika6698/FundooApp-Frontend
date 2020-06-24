@@ -8,15 +8,15 @@
   flex-direction: row;
   color: black;
   background-color: white;
- 
 }
 .dashboardSearch {
   display: flex;
-  width: 51%;
+  width: 45%;
   border-radius: 8px;
+  padding-right:10px;
   justify-content: space-around;
   flex-direction: row;
-  background-color: #e4e4e4;
+  background-color: #f1f3f4;
   position: relative;
 }
 .searchBox {
@@ -65,7 +65,14 @@
   justify-content: center;
   transition: margin .20s linear;
 }
-
+.search{
+  width: 90%;
+  height: 5vh !important;
+}
+.dashboardSearch{
+  margin-top:6px;
+  margin-bottom:6px;
+}
 .sideContainer{
   display: flex;
   flex-direction: column;
@@ -92,4 +99,12 @@
   justify-content: center;
   flex-direction: column;
   padding: 5px;
+}
+.miniIcons{
+  padding-left:40px !important;
+}
+.drawer{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }

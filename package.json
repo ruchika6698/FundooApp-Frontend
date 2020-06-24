@@ -15,12 +15,16 @@
     "cra-template": "1.0.3",
     "material-ui-form": "^1.0.0-alpha.26",
     "material-ui-responsive-drawer": "^1.19.4",
+    "material-ui-search-bar": "^1.0.0-beta.14",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-list": "^0.8.15",
+    "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "react-visibility-sensor": "^5.1.1"
+    "react-visibility-sensor": "^5.1.1",
+    "reactstrap": "^8.4.1",
+    "tooltip": "^1.6.1"
   },
   "scripts": {
     "start": "set PORT=4200 && react-scripts start",
@@ -42,5 +46,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2"
   }
 }

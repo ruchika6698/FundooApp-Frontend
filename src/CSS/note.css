@@ -20,7 +20,7 @@
     padding-left:3%;
 }
 .miniIcons{
-    padding-right:0px;
+    padding-left:0px;
 }
 .takeNote{
     padding-top:1.5%;
@@ -40,16 +40,16 @@
     margin-top:18%;
 }
 .wholeNoteCard{
-    width:800px;
+    /* width:800px; */
 }
 .pinImage{
-    padding-left:540px;
+    padding-left:340px;
 }
 .cancelButton{
-    padding-left:360px !important;
+    margin-left:130px !important;
 }
 .wholeTitle{
-    padding-left:10px;
+    padding-left:7px;
 }
 .moreVertIcon{
     top: "4%" ;

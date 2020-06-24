@@ -4,8 +4,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Login} from './Components/login'
 import { Register} from './Components/register'
 import { ForgotPassword} from './Components/forgotpassword'
-import  Dashboard from './Components/dashboard'
+import { Dashboard} from './Components/dashboard'
 import { ResetPassword} from './Components/resetpassword'
+import { Note} from './Components/note'
 
 class App extends Component {
   render() {
@@ -18,7 +19,8 @@ class App extends Component {
       <Route path="/forgotpassword" component={ForgotPassword} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/resetpassword/:token" component={ResetPassword} />
-       
+      <Route path="/dashboard" component={Note} />
+      
       </Router>
       </div>
     );
