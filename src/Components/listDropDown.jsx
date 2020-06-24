@@ -13,8 +13,8 @@ import Badge from "@material-ui/core/Badge";
 import CameraAltIcon from "@material-ui/icons/CameraAlt";
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import '../CSS/note.css';
-// import AddLabel from "./AddLabel";
-// import TrashNote from './TrashNote';
+// import AddLabel from './addLabel'
+// import DeleteNote from './deleteNote'
 
 
 export default function SimplePopover(props) {
@@ -49,8 +49,8 @@ export default function SimplePopover(props) {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
             >
-                {/* <MenuItem ><TrashNote onSelectTrash={handleTrash}></TrashNote></MenuItem>
-                <MenuItem ><AddLabel></AddLabel></MenuItem> */}
+                {/* <MenuItem ><DeleteNote onSelectTrash={handleTrash}>Delete Note</DeleteNote></MenuItem>
+                <MenuItem ><AddLabel>Add Label</AddLabel></MenuItem> */}
                 <MenuItem >Add Drawing</MenuItem>
                 <MenuItem >Show Checkboxes</MenuItem>
             </Menu></div>
