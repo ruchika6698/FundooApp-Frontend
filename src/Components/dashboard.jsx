@@ -38,6 +38,13 @@ export default function Dashboard() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [openimage, setOpenimage] = React.useState(false);
+
+  const handleDrawerMouseopen=()=>{
+    setOpen(true);
+  }
+  const handleDrawerMouseClose=()=>{
+    setOpen(false);
+  }
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -65,9 +72,8 @@ export default function Dashboard() {
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
-            className={clsx(classes.menuButton, {
-              [classes.hide]: open,
-            })}
+            className={clsx(classes.menuButton
+            )}
           >
             <MenuIcon />
           </IconButton>
@@ -99,12 +105,9 @@ export default function Dashboard() {
           </div>
           </div>
           <div className="logokeep1">
-            <div className="refresh">
             <Tooltip title="Refresh">
               <RefreshOutlinedIcon />
             </Tooltip>
-            </div>
-            <div className="grid">
             {/* {this.state.openImg  !== true ? ( */}
             <Tooltip title="Grid view ">
               <img
@@ -124,9 +127,6 @@ export default function Dashboard() {
               ></img>
             </Tooltip>
             {/* )} */}
-            </div>
-        </div>
-        <div className="setting">
             <Tooltip title="Settings">
               <SettingsOutlinedIcon />
             </Tooltip>
@@ -161,34 +161,35 @@ export default function Dashboard() {
         <br />
         <br />
         <br />
-        <List class="icons">
-          {["Notes", "Reminders", "Edit labels", "Archive", "Trash"].map(
-            (text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>
-                  {index === 0 ? (
-                    <EmojiObjectsIcon value="notes" />
-                  ) : index === 1 ? (
-                    <NotificationsOutlinedIcon value="reminders" />
-                  ) : index === 2 ? (
-                    <EditOutlinedIcon />
-                  ) : index === 3 ? (
-                    <ArchiveOutlinedIcon />
-                  ) : (
-                    <DeleteOutlinedIcon />
-                  )}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            )
-          )}
-        </List>
+         <List  onMouseEnter={handleDrawerMouseopen}
+          onMouseLeave={handleDrawerMouseClose}>
+          <ListItem button key={'Notes'} className="notes">
+            <ListItemIcon><EmojiObjectsIcon/></ListItemIcon>
+            <ListItemText primary={'Notes'}/>
+          </ListItem>
+          <ListItem button key={'Remainder'} className="remainder">
+            <ListItemIcon><NotificationsOutlinedIcon/></ListItemIcon>
+            <ListItemText primary={'Remainder'}/>
+          </ListItem>
+          <ListItem button key={'Editlabels'} className="editlabels">
+            <ListItemIcon>< EditOutlinedIcon/></ListItemIcon>
+            <ListItemText primary={'Edit labels'}/>
+          </ListItem>
+          <ListItem button key={'Archive'} className="archive">
+            <ListItemIcon><ArchiveOutlinedIcon/></ListItemIcon>
+            <ListItemText primary={'Archive'}/>
+          </ListItem>
+          <ListItem button key={'Trash'} className="trash">
+            <ListItemIcon>< DeleteOutlinedIcon/></ListItemIcon>
+            <ListItemText primary={'Trash'}/>
+          </ListItem>         
+        </List>  
       </Drawer>
     </div>
   );
 }
 
-const drawerWidth = 240;
+const drawerWidth = 300;
 
 const useStyles = makeStyles((theme) => ({
   root: {
