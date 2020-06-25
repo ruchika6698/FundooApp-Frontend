@@ -124,29 +124,88 @@
   width:299px;
   border-top-right-radius:27px;
   border-bottom-right-radius:27px;
-  background-color:#ffffb3;
+  background-color:#FEEFC3 !important;
 }
 .remainder:hover{
   width:299px;
   border-top-right-radius:27px;
   border-bottom-right-radius:27px;
-  background-color:#ffffb3;
+  background-color:#FEEFC3 !important;
 }
 .editlabels:hover{
   width:299px;
   border-top-right-radius:27px;
   border-bottom-right-radius:27px;
-  background-color:#ffffb3;
+  background-color:#FEEFC3 !important;
 }
 .archive:hover{
   width:299px;
   border-top-right-radius:27px;
   border-bottom-right-radius:27px;
-  background-color:#ffffb3;
+  background-color:#FEEFC3 !important;
 }
 .trash:hover{
   width:299px;
   border-top-right-radius:27px;
   border-bottom-right-radius:27px;
-  background-color:#ffffb3;
+  background-color:#FEEFC3 !important;
+}
+.noteCard{
+    display: flex;
+    flex-Wrap: wrap;
+    justify-Content: center;
+    margin-Top:2em;
+}
+.miniNote{
+    display: flex;
+    flex-Wrap: wrap;
+    justify-Content: center;
+    flex-direction:row;
+    border-radius:15px !important;
+    border-color:grey;
+    font-weight: 50%;
+}
+.wholeMiniNoteCard{
+    margin-top:18%;
+    width:700px;
+    padding-left:1%;
+
+}
+.miniIcons{
+    padding-left:0px;
+}
+.takeNote{
+    padding-top:1.5%;
+    padding-right:40%;
+}
+.NoteCard{
+    border-radius: 10px; 
+    width: 288px;
+    height: 180px !important;
+    display: flex;
+    flex-direction: column; 
+    border: solid rgba(128, 128, 128, 0.21);
+    margin: 5px;
+    padding: 7px;
+}
+.wholeCard{
+    margin-top:18%;
+    width:700px;
+}
+.wholeNoteCard{
+    /* width:800px; */
+}
+.pinImage{
+    padding-left:340px;
+}
+.cancelButton{
+    margin-left:320px !important;
+    border-radius:15px;
+}
+.wholeTitle{
+    padding-left:7px;
+}
+.moreVertIcon{
+    top: "4%" ;
+   width:"50%"
 }
