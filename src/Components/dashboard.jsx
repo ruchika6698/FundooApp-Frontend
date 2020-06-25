@@ -5,13 +5,10 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import keeplogo from "../Assets/logo.svg";
-import keep1 from "../Assets/keep1.svg";
 import gridview from "../Assets/grid.svg";
 import SearchIcon from "@material-ui/icons/Search";
 import SettingsOutlinedIcon from "@material-ui/icons/SettingsOutlined";
 import RefreshOutlinedIcon from "@material-ui/icons/RefreshOutlined";
-import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import MenuIcon from "@material-ui/icons/Menu";
 import IconButton from "@material-ui/core/IconButton";
@@ -19,9 +16,7 @@ import { Tooltip } from "@material-ui/core";
 import KeepLogo from "../Assets/KeepLogo.png";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import AppsIcon from "@material-ui/icons/Apps";
-import Divider from "@material-ui/core/Divider";
 import Drawer from "@material-ui/core/Drawer";
-import { Menu, MenuItem } from "@material-ui/core";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
@@ -30,8 +25,9 @@ import ArchiveOutlinedIcon from "@material-ui/icons/ArchiveOutlined";
 import NotificationsOutlinedIcon from "@material-ui/icons/NotificationsOutlined";
 import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
 import DeleteOutlinedIcon from "@material-ui/icons/DeleteOutlined";
-import EmojiObjectsIcon from "@material-ui/icons/EmojiObjects";
+import EmojiObjectsOutlinedIcon from "@material-ui/icons/EmojiObjectsOutlined";
 import "../CSS/dashboard.css";
+import Note from './note';
 
 export default function Dashboard() {
   const classes = useStyles();
@@ -114,6 +110,7 @@ export default function Dashboard() {
                 src={gridview}
                 width="22px"
                 height="22px"
+                alt="grid view"
                 //  onClick={this.handleToggle}
               ></img>
             </Tooltip>
@@ -123,19 +120,20 @@ export default function Dashboard() {
                 src={keep1}
                 width="22px"
                 height="22px"
+                alt="grid view"
                 // onClick={this.handleToggle}
               ></img>
             </Tooltip>
             {/* )} */}
-            <Tooltip title="Settings">
+            {/* <Tooltip title="Settings">
               <SettingsOutlinedIcon />
-            </Tooltip>
+            </Tooltip> */}
           </div>
         <div className="tool">
           <div className="acoounts">
-            <Tooltip title="Fundoo Apps">
+            {/* <Tooltip title="Fundoo Apps">
               <AppsIcon />
-            </Tooltip>
+            </Tooltip> */}
 
             <Tooltip title="Fundoo Account">
               <AccountCircleIcon />
@@ -164,12 +162,12 @@ export default function Dashboard() {
          <List  onMouseEnter={handleDrawerMouseopen}
           onMouseLeave={handleDrawerMouseClose}>
           <ListItem button key={'Notes'} className="notes">
-            <ListItemIcon><EmojiObjectsIcon/></ListItemIcon>
+            <ListItemIcon><EmojiObjectsOutlinedIcon/></ListItemIcon>
             <ListItemText primary={'Notes'}/>
           </ListItem>
-          <ListItem button key={'Remainder'} className="remainder">
+          <ListItem button key={'Remainders'} className="remainder">
             <ListItemIcon><NotificationsOutlinedIcon/></ListItemIcon>
-            <ListItemText primary={'Remainder'}/>
+            <ListItemText primary={'Remainders'}/>
           </ListItem>
           <ListItem button key={'Editlabels'} className="editlabels">
             <ListItemIcon>< EditOutlinedIcon/></ListItemIcon>
@@ -185,6 +183,9 @@ export default function Dashboard() {
           </ListItem>         
         </List>  
       </Drawer>
+      <div className="notesbox">
+      <Note/>
+    </div>
     </div>
   );
 }

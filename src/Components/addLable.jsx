@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
 import Popover from "@material-ui/core/Popover";
 import Input from "@material-ui/core/Input";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -12,12 +10,6 @@ import Snackbar from "@material-ui/core/Snackbar";
 import CloseIcon from "@material-ui/icons/Close";
 import Button from "@material-ui/core/Button";
 import { Divider, IconButton } from "@material-ui/core";
-
-const styles = (theme) => ({
-  typography: {
-    margin: theme.spacing.unit * 2,
-  },
-});
 
 export class AddLabel extends React.Component {
   constructor(props) {
@@ -124,7 +116,7 @@ export class AddLabel extends React.Component {
                 />
               </FormControl>
             </div>
-            {this.state.allLable !== "" ? (
+            {/* {this.state.allLable !== "" ? (
               <div>
                 {this.state.allLable.map((label) => (
                   <div>
@@ -134,8 +126,8 @@ export class AddLabel extends React.Component {
                   </div>
                 ))}
               </div>
-            ) : null}
-            <Divider />
+            ) : null} */}
+            {/* <Divider />
             {this.state.value !== "" ? (
               <div>
                 <IconButton onClick={this.HandleLabelAddChange}>
@@ -152,7 +144,7 @@ export class AddLabel extends React.Component {
                   {this.state.value}
                 </b>
               </div>
-            ) : null}
+            ) : null} */}
           </div>
         </Popover>
 

@@ -1,10 +1,5 @@
 import ArchiveOutlinedIcon from "@material-ui/icons/ArchiveOutlined";
 import { Tooltip } from "@material-ui/core";
-import { Redirect } from 'react-router-dom'
-import Snackbar from '@material-ui/core/Snackbar';
-import CloseIcon from '@material-ui/icons/Close';
-import Button from '@material-ui/core/Button';
-import { Divider, IconButton } from "@material-ui/core";
 import React, { Component } from 'react';
 
 class ArchiveNotes extends Component {

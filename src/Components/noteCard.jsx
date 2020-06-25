@@ -1,6 +1,5 @@
 import React from 'react';
-import '../CSS/note.css';
-import { Typography, Dialog, TextField } from "@material-ui/core";
+import "../CSS/dashboard.css";
 import NoteDialog from './noteDialog'
 
 const NoteCard = (props) => {

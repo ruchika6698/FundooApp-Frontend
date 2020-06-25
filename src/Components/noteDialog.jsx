@@ -1,41 +1,27 @@
 import React, { Component } from 'react';
-import '../CSS/note.css';
+import "../CSS/dashboard.css";
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
-import TextField from '@material-ui/core/TextField';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
 import Typography from '@material-ui/core/DialogTitle';
 import IconButton from '@material-ui/core/IconButton';
 import AddAlertIcon from '@material-ui/icons/AddAlert';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import ColorLensIcon from '@material-ui/icons/ColorLens';
 import ImageIcon from '@material-ui/icons/Image';
-import ArchiveIcon from '@material-ui/icons/Archive';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import LinkIcon from '@material-ui/icons/Link';
 import InputBase from '@material-ui/core/InputBase'
 import UndoTwoToneIcon from '@material-ui/icons/UndoTwoTone';
 import RedoTwoToneIcon from '@material-ui/icons/RedoTwoTone';
-import Paper from '@material-ui/core/Paper';
 import Images from '../Assets/images.png'
 import Tooltip from '@material-ui/core/Tooltip';
-import Popover from '@material-ui/core/Popover';
-import { makeStyles } from '@material-ui/core/styles';
 import ArchiveNotes from './archiveNotes'
-import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
 import ListDropDown from './listDropDown'
 
 export default function NoteDialog(data) {
     console.log('title=>', data.id);
 
-    const noteArray = '';
-
     const [open, setOpen] = React.useState(false);
-
-    const [title, description] = '';
 
     const [archive, setArchive] = React.useState(false);
 
@@ -45,9 +31,6 @@ export default function NoteDialog(data) {
         setArchive(!archive)
     }
 
-    const handleTrash = () => {
-        unTrash(!trash)
-    }
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -56,14 +39,6 @@ export default function NoteDialog(data) {
     const handleClose = () => {
         setOpen(false);
     };
-
-    const handleEditClose = () => {
-        
-    }
-
-    const showAllNotes = () => {
-
-    }
     return (
         <div>
             <div >
@@ -184,7 +159,6 @@ export default function NoteDialog(data) {
                             margin="dense"
                             size="small"
                             color="primary"
-                            onClick={handleEditClose}
                         >Close</Button></Tooltip>
                 </DialogActions>
             </Dialog>
