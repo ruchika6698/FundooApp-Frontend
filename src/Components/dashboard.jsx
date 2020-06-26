@@ -28,6 +28,7 @@ import DeleteOutlinedIcon from "@material-ui/icons/DeleteOutlined";
 import EmojiObjectsOutlinedIcon from "@material-ui/icons/EmojiObjectsOutlined";
 import "../CSS/dashboard.css";
 import Note from './createNote';
+import Profile from "./profile";
 
 export default function Dashboard() {
   const classes = useStyles();
@@ -136,7 +137,7 @@ export default function Dashboard() {
             </Tooltip> */}
 
             <Tooltip title="Fundoo Account">
-              <AccountCircleIcon />
+              <Profile/>
             </Tooltip>
           </div>
         </div>
