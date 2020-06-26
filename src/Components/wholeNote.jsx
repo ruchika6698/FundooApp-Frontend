@@ -13,6 +13,7 @@ import InputBase from "@material-ui/core/InputBase";
 import UndoTwoToneIcon from "@material-ui/icons/UndoTwoTone";
 import RedoTwoToneIcon from "@material-ui/icons/RedoTwoTone";
 import ListDropDown from "./listDropDown";
+import Icons from "./icons";
 import Images from "../Assets/images.png";
 import Blackpin from "../Assets/Blackpin.png";
 import NotesService from "../Services/notesServices";
@@ -54,15 +55,15 @@ class WholeNote extends Component {
     });
   };
 
-  Createnote = (e) => {
-    e.preventDefault();
+  Createnote = () => {
     console.log(this.state);
+    let token = localStorage.getItem("Token");
     let requestData = {
       title: this.state.title,
       description: this.state.description,
     };
     services
-      .CreateNote(requestData)
+      .CreateNote(token,requestData)
       .then((data) => {
         console.log(" Create notes Successful ", data);
       })
@@ -131,56 +132,13 @@ class WholeNote extends Component {
               onChange={this.handleChangeText}
             />
           </Paper>
-
+          {/* <Paper>
+            <Icons/>
+          </Paper> */}
           <Paper className="actionButtons">
-            <IconButton aria-label="Remind me">
-              <Tooltip title="Reminde me">
-                <AddAlertIcon />
-              </Tooltip>
-            </IconButton>
-
-            <IconButton aria-label="Collaborator">
-              <Tooltip title="Collaborator">
-                <PersonAddIcon />
-              </Tooltip>
-            </IconButton>
-
-            <IconButton aria-label="Change color">
-              <Tooltip title="Change color">
-                <ColorLensIcon />
-              </Tooltip>
-            </IconButton>
-
-            <IconButton aria-label="Add image">
-              <Tooltip title="Add image">
-                <ImageIcon />
-              </Tooltip>
-            </IconButton>
-
-            <IconButton aria-label="Archive note">
-              <Tooltip title="Archive">
-                <ArchiveIcon />
-              </Tooltip>
-            </IconButton>
-
-            <IconButton aria-label="More">
-              <Tooltip title="More">
-                <ListDropDown />
-              </Tooltip>
-            </IconButton>
-
-            {/* <IconButton aria-label="Undo">
-              <Tooltip title="Undo">
-                <UndoTwoToneIcon />
-              </Tooltip>
-            </IconButton>
-
-            <IconButton aria-label="Redo">
-              <Tooltip title="Redo">
-                <RedoTwoToneIcon />
-              </Tooltip>
-            </IconButton> */}
-            <Tooltip className="cancelButton" title="Close">
+            <div className="iconbutton">
+             <Icons/>
+              <Tooltip className="cancelButton" title="Close">
               <Button
                 margin="dense"
                 size="small"
@@ -190,6 +148,7 @@ class WholeNote extends Component {
                 Close
               </Button>
             </Tooltip>
+            </div>
           </Paper>
         </Paper>
       </div>

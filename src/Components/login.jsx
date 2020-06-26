@@ -61,6 +61,7 @@ export class Login extends React.Component {
         .then((json) => {
           console.log("responce data==>", json);
           if (json.status === 200) {
+            localStorage.setItem('Token', json.data.id);
             this.setState({
               snackbarOpen: true,
               snackbarMsg: "Login Suceesful..!",

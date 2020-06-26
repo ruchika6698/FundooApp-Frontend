@@ -52,7 +52,6 @@ export class AddLabel extends React.Component {
   showAllLabels = () => {};
 
   componentDidMount() {
-    console.log("component did mount");
 
     this.showAllLabels();
   }

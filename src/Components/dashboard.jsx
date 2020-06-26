@@ -27,7 +27,7 @@ import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
 import DeleteOutlinedIcon from "@material-ui/icons/DeleteOutlined";
 import EmojiObjectsOutlinedIcon from "@material-ui/icons/EmojiObjectsOutlined";
 import "../CSS/dashboard.css";
-import Note from './note';
+import Note from './createNote';
 
 export default function Dashboard() {
   const classes = useStyles();
