@@ -21,11 +21,11 @@ export default function SimplePopover(props) {
       <Menu
         className="simple-menu"
         anchorEl={anchorEl}
-        keepMounted
+        // keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-      <MenuItem><Button onClick={() => this.props.history.push("/")}>Log Out</Button></MenuItem>
+      <MenuItem onClick={() => props.history.push("/")}>Log Out</MenuItem>
       </Menu>
     </div>
   );

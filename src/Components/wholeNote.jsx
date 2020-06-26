@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../CSS/dashboard.css";
 import Paper from "@material-ui/core/Paper";
 import Tooltip from "@material-ui/core/Tooltip";
-import Button from "@material-ui/core/Button";
+import {Button,Snackbar} from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import AddAlertIcon from "@material-ui/icons/AddAlert";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
@@ -28,6 +28,8 @@ class WholeNote extends Component {
       imagetrue: true,
       title: "",
       description: "",
+      snackbarOpen: false,
+      snackbarMsg: "",
     };
   }
   handleChangeText = (event) => {
@@ -35,6 +37,9 @@ class WholeNote extends Component {
       [event.target.name]: event.target.value,
     });
     console.log("notes", this.state);
+  };
+  snackbarClose = () => {
+    this.setState({ snackbarOpen: false });
   };
   state = {
     anchorEl: null,
@@ -57,15 +62,21 @@ class WholeNote extends Component {
 
   Createnote = () => {
     console.log(this.state);
-    let token = localStorage.getItem("Token");
+    let token = sessionStorage.getItem("Token");
     let requestData = {
       title: this.state.title,
       description: this.state.description,
     };
     services
       .CreateNote(token,requestData)
-      .then((data) => {
-        console.log(" Create notes Successful ", data);
+      .then((json) => {
+        if (json.status === 200) {
+            this.setState({
+              snackbarOpen: true,
+              snackbarMsg: "Notes Created Suceesfully..!",
+            });
+          }
+        console.log(" Create notes Successful ", json);
       })
       .catch((err) => {
         console.log(err);
@@ -84,6 +95,21 @@ class WholeNote extends Component {
   render() {
     return (
       <div className="wholeCard">
+      <Snackbar
+          anchorOrigin={{ vertical: "top", horizontal: "center" }}
+          open={this.state.snackbarOpen}
+          autoHideDuration={6000}
+          onClose={this.snackbarClose}
+          message={<span class="Snackbar">{this.state.snackbarMsg}</span>}
+          action={
+            <IconButton
+              key="close"
+              arial-label="close"
+              color="inherit"
+              onClick={this.snackbarClose}
+            ></IconButton>
+          }
+        />
         <Paper className="wholeNoteCard" onClick={this.clickNote}>
           <Paper className="titleAndPin">
             <InputBase
@@ -91,6 +117,7 @@ class WholeNote extends Component {
               name="title"
               color="white"
               placeholder="Title"
+              style={{ width: "80%" }}
               value={this.state.title}
               onChange={this.handleChangeText}
               InputProps={{
@@ -127,14 +154,12 @@ class WholeNote extends Component {
               className="wholeTitle"
               name="description"
               color="white"
+              style={{ width: "80%" }}
               placeholder="Take a note..."
               value={this.state.description}
               onChange={this.handleChangeText}
             />
           </Paper>
-          {/* <Paper>
-            <Icons/>
-          </Paper> */}
           <Paper className="actionButtons">
             <div className="iconbutton">
              <Icons/>

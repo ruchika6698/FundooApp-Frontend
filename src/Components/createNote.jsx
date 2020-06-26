@@ -3,7 +3,6 @@ import Container from "@material-ui/core/Container";
 import MiniNote from "./miniNote";
 import WholeNote from "./wholeNote";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-import NoteCard from "./noteCard";
 
 export class Note extends React.Component {
   constructor(props) {
@@ -16,13 +15,7 @@ export class Note extends React.Component {
       notes: null,
     };
   }
-
-  handleChangeText = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-  };
-
+  
   handleClick = () => {
     this.setState({
       clickAway: true,
@@ -52,7 +45,6 @@ export class Note extends React.Component {
                 title={this.state.title}
                 description={this.state.description}
                 pin={this.state.pin}
-                handleChangeText={this.handleChangeText}
                 onHandleClickaway={this.onHandleClickaway}
               />
             ) : (
@@ -60,10 +52,6 @@ export class Note extends React.Component {
             )}
           </div>
         </ClickAwayListener>
-        <div className="noteCard">
-          {this.state.notes !== null &&
-            this.state.notes.map((items) => <NoteCard items={items} />)}
-        </div>
       </Container>
     );
   }

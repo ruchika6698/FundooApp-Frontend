@@ -1,12 +1,26 @@
-import axios from "axios";
+import Config from "../Configuration/config";
+import AxiosService from './axiosServices'
 
-const apiUrl = "http://fundoonotes.incubation.bridgelabz.com/api/notes";
+const axiosService = new AxiosService();
+const apiUrl = Config.url;
+
 
 class NoteService {
-  CreateNote(data) {
-    console.log(" get in axios service ", data);
-    return axios.post(apiUrl + "/addNotes", data);
+
+  CreateNote(token, data) {
+    return axiosService.Post(`${apiUrl}notes/addNotes`, data, {
+      headers: {
+        Authorization: token
+      },
+    });
   }
-  
+  getAllNotes(token) {
+    return axiosService.Get(`${apiUrl}notes/getNotesList`, {
+        headers: {
+            Authorization: token
+        }
+    });
+  }
+
 }
 export default NoteService;

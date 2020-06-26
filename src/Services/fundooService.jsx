@@ -1,23 +1,24 @@
-import axios from "axios";
+import Config from "../Configuration/config";
+import AxiosService from './axiosServices'
 
-const apiUrl = "http://fundoonotes.incubation.bridgelabz.com/api/user";
+const axiosService = new AxiosService();
+const apiUrl = Config.url;
 
 class Service {
   Login(data) {
-    console.log(" get in axios service ", data);
-    return axios.post(apiUrl + "/login", data);
+    return axiosService.Post(`${apiUrl}user/login`, data,false);
   }
+  
   Registration(data) {
-    console.log(" get in axios service ", data);
-    return axios.post(apiUrl + "/userSignUp", data);
+    return axiosService.Post(`${apiUrl}user/userSignUp`, data,false);
   }
+
   ForgotPassword(data) {
-    console.log(" get in axios service ", data);
-    return axios.post(apiUrl + "/reset", data);
+    return axiosService.Post(`${apiUrl}user/reset`, data,false);
   }
+
   Resetpassword(token, data) {
-    console.log(" get in axios service ", data);
-    return axios.post(apiUrl + "/reset-password", data, {
+    return axiosService.Post(`${apiUrl}user/reset-password`, data, {
       headers: {
         Authorization: token,
       },

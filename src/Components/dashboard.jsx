@@ -163,7 +163,7 @@ export default function Dashboard() {
          <List  onMouseEnter={handleDrawerMouseopen}
           onMouseLeave={handleDrawerMouseClose}>
           <ListItem button key={'Notes'} className="notes">
-            <ListItemIcon><EmojiObjectsOutlinedIcon/></ListItemIcon>
+            <ListItemIcon><EmojiObjectsOutlinedIcon /></ListItemIcon>
             <ListItemText primary={'Notes'}/>
           </ListItem>
           <ListItem button key={'Remainders'} className="remainder">

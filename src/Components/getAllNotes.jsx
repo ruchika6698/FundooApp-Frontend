@@ -1,34 +1,46 @@
 import React, { Component } from 'react';
-import { getAllNotes } from '../Service/Service';
 import WholeNote from './wholeNote';
-import Note from './note';
+import Display from './display';
+import NotesService from "../Services/notesServices";
+let services = new NotesService();
 
-class GetAllNotes extends Component {
+export class GetAllNotes extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            allNote: [],
+            AllNote: [],
             title: "",
             description: "",
 
         };
+        this.showAllNotes=this.showAllNotes.bind(this);
     }
 
     showAllNotes = () => {
-        
+        console.log("notes",this.state);
+        let token = sessionStorage.getItem("Token");
+        services.getAllNotes(token).then((data)=>{
+      console.log(" All data found ",data.data.data.data);
+      this.setState({AllNote:data.data.data.data});
+      console.log("Notes Array",this.state.AllNote);
+    }).catch((err)=>{
+      console.log(err);
+    })
     }
-    componentDidMount=()=> {
-        this.showAllNotes
+    componentDidMount() {
+        this.showAllNotes();
     }
     
 
-    render() {
-        return (
-            <div>
-                <Note refresh={this.showAllNotes} />
-            </div >
-        );
+    render() {        
+            return(
+                <div>
+                    <Display Notes={this.state.AllNote}/>
+                </div>
+            );
+           
+        
     }
 }
 
