@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Container from "@material-ui/core/Container";
-import MiniNote from "./miniNote";
-import WholeNote from "./wholeNote";
+import TakeNote from "./takenote";
+import Notestitle from "./notesTitle";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 
 export class Note extends React.Component {
@@ -15,7 +15,7 @@ export class Note extends React.Component {
       notes: null,
     };
   }
-  
+
   handleClick = () => {
     this.setState({
       clickAway: true,
@@ -41,14 +41,14 @@ export class Note extends React.Component {
         <ClickAwayListener onClickAway={this.onHandleClickaway}>
           <div>
             {this.state.clickAway ? (
-              <WholeNote
+              <Notestitle
                 title={this.state.title}
                 description={this.state.description}
                 pin={this.state.pin}
                 onHandleClickaway={this.onHandleClickaway}
               />
             ) : (
-              <MiniNote handleClick={this.handleClick} />
+              <TakeNote handleClick={this.handleClick} />
             )}
           </div>
         </ClickAwayListener>

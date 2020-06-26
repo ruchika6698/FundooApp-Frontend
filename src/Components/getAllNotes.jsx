@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import WholeNote from './wholeNote';
 import Display from './display';
 import NotesService from "../Services/notesServices";
 let services = new NotesService();

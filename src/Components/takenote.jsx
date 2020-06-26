@@ -9,7 +9,7 @@ import PhotoLibraryOutlinedIcon from '@material-ui/icons/PhotoLibraryOutlined';
 import Tooltip from '@material-ui/core/Tooltip';
 
 
-class MiniNote extends Component {
+class TakeNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -55,5 +55,4 @@ class MiniNote extends Component {
         );
     }
 }
-
-export default MiniNote;
+export default TakeNote;

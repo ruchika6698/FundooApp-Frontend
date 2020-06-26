@@ -19,7 +19,7 @@ import Blackpin from "../Assets/Blackpin.png";
 import NotesService from "../Services/notesServices";
 let services = new NotesService();
 
-class WholeNote extends Component {
+class Notestitle extends Component {
   constructor(props) {
     super(props);
 
@@ -181,4 +181,4 @@ class WholeNote extends Component {
   }
 }
 
-export default WholeNote;
+export default Notestitle;
