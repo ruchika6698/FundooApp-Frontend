@@ -7,15 +7,12 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import gridview from "../Assets/grid.svg";
 import SearchIcon from "@material-ui/icons/Search";
-import SettingsOutlinedIcon from "@material-ui/icons/SettingsOutlined";
 import RefreshOutlinedIcon from "@material-ui/icons/RefreshOutlined";
 import TextField from "@material-ui/core/TextField";
 import MenuIcon from "@material-ui/icons/Menu";
 import IconButton from "@material-ui/core/IconButton";
 import { Tooltip } from "@material-ui/core";
 import KeepLogo from "../Assets/KeepLogo.png";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import AppsIcon from "@material-ui/icons/Apps";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -74,7 +71,7 @@ export default function Dashboard() {
           >
             <MenuIcon />
           </IconButton>
-          <div>
+          <div className="keepimage">
             <img src={KeepLogo} alt="Kepp Logo" />
           </div>
           <div className="keep">
@@ -108,6 +105,7 @@ export default function Dashboard() {
             {/* {this.state.openImg  !== true ? ( */}
             <Tooltip title="Grid view ">
               <img
+                className="gridimage"
                 src={gridview}
                 width="22px"
                 height="22px"

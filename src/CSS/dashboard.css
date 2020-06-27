@@ -1,3 +1,9 @@
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  background-color: #fafafa !important;
+}
 .mainDashboard {
   display: flex;
   justify-content: center;
@@ -80,12 +86,12 @@
   width: 70%;
 }
 .sideContainer{
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
   margin-left: 160px;
   margin-right: -3.7%;
-  transition: margin .20s linear;
+  transition: margin .20s linear; */
 }
 .logokeep1 {
   display: flex;
@@ -197,6 +203,11 @@
 .wholeNoteCard{
     /* width:800px; */
 }
+.notesbox{
+  display: flex;
+  align-items:center;
+  padding-left:100px;
+}
 .pinImage{
     margin-left:70px !important;
 }
@@ -220,15 +231,119 @@
 .actionButtons{
   opacity:1;
 }
+.display{
+  display: flex;
+  flex-direction: row;
+  margin-top:25px;
+  margin-bottom:25px;
+  margin-left:125px;
+  height:auto !important;
+}
 .card{
-  background-color:white;
-  width:290px;
-  border-radius:10px;
-  margin-top:30px;
-  margin-bottom:30px;
+  margin-top:5px;
+  margin-bottom:5px;
+  border-radius:10px !important;
+  width:700px;
 }
 .getnotes{
   display:flex;
   flex-direction:column;
   height:auto !important;
+}
+.geticon{
+  opacity:0;
+}
+.geticon:hover{
+  opacity:1;
+}
+
+@media screen and (max-width: 1024px) {
+  .makeStyles-drawerOpen-6 {
+    width: 200px !important;
+}
+  .notesbox{
+  padding-left:180px;
+}
+.searchbar{
+  padding-left:2%;
+  width: 700px;
+}
+.display{
+  margin-left:204px;
+}
+.notes:hover{
+  width:199px;
+}
+.remainder:hover{
+  width:199px;
+}
+.editlabels:hover{
+  width:199px;
+}
+.archive:hover{
+  width:199px;
+}
+.trash:hover{
+  width:199px;
+}
+}
+
+@media screen and (max-width: 768px) {
+  .makeStyles-drawerOpen-6 {
+    width: 300px !important;
+}
+  .notesbox{
+  padding-left:130px;
+}
+.searchbar{
+  padding-left:2%;
+  width: 700px;
+}
+.dashboardSearch {
+  background-color:white;
+}
+.display{
+  margin-left:154px;
+}
+.notes:hover{
+  width:299px;
+}
+.remainder:hover{
+  width:299px;
+}
+.editlabels:hover{
+  width:299px;
+}
+.archive:hover{
+  width:299px;
+}
+.trash:hover{
+  width:299px;
+}
+.Refresh{
+  padding-right:30px;
+}
+}
+@media screen and (max-width: 414px) {
+  .card{
+    width:270px;
+    margin-right:70px;
+  }
+  .wholeMiniNoteCard{
+    margin-top:100px;
+    width:270px;
+    margin-right:60px;
+  }
+  .gridimage{
+    display:none;
+  }
+  .keepimage{
+    padding-right:20px;
+  }
+  .keep{
+    font-size:12px;
+  }
+  .miniIcons{
+
+  }
 }

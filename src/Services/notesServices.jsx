@@ -22,5 +22,14 @@ class NoteService {
     });
   }
 
+  DeleteNotes(token,data){
+    console.log(" Id in axios service ",data);
+    return axiosService.Post(`${apiUrl}notes/deleteForeverNotes`, {
+        headers: {
+            Authorization: token
+        }
+    });
+  }
+
 }
 export default NoteService;

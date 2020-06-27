@@ -10,6 +10,10 @@ export default function SimplePopover(props) {
 
   const [trash, unTrash] = React.useState(false);
 
+  const handleTrash = () => {
+        unTrash(!trash)
+    }
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -30,7 +34,7 @@ export default function SimplePopover(props) {
         onClose={handleClose}
       >
         <MenuItem>
-          <DeleteNote >Delete Note</DeleteNote>
+          <DeleteNote onSelectTrash={handleTrash}>Delete Note</DeleteNote>
         </MenuItem>
         <MenuItem>
           <AddLabel>Add Label</AddLabel>

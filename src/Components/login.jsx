@@ -61,10 +61,10 @@ export class Login extends React.Component {
         .then((json) => {
           console.log("responce data==>", json);
           if (json.status === 200) {
-            sessionStorage.setItem('Token', json.data.id);
-            sessionStorage.setItem("FirstName", json.data.firstName);
-            sessionStorage.setItem("LastName", json.data.lastName);
-            sessionStorage.setItem("Email", json.data.email);
+            localStorage.setItem('Token', json.data.id);
+            localStorage.setItem("FirstName", json.data.firstName);
+            localStorage.setItem("LastName", json.data.lastName);
+            localStorage.setItem("Email", json.data.email);
             this.setState({
               snackbarOpen: true,
               snackbarMsg: "Login Suceesful..!",

@@ -14,7 +14,7 @@ import ListDropDown from "./listDropDown";
 export class Icons extends Component {
   render() {
     return (
-          <Paper className="iconcom">
+          <div >
             <IconButton aria-label="Remind me">
               <Tooltip title="Reminde me">
                 <AddAlertOutlinedIcon />
@@ -50,7 +50,7 @@ export class Icons extends Component {
                 <ListDropDown />
               </Tooltip>
             </IconButton>
-        </Paper>
+        </div>
     );
   }
 }

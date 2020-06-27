@@ -7,6 +7,7 @@ import { ForgotPassword} from './Components/forgotpassword'
 import  Dashboard from './Components/dashboard'
 import { ResetPassword} from './Components/resetpassword'
 import { GetAllNotes} from './Components/getAllNotes'
+import {PrivateRoute} from "./Authguard/privateroute"
 
 class App extends Component {
   render() {
@@ -18,7 +19,7 @@ class App extends Component {
       <Route path="/register" component={Register} />
       <Route path="/forgotpassword" component={ForgotPassword} />
       <Route path="/dashboard">
-      {sessionStorage.getItem('Token') ?
+      {localStorage.getItem('Token') ?
         <Dashboard/>
           :
           <Redirect

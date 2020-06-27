@@ -18,7 +18,7 @@ export class GetAllNotes extends Component {
 
     showAllNotes = () => {
         console.log("notes",this.state);
-        let token = sessionStorage.getItem("Token");
+        let token = localStorage.getItem("Token");
         services.getAllNotes(token).then((data)=>{
       console.log(" All data found ",data.data.data.data);
       this.setState({AllNote:data.data.data.data});

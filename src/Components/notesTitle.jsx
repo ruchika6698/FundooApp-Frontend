@@ -5,7 +5,6 @@ import Tooltip from "@material-ui/core/Tooltip";
 import {Button,Snackbar} from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import InputBase from "@material-ui/core/InputBase";
-import ListDropDown from "./listDropDown";
 import Icons from "./icons";
 import Images from "../Assets/images.png";
 import Blackpin from "../Assets/Blackpin.png";
@@ -55,7 +54,7 @@ class Notestitle extends Component {
 
   Createnote = () => {
     console.log(this.state);
-    let token = sessionStorage.getItem("Token");
+    let token = localStorage.getItem("Token");
     let requestData = {
       title: this.state.title,
       description: this.state.description,

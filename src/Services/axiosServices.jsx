@@ -8,4 +8,8 @@ export default class AxiosService{
     Get(url,data,isHeaderRequired){
         return axios.get(url,data,isHeaderRequired);
     }
+    
+    Delete(url,id,isHeaderRequired){
+        return axios.delete(url,id,isHeaderRequired);
+    }
 }

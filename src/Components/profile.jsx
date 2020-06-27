@@ -21,7 +21,6 @@ export default function SimplePopover(props) {
       <Menu
         className="simple-menu"
         anchorEl={anchorEl}
-        // keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >

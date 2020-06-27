@@ -1,15 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import Popover from "@material-ui/core/Popover";
 import Input from "@material-ui/core/Input";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import FormControl from "@material-ui/core/FormControl";
 import SearchIcon from "@material-ui/icons/Search";
-import AddRoundedIcon from "@material-ui/icons/AddRounded";
-import Checkbox from "@material-ui/core/Checkbox";
 import Snackbar from "@material-ui/core/Snackbar";
 import CloseIcon from "@material-ui/icons/Close";
 import Button from "@material-ui/core/Button";
-import { Divider, IconButton } from "@material-ui/core";
+import { IconButton } from "@material-ui/core";
 
 export class AddLabel extends React.Component {
   constructor(props) {
