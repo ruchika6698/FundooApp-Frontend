@@ -14,6 +14,7 @@ import IconButton from "@material-ui/core/IconButton";
 import { Tooltip } from "@material-ui/core";
 import KeepLogo from "../Assets/KeepLogo.png";
 import Drawer from "@material-ui/core/Drawer";
+import {Link } from "react-router-dom";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
@@ -72,7 +73,7 @@ export default function Dashboard() {
             <MenuIcon />
           </IconButton>
           <div className="keepimage">
-            <img src={KeepLogo} alt="Kepp Logo" />
+            <img src={KeepLogo} alt="Keep Logo" />
           </div>
           <div className="keep">
             <Typography className="keep" variant="h6" noWrap>
@@ -124,16 +125,9 @@ export default function Dashboard() {
               ></img>
             </Tooltip>
             {/* )} */}
-            {/* <Tooltip title="Settings">
-              <SettingsOutlinedIcon />
-            </Tooltip> */}
           </div>
         <div className="tool">
           <div className="acoounts">
-            {/* <Tooltip title="Fundoo Apps">
-              <AppsIcon />
-            </Tooltip> */}
-
             <Tooltip title="Fundoo Account">
               <Profile/>
             </Tooltip>
@@ -161,7 +155,7 @@ export default function Dashboard() {
          <List  onMouseEnter={handleDrawerMouseopen}
           onMouseLeave={handleDrawerMouseClose}>
           <ListItem button key={'Notes'} className="notes">
-            <ListItemIcon><EmojiObjectsOutlinedIcon /></ListItemIcon>
+            <Link to="/dashboard/notes"><ListItemIcon><EmojiObjectsOutlinedIcon /></ListItemIcon></Link>
             <ListItemText primary={'Notes'}/>
           </ListItem>
           <ListItem button key={'Remainders'} className="remainder">

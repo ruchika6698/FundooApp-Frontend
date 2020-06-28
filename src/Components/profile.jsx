@@ -1,6 +1,7 @@
 import React from "react";
 import { Menu, MenuItem,Button } from "@material-ui/core";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import {Link } from "react-router-dom";
 import "../CSS/dashboard.css"
 
 export default function SimplePopover(props) {
@@ -24,7 +25,7 @@ export default function SimplePopover(props) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-      <MenuItem onClick={() => props.history.push("/")}>Log Out</MenuItem>
+      <Link to="/"><MenuItem>Log Out</MenuItem></Link>
       </Menu>
     </div>
   );

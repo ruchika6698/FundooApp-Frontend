@@ -10,9 +10,10 @@ export default class Display extends Component {
       openImg: false,
       imagetrue: true,
       title: "",
-      description: "",
+      description: ""
     };
   }
+
 
   render() {
     let Getnotes = this.props.Notes;
@@ -28,7 +29,7 @@ export default class Display extends Component {
                     {d.description}
                 </div>
                 <div className="geticon">
-                  <Icons />
+                  <Icons noteObject={d}/>
                 </div>
           </Card>
           </div>

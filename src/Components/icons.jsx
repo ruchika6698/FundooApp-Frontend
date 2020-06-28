@@ -9,9 +9,10 @@ import ColorLensOutlinedIcon from "@material-ui/icons/ColorLensOutlined";
 import ImageOutlinedIcon from "@material-ui/icons/ImageOutlined";
 import ArchiveOutlinedIcon from "@material-ui/icons/ArchiveOutlined";
 import InputBase from "@material-ui/core/InputBase";
-import ListDropDown from "./listDropDown";
+import MoreOptions from "./moreOptions";
 
 export class Icons extends Component {
+  
   render() {
     return (
           <div >
@@ -47,7 +48,7 @@ export class Icons extends Component {
 
             <IconButton aria-label="More">
               <Tooltip title="More">
-                <ListDropDown />
+                <MoreOptions noteId={this.props.noteObject}/>
               </Tooltip>
             </IconButton>
         </div>
