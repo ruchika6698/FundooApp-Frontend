@@ -24,7 +24,16 @@ class NoteService {
 
   DeleteNotes(token,data){
     console.log(" Id in axios service ",data);
-    return axiosService.Post(`${apiUrl}notes/deleteForeverNotes`, {
+    return axiosService.Post(`${apiUrl}notes/trashNotes`,data, {
+        headers: {
+            Authorization: token
+        }
+    });
+  }
+
+  UpdateNotes(token,data){
+    console.log(" Id in axios service ",data);
+    return axiosService.Post(`${apiUrl}notes/updateNotes`,data, {
         headers: {
             Authorization: token
         }
