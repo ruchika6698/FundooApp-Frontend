@@ -262,14 +262,17 @@ body {
     width: 200px !important;
 }
   .notesbox{
-  padding-left:180px;
+  padding-left:0px;
 }
 .searchbar{
   padding-left:2%;
-  width: 700px;
+  width: 500px;
 }
 .display{
-  margin-left:204px;
+  margin-left:24px;
+}
+.acoounts{
+  margin-right:50px;
 }
 .notes:hover{
   width:199px;
@@ -325,25 +328,92 @@ body {
 }
 }
 @media screen and (max-width: 414px) {
+  .makeStyles-drawerOpen-6 {
+    width: 280px !important;
+}
+  .MuiToolbar-root {
+    width:414px;
+}
   .card{
-    width:270px;
-    margin-right:70px;
+    width:290px;
+    margin-right:80px;
   }
   .wholeMiniNoteCard{
     margin-top:100px;
-    width:270px;
-    margin-right:60px;
+    width:290px;
+    margin-left:10px !important;
+  }
+  .wholeCard{
+    margin-top:100px;
+    width:200px;
+    display:flex;
+    flex-direction:row;
+
   }
   .gridimage{
     display:none;
   }
   .keepimage{
-    padding-right:20px;
+    margin-right:0px;
+    margin-left:-50px;
   }
+  .dashboardSearch{
+     margin-right:0px;
+  }
+  .searchbar{
+  padding-left:1%;
+  margin-right:0px;
+  width:150px;
+}
+.search{
+  width:100px;
+}
   .keep{
-    font-size:12px;
+    font-size:14px !important;
+  }
+  .logokeep1{
+    margin-left:0px;
+  }
+  .tool{
+    margin-right:0px;
   }
   .miniIcons{
+    margin-right:100px;
+  }
+  .notes:hover{
+  width:279px;
+}
+.remainder:hover{
+  width:279px;
+}
+.editlabels:hover{
+  width:279px;
+}
+.archive:hover{
+  width:279px;
+}
+.trash:hover{
+  width:279px;
+}
+.Refresh{
+  padding-right:30px;
+}
+}
 
+@media screen and (max-width: 375px) {
+  .wholeMiniNoteCard{
+    margin-left:15px !important;
+  }
+  .card{
+    margin-left:8px !important;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .wholeMiniNoteCard{
+    margin-left:60px !important;
+  }
+  .card{
+    margin-left:55px !important;
   }
 }
