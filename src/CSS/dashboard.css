@@ -156,8 +156,16 @@ body {
   border-bottom-right-radius:27px;
   background-color:#FEEFC3 !important;
 }
-
-
+.color{
+  border-top-right-radius:27px;
+  border-bottom-right-radius:27px;
+  border-top-left-radius:27px;
+  border-bottom-left-radius:27px;
+}
+.dialog{
+  width:1500px;
+  height:230px;
+}
 .noteCard{
     display: flex;
     flex-Wrap: wrap;
@@ -233,17 +241,26 @@ body {
 }
 .display{
   display: flex;
-  flex-direction: row;
+  flex-direction: row !important;
+  justify-content: space-between;
   margin-top:25px;
   margin-bottom:25px;
-  margin-left:125px;
-  height:auto !important;
+  font-size:16px;
+  /* margin-left:125px; */
+  width:320px;
+  height:auto ;
+}
+.title{
+   font-size:18px;
 }
 .card{
   margin-top:5px;
+  padding-left:10px;
+  padding-top:10px;
+  padding-bottom:10px;
   margin-bottom:5px;
   border-radius:10px !important;
-  width:700px;
+  width:350px;
 }
 .getnotes{
   display:flex;
@@ -335,12 +352,12 @@ body {
     width:414px;
 }
   .card{
-    width:290px;
-    margin-right:80px;
+    width:320px;
+    margin-right:100px;
   }
   .wholeMiniNoteCard{
     margin-top:100px;
-    width:290px;
+    width:320px;
     margin-left:10px !important;
   }
   .wholeCard{
@@ -402,18 +419,26 @@ body {
 
 @media screen and (max-width: 375px) {
   .wholeMiniNoteCard{
-    margin-left:15px !important;
+    margin-left:29px !important;
   }
   .card{
-    margin-left:8px !important;
+    margin-left:20px !important;
+  }
+}
+@media screen and (max-width: 360px) {
+  .wholeMiniNoteCard{
+    margin-left:54px !important;
+  }
+  .card{
+    margin-left:48px !important;
   }
 }
 
 @media screen and (max-width: 320px) {
   .wholeMiniNoteCard{
-    margin-left:60px !important;
+    margin-left:80px !important;
   }
   .card{
-    margin-left:55px !important;
+    margin-left:75px !important;
   }
 }
