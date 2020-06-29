@@ -129,7 +129,7 @@ export default function Dashboard() {
         <div className="tool">
           <div className="acoounts">
             <Tooltip title="Fundoo Account">
-              <Profile/>
+              <Profile />
             </Tooltip>
           </div>
         </div>
@@ -220,7 +220,7 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
     overflowX: "hidden",
-    width: theme.spacing(7) + 1,
+    width: "60px",
     [theme.breakpoints.up("sm")]: {
       width: theme.spacing(9) + 1,
     },

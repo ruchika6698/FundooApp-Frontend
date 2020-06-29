@@ -5,11 +5,11 @@ import Tooltip from "@material-ui/core/Tooltip";
 import IconButton from "@material-ui/core/IconButton";
 import AddAlertOutlinedIcon from "@material-ui/icons/AddAlertOutlined";
 import PersonAddOutlinedIcon from "@material-ui/icons/PersonAddOutlined";
-import ColorLensOutlinedIcon from "@material-ui/icons/ColorLensOutlined";
 import ImageOutlinedIcon from "@material-ui/icons/ImageOutlined";
 import ArchiveOutlinedIcon from "@material-ui/icons/ArchiveOutlined";
 import InputBase from "@material-ui/core/InputBase";
 import MoreOptions from "./moreOptions";
+import Color from "./color";
 
 export class Icons extends Component {
   
@@ -30,7 +30,7 @@ export class Icons extends Component {
 
             <IconButton aria-label="Change color">
               <Tooltip title="Change color">
-                <ColorLensOutlinedIcon />
+                <Color noteId={this.props.noteObject}/>
               </Tooltip>
             </IconButton>
 

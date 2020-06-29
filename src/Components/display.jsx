@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import "../CSS/dashboard.css";
 import Icons from "./icons";
 import Card from "@material-ui/core/Card";
+import Dialog from '@material-ui/core/Dialog';
+import UpdateNotes from "./updateNotes"
+import NotesService from "../Services/notesServices";
+let services = new NotesService();
+
 
 export default class Display extends Component {
   constructor(props) {
@@ -10,26 +15,52 @@ export default class Display extends Component {
       openImg: false,
       imagetrue: true,
       title: "",
-      description: ""
+      description: "",
+      open:false,
+      close:false,
+      Data:{}
     };
   }
+  openUpdate=()=>{
+    this.setState({
+        open:true
+    });
+  }
+  handleClose=()=>{
+    this.setState({
+      open:false
+    })
+  }
+  updatenote=(data)=>{
+    this.setState({
+      Data:data,
+    open:true
+    })
+    console.log("DATASDD",this.state.Data);
+    
+  }
 
-
+  handleClickOpen = (event) => {
+      this.setState({ open: true });
+  };
+  handleClickClose = (event) => {
+      this.setState({ open: true });
+  };
+  
   render() {
     let Getnotes = this.props.Notes;
-    console.log("get notes", Getnotes);
-    const notes = Getnotes.map((d, index) => {
+    const notes = Getnotes.filter(item=>item.isDeleted===false).map((data, index) => {
           return(
-          <div key={index} className="display">
+          <div key={data.id} className="display">
           <Card className="card">
-           <div>
-                {d.title}
+           <div className="title" onClick={()=>this.updatenote(data)}>
+                {data.title}
             </div>
-                <div>
-                    {d.description}
+                <div onClick={()=>this.updatenote(data)}>
+                    {data.description}
                 </div>
                 <div className="geticon">
-                  <Icons noteObject={d}/>
+                  <Icons noteObject={data}/>
                 </div>
           </Card>
           </div>
@@ -37,7 +68,12 @@ export default class Display extends Component {
         })
     return (
       <div>
+      <div>
         {notes}
+      </div>
+      <div>
+        <UpdateNotes Open={this.state.open} Data={this.state.Data} close={this.handleClose}/>
+      </div>
       </div>
     );
   }

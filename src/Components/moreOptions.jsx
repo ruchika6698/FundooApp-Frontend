@@ -6,19 +6,6 @@ import AddLabel from "./addLable";
 import NotesService from "../Services/notesServices";
 let services = new NotesService();
 
-// const theme = createMuiTheme({
-//     overrides: {
-//         MuiPaper: {
-//             root: {
-//                 margin: "0px",
-//             },
-
-//         },
-//     },
-//     typography: {
-//         useNextVariants: true,
-//     },
-// })
 class MoreOptions extends Component {
     constructor() {
         super();
@@ -54,7 +41,7 @@ class MoreOptions extends Component {
         console.log("request data",requestData);
         services.DeleteNotes(token,requestData).then((json) => {  
         console.log("responce data==>",json);
-        if(json.data.status === 200){  
+        if(json.data.data.success === true){  
         alert('Record deleted successfully!!');  
     }  
     })  
@@ -72,18 +59,15 @@ class MoreOptions extends Component {
         this.moreOptionsToAddLabels.current.addLabelPopup(e);
     }
     render() {
-        let noteIdList=this.props.noteId;
-        console.log("menu Id",noteIdList);
         const { anchorEl, open } = this.state;
         return (
-            // <MuiThemeProvider theme={theme}>
                 <div>
                     <Tooltip title="More Options">
                         <MoreVertIcon onClick={this.clickMoreOptions} />
 
                     </Tooltip>
 
-                    <Popper open={open} anchorEl={anchorEl} placement={'right'} transition style={{ position: "fixed" }}>
+                    <Popper open={open} anchorEl={anchorEl} placement={'bottom'} transition style={{ position: "fixed" }}>
                         {({ TransitionProps }) => (
                             <Fade {...TransitionProps} timeout={0}>
                                 <Paper className="moreOptionsPopper" >
@@ -100,7 +84,6 @@ class MoreOptions extends Component {
                         )}
                     </Popper>
                 </div>
-            // </MuiThemeProvider>
         )
     }
 }

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Dialog from '@material-ui/core/Dialog';
 import "../CSS/dashboard.css";
 import Paper from "@material-ui/core/Paper";
 import Tooltip from "@material-ui/core/Tooltip";
@@ -12,99 +13,72 @@ import Blackpin from "../Assets/Blackpin.png";
 import NotesService from "../Services/notesServices";
 let services = new NotesService();
 
-class Notestitle extends Component {
+export class UpdateNotes extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      openImg: false,
-      imagetrue: true,
-      title: "",
-      description: "",
-      snackbarOpen: false,
-      snackbarMsg: "",
-      Data:[]
+      noteId:"",
+      title:"",
+      description:""
+      // open:this.state.Open
     };
+    this.handleChange=this.handleChange.bind(this);
   }
-  handleChangeText = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-    console.log("notes", this.state);
-  };
-  snackbarClose = () => {
-    this.setState({ snackbarOpen: false });
-  };
-  state = {
-    anchorEl: null,
-  };
-  handleToggle = () => {
-    this.setState({ openImg: !this.state.openImg });
-    console.log(this.state.openImg);
-  };
-  handleClick = (event) => {
-    this.setState({
-      anchorEl: event.currentTarget,
-    });
-  };
-
-  handleClose = () => {
-    this.setState({
-      anchorEl: null,
-    });
-  };
-
-  Createnote = () => {
-    console.log(this.state);
+  componentDidMount(){
+    let Data=this.props.Data;
+    console.log("Didmount props data",this.props.Data);
+     this.setState({noteId:Data.id,
+     title:Data.title,
+      description:Data.description
+     });
+    //  console.log("Didmount data",this.state);
+  }
+  handleChange= (e)=> { 
+    console.log(e.target.value);
+     
+    this.setState({[e.target.name]:e.target.value});  
+    console.log("handlechanhe set",this.state);
+    
+  }  
+  Updatenote=()=>{
+    let data={
+      noteId:this.props.Data.id,
+      title:this.state.title,
+      description:this.state.description
+    }
+    console.log("data desc",data);
     let token = localStorage.getItem("Token");
-    let requestData = {
-      title: this.state.title,
-      description: this.state.description,
-    };
-    services
-      .CreateNote(token,requestData)
-      .then((json) => {
-        if (json.status === 200) {
-            this.setState({
-              snackbarOpen: true,
-              snackbarMsg: "Notes Created Suceesfully..!",
-            });
-          }
-        console.log(" Create notes Successful ", json);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+    services.UpdateNotes(token,data).then((json)=>{
+      console.log('Updated data', json);
+    }).catch((err)=>{
+      console.log(err);
+    })
+    this.props.close();
+  }
 
-  handleDrawer = (event) => {
-    this.props.openDrawer();
-
-    const { currentTarget } = event;
+ handleClickOpen = () => {
     this.setState({
-      AnchorEl: currentTarget,
-      open: !this.state.open,
+        open:this.props.Open
     });
+    console.log(this.props);
   };
+
+ handleClose = () => {
+    
+  };
+
   render() {
+    console.log("props",this.props.Data);
     return (
-      <div className="wholeCard">
-      <Snackbar
-          anchorOrigin={{ vertical: "top", horizontal: "center" }}
-          open={this.state.snackbarOpen}
-          autoHideDuration={6000}
-          onClose={this.snackbarClose}
-          message={<span class="Snackbar">{this.state.snackbarMsg}</span>}
-          action={
-            <IconButton
-              key="close"
-              arial-label="close"
-              color="inherit"
-              onClick={this.snackbarClose}
-            ></IconButton>
-          }
-        />
-        <Card className="wholeNoteCard" onClick={this.clickNote}>
+        <div>
+        {/* <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
+        Open alert dialog
+      </Button> */}
+      <Dialog
+        open={this.props.Open}
+        onClose={this.handleClose}
+      >
+       <Card className="wholeNoteCard" onClick={this.clickNote}>
           <Paper className="titleAndPin">
             <InputBase
               className="wholeTitle"
@@ -112,8 +86,9 @@ class Notestitle extends Component {
               color="white"
               placeholder="Title"
               style={{ width: "80%" }}
-              value={this.state.title}
-              onChange={this.handleChangeText}
+              defaultValue={this.props.Data.title}
+              // value={this.state.title}
+              onChange={this.handleChange}
               InputProps={{
                 disableUnderline: true,
               }}
@@ -150,8 +125,9 @@ class Notestitle extends Component {
               color="white"
               style={{ width: "80%" }}
               placeholder="Take a note..."
-              value={this.state.description}
-              onChange={this.handleChangeText}
+              defaultValue={this.props.Data.description}
+              // value={this.state.description}
+              onChange={this.handleChange}
             />
           </Paper>
           <Paper className="actionButtons">
@@ -162,7 +138,7 @@ class Notestitle extends Component {
                 margin="dense"
                 size="small"
                 color="primary"
-                onClick={this.Createnote}
+                onClick={this.Updatenote}
               >
                 Close
               </Button>
@@ -170,9 +146,9 @@ class Notestitle extends Component {
             </div>
           </Paper>
         </Card>
-      </div>
-    );
-  }
+      </Dialog>
+    </div>
+    )
+    }
 }
-
-export default Notestitle;
+export default UpdateNotes;

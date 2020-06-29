@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Display from './display';
+import UpdateNotes from './updateNotes'
 import NotesService from "../Services/notesServices";
 let services = new NotesService();
 
@@ -21,7 +22,7 @@ export class GetAllNotes extends Component {
         let token = localStorage.getItem("Token");
         services.getAllNotes(token).then((data)=>{
       console.log(" All data found ",data.data.data.data);
-      this.setState({AllNote:data.data.data.data});
+      this.setState({AllNote:(data.data.data.data).reverse()});
       console.log("Notes Array",this.state.AllNote);
     }).catch((err)=>{
       console.log(err);
@@ -36,10 +37,9 @@ export class GetAllNotes extends Component {
             return(
                 <div>
                     <Display Notes={this.state.AllNote}/>
+                    {/* <UpdateNotes/> */}
                 </div>
             );
-           
-        
     }
 }
 
