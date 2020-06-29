@@ -24,7 +24,7 @@ class NoteService {
 
   DeleteNotes(token,data){
     console.log(" Id in axios service ",data);
-    return axiosService.Post(`${apiUrl}notes/trashNotes`,data, {
+    return axiosService.Post(`${apiUrl}notes/deleteForeverNotes`,data, {
         headers: {
             Authorization: token
         }
@@ -38,6 +38,11 @@ class NoteService {
             Authorization: token
         }
     });
+  }
+
+  updateColor(colorInput) {
+    console.log("note color", colorInput);
+    return axiosService.Post(`${apiUrl}notes/changesColorNotes`, colorInput,false);
   }
 
 }
