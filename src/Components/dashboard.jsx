@@ -25,7 +25,7 @@ import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
 import DeleteOutlinedIcon from "@material-ui/icons/DeleteOutlined";
 import EmojiObjectsOutlinedIcon from "@material-ui/icons/EmojiObjectsOutlined";
 import "../CSS/dashboard.css";
-import Note from './createNote';
+import CreateNote from './createNote';
 import Profile from "./profile";
 
 export default function Dashboard() {
@@ -66,6 +66,7 @@ export default function Dashboard() {
             color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
+            onClose={handleDrawerClose}
             edge="start"
             className={clsx(classes.menuButton
             )}
@@ -177,7 +178,7 @@ export default function Dashboard() {
         </List>  
       </Drawer>
       <div className="notesbox">
-      <Note/>
+      <CreateNote/>
     </div>
     </div>
   );

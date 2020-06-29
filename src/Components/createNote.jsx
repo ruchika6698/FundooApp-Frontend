@@ -4,7 +4,7 @@ import TakeNote from "./takenote";
 import Notestitle from "./notesTitle";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 
-export class Note extends React.Component {
+export class CreateNote extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -56,4 +56,4 @@ export class Note extends React.Component {
     );
   }
 }
-export default Note;
+export default CreateNote;

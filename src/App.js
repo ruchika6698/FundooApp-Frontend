@@ -5,6 +5,7 @@ import { Login} from './Components/login'
 import { Register} from './Components/register'
 import { ForgotPassword} from './Components/forgotpassword'
 import  Dashboard from './Components/dashboard'
+import  UpdateNotes from './Components/updateNotes'
 import { ResetPassword} from './Components/resetpassword'
 import { GetAllNotes} from './Components/getAllNotes'
 import {PrivateRoute} from "./Authguard/privateroute"
@@ -28,6 +29,7 @@ class App extends Component {
                 state:{from:'dashboard'}
             }}
         />} </Route>
+        <Route path="/update" component={UpdateNotes} />
       <Route path="/resetpassword/:token" component={ResetPassword} />
       <Route path="/dashboard/notes" component={GetAllNotes} />
       </Router>

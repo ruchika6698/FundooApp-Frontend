@@ -56,7 +56,7 @@ export default class Display extends Component {
            <div className="title" onClick={()=>this.updatenote(data)}>
                 {data.title}
             </div>
-                <div onClick={()=>this.updatenote(data)}>
+                <div className="getdescription" onClick={()=>this.updatenote(data)}>
                     {data.description}
                 </div>
                 <div className="geticon">

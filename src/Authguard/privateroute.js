@@ -1,18 +1,29 @@
-// import React,{ Component } from 'react';
-// import { Redirect, Route } from 'react-router-dom';
+// import React, { Component } from "react";
+// import { Redirect, Route } from "react-router-dom";
 
-// export const PrivateRoute = ({ component: Component, ...rest }) => {
-//     <Route {...rest}
-//         render={({ location }) => localStorage.getItem('token') ? (
-//         Component
-//     ) : (
-//         <Redirect
-//             to={{
-//                 pathname:"/",
-//                 state:{from:location}
-//             }}
-//         />
-//         )}
-//     />
-// }
+// const renderMergedProps = (component, ...rest) => {
+// 	const finalProps = Object.assign({}, ...rest);
+// 	return React.createElement(component, finalProps);
+// };
+
+// const PrivateRoute = ({ component,...rest }) => {
+// 	return (
+// 		<Route
+// 			{...rest}
+// 			render={(props) =>{
+// 				 return localStorage.getItem("userToken") ? (
+// 					renderMergedProps(component, props, rest)
+// 				) : (
+// 					<Redirect
+// 						to={{
+// 							pathname: "/",
+// 							state: { from: props.location },
+// 						}}
+// 					/>
+// 				)
+// 			}
+// 			}
+// 		/>
+// 	);
+// };
 // export default PrivateRoute;

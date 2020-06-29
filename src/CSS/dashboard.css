@@ -85,14 +85,6 @@ body {
   padding-left:4%;
   width: 70%;
 }
-.sideContainer{
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 160px;
-  margin-right: -3.7%;
-  transition: margin .20s linear; */
-}
 .logokeep1 {
   display: flex;
   width: 8%;
@@ -242,22 +234,32 @@ body {
 .display{
   display: flex;
   flex-direction: row !important;
+  flex-wrap: wrap !important;
   justify-content: space-between;
-  margin-top:25px;
-  margin-bottom:25px;
+  margin-top:15px;
+  margin-bottom:15px;
   font-size:16px;
   /* margin-left:125px; */
-  width:320px;
-  height:auto ;
+  /* width:320px; */
+  /* height:auto !important; */
 }
 .title{
    font-size:18px;
+   height:auto !important;
+   padding-right:10px;
+   flex-wrap: wrap !important;
+  padding-left:10px;
+}
+.getdescription{
+  padding-right:10px;
+  padding-left:10px;
+  flex-wrap: wrap !important;
+  height:auto !important;
 }
 .card{
-  margin-top:5px;
-  padding-left:10px;
-  padding-top:10px;
+   padding-top:10px;
   padding-bottom:10px;
+  margin-top:5px;
   margin-bottom:5px;
   border-radius:10px !important;
   width:350px;
@@ -273,7 +275,19 @@ body {
 .geticon:hover{
   opacity:1;
 }
-
+.updateicon{
+  width:500px;
+}
+.iconandcancel{
+  display:flex;
+  flex-direction:row;
+}
+.updatepin{
+  margin-left:50px !important;
+}
+.updatebutton{
+  margin-top:20px !important;
+}
 @media screen and (max-width: 1024px) {
   .makeStyles-drawerOpen-6 {
     width: 200px !important;

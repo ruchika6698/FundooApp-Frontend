@@ -92,7 +92,7 @@ class Notestitle extends Component {
       <Snackbar
           anchorOrigin={{ vertical: "top", horizontal: "center" }}
           open={this.state.snackbarOpen}
-          autoHideDuration={6000}
+          autoHideDuration={500}
           onClose={this.snackbarClose}
           message={<span class="Snackbar">{this.state.snackbarMsg}</span>}
           action={

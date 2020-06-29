@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { MenuItem, Popper, Paper, Fade, Tooltip, ClickAwayListener, createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import IconButton from "@material-ui/core/IconButton";
 import "../CSS/dashboard.css";
+import {Button, Snackbar } from "@material-ui/core";
 import AddLabel from "./addLable";
 import NotesService from "../Services/notesServices";
 let services = new NotesService();
@@ -13,6 +15,8 @@ class MoreOptions extends Component {
             anchorEl: null,
             open: false,
             placement: null,
+            snackbarOpen: false,
+            snackbarMsg: "",
         }
         this.clickMoreOptions = this.clickMoreOptions.bind(this);
         this.handleDeleteNotes = this.handleDeleteNotes.bind(this);
@@ -31,7 +35,10 @@ class MoreOptions extends Component {
         console.log("error in more options");
     }
     }
-    
+    snackbarClose = () => {
+    this.setState({ snackbarOpen: false });
+  };
+  
     handleDeleteNotes = () => {
         let token = localStorage.getItem("Token");
         let requestData = {
@@ -42,7 +49,10 @@ class MoreOptions extends Component {
         services.DeleteNotes(token,requestData).then((json) => {  
         console.log("responce data==>",json);
         if(json.data.data.success === true){  
-        alert('Record deleted successfully!!');  
+        this.setState({
+              snackbarOpen: true,
+              snackbarMsg: "Login Suceesful..!",
+            });  
     }  
     })  
     };
@@ -62,6 +72,21 @@ class MoreOptions extends Component {
         const { anchorEl, open } = this.state;
         return (
                 <div>
+                <Snackbar
+          anchorOrigin={{ vertical: "top", horizontal: "center" }}
+          open={this.state.snackbarOpen}
+          autoHideDuration={6000}
+          onClose={this.snackbarClose}
+          message={<span class="Snackbar">{this.state.snackbarMsg}</span>}
+          action={
+            <IconButton
+              key="close"
+              arial-label="close"
+              color="inherit"
+              onClick={this.snackbarClose}
+            ></IconButton>
+          }
+        />
                     <Tooltip title="More Options">
                         <MoreVertIcon onClick={this.clickMoreOptions} />
 
