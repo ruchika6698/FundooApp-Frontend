@@ -58,7 +58,7 @@ export default class Display extends Component {
                     {data.description}
                 </div>
                 <div className="geticon">
-                  <Icons noteObject={data}/>
+                  <Icons noteObject={data} UpdateNote={this.props.showNotes}/>
                 </div>
           </Card>
           // </div>
@@ -70,7 +70,7 @@ export default class Display extends Component {
         {notes}
       </div>
       <div>
-        <UpdateNotes Open={this.state.open} Data={this.state.Data} close={this.handleClose}/>
+        <UpdateNotes Open={this.state.open} Data={this.state.Data} close={this.handleClose} UpdateNote={this.props.showNotes}/>
       </div>
       </div>
     );

@@ -51,6 +51,7 @@ export class UpdateNotes extends Component {
         console.log(err);
       });
     this.props.close();
+    this.props.UpdateNote();
   };
 
   handleClickOpen = () => {
@@ -67,7 +68,7 @@ export class UpdateNotes extends Component {
     return (
       <div>
         <Dialog open={this.props.Open} onClose={this.handleClose}>
-          <Card className="wholeNoteCard" onClick={this.clickNote}>
+          <Card className="updateCard" onClick={this.clickNote}>
             <Paper className="titleAndPin">
               <InputBase
                 className="wholeTitle"

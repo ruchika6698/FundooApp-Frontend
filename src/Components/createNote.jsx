@@ -42,6 +42,7 @@ export class CreateNote extends React.Component {
           <div>
             {this.state.clickAway ? (
               <Notestitle
+                UpdateNote={this.props.showNotes}
                 title={this.state.title}
                 description={this.state.description}
                 pin={this.state.pin}

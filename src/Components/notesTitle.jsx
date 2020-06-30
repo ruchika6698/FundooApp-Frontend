@@ -75,6 +75,7 @@ class Notestitle extends Component {
       .catch((err) => {
         console.log(err);
       });
+      this.props.UpdateNote();
   };
 
   handleDrawer = (event) => {

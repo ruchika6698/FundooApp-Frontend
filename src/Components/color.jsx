@@ -14,7 +14,8 @@ let services = new NotesService();
                 paper: {
                     "height": "auto",
                     "width": "139px",
-                    "borderRadius":"24px"
+                    "borderRadius":"5px",
+                    "justify-content":"space-around"
                 }
             }
         }
@@ -39,7 +40,7 @@ class ColorComponent extends Component {
                 '#C3D5F8',
                 '#D6F8BD',
             ],
-            selected: '',
+            selected: '#FFFFFF',
             isHover: false
         }
     }
@@ -58,10 +59,12 @@ class ColorComponent extends Component {
     updateColor = () => {
         this.setState({ anchorEl: null });
             let colorData = {
-                noteId: this.props.noteId.id,
-                notecolor: this.state.selected
+                noteIdList: [this.props.noteId.id],
+                color: this.state.selected
             }
-            services.updateColor(colorData)
+            console.log("Color data",colorData);
+            let token = localStorage.getItem("Token");
+            services.updateColor(token,colorData)
                 .then((json) => {
                     console.log('color response', json);
                 })
@@ -77,12 +80,12 @@ class ColorComponent extends Component {
                     margin: "1px",
                     backgroundColor: key,
                     borderStyle: "solid",
-                    borderColor: "#BFBFBF",
                     borderWidth: "1px",
                     height: "28px",
                     width: "28px"
                 }}
-                    key={index}
+                
+                    Key  
                     onClick={() => this.updateColor(key)}
                 ></div>
             )

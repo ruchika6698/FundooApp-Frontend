@@ -74,7 +74,7 @@ export class Login extends React.Component {
                     if(auth.isAuthenticated){
                         setTimeout(() => {
 							this.props.history.push("/dashboard");
-						}, 500);
+						}, 200);
                     }
           }
         })

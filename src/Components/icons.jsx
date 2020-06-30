@@ -48,7 +48,7 @@ export class Icons extends Component {
 
             <IconButton aria-label="More">
               <Tooltip title="More">
-                <MoreOptions noteId={this.props.noteObject}/>
+                <MoreOptions noteId={this.props.noteObject} refreshID={this.props.UpdateNote}/>
               </Tooltip>
             </IconButton>
         </div>

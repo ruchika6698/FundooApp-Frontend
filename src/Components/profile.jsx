@@ -1,5 +1,8 @@
 import React from "react";
-import { Menu,Popper,MenuItem,Button } from "@material-ui/core";
+import { Menu,Popper,MenuItem,
+  Fade,
+  Paper,
+  ClickAwayListener, } from "@material-ui/core";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import {Link } from "react-router-dom";
 import "../CSS/dashboard.css"
@@ -19,7 +22,17 @@ export default function SimplePopover(props) {
   return (
     <div>
       <AccountCircleIcon onClick={handleClick} />
-      <Popper open={open} anchorEl={anchorEl} placement={'bottom'} transition style={{ position: "fixed" }}>
+       <Popper
+          open={open}
+          anchorEl={anchorEl}
+          placement={"bottom"}
+          transition
+          style={{ position: "fixed" }}
+        >
+          {({ TransitionProps }) => (
+            <Fade {...TransitionProps} timeout={0}>
+              <Paper className="moreOptionsPopper">
+                <ClickAwayListener onClickAway={() => this.closeLabelPopper()}>
       <Menu
         className="simple-menu"
         anchorEl={anchorEl}
@@ -28,7 +41,11 @@ export default function SimplePopover(props) {
       >
       <Link to="/" outline="none"><MenuItem>Log Out</MenuItem></Link>
       </Menu>
-      </Popper>
+      </ClickAwayListener>
+              </Paper>
+            </Fade>
+          )}
+        </Popper>
     </div>
   );
 }

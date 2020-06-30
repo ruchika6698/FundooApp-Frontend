@@ -35,8 +35,8 @@ export class GetAllNotes extends Component {
   render() {
     return (
       <div className="notesbox">
-        <CreateNote/>
-        <Display Notes={this.state.AllNote} />
+        <CreateNote showNotes={this.showAllNotes}/>
+        <Display Notes={this.state.AllNote} showNotes={this.showAllNotes}/>
       </div>
     );
   }

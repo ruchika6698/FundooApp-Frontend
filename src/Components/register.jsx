@@ -94,7 +94,6 @@ export class Register extends React.Component {
         password: this.state.password,
         service: this.state.service,
       };
-      console.log("USER", user);
       service
         .Registration(user)
         .then((json) => {
