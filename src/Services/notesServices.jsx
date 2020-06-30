@@ -32,7 +32,6 @@ class NoteService {
   }
 
   UpdateNotes(token,data){
-    console.log(" Id in axios service ",data);
     return axiosService.Post(`${apiUrl}notes/updateNotes`,data, {
         headers: {
             Authorization: token
@@ -40,10 +39,13 @@ class NoteService {
     });
   }
 
-  updateColor(colorInput) {
+  updateColor(token,colorInput) {
     console.log("note color", colorInput);
-    return axiosService.Post(`${apiUrl}notes/changesColorNotes`, colorInput,false);
+    return axiosService.Post(`${apiUrl}notes/changesColorNotes`,colorInput, {
+        headers: {
+            Authorization: token
+        }
+    });
   }
-
 }
 export default NoteService;

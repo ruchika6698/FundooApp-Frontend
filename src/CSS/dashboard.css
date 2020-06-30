@@ -1,456 +1,487 @@
 body {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-  background-color: #fafafa !important;
-}
-.mainDashboard {
-  display: flex;
-  justify-content: center;
-}
-.toolbar {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  color: black;
-  background-color: white !important;
-}
-.dashboardSearch {
-  display: flex;
-  width: 45%;
-  border-radius: 8px;
-  padding-right:10px;
-  justify-content: space-around;
-  flex-direction: row;
-  background-color: #f1f3f4;
-  position: relative;
-}
-.searchBox {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  top: 2%;
-  }
-
-  .backgrounddashboard{
-      width: 100%;
-    height: 100vh;
-    background: linear-gradient(to right, #002b33, #008b8b);
-    margin-left: 100px;
-  }
-
-.dashboardsearchicon {
-  display: flex;
-  justify-content: flex-start;
-  padding: 2%;
-  padding-top: 20px;
-}
-
-.keepAndLogo {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.keep {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  color:grey;
-  padding-left:1%;
-}
-.appbar {
-  background-color: white;
-}
-.acoounts{
-  display: flex;
-  width:4%;
-  justify-content: space-between;
-}
-.mainContainer{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  transition: margin .20s linear;
-}
-.search{
-  width: 90%;
-  height: 5vh !important;
-}
-.dashboardSearch{
-  margin-top:6px;
-  margin-bottom:6px;
-  width: 70%;
-}
-.searchbar{
-  padding-left:4%;
-  width: 70%;
-}
-.logokeep1 {
-  display: flex;
-  width: 8%;
-  justify-content: space-between;
-}
-.displaynotess {
-  display: flex;
-  width: 800px;
-  padding-top: 80px;
-  justify-content: start;
-  flex-wrap: wrap;
-  padding-left: 94px;
-}
-.tool{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding-left:4%;
-}
-.notesDiv {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  padding: 5px;
-}
-.miniIcons{
-  padding-left:40px !important;
-}
-.drawer{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-.notes:hover{
-  width:299px;
-  border-top-right-radius:27px;
-  border-bottom-right-radius:27px;
-  background-color:#FEEFC3 !important;
-}
-.remainder:hover{
-  width:299px;
-  border-top-right-radius:27px;
-  border-bottom-right-radius:27px;
-  background-color:#FEEFC3 !important;
-}
-.editlabels:hover{
-  width:299px;
-  border-top-right-radius:27px;
-  border-bottom-right-radius:27px;
-  background-color:#FEEFC3 !important;
-}
-.archive:hover{
-  width:299px;
-  border-top-right-radius:27px;
-  border-bottom-right-radius:27px;
-  background-color:#FEEFC3 !important;
-}
-.trash:hover{
-  width:299px;
-  border-top-right-radius:27px;
-  border-bottom-right-radius:27px;
-  background-color:#FEEFC3 !important;
-}
-.color{
-  border-top-right-radius:27px;
-  border-bottom-right-radius:27px;
-  border-top-left-radius:27px;
-  border-bottom-left-radius:27px;
-}
-.dialog{
-  width:1500px;
-  height:230px;
-}
-.noteCard{
-    display: flex;
-    flex-Wrap: wrap;
-    justify-Content: center;
-    margin-Top:2em;
-}
-.miniNote{
-    display: flex;
-    flex-Wrap: wrap;
-    justify-Content: center;
-    flex-direction:row;
-    border-radius:15px !important;
-    border-color:grey;
-    font-weight: 50%;
-}
-.wholeMiniNoteCard{
-    margin-top:10%;
-    width:700px;
-    padding-left:1%;
-    margin-left:20%;
-
-}
-.miniIcons{
-    padding-left:0px;
-}
-.takeNote{
-    padding-top:1.5%;
-    padding-right:40%;
-}
-.NoteCard{
-    border-radius: 10px; 
-    width: 288px;
-    height: 180px !important;
-    display: flex;
-    flex-direction: column; 
-    border: solid rgba(128, 128, 128, 0.21);
-    margin: 5px;
-    padding: 7px;
-}
-.wholeCard{
-    margin-top:10%;
-    width:700px;
-    margin-left:20%;
-}
-.wholeNoteCard{
-    /* width:800px; */
-}
-.notesbox{
-  display: flex;
-  flex-direction:column;
-  align-items:center;
-  margin-top:0px;
-  padding-left:20px;
-}
-.pinImage{
-    margin-left:70px !important;
-}
-.cancelButton{
-    margin-left:320px !important;
-    border-radius:15px;
-}
-.wholeTitle{
-    padding-left:7px;
-    height:auto!important;
-}
-.moreVertIcon{
-    top: "4%" ;
-   width:"50%"
-}
-
-.iconbutton{
-  display:flex;
-  flex-direction:row;
-  background-color:white !important;
-}
-.actionButtons{
-  opacity:1;
-}
-.display{
-  margin-top:50px;
-  margin-bottom:20px ;
-  width:90%;
-  margin-left:140px;
-  display:flex;
-  flex-direction:row !important;
-  flex-wrap: wrap;
-  justify-content:space-between;
-}
-.card{
-  width:320px;
-  padding-top:20px;
-  margin-bottom:20px;
-  border-radius:20px;
-  /* height:auto !important; */
-}
-.title{
-   font-size:18px;
-   height:auto;
-   padding-right:10px;
-   flex-wrap: wrap;
-  padding-left:10px;
-}
-.getdescription{
-  padding-right:10px;
-  padding-left:10px;
-  flex-wrap: wrap !important;
-  height:auto !important;
-}
-.geticon{
-  opacity:0;
-}
-.geticon:hover{
-  opacity:0.7;
-}
-.updateicon{
-  width:500px;
-}
-.iconandcancel{
-  display:flex;
-  flex-direction:row;
-}
-.updatepin{
-  margin-left:50px !important;
-}
-.updatebutton{
-  margin-top:20px !important;
-}
-
-@media screen and (max-width: 1024px) {
-  .makeStyles-drawerOpen-6 {
-    width: 200px !important;
-}
-  .notesbox{
-  padding-left:0px;
-}
-.searchbar{
-  padding-left:2%;
-  width: 500px;
-}
-.display{
-  margin-left:24px;
-}
-.acoounts{
-  margin-right:50px;
-}
-.notes:hover{
-  width:199px;
-}
-.remainder:hover{
-  width:199px;
-}
-.editlabels:hover{
-  width:199px;
-}
-.archive:hover{
-  width:199px;
-}
-.trash:hover{
-  width:199px;
-}
-}
-
-@media screen and (max-width: 768px) {
-  .makeStyles-drawerOpen-6 {
-    width: 300px !important;
-}
-  .notesbox{
-  padding-left:130px;
-}
-.searchbar{
-  padding-left:2%;
-  width: 700px;
-}
-.dashboardSearch {
-  background-color:white;
-}
-.display{
-  margin-left:154px;
-}
-.notes:hover{
-  width:299px;
-}
-.remainder:hover{
-  width:299px;
-}
-.editlabels:hover{
-  width:299px;
-}
-.archive:hover{
-  width:299px;
-}
-.trash:hover{
-  width:299px;
-}
-.Refresh{
-  padding-right:30px;
-}
-}
-@media screen and (max-width: 414px) {
-  .makeStyles-drawerOpen-6 {
-    width: 280px !important;
-}
-  .MuiToolbar-root {
-    width:414px;
-}
-  .card{
-    width:320px;
-    margin-right:100px;
-  }
-  .wholeMiniNoteCard{
-    margin-top:100px;
-    width:320px;
-    margin-left:10px !important;
-  }
-  .wholeCard{
-    margin-top:100px;
-    width:200px;
-    display:flex;
-    flex-direction:row;
-
-  }
-  .gridimage{
-    display:none;
-  }
-  .keepimage{
-    margin-right:0px;
-    margin-left:-50px;
-  }
-  .dashboardSearch{
-     margin-right:0px;
-  }
-  .searchbar{
-  padding-left:1%;
-  margin-right:0px;
-  width:150px;
-}
-.search{
-  width:100px;
-}
-  .keep{
-    font-size:14px !important;
-  }
-  .logokeep1{
-    margin-left:0px;
-  }
-  .tool{
-    margin-right:0px;
-  }
-  .miniIcons{
-    margin-right:100px;
-  }
-  .notes:hover{
-  width:279px;
-}
-.remainder:hover{
-  width:279px;
-}
-.editlabels:hover{
-  width:279px;
-}
-.archive:hover{
-  width:279px;
-}
-.trash:hover{
-  width:279px;
-}
-.Refresh{
-  padding-right:30px;
-}
-}
-
-@media screen and (max-width: 375px) {
-  .wholeMiniNoteCard{
-    margin-left:29px !important;
-  }
-  .card{
-    margin-left:20px !important;
-  }
-}
-@media screen and (max-width: 360px) {
-  .wholeMiniNoteCard{
-    margin-left:54px !important;
-  }
-  .card{
-    margin-left:48px !important;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .wholeMiniNoteCard{
-    margin-left:80px !important;
-  }
-  .card{
-    margin-left:75px !important;
-  }
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     background-color: #fafafa !important;
+}
+ .mainDashboard {
+     display: flex;
+     justify-content: center;
+}
+ .toolbar {
+     display: flex;
+     justify-content: space-between;
+     flex-direction: row;
+     color: black;
+     background-color: white !important;
+}
+ .dashboardSearch {
+     display: flex;
+     width: 45%;
+     border-radius: 8px;
+     padding-right:10px;
+     justify-content: space-around;
+     flex-direction: row;
+     background-color: #f1f3f4;
+     position: relative;
+}
+ .searchBox {
+     display: flex;
+     justify-content: center;
+     flex-direction: column;
+     top: 2%;
+}
+ .backgrounddashboard{
+     width: 100%;
+     height: 100vh;
+     background: linear-gradient(to right, #002b33, #008b8b);
+     margin-left: 100px;
+}
+ .dashboardsearchicon {
+     display: flex;
+     justify-content: flex-start;
+     padding: 2%;
+     padding-top: 20px;
+}
+ .keepAndLogo {
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+}
+ .keep {
+     display: flex;
+     justify-content: center;
+     flex-direction: column;
+     color:grey;
+     padding-left:1%;
+}
+ .appbar {
+     background-color: white;
+}
+ .acoounts{
+     display: flex;
+     width:4%;
+     justify-content: space-between;
+}
+ .mainContainer{
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     transition: margin .20s linear;
+}
+ .search{
+     width: 90%;
+     height: 5vh !important;
+}
+ .dashboardSearch{
+     margin-top:6px;
+     margin-bottom:6px;
+     width: 70%;
+}
+ .searchbar{
+     padding-left:4%;
+     width: 70%;
+}
+ .logokeep1 {
+     display: flex;
+     width: 8%;
+     justify-content: space-between;
+}
+ .displaynotess {
+     display: flex;
+     width: 800px;
+     padding-top: 80px;
+     justify-content: start;
+     flex-wrap: wrap;
+     padding-left: 94px;
+}
+ .tool{
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     padding-left:4%;
+}
+ .notesDiv {
+     display: flex;
+     justify-content: center;
+     flex-direction: column;
+     padding: 5px;
+}
+ .miniIcons{
+     padding-left:40px !important;
+}
+ .drawer{
+     display: flex;
+     justify-content: center;
+     flex-direction: column;
+}
+ .notes:hover{
+     width:299px;
+     border-top-right-radius:27px;
+     border-bottom-right-radius:27px;
+     /* background-color:#FEEFC3 !important; */
+}
+ .remainder:hover{
+     width:299px;
+     border-top-right-radius:27px;
+     border-bottom-right-radius:27px;
+     /* background-color:#FEEFC3 !important; */
+}
+ .editlabels:hover{
+     width:299px;
+     border-top-right-radius:27px;
+     border-bottom-right-radius:27px;
+     /* background-color:#FEEFC3 !important; */
+}
+ .archive:hover{
+     width:299px;
+     border-top-right-radius:27px;
+     border-bottom-right-radius:27px;
+     /* background-color:#FEEFC3 !important; */
+}
+ .trash:hover{
+     width:299px;
+     border-top-right-radius:27px;
+     border-bottom-right-radius:27px;
+     /* background-color:#FEEFC3 !important; */
+}
+ .color{
+     border-top-right-radius:27px;
+     border-bottom-right-radius:27px;
+     border-top-left-radius:27px;
+     border-bottom-left-radius:27px;
+}
+ .dialog{
+     width:1500px;
+     height:230px;
+}
+ .noteCard{
+     display: flex;
+     flex-Wrap: wrap;
+     justify-Content: center;
+     margin-Top:2em;
+}
+ .miniNote{
+     display: flex;
+     flex-Wrap: wrap;
+     justify-Content: center;
+     flex-direction:row;
+     border-radius:15px !important;
+     border-color:grey;
+     font-weight: 50%;
+}
+ .wholeMiniNoteCard{
+     margin-top:10%;
+     align-items:center;
+     width:700px;
+     flex-wrap: wrap;
+     padding-left:1%;
+     margin-left:25%;
+}
+ .miniIcons{
+     padding-left:0px;
+}
+ .takeNote{
+     padding-top:1.5%;
+     padding-right:40%;
+}
+ .NoteCard{
+     border-radius: 10px;
+     width: 288px;
+     height: 180px !important;
+     display: flex;
+     flex-direction: column;
+     border: solid rgba(128, 128, 128, 0.21);
+     margin: 5px;
+     padding: 7px;
+}
+ .wholeCard{
+     margin-top:10%;
+     width:700px;
+     margin-left:25%;
+}
+ .wholeNoteCard{
+    /* width:800px;
+     */
+}
+ .notesbox{
+     display: flex;
+     flex-direction:column;
+     align-items:center;
+     margin-top:0px;
+     padding-left:20px;
+}
+ .pinImage{
+     margin-left:70px !important;
+}
+ .cancelButton{
+     margin-left:320px !important;
+     border-radius:15px;
+}
+ .wholeTitle{
+     padding-left:10px;
+     height:auto!important;
+}
+ .moreVertIcon{
+     top: "4%" ;
+     width:"50%" 
+}
+ .iconbutton{
+     display:flex;
+     flex-direction:row;
+     background-color:white !important;
+}
+ .actionButtons{
+     opacity:1;
+}
+ .display{
+     margin-top:50px;
+     margin-bottom:20px ;
+     width:90%;
+     margin-left:140px;
+     display:flex;
+     align-items:flex-start;
+     flex-direction:row !important;
+     flex-wrap: wrap;
+     justify-content:space-around;
+}
+ .card{
+     width:315px;
+     padding-top:20px;
+     margin-bottom:10px;
+     margin-top:10px;
+     margin-left:10px;
+     margin-right:10px;
+     padding-right:5px;
+     border-radius:5% !important;
+     min-height:150px;
+     max-height:600px;
+     font-size:16px;
+     column:#666666;
+}
+ .title{
+     font-size:17px;
+     height:auto;
+     padding-right:10px;
+     flex-wrap: wrap;
+     padding-left:10px;
+}
+ .getdescription{
+     padding-right:10px;
+     padding-left:10px;
+     flex-wrap: wrap !important;
+     height:auto !important;
+}
+ .geticon{
+     opacity:0;
+}
+ .geticon:hover{
+     opacity:0.7;
+}
+ .updateicon{
+     width:500px;
+}
+ .iconandcancel{
+     display:flex;
+     flex-direction:row;
+}
+ .updatepin{
+     margin-left:50px !important;
+}
+ .updatebutton{
+     margin-top:20px !important;
+}
+.updateCard{
+     width:100% !important;
+     height:100% !important;
+     border-radius:10%;
+}
+ @media screen and (max-width: 1024px) {
+     .makeStyles-drawerOpen-6 {
+         width: 200px !important;
+    }
+     .notesbox{
+         padding-left:0px;
+    }
+     .searchbar{
+         padding-left:2%;
+         width: 500px;
+    }
+     .display{
+         margin-left:94px;
+    }
+     .acoounts{
+         margin-right:50px;
+    }
+     .notes:hover{
+         width:199px;
+    }
+     .remainder:hover{
+         width:199px;
+    }
+     .editlabels:hover{
+         width:199px;
+    }
+     .archive:hover{
+         width:199px;
+    }
+     .trash:hover{
+         width:199px;
+    }
+}
+ @media screen and (max-width: 768px) {
+     .makeStyles-drawerOpen-6 {
+         width: 300px !important;
+    }
+     .wholeMiniNoteCard{
+         margin-top:90px;
+    }
+     .notesbox{
+         padding-left:130px;
+    }
+     .searchbar{
+         padding-left:2%;
+         width: 700px;
+    }
+     .dashboardSearch {
+         background-color:white;
+    }
+     .display{
+         margin-left:94px;
+    }
+     .wholeMiniNoteCard{
+         margin-left:104px;
+    }
+     .notes:hover{
+         width:299px;
+    }
+     .remainder:hover{
+         width:299px;
+    }
+     .editlabels:hover{
+         width:299px;
+    }
+     .archive:hover{
+         width:299px;
+    }
+     .trash:hover{
+         width:299px;
+    }
+     .Refresh{
+         padding-right:30px;
+    }
+     .display{
+         width:520px;
+         margin-left:24px;
+    }
+}
+ @media screen and (max-width: 414px) {
+     .makeStyles-drawerOpen-6 {
+         width: 280px !important;
+    }
+     .MuiToolbar-root {
+         width:414px;
+    }
+     .card{
+         width:320px;
+         margin-right:100px;
+    }
+     .wholeMiniNoteCard{
+         margin-top:100px;
+         width:300px;
+         margin-right:210px !important;
+    }
+     .display{
+         width:500px;
+    }
+     .wholeCard{
+         margin-top:100px;
+         width:200px;
+         display:flex;
+         flex-direction:row;
+    }
+     .gridimage{
+         display:none;
+    }
+     .keepimage{
+         margin-right:0px;
+         margin-left:-50px;
+    }
+     .dashboardSearch{
+         margin-right:0px;
+    }
+     .searchbar{
+         padding-left:1%;
+         margin-right:0px;
+         width:150px;
+    }
+     .search{
+         width:100px;
+    }
+     .keep{
+         font-size:14px !important;
+    }
+     .logokeep1{
+         margin-left:0px;
+    }
+     .tool{
+         margin-right:0px;
+    }
+     .miniIcons{
+         margin-right:100px;
+    }
+     .notes:hover{
+         width:279px;
+    }
+     .remainder:hover{
+         width:279px;
+    }
+     .editlabels:hover{
+         width:279px;
+    }
+     .archive:hover{
+         width:279px;
+    }
+     .trash:hover{
+         width:279px;
+    }
+     .Refresh{
+         padding-right:25px;
+    }
+}
+ @media screen and (max-width: 375px) {
+     .wholeMiniNoteCard{
+         margin-top:100px;
+         width:320px !important;
+         margin-left:160px !important;
+    }
+     .display{
+         width:500px;
+    }
+     .card{
+         margin-left:20px !important;
+    }
+}
+ @media screen and (max-width: 360px) {
+     .wholeMiniNoteCard{
+         margin-top:100px;
+         width:320px;
+         margin-left:200px !important;
+    }
+     .display{
+         margin-left:50px !important;
+    }
+     .card{
+         margin-left:48px !important;
+    }
+}
+ @media screen and (max-width: 320px) {
+     .wholeMiniNoteCard{
+         margin-top:100px;
+         width:320px;
+         margin-left:210px !important;
+    }
+     .card{
+         margin-left:75px !important;
+    }
 }

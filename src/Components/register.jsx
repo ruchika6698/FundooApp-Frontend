@@ -149,6 +149,7 @@ export class Register extends React.Component {
                 className="name"
                 variant="outlined"
                 name="firstName"
+                id="firstName"
                 label={<div class="name">First name</div>}
                 margin="dense"
                 size="medium"
@@ -163,6 +164,7 @@ export class Register extends React.Component {
                 className="name"
                 variant="outlined"
                 name="lastName"
+                id="lastName"
                 label={<div class="name">Last name</div>}
                 margin="dense"
                 size="medium"
@@ -178,6 +180,7 @@ export class Register extends React.Component {
               className="username"
               name="email"
               variant="outlined"
+              id="email"
               label={<div class="email">Email</div>}
               margin="dense"
               inputProps={{ style: { fontSize: "16px" } }}
@@ -192,6 +195,7 @@ export class Register extends React.Component {
               <TextField
                 className="conPass"
                 name="password"
+                id="password"
                 type={this.state.showPassword ? "text" : "password"}
                 variant="outlined"
                 label={<div class="cpassword">Password</div>}
@@ -261,6 +265,7 @@ export class Register extends React.Component {
                 <RadioGroup
                   aria-label="service"
                   name="service"
+                   id="service"
                   value={this.state.value}
                   onChange={this.handleChange}
                 >

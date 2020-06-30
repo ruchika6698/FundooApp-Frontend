@@ -19,19 +19,12 @@ class App extends Component {
       <Route exact path="/" component={Login} />
       <Route path="/register" component={Register} />
       <Route path="/forgotpassword" component={ForgotPassword} />
-      <Route path="/dashboard">
-      {localStorage.getItem('Token') ?
-        <Dashboard/>
-          :
-          <Redirect
-            to={{
-                pathname:"/",
-                state:{from:'dashboard'}
-            }}
-        />} </Route>
-        <Route path="/update" component={UpdateNotes} />
+        <PrivateRoute
+				path="/dashboard"
+				to="/dashboard"
+				component={Dashboard}
+			/>
       <Route path="/resetpassword/:token" component={ResetPassword} />
-      <Route path="/dashboard/notes" component={GetAllNotes} />
       </Router>
       </div>
     );
