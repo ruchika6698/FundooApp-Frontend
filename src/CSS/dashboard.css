@@ -13,7 +13,7 @@ body {
   justify-content: space-between;
   flex-direction: row;
   color: black;
-  background-color: white;
+  background-color: white !important;
 }
 .dashboardSearch {
   display: flex;
@@ -174,9 +174,10 @@ body {
     font-weight: 50%;
 }
 .wholeMiniNoteCard{
-    margin-top:18%;
+    margin-top:10%;
     width:700px;
     padding-left:1%;
+    margin-left:20%;
 
 }
 .miniIcons{
@@ -197,16 +198,19 @@ body {
     padding: 7px;
 }
 .wholeCard{
-    margin-top:18%;
+    margin-top:10%;
     width:700px;
+    margin-left:20%;
 }
 .wholeNoteCard{
     /* width:800px; */
 }
 .notesbox{
   display: flex;
+  flex-direction:column;
   align-items:center;
-  padding-left:100px;
+  margin-top:0px;
+  padding-left:20px;
 }
 .pinImage{
     margin-left:70px !important;
@@ -217,6 +221,7 @@ body {
 }
 .wholeTitle{
     padding-left:7px;
+    height:auto!important;
 }
 .moreVertIcon{
     top: "4%" ;
@@ -232,22 +237,27 @@ body {
   opacity:1;
 }
 .display{
-  display: flex;
-  flex-direction: row !important;
-  flex-wrap: wrap !important;
-  justify-content: space-between;
-  margin-top:15px;
-  margin-bottom:15px;
-  font-size:16px;
-  /* margin-left:125px; */
-  /* width:320px; */
+  margin-top:50px;
+  margin-bottom:20px ;
+  width:90%;
+  margin-left:140px;
+  display:flex;
+  flex-direction:row !important;
+  flex-wrap: wrap;
+  justify-content:space-between;
+}
+.card{
+  width:320px;
+  padding-top:20px;
+  margin-bottom:20px;
+  border-radius:20px;
   /* height:auto !important; */
 }
 .title{
    font-size:18px;
-   height:auto !important;
+   height:auto;
    padding-right:10px;
-   flex-wrap: wrap !important;
+   flex-wrap: wrap;
   padding-left:10px;
 }
 .getdescription{
@@ -256,24 +266,11 @@ body {
   flex-wrap: wrap !important;
   height:auto !important;
 }
-.card{
-   padding-top:10px;
-  padding-bottom:10px;
-  margin-top:5px;
-  margin-bottom:5px;
-  border-radius:10px !important;
-  width:350px;
-}
-.getnotes{
-  display:flex;
-  flex-direction:column;
-  height:auto !important;
-}
 .geticon{
   opacity:0;
 }
 .geticon:hover{
-  opacity:1;
+  opacity:0.7;
 }
 .updateicon{
   width:500px;
@@ -288,6 +285,7 @@ body {
 .updatebutton{
   margin-top:20px !important;
 }
+
 @media screen and (max-width: 1024px) {
   .makeStyles-drawerOpen-6 {
     width: 200px !important;
