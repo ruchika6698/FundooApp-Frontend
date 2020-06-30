@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ColorIcon from '@material-ui/icons/ColorLensOutlined';
 import { Tooltip, IconButton, MenuItem, Menu, Grid, createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 import { height } from '@material-ui/system';
-import ColorLensOutlinedIcon from "@material-ui/icons/ColorLensOutlined";
+import colorPalette from "../Assets/colorPalette.svg";
 import Notestitle from "./notesTitle";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import NotesService from "../Services/notesServices";
@@ -95,7 +95,7 @@ class ColorComponent extends Component {
                         aria-haspopup="true"
                         onClick={this.handleColor}
                     >
-                        <ColorLensOutlinedIcon style={{  height: "25px",width:" 20px"}} />
+                        <img src={colorPalette} label="Color Palette" />
                     </IconButton>
                 </Tooltip>
                 <MuiThemeProvider theme={theme}>

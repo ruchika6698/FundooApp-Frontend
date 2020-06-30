@@ -36,8 +36,6 @@ export default class Display extends Component {
       Data:data,
     open:true
     })
-    console.log("DATASDD",this.state.Data);
-    
   }
 
   handleClickOpen = (event) => {
@@ -51,8 +49,8 @@ export default class Display extends Component {
     let Getnotes = this.props.Notes;
     const notes = Getnotes.filter(item=>item.isDeleted===false).map((data, index) => {
           return(
-          <div key={data.id} className="display">
-          <Card className="card">
+          // <div className="displaydiv">
+          <Card key={data.id} className="card">
            <div className="title" onClick={()=>this.updatenote(data)}>
                 {data.title}
             </div>
@@ -63,12 +61,12 @@ export default class Display extends Component {
                   <Icons noteObject={data}/>
                 </div>
           </Card>
-          </div>
+          // </div>
           )
         })
     return (
       <div>
-      <div>
+      <div className="display">
         {notes}
       </div>
       <div>

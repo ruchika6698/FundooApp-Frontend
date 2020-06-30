@@ -6,7 +6,7 @@ import {Button,Snackbar} from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import InputBase from "@material-ui/core/InputBase";
 import Icons from "./icons";
-import Images from "../Assets/images.png";
+import pinNote from "../Assets/pinNote.svg";
 import Card from '@material-ui/core/Card';
 import Blackpin from "../Assets/Blackpin.png";
 import NotesService from "../Services/notesServices";
@@ -122,7 +122,7 @@ class Notestitle extends Component {
               <Tooltip title="Pin note">
                 <img
                   className="pinImage"
-                  src={Images}
+                  src={pinNote}
                   alt="pin logo"
                   width="50"
                   height="40"

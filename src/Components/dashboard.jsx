@@ -6,6 +6,11 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import gridview from "../Assets/grid.svg";
+import notes from "../Assets/notes.svg";
+import reminder from "../Assets/reminder.svg";
+import editLabel from "../Assets/editLabel.svg";
+import archiveDrawer from "../Assets/archiveDrawer.svg";
+import trash from "../Assets/trash.svg";
 import SearchIcon from "@material-ui/icons/Search";
 import RefreshOutlinedIcon from "@material-ui/icons/RefreshOutlined";
 import TextField from "@material-ui/core/TextField";
@@ -19,13 +24,8 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import ArchiveOutlinedIcon from "@material-ui/icons/ArchiveOutlined";
-import NotificationsOutlinedIcon from "@material-ui/icons/NotificationsOutlined";
-import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
-import DeleteOutlinedIcon from "@material-ui/icons/DeleteOutlined";
-import EmojiObjectsOutlinedIcon from "@material-ui/icons/EmojiObjectsOutlined";
 import "../CSS/dashboard.css";
-import CreateNote from './createNote';
+import GetAllNotes from './getAllNotes';
 import Profile from "./profile";
 
 export default function Dashboard() {
@@ -108,7 +108,7 @@ export default function Dashboard() {
             <Tooltip title="Grid view ">
               <img
                 className="gridimage"
-                src={gridview}
+                 src={gridview}
                 width="22px"
                 height="22px"
                 alt="grid view"
@@ -156,29 +156,30 @@ export default function Dashboard() {
          <List  onMouseEnter={handleDrawerMouseopen}
           onMouseLeave={handleDrawerMouseClose}>
           <ListItem button key={'Notes'} className="notes">
-            <Link to="/dashboard/notes"><ListItemIcon><EmojiObjectsOutlinedIcon /></ListItemIcon></Link>
+            <Link to="/dashboard/notes"><ListItemIcon>
+            <img src={notes} label="Notes" /> </ListItemIcon></Link>
             <ListItemText primary={'Notes'}/>
           </ListItem>
           <ListItem button key={'Remainders'} className="remainder">
-            <ListItemIcon><NotificationsOutlinedIcon/></ListItemIcon>
+            <ListItemIcon><img src={reminder} label="Add reminder" /></ListItemIcon>
             <ListItemText primary={'Remainders'}/>
           </ListItem>
           <ListItem button key={'Editlabels'} className="editlabels">
-            <ListItemIcon>< EditOutlinedIcon/></ListItemIcon>
+            <ListItemIcon><img src={editLabel} label="Edit labels" /></ListItemIcon>
             <ListItemText primary={'Edit labels'}/>
           </ListItem>
           <ListItem button key={'Archive'} className="archive">
-            <ListItemIcon><ArchiveOutlinedIcon/></ListItemIcon>
+            <ListItemIcon><img src={archiveDrawer} label="Archive" /></ListItemIcon>
             <ListItemText primary={'Archive'}/>
           </ListItem>
           <ListItem button key={'Trash'} className="trash">
-            <ListItemIcon>< DeleteOutlinedIcon/></ListItemIcon>
+            <ListItemIcon><img src={trash} label="Trash" /></ListItemIcon>
             <ListItemText primary={'Trash'}/>
           </ListItem>         
         </List>  
       </Drawer>
-      <div className="notesbox">
-      <CreateNote/>
+      <div >
+      <GetAllNotes/>
     </div>
     </div>
   );

@@ -6,6 +6,7 @@ import IconButton from "@material-ui/core/IconButton";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import auth from "../Authguard/auth";
 import FundooService from "../Services/fundooService";
 let service = new FundooService();
 
@@ -69,6 +70,12 @@ export class Login extends React.Component {
               snackbarOpen: true,
               snackbarMsg: "Login Suceesful..!",
             });
+            auth.login();
+                    if(auth.isAuthenticated){
+                        setTimeout(() => {
+							this.props.history.push("/dashboard");
+						}, 500);
+                    }
           }
         })
         .catch((err) => {

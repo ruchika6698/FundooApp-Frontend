@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { MenuItem, Popper, Paper, Fade, Tooltip, ClickAwayListener, createMuiTheme, MuiThemeProvider } from '@material-ui/core';
-import MoreVertIcon from "@material-ui/icons/MoreVert";
+import moreMenu from "../Assets/moreMenu.svg";
 import IconButton from "@material-ui/core/IconButton";
 import "../CSS/dashboard.css";
 import {Button, Snackbar } from "@material-ui/core";
@@ -51,7 +51,7 @@ class MoreOptions extends Component {
         if(json.data.data.success === true){  
         this.setState({
               snackbarOpen: true,
-              snackbarMsg: "Login Suceesful..!",
+              snackbarMsg: "Delete Suceesful..!",
             });  
     }  
     })  
@@ -88,7 +88,7 @@ class MoreOptions extends Component {
           }
         />
                     <Tooltip title="More Options">
-                        <MoreVertIcon onClick={this.clickMoreOptions} />
+                        <img src={moreMenu} onClick={this.clickMoreOptions} />
 
                     </Tooltip>
 
