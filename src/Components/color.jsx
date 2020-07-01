@@ -40,20 +40,21 @@ class ColorComponent extends Component {
                 '#C3D5F8',
                 '#D6F8BD',
             ],
-            selected: '#FFFFFF',
-            isHover: false
+            selected: '',
+            open: false,
         }
+    }
+    handleToggle() {
+        this.setState({ open: true})
+    }
+    closePopper() {
+        this.setState({
+            open: false
+        })
     }
 
     handleColor = (event) => {
         this.setState({ anchorEl: event.currentTarget })
-    }
-
-    changeColor = (color) => {
-        this.setState({ selected: color })
-        this.props.selectColor(color)
-        console.log('color in color comp', this.state.selected);
-
     }
 
     updateColor = () => {
@@ -84,7 +85,7 @@ class ColorComponent extends Component {
                     height: "28px",
                     width: "28px"
                 }}
-                
+
                     Key  
                     onClick={() => this.updateColor(key)}
                 ></div>
@@ -97,6 +98,7 @@ class ColorComponent extends Component {
                         aria-owns={this.state.anchorEl ? 'color-menu' : undefined}
                         aria-haspopup="true"
                         onClick={this.handleColor}
+                        onMouseEnter={this.handleColor}
                     >
                         <img src={colorPalette} label="Color Palette" />
                     </IconButton>

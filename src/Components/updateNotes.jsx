@@ -64,7 +64,6 @@ export class UpdateNotes extends Component {
   handleClose = () => {};
 
   render() {
-    console.log("props", this.props.Data);
     return (
       <div>
         <Dialog open={this.props.Open} onClose={this.handleClose}>

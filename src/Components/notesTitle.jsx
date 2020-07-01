@@ -105,7 +105,7 @@ class Notestitle extends Component {
             ></IconButton>
           }
         />
-        <Card className="wholeNoteCard" onClick={this.clickNote}>
+        <Card className="wholeNoteCard" >
           <Paper className="titleAndPin">
             <InputBase
               className="wholeTitle"

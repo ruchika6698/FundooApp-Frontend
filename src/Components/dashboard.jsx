@@ -173,7 +173,7 @@ export default function Dashboard() {
             <ListItemText primary={'Archive'}/>
           </ListItem>
           <ListItem button key={'Trash'} className="trash">
-            <ListItemIcon><img src={trash} label="Trash" /></ListItemIcon>
+            <ListItemIcon><img src={trash} label="Trash" onClick={() => this.props.history.push("/register")} /></ListItemIcon>
             <ListItemText primary={'Trash'}/>
           </ListItem>         
         </List>  

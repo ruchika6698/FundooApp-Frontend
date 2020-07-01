@@ -180,7 +180,7 @@ export class Register extends React.Component {
               className="username"
               name="email"
               variant="outlined"
-              id="email"
+              id="outlined-required"
               label={<div class="email">Email</div>}
               margin="dense"
               inputProps={{ style: { fontSize: "16px" } }}
@@ -195,7 +195,7 @@ export class Register extends React.Component {
               <TextField
                 className="conPass"
                 name="password"
-                id="password"
+                id="outlined-adornment-password"
                 type={this.state.showPassword ? "text" : "password"}
                 variant="outlined"
                 label={<div class="cpassword">Password</div>}
@@ -265,14 +265,14 @@ export class Register extends React.Component {
                 <RadioGroup
                   aria-label="service"
                   name="service"
-                   id="service"
                   value={this.state.value}
                   onChange={this.handleChange}
                 >
                   <h5>Service:</h5>
                   <div class="radio">
                     <FormControlLabel
-                      value="Basic"
+                      value="basic"
+                      id="service"
                       defaultValue={this.state.service}
                       onChange={this.handleChangeText}
                       control={<Radio color="primary" fontSize="17px" />}
@@ -280,7 +280,7 @@ export class Register extends React.Component {
                       labelPlacement="end"
                     />
                     <FormControlLabel
-                      value="Advance"
+                      value="advance"
                       defaultValue={this.state.service}
                       onChange={this.handleChangeText}
                       control={<Radio color="primary" fontSize="17px" />}
@@ -328,3 +328,4 @@ export class Register extends React.Component {
     );
   }
 }
+export default Register;

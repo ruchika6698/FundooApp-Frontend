@@ -4,6 +4,8 @@ import Icons from "./icons";
 import Card from "@material-ui/core/Card";
 import Dialog from '@material-ui/core/Dialog';
 import UpdateNotes from "./updateNotes"
+import CreateNote from './createNote';
+import Masonry from 'react-masonry-css'
 import NotesService from "../Services/notesServices";
 let services = new NotesService();
 
@@ -67,7 +69,13 @@ export default class Display extends Component {
     return (
       <div>
       <div className="display">
+      <Masonry
+                breakpointCols={4}
+                className="masonry-grid"
+                columnClassName="masonry-grid_column"
+              >
         {notes}
+        </Masonry>
       </div>
       <div>
         <UpdateNotes Open={this.state.open} Data={this.state.Data} close={this.handleClose} UpdateNote={this.props.showNotes}/>
