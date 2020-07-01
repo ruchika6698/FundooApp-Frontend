@@ -40,7 +40,7 @@ class ColorComponent extends Component {
                 '#C3D5F8',
                 '#D6F8BD',
             ],
-            selected: '',
+            selected: '#FFFFFF',
             open: false,
         }
     }
@@ -57,36 +57,43 @@ class ColorComponent extends Component {
         this.setState({ anchorEl: event.currentTarget })
     }
 
-    updateColor = () => {
+    updateColor = (color) => {
         this.setState({ anchorEl: null });
+        this.setState({
+			selected: color,
+		},()=>{
             let colorData = {
                 noteIdList: [this.props.noteId.id],
                 color: this.state.selected
             }
             console.log("Color data",colorData);
             let token = localStorage.getItem("Token");
-            services.updateColor(token,colorData)
+            services.changeColor(token,colorData)
                 .then((json) => {
                     console.log('color response', json);
                 })
                 .catch((error) => {
                     console.log('color error', error);
                 })
+                this.props.refreshID();
+            });
     };
 
     render() {
         const color = this.state.colorArray.map((key, index) => {
             return (
-                <div className="color"style={{
+                <div className="color"
+                style={{
                     margin: "1px",
                     backgroundColor: key,
                     borderStyle: "solid",
+                    alignItems:"center",
                     borderWidth: "1px",
                     height: "28px",
                     width: "28px"
                 }}
 
-                    Key  
+                    // Key  
                     onClick={() => this.updateColor(key)}
                 ></div>
             )

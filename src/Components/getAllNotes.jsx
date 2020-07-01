@@ -23,6 +23,7 @@ export class GetAllNotes extends Component {
       .getAllNotes(token)
       .then((data) => {
         this.setState({ AllNote: data.data.data.data.reverse() });
+        console.log("get note",this.state.AllNote);
       })
       .catch((err) => {
         console.log(err);

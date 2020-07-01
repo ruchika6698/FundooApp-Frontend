@@ -1,5 +1,6 @@
 import React from "react";
 import clsx from "clsx";
+import { BrowserRouter as Router, Route,Redirect } from 'react-router-dom';
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
@@ -173,7 +174,7 @@ export default function Dashboard() {
             <ListItemText primary={'Archive'}/>
           </ListItem>
           <ListItem button key={'Trash'} className="trash">
-            <ListItemIcon><img src={trash} label="Trash" onClick={() => this.props.history.push("/register")} /></ListItemIcon>
+            <ListItemIcon><img src={trash} label="Trash" /></ListItemIcon>
             <ListItemText primary={'Trash'}/>
           </ListItem>         
         </List>  

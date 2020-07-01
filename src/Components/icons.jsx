@@ -51,7 +51,7 @@ export class Icons extends Component {
 
             <IconButton aria-label="Change color">
               <Tooltip title="Change color">
-                 <Color noteId={this.props.noteObject}/>
+                 <Color noteId={this.props.noteObject} refreshID={this.props.UpdateNote}/>
               </Tooltip>
             </IconButton>
 

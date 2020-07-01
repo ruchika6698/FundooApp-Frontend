@@ -20,6 +20,12 @@ export default class Display extends Component {
       description: "",
       open:false,
       close:false,
+     breakpointColumnsObj : {
+        default: 4,
+        1100: 3,
+        700: 2,
+        500: 1
+        },
       Data:{}
     };
   }
@@ -48,17 +54,12 @@ export default class Display extends Component {
   };
 
   render() {
-    const breakpointColumnsObj = {
-        default: 4,
-        1100: 3,
-        700: 2,
-        360: 1
-        };
     let Getnotes = this.props.Notes;
-    const notes = Getnotes.filter(item=>item.isDeleted===false).map((data, index) => {
+    const notes = Getnotes.filter(item=>item.isDeleted===false).filter((item) => item.isArchived === false).map((data, index) => {
           return(
-          // <div className="displaydiv">
-          <Card key={data.id} className="card">
+          <Card key={data.id} className="card" value={data} style={{
+												backgroundColor: `${data.color}`,
+											}}>
            <div className="title" onClick={()=>this.updatenote(data)}>
                 {data.title}
             </div>
@@ -69,14 +70,13 @@ export default class Display extends Component {
                   <Icons noteObject={data} UpdateNote={this.props.showNotes}/>
                 </div>
           </Card>
-          // </div>
           )
         })
     return (
       <div>
       <div className="display">
       <Masonry
-                breakpointCols={breakpointColumnsObj}
+                breakpointCols={this.state.breakpointColumnsObj}
                 className="masonry-grid"
                 columnClassName="masonry-grid_column"
               >
