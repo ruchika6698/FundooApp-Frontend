@@ -8,6 +8,8 @@ import  Dashboard from './Components/dashboard'
 import  UpdateNotes from './Components/updateNotes'
 import { ResetPassword} from './Components/resetpassword'
 import { GetAllNotes} from './Components/getAllNotes'
+import { GetTrashNotes} from './Components/getTrash'
+import { GetArchieved} from './Components/getArchieved'
 import {PrivateRoute} from "./Authguard/privateroute"
 
 class App extends Component {
@@ -21,10 +23,13 @@ class App extends Component {
       <Route path="/forgotpassword" component={ForgotPassword} />
         <PrivateRoute
 				path="/dashboard"
-				to="/dashboard"
+				to="/dashboard/notes"
 				component={Dashboard}
 			/>
       <Route path="/resetpassword/:token" component={ResetPassword} />
+      <Route path="/dashboard/trash" component={GetTrashNotes} />
+      <Route path="/dashboard/archive" component={GetArchieved} />
+
       </Router>
       </div>
     );

@@ -39,7 +39,7 @@ class NoteService {
     });
   }
 
-  updateColor(token,colorInput) {
+  changeColor(token,colorInput) {
     console.log("note color", colorInput);
     return axiosService.Post(`${apiUrl}notes/changesColorNotes`,colorInput, {
         headers: {

@@ -155,12 +155,6 @@ body {
      width:1500px;
      height:230px;
 }
- .noteCard{
-     display: flex;
-     flex-Wrap: wrap;
-     justify-Content: center;
-     margin-Top:2em;
-}
  .miniNote{
      display: flex;
      flex-Wrap: wrap;
@@ -172,9 +166,8 @@ body {
 }
  .wholeMiniNoteCard{
      margin-top:10%;
-     align-items:center;
+     align-items:left;
      width:700px;
-     flex-wrap: wrap;
      padding-left:1%;
      margin-left:25%;
 }
@@ -185,31 +178,11 @@ body {
      padding-top:1.5%;
      padding-right:40%;
 }
- .NoteCard{
-     border-radius: 10px;
-     width: 288px;
-     height: 180px !important;
-     display: flex;
-     flex-direction: column;
-     border: solid rgba(128, 128, 128, 0.21);
-     margin: 5px;
-     padding: 7px;
-}
  .wholeCard{
      margin-top:10%;
      width:700px;
      margin-left:25%;
-}
- .wholeNoteCard{
-    /* width:800px;
-     */
-}
- .notesbox{
-     display: flex;
-     flex-direction:column;
-     align-items:center;
-     margin-top:0px;
-     padding-left:20px;
+     word-wrap: break-word !important;
 }
  .pinImage{
      margin-left:70px !important;
@@ -219,8 +192,13 @@ body {
      border-radius:15px;
 }
  .wholeTitle{
-     padding-left:10px;
-     height:auto!important;
+     padding-right:20px !important;
+     padding-left:20px!important;
+     height:auto !important;
+      overflow-wrap: break-word !important;
+    word-break: break-all !important;
+    text-align: justify;
+  text-justify: inter-word;
 }
  .moreVertIcon{
      top: "4%" ;
@@ -234,42 +212,50 @@ body {
  .actionButtons{
      opacity:1;
 }
+.getdescription{
+    display:flex;
+    flex-wrap: wrap !important;
+}
  .display{
-     margin-top:50px;
-     margin-bottom:20px ;
+     margin-top:35px;
      width:90%;
-     margin-left:140px;
+     margin-left:40px !important;
      display:flex;
      align-items:flex-start;
      flex-direction:row !important;
-     flex-wrap: wrap;
-     justify-content:space-around;
 }
  .card{
      width:315px;
      padding-top:20px;
-     margin-bottom:10px;
-     margin-top:10px;
-     margin-left:10px;
-     margin-right:10px;
-     padding-right:5px;
+     margin-bottom:8px;
+     margin-top:8px;
+     margin-left:8px;
+     margin-right:8px;
+     /* padding-right:5px; */
      border-radius:5% !important;
      min-height:150px;
      max-height:600px;
      font-size:16px;
-     column:#666666;
+     word-wrap: break-all;
 }
  .title{
      font-size:17px;
      height:auto;
-     padding-right:10px;
-     flex-wrap: wrap;
+     padding-right:20px !important;
+     padding-left:20px!important;
+     overflow-wrap: break-word !important;
+    word-break: break-all !important;
+    text-align: justify;
+  text-justify: inter-word;
      padding-left:10px;
 }
  .getdescription{
-     padding-right:10px;
-     padding-left:10px;
-     flex-wrap: wrap !important;
+     padding-right:20px;
+     padding-left:20px;
+     overflow-wrap: break-word !important;
+    word-break: break-all !important;
+    text-align: justify;
+  text-justify: inter-word;
      height:auto !important;
 }
  .geticon{
@@ -296,6 +282,23 @@ body {
      height:100% !important;
      border-radius:10%;
 }
+
+.masonry-grid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  width: auto;
+}
+.masonry-grid_column {
+  padding-left: 15px; /* gutter size */
+  background-clip: padding-box;
+}
+
+/* Style your items */
+.masonry-grid_column > div {
+  margin: 15px auto;
+}
+
  @media screen and (max-width: 1024px) {
      .makeStyles-drawerOpen-6 {
          width: 200px !important;
@@ -392,7 +395,10 @@ body {
          margin-right:210px !important;
     }
      .display{
+         display:flex;
+         flex-direction:column !important;
          width:500px;
+         margin-left:150px !important;
     }
      .wholeCard{
          margin-top:100px;

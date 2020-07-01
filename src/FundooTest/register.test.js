@@ -33,10 +33,10 @@ describe('Registration Component', () => {
             wrapper.find('#firstName').simulate('change', {
                 target: {
                     name: 'firstname',
-                    value: 'Rajesh'
+                    value: 'Rajeshwari'
                 }
             });
-            expect(wrapper.state('firstname')).toEqual('Rajesh');
+            expect(wrapper.state('firstname')).toEqual('Rajeshwari');
         })
     })
     describe('lastName input', () => {
@@ -46,10 +46,10 @@ describe('Registration Component', () => {
             wrapper.find('#lastName').simulate('change', {
                 target: {
                     name: 'lastName',
-                    value: 'Jagtap'
+                    value: 'Pathak'
                 }
             });
-            expect(wrapper.state('lastName')).toEqual('Jagtap');
+            expect(wrapper.state('lastName')).toEqual('Pathak');
         })
     })
     describe('Email input', () => {
@@ -58,10 +58,10 @@ describe('Registration Component', () => {
             wrapper.find('#outlined-required').simulate('change', {
                 target: {
                     name: 'email',
-                    value: 'Rajesh.Jagtap12@gmail.com'
+                    value: 'Rajeshwari.Pathak12@gmail.com'
                 }
             });
-            expect(wrapper.state('email')).toEqual('Rajesh.Jagtap12@gmail.com');
+            expect(wrapper.state('email')).toEqual('Rajeshwari.Pathak12@gmail.com');
         })
     })
     describe('Password input', () => {
@@ -71,10 +71,10 @@ describe('Registration Component', () => {
                 .simulate('change', {
                     target: {
                         name: 'password',
-                        value: 'Rajesh@1234'
+                        value: 'Rajeshwari@1234'
                     }
                 });
-            expect(wrapper.state('password')).toEqual('Rajesh@1234');
+            expect(wrapper.state('password')).toEqual('Rajeshwari@1234');
         })
     })
 })
