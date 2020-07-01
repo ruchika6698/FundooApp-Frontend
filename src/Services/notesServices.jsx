@@ -47,5 +47,31 @@ class NoteService {
         }
     });
   }
+
+  getTrashNotes(token) {
+    return axiosService.Get(`${apiUrl}notes/getTrashNotesList`, {
+        headers: {
+            Authorization: token
+        }
+    });
+  }
+
+  ArchieveNotes(token,data){
+    console.log(" Id in axios service ",data);
+    return axiosService.Post(`${apiUrl}notes/archiveNotes`,data, {
+        headers: {
+            Authorization: token
+        }
+    });
+  }
+
+  getArchieveNotes(token) {
+    return axiosService.Get(`${apiUrl}notes/getArchiveNotesList`, {
+        headers: {
+            Authorization: token
+        }
+    });
+  }
+
 }
 export default NoteService;
