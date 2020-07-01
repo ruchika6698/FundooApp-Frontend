@@ -46,8 +46,14 @@ export default class Display extends Component {
   handleClickClose = (event) => {
       this.setState({ open: true });
   };
-  
+
   render() {
+    const breakpointColumnsObj = {
+        default: 4,
+        1100: 3,
+        700: 2,
+        360: 1
+        };
     let Getnotes = this.props.Notes;
     const notes = Getnotes.filter(item=>item.isDeleted===false).map((data, index) => {
           return(
@@ -70,7 +76,7 @@ export default class Display extends Component {
       <div>
       <div className="display">
       <Masonry
-                breakpointCols={4}
+                breakpointCols={breakpointColumnsObj}
                 className="masonry-grid"
                 columnClassName="masonry-grid_column"
               >

@@ -10,9 +10,30 @@ import IconButton from "@material-ui/core/IconButton";
 import InputBase from "@material-ui/core/InputBase";
 import MoreOptions from "./moreOptions";
 import Color from "./color";
+import NotesService from "../Services/notesServices";
+let services = new NotesService();
 
 export class Icons extends Component {
   
+
+
+  handleArchieveNotes = () => {
+    let token = localStorage.getItem("Token");
+    let requestData = {
+      noteIdList: [this.props.noteObject.id],
+      isArchived: true,
+    };
+    services.ArchieveNotes(token, requestData).then((json) => {
+      if (json.data.data.success === true) {
+        console.log("Archieve note",json);
+      }
+    })
+    .catch((err) => {
+          console.log(err);
+        });
+        this.props.UpdateNote();
+  };
+
   render() {
     return (
           <div >
@@ -42,7 +63,7 @@ export class Icons extends Component {
 
             <IconButton aria-label="Archive note">
               <Tooltip title="Archive">
-                <img src={archiveicon} label="Archive note" />
+                <img src={archiveicon} label="Archive note" onClick={this.handleArchieveNotes}/>
               </Tooltip>
             </IconButton>
 
