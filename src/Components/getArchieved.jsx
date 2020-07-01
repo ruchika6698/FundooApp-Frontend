@@ -25,7 +25,7 @@ export class GetArchieved extends Component {
       .getArchieveNotes(token)
       .then((data) => {
         this.setState({ ArchiveNote: data.data.data.data.reverse() });
-        console.log("Archive notes",this.state.ArchiveNote);
+        console.log("get Archive notes",this.state.ArchiveNote);
       })
       .catch((err) => {
         console.log(err);
@@ -38,7 +38,6 @@ export class GetArchieved extends Component {
   render() {
     const Archivenotes = this.state.ArchiveNote.map((data, index) => {
           return(
-          // <div className="displaydiv">
           <Card key={data.id} className="card">
            <div className="title" onClick={()=>this.updatenote(data)}>
                 {data.title}
@@ -50,7 +49,6 @@ export class GetArchieved extends Component {
                   
                 </div>
           </Card>
-          // </div>
           )
         })
     return (
