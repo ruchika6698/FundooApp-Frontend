@@ -4,6 +4,7 @@ import Icons from "./icons";
 import Card from "@material-ui/core/Card";
 import Dialog from '@material-ui/core/Dialog';
 import UpdateNotes from "./updateNotes"
+import Collaborator from "./collaborator"
 import CreateNote from './createNote';
 import Masonry from 'react-masonry-css'
 import NotesService from "../Services/notesServices";
@@ -21,10 +22,11 @@ export default class Display extends Component {
       open:false,
       close:false,
      breakpointColumnsObj : {
-        default: 4,
-        1100: 3,
-        700: 2,
-        500: 1
+         default:5,
+        1717: 4,
+        1432: 3,
+        1084: 2,
+        750: 1
         },
       Data:{}
     };
@@ -55,7 +57,7 @@ export default class Display extends Component {
 
   render() {
     let Getnotes = this.props.Notes;
-    const notes = Getnotes.filter(item=>item.isDeleted===false).filter((item) => item.isArchived === false).map((data, index) => {
+    const notes = Getnotes.filter(item=>item.isDeleted===false).filter((item) =>item.isArchived===false).map((data, index) => {
           return(
           <Card key={data.id} className="card" value={data} style={{
 												backgroundColor: `${data.color}`,
@@ -85,6 +87,9 @@ export default class Display extends Component {
       </div>
       <div>
         <UpdateNotes Open={this.state.open} Data={this.state.Data} close={this.handleClose} UpdateNote={this.props.showNotes}/>
+      </div>
+      <div>
+        <Collaborator Open={this.state.open} Data={this.state.Data} close={this.handleClose} UpdateNote={this.props.showNotes}/>
       </div>
       </div>
     );

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ColorIcon from '@material-ui/icons/ColorLensOutlined';
 import { Tooltip, IconButton, MenuItem, Menu, Grid, createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 import { height } from '@material-ui/system';
 import colorPalette from "../Assets/colorPalette.svg";
@@ -14,7 +13,7 @@ let services = new NotesService();
                 paper: {
                     "height": "auto",
                     "width": "139px",
-                    "borderRadius":"5px",
+                    // "borderRadius":"5px",
                     "justify-content":"space-around"
                 }
             }
@@ -34,7 +33,7 @@ class ColorComponent extends Component {
                 '#BAF38A',
                 '#8AF3E1',
                 '#8AAAF3',
-                '#F4C3F8',
+                '#FDCFE8',
                 '#900C3F',
                 '#AB959E',
                 '#C3D5F8',
@@ -52,7 +51,6 @@ class ColorComponent extends Component {
             open: false
         })
     }
-
     handleColor = (event) => {
         this.setState({ anchorEl: event.currentTarget })
     }
@@ -86,14 +84,13 @@ class ColorComponent extends Component {
                 style={{
                     margin: "1px",
                     backgroundColor: key,
-                    borderStyle: "solid",
+                    // borderStyle: "solid",
                     alignItems:"center",
-                    borderWidth: "1px",
+                    cursor: "pointer",
+                    // borderWidth: "1px",
                     height: "28px",
                     width: "28px"
                 }}
-
-                    // Key  
                     onClick={() => this.updateColor(key)}
                 ></div>
             )
@@ -105,7 +102,8 @@ class ColorComponent extends Component {
                         aria-owns={this.state.anchorEl ? 'color-menu' : undefined}
                         aria-haspopup="true"
                         onClick={this.handleColor}
-                        onMouseEnter={this.handleColor}
+                        // onMouseEnter={this.handleColor}
+                        // onMouseLeave={this.handleClose}
                     >
                         <img src={colorPalette} label="Color Palette" />
                     </IconButton>
@@ -114,12 +112,13 @@ class ColorComponent extends Component {
                 <Menu
                     id="color-menu"
                     anchorEl={this.state.anchorEl}
-                    placement={'top'}
+                    placement={'bottom'}
                     open={Boolean(this.state.anchorEl)}
                     onClose={this.handleClose}
+                    alignItems="center"
                     style={{ width: "100%" }}
                 >
-                    <Grid style={{ display: "flex", flexWrap: "wrap", justifyContent: "flex-start",padding:"5px" }}>
+                    <Grid className="colorgrid">
                         {color}
                     </Grid>
                 </Menu>

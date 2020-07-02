@@ -106,7 +106,7 @@ export default function Dashboard() {
               <RefreshOutlinedIcon />
             </Tooltip>
             {/* {this.state.openImg  !== true ? ( */}
-            <Tooltip title="Grid view ">
+            <Tooltip title="Grid view " className="gridimage">
               <img
                 className="gridimage"
                  src={gridview}

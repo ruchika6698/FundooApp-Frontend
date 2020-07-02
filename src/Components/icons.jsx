@@ -10,6 +10,7 @@ import IconButton from "@material-ui/core/IconButton";
 import InputBase from "@material-ui/core/InputBase";
 import MoreOptions from "./moreOptions";
 import Color from "./color";
+import Collaborator from "./collaborator"
 import NotesService from "../Services/notesServices";
 let services = new NotesService();
 
@@ -45,7 +46,7 @@ export class Icons extends Component {
 
             <IconButton aria-label="Collaborator">
               <Tooltip title="Collaborator">
-                <img src={addCollaborator} label="Color" />
+                <Collaborator />
               </Tooltip>
             </IconButton>
 
