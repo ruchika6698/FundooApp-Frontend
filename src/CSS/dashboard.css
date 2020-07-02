@@ -299,6 +299,15 @@ body {
     /* padding-left:10px;
     padding-right:10px; */
 }
+.dialogtext{
+    width:500px !important;
+}
+.ownerProfile{
+    display:flex;
+    flex-direction:row;
+    padding-top:10px;
+    padding-right:100px;
+}
 .dialogSearch{
     display:flex;
     flex-direction:row;
