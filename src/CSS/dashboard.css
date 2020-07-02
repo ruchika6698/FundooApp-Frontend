@@ -85,7 +85,7 @@ body {
  .logokeep1 {
      display: flex;
      width: 8%;
-     justify-content: space-between;
+     justify-content: space-around;
 }
  .displaynotess {
      display: flex;
@@ -146,10 +146,17 @@ body {
      /* background-color:#FEEFC3 !important; */
 }
  .color{
-     border-top-right-radius:27px;
+     /* border-top-right-radius:27px;
      border-bottom-right-radius:27px;
      border-top-left-radius:27px;
-     border-bottom-left-radius:27px;
+     border-bottom-left-radius:27px; */
+     border-radius:50px;
+}
+.colorgrid{
+    display: flex; 
+    flex-Wrap: wrap; 
+    justify-Content: flex-start;
+    padding:5px;
 }
  .dialog{
      width:1500px;
@@ -284,10 +291,14 @@ body {
 }
 
 .masonry-grid {
-  display: -webkit-box; /* Not needed if autoprefixing */
-  display: -ms-flexbox; /* Not needed if autoprefixing */
-  display: flex;
-  width: auto;
+  width: 100%;
+    display: -webkit-box; /* Not needed if autoprefixing */
+    display: -ms-flexbox; /* Not needed if autoprefixing */
+    display: flex;
+    flex-grow: initial;
+    overflow-wrap: initial;
+    margin-left: 10px; /* gutter size offset */
+    width: auto;
 }
 .masonry-grid_column {
   padding-left: 15px; /* gutter size */
@@ -303,15 +314,20 @@ body {
      .makeStyles-drawerOpen-6 {
          width: 200px !important;
     }
+    .wholeMiniNoteCard{
+        margin-top:15% !important;
+        margin-right:15% !important;
+    }
+
      .notesbox{
          padding-left:0px;
     }
      .searchbar{
          padding-left:2%;
-         width: 500px;
+         width: 700px;
     }
      .display{
-         margin-left:94px;
+         margin-left:324px !important;
     }
      .acoounts{
          margin-right:50px;
@@ -350,7 +366,7 @@ body {
          background-color:white;
     }
      .display{
-         margin-left:94px;
+         margin-left:94px !important;
     }
      .wholeMiniNoteCard{
          margin-left:104px;
@@ -391,14 +407,17 @@ body {
     }
      .wholeMiniNoteCard{
          margin-top:100px;
-         width:300px;
-         margin-right:210px !important;
+         width:320px;
+         margin-left:60px !important;
     }
      .display{
          display:flex;
          flex-direction:column !important;
          width:500px;
-         margin-left:150px !important;
+         margin-left:50px !important;
+    }
+    .wholeTitle{
+        width:50% !i;
     }
      .wholeCard{
          margin-top:100px;
@@ -458,34 +477,38 @@ body {
  @media screen and (max-width: 375px) {
      .wholeMiniNoteCard{
          margin-top:100px;
-         width:320px !important;
-         margin-left:160px !important;
+         width:310px !important;
+         margin-left:80px !important;
     }
      .display{
          width:500px;
     }
      .card{
-         margin-left:20px !important;
+         margin-left:15px !important;
+         width:310px !important;
     }
 }
  @media screen and (max-width: 360px) {
      .wholeMiniNoteCard{
          margin-top:100px;
-         width:320px;
-         margin-left:200px !important;
+         width:300px;
+         margin-left:80px !important;
     }
      .display{
          margin-left:50px !important;
     }
      .card{
-         margin-left:48px !important;
+         margin-left:20px !important;
     }
 }
  @media screen and (max-width: 320px) {
      .wholeMiniNoteCard{
          margin-top:100px;
          width:320px;
-         margin-left:210px !important;
+         margin-left:100px !important;
+    }
+    .display{
+         margin-left:5px !important;
     }
      .card{
          margin-left:75px !important;
