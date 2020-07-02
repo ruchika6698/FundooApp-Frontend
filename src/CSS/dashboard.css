@@ -247,6 +247,7 @@ body {
 }
  .title{
      font-size:17px;
+     font-weight:bold;
      height:auto;
      padding-right:20px !important;
      padding-left:20px!important;
@@ -288,8 +289,34 @@ body {
      width:100% !important;
      height:100% !important;
      border-radius:10%;
+     padding-top:30px;
+     outline:none;
 }
-
+.collaboratorTitle{
+    font-weight:bold;
+}
+.collaborationdialog{
+    /* padding-left:10px;
+    padding-right:10px; */
+}
+.dialogSearch{
+    display:flex;
+    flex-direction:row;
+    background-color:white;
+    padding-bottom:30px ;
+}
+.dialogimage{
+    padding-top:18px;
+}
+.dialogtextfield{
+    padding-left:20px;
+    width:100%;
+}
+.dialogbutton{
+    padding-top:15px !important;
+    padding-bottom:15px !important;
+    background-color:#E8E8E8;
+}
 .masonry-grid {
   width: 100%;
     display: -webkit-box; /* Not needed if autoprefixing */
@@ -442,6 +469,7 @@ body {
     }
      .search{
          width:100px;
+         /* display:none; */
     }
      .keep{
          font-size:14px !important;
