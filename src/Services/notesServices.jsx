@@ -73,5 +73,13 @@ class NoteService {
     });
   }
 
+  SearchUser(token,data) {
+    return axiosService.Post(`${apiUrl}/searchUserList`, data, {
+      headers: {
+        Authorization: token
+      },
+    });
+  }
+
 }
 export default NoteService;
