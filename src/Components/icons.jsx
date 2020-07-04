@@ -4,10 +4,8 @@ import archiveicon from "../Assets/archiveicon.svg";
 import addCollaborator from "../Assets/addCollaborator.svg";
 import addReminder from "../Assets/addReminder.svg";
 import image from "../Assets/image.svg";
-import Paper from "@material-ui/core/Paper";
 import Tooltip from "@material-ui/core/Tooltip";
 import IconButton from "@material-ui/core/IconButton";
-import InputBase from "@material-ui/core/InputBase";
 import MoreOptions from "./moreOptions";
 import Color from "./color";
 import Collaborator from "./collaborator"
@@ -40,13 +38,13 @@ export class Icons extends Component {
           <div >
             <IconButton aria-label="Remind me">
               <Tooltip title="Reminde me">
-                <img src={addReminder} label="Add Reminder" />
+                <img src={addReminder} label="Add Reminder" alt="Add Reminder"/>
               </Tooltip>
             </IconButton>
 
             <IconButton aria-label="Collaborator">
               <Tooltip title="Collaborator">
-                <Collaborator />
+                <Collaborator noteId={this.props.noteObject}/>
               </Tooltip>
             </IconButton>
 
@@ -58,13 +56,13 @@ export class Icons extends Component {
 
             <IconButton aria-label="Add image">
               <Tooltip title="Add image">
-                <img src={image} label="Image" />
+                <img src={image} label="Image" alt="Image"/>
               </Tooltip>
             </IconButton>
 
             <IconButton aria-label="Archive note">
               <Tooltip title="Archive">
-                <img src={archiveicon} label="Archive note" onClick={this.handleArchieveNotes}/>
+                <img src={archiveicon} label="Archive note" onClick={this.handleArchieveNotes} alt="Archive note"/>
               </Tooltip>
             </IconButton>
 

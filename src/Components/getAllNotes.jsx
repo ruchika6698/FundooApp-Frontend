@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Display from "./display";
 import CreateNote from './createNote';
-import UpdateNotes from "./updateNotes";
 import NotesService from "../Services/notesServices";
 let services = new NotesService();
 
@@ -36,8 +35,12 @@ export class GetAllNotes extends Component {
   render() {
     return (
       <div className="notesbox">
+      <div>
         <CreateNote showNotes={this.showAllNotes}/>
+      </div>
+      <div>
         <Display Notes={this.state.AllNote} showNotes={this.showAllNotes}/>
+      </div>
       </div>
     );
   }

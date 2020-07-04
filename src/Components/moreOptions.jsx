@@ -6,13 +6,11 @@ import {
   Fade,
   Tooltip,
   ClickAwayListener,
-  createMuiTheme,
-  MuiThemeProvider,
 } from "@material-ui/core";
 import moreMenu from "../Assets/moreMenu.svg";
 import IconButton from "@material-ui/core/IconButton";
 import "../CSS/dashboard.css";
-import { Button, Snackbar } from "@material-ui/core";
+import { Snackbar } from "@material-ui/core";
 import AddLabel from "./addLable";
 import NotesService from "../Services/notesServices";
 let services = new NotesService();
@@ -98,7 +96,7 @@ class MoreOptions extends Component {
           }
         />
         <Tooltip title="More Options">
-          <img src={moreMenu} onClick={this.clickMoreOptions} />
+          <img src={moreMenu} onClick={this.clickMoreOptions} alt="more menu" />
         </Tooltip>
 
         <Popper

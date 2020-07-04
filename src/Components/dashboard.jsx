@@ -1,6 +1,5 @@
 import React from "react";
 import clsx from "clsx";
-import { BrowserRouter as Router, Route,Redirect } from 'react-router-dom';
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
@@ -26,7 +25,6 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import "../CSS/dashboard.css";
-import GetAllNotes from './getAllNotes';
 import Profile from "./profile";
 
 export default function Dashboard() {
@@ -158,30 +156,30 @@ export default function Dashboard() {
           onMouseLeave={handleDrawerMouseClose}>
           <ListItem button key={'Notes'} className="notes">
             <Link to="/dashboard/notes"><ListItemIcon>
-            <img src={notes} label="Notes" /> </ListItemIcon></Link>
+            <img src={notes} label="Notes" alt="Notes"/> </ListItemIcon></Link>
             <ListItemText primary={'Notes'}/>
           </ListItem>
           <ListItem button key={'Remainders'} className="remainder">
-            <ListItemIcon><img src={reminder} label="Add reminder" /></ListItemIcon>
+            <ListItemIcon><img src={reminder} label="Add reminder" alt="Add reminder" /></ListItemIcon>
             <ListItemText primary={'Remainders'}/>
           </ListItem>
           <ListItem button key={'Editlabels'} className="editlabels">
-            <ListItemIcon><img src={editLabel} label="Edit labels" /></ListItemIcon>
+            <ListItemIcon><img src={editLabel} label="Edit labels" alt="Edit labels"/></ListItemIcon>
             <ListItemText primary={'Edit labels'}/>
           </ListItem>
           <ListItem button key={'Archive'} className="archive">
-            <ListItemIcon><img src={archiveDrawer} label="Archive" /></ListItemIcon>
+            <Link to="/dashboard/archive"><ListItemIcon><img src={archiveDrawer} label="Archive" alt="Archive"/></ListItemIcon></Link>
             <ListItemText primary={'Archive'}/>
           </ListItem>
           <ListItem button key={'Trash'} className="trash">
-            <ListItemIcon><img src={trash} label="Trash" /></ListItemIcon>
+            <Link to="/dashboard/trash"><ListItemIcon><img src={trash} label="Trash" alt="Trash"/></ListItemIcon></Link>
             <ListItemText primary={'Trash'}/>
           </ListItem>         
         </List>  
       </Drawer>
-      <div >
+      {/* <div >
       <GetAllNotes/>
-    </div>
+    </div> */}
     </div>
   );
 }

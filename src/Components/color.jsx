@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import { Tooltip, IconButton, MenuItem, Menu, Grid, createMuiTheme, MuiThemeProvider } from '@material-ui/core';
-import { height } from '@material-ui/system';
+import { Tooltip, IconButton, Menu, Grid, createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 import colorPalette from "../Assets/colorPalette.svg";
-import Notestitle from "./notesTitle";
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import NotesService from "../Services/notesServices";
 let services = new NotesService();
 
@@ -34,7 +31,7 @@ class ColorComponent extends Component {
                 '#8AF3E1',
                 '#8AAAF3',
                 '#FDCFE8',
-                '#900C3F',
+                '#E8EAED',
                 '#AB959E',
                 '#C3D5F8',
                 '#D6F8BD',
@@ -105,12 +102,12 @@ class ColorComponent extends Component {
                         // onMouseEnter={this.handleColor}
                         // onMouseLeave={this.handleClose}
                     >
-                        <img src={colorPalette} label="Color Palette" />
+                        <img src={colorPalette} label="Color Palette" alt="color pallet" />
                     </IconButton>
                 </Tooltip>
                 <MuiThemeProvider theme={theme}>
                 <Menu
-                    id="color-menu"
+                    // id="color-menu"
                     anchorEl={this.state.anchorEl}
                     placement={'bottom'}
                     open={Boolean(this.state.anchorEl)}

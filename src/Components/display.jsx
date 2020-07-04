@@ -2,14 +2,9 @@ import React, { Component } from "react";
 import "../CSS/dashboard.css";
 import Icons from "./icons";
 import Card from "@material-ui/core/Card";
-import Dialog from '@material-ui/core/Dialog';
 import UpdateNotes from "./updateNotes"
 import Collaborator from "./collaborator"
-import CreateNote from './createNote';
 import Masonry from 'react-masonry-css'
-import NotesService from "../Services/notesServices";
-let services = new NotesService();
-
 
 export default class Display extends Component {
   constructor(props) {
@@ -22,7 +17,7 @@ export default class Display extends Component {
       open:false,
       close:false,
      breakpointColumnsObj : {
-         default:5,
+         default:4,
         1717: 4,
         1432: 3,
         1084: 2,
@@ -87,9 +82,6 @@ export default class Display extends Component {
       </div>
       <div>
         <UpdateNotes Open={this.state.open} Data={this.state.Data} close={this.handleClose} UpdateNote={this.props.showNotes}/>
-      </div>
-      <div>
-        <Collaborator Open={this.state.open} Data={this.state.Data} close={this.handleClose} UpdateNote={this.props.showNotes}/>
       </div>
       </div>
     );
