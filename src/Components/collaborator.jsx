@@ -72,13 +72,15 @@ export class Collaborator extends React.Component {
         this.setState({
             collabatorName : data.email,
             userData : data,
+            anchorEl:""
         })
     }
 
-  Collaborator = (eve) => {
-    let   collaborators = this.state.userData
+  Collaborator = () => {
+    let collaborators = this.state.userData
     let token = localStorage.getItem("Token");
-    console.log("note id  " ,this.props.noteId.id)
+    console.log("note id  " ,this.props.noteId.id);
+    console.log("note token  " ,token)
     services
       .AddCollaborator( this.props.noteId.id, token, collaborators)
       .then((json) => {
@@ -87,6 +89,7 @@ export class Collaborator extends React.Component {
       .catch((err) => {
         console.log(err);
       });
+      this.handleClose();
   };
 
   render() {
@@ -108,7 +111,7 @@ export class Collaborator extends React.Component {
         <Dialog
           className="collaborationdialog"
           open={this.state.open}
-          onClose={this.handleClose}
+          // onClose={this.handleClose}
           aria-labelledby="form-dialog-title"
         >
           <DialogTitle id="form-dialog-title" className="collaboratorTitle">
@@ -157,8 +160,8 @@ export class Collaborator extends React.Component {
                 />
                 <Popover
                   open={Boolean(this.state.anchorEl)}
-                  onClose={this.handleClose}
-                  style={{'maxHeight': '365px'}}
+                  // onClose={this.handleClose}
+                  style={{'maxHeight': '365px', 'maxWeight': '200px'}}
                   anchorOrigin={{
                     vertical: "bottom",
                     horizontal: "center",
@@ -174,8 +177,8 @@ export class Collaborator extends React.Component {
             </div>
           </DialogContent>
           <DialogActions className="dialogbutton">
-            <Button onClick={this.handleClose}>Cancel</Button>
-            <Button onClick={this.Collaborator()}>Save</Button>
+            <Button onClick={()=>this.handleClose()}>Cancel</Button>
+            <Button onClick={()=>this.Collaborator()}>Save</Button>
           </DialogActions>
         </Dialog>
       </div>

@@ -3,12 +3,12 @@ import "../CSS/dashboard.css";
 import archiveicon from "../Assets/archiveicon.svg";
 import addCollaborator from "../Assets/addCollaborator.svg";
 import addReminder from "../Assets/addReminder.svg";
-import image from "../Assets/image.svg";
 import Tooltip from "@material-ui/core/Tooltip";
 import IconButton from "@material-ui/core/IconButton";
 import MoreOptions from "./moreOptions";
 import Color from "./color";
 import Collaborator from "./collaborator"
+import UploadImage from "./imageUpload"
 import NotesService from "../Services/notesServices";
 let services = new NotesService();
 
@@ -56,7 +56,7 @@ export class Icons extends Component {
 
             <IconButton aria-label="Add image">
               <Tooltip title="Add image">
-                <img src={image} label="Image" alt="Image"/>
+                <UploadImage />
               </Tooltip>
             </IconButton>
 

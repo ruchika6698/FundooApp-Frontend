@@ -16,6 +16,13 @@ export default function SimplePopover(props) {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const OnLogOut=()=>{
+        localStorage.removeItem("Token")
+        localStorage.removeItem("FirstName")
+        localStorage.removeItem("LastName")
+        localStorage.removeItem("Email")
+        props.history.push("/")
+  }
 
   const open = Boolean(anchorEl);
 
@@ -39,7 +46,7 @@ export default function SimplePopover(props) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-      <Link to="/" outline="none"><MenuItem>Log Out</MenuItem></Link>
+      <MenuItem onClick={OnLogOut}>Log Out</MenuItem>
       </Menu>
       </ClickAwayListener>
               </Paper>
