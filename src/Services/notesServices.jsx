@@ -24,7 +24,7 @@ class NoteService {
 
   DeleteNotes(token,data){
     console.log(" Id in axios service ",data);
-    return axiosService.Post(`${apiUrl}notes/deleteForeverNotes`,data, {
+    return axiosService.Post(`${apiUrl}notes/trashNotes`,data, {
         headers: {
             Authorization: token
         }
@@ -74,7 +74,17 @@ class NoteService {
   }
 
   SearchUser(token,data) {
-    return axiosService.Post(`${apiUrl}/searchUserList`, data, {
+    console.log("get axios services",data);
+    return axiosService.Post(`${apiUrl}user/searchUserList`, data, {
+      headers: {
+        Authorization: token
+      },
+    });
+  }
+
+   AddCollaborator(id,token,data) {
+     console.log("get axios services",data);
+    return axiosService.Post(apiUrl+'notes/'+id+'/AddcollaboratorsNotes', data, {
       headers: {
         Authorization: token
       },
