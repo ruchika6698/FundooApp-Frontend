@@ -119,37 +119,43 @@ body {
      width:299px;
      border-top-right-radius:27px;
      border-bottom-right-radius:27px;
-     /* background-color:#FEEFC3 !important; */
+}
+.notes:focus{
+    background-color:#FEEFC3 !important;
 }
  .remainder:hover{
      width:299px;
      border-top-right-radius:27px;
      border-bottom-right-radius:27px;
-     /* background-color:#FEEFC3 !important; */
+}
+.remainder:focus{
+    background-color:#FEEFC3 !important;
 }
  .editlabels:hover{
      width:299px;
      border-top-right-radius:27px;
      border-bottom-right-radius:27px;
-     /* background-color:#FEEFC3 !important; */
+}
+.editlabels:focus{
+    background-color:#FEEFC3 !important;
 }
  .archive:hover{
      width:299px;
      border-top-right-radius:27px;
      border-bottom-right-radius:27px;
-     /* background-color:#FEEFC3 !important; */
+}
+.archive:focus{
+    background-color:#FEEFC3 !important;
 }
  .trash:hover{
      width:299px;
      border-top-right-radius:27px;
      border-bottom-right-radius:27px;
-     /* background-color:#FEEFC3 !important; */
+}
+.trash:focus{
+    background-color:#FEEFC3 !important;
 }
  .color{
-     /* border-top-right-radius:27px;
-     border-bottom-right-radius:27px;
-     border-top-left-radius:27px;
-     border-bottom-left-radius:27px; */
      border-radius:50px;
 }
 .colorgrid{
@@ -172,11 +178,14 @@ body {
      font-weight: 50%;
 }
  .wholeMiniNoteCard{
-     margin-top:10%;
+     /* margin-top:10%; */
      align-items:left;
      width:700px;
      padding-left:1%;
      margin-left:25%;
+}
+.notesbox{
+    margin-top:10%;
 }
  .miniIcons{
      padding-left:0px;
@@ -186,7 +195,7 @@ body {
      padding-right:40%;
 }
  .wholeCard{
-     margin-top:10%;
+     /* margin-top:10%; */
      width:700px;
      margin-left:25%;
      word-wrap: break-word !important;
@@ -199,6 +208,7 @@ body {
      border-radius:15px;
 }
  .wholeTitle{
+     width:80%;
      padding-right:20px !important;
      padding-left:20px!important;
      height:auto !important;
@@ -249,12 +259,13 @@ body {
      font-size:17px;
      font-weight:bold;
      height:auto;
+     padding-bottom:10px;
      padding-right:20px !important;
      padding-left:20px!important;
      overflow-wrap: break-word !important;
     word-break: break-all !important;
     text-align: justify;
-  text-justify: inter-word;
+    text-justify: inter-word;
      padding-left:10px;
 }
  .getdescription{
@@ -284,6 +295,7 @@ body {
 }
  .updatebutton{
      margin-top:20px !important;
+     margin-right:30px !important
 }
 .updateCard{
      width:100% !important;
@@ -325,6 +337,45 @@ body {
     padding-top:15px !important;
     padding-bottom:15px !important;
     background-color:#E8E8E8;
+}
+.archivedisplay{
+    margin-top:100px;
+}
+.archivecard{
+    width:315px;
+     padding-top:20px;
+     margin-bottom:8px;
+     margin-top:8px;
+     margin-left:8px;
+     margin-right:8px;
+     /* padding-right:5px; */
+     border-radius:5% !important;
+     min-height:150px;
+     max-height:auto;
+     font-size:16px;
+     word-wrap: break-all;
+}
+.archivetitle{
+    font-size:17px;
+     font-weight:bold;
+     height:auto;
+     padding-bottom:10px;
+     padding-right:20px !important;
+     padding-left:20px!important;
+     overflow-wrap: break-word !important;
+    word-break: break-all !important;
+    text-align: justify;
+    text-justify: inter-word;
+     padding-left:10px;
+}
+.archivegetdescription{
+    padding-right:20px;
+     padding-left:20px;
+     overflow-wrap: break-word !important;
+    word-break: break-all !important;
+    text-align: justify;
+  text-justify: inter-word;
+     height:auto !important;
 }
 .masonry-grid {
   width: 100%;
@@ -437,6 +488,15 @@ body {
      .MuiToolbar-root {
          width:414px;
     }
+    .wholeTitle{
+     width:50% !important;
+    }
+    .takeNote {
+    padding-right: 0%;
+    }
+    .miniNote{
+        flex-direction:row !important;
+    }
      .card{
          width:320px;
          margin-right:100px;
@@ -490,7 +550,7 @@ body {
          margin-right:0px;
     }
      .miniIcons{
-         margin-right:100px;
+        
     }
      .notes:hover{
          width:279px;
