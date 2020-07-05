@@ -19,13 +19,17 @@ export class Icons extends Component {
     this.state = {
       open: false,
       collaboratorOpen:false,
+      // data:this.prop.noteObject,
     };
     this.handlercollaborator = this.handlercollaborator.bind(this);
   }
   
   handlercollaborator= (eve)=>{
     this.setState({collaboratorOpen:true})
-    console.log("Collaborator open",this.state.collaboratorOpen);
+    if(this.props.source === "noteTitle"){
+      this.props.CollaboratorIcon();
+    }
+    
   }
 
   handleArchieveNotes = () => {
@@ -69,6 +73,7 @@ export class Icons extends Component {
                   label="Collaborator"
                   alt="Add Person icon"
                   onClick={()=>this.handlercollaborator()}
+
               />
               </Tooltip>
             </IconButton>

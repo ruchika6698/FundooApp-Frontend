@@ -10,7 +10,6 @@ let services = new NotesService();
                 paper: {
                     "height": "auto",
                     "width": "139px",
-                    // "borderRadius":"5px",
                     "justify-content":"space-around"
                 }
             }
@@ -81,10 +80,8 @@ class ColorComponent extends Component {
                 style={{
                     margin: "1px",
                     backgroundColor: key,
-                    // borderStyle: "solid",
                     alignItems:"center",
                     cursor: "pointer",
-                    // borderWidth: "1px",
                     height: "28px",
                     width: "28px"
                 }}
@@ -99,8 +96,6 @@ class ColorComponent extends Component {
                         aria-owns={this.state.anchorEl ? 'color-menu' : undefined}
                         aria-haspopup="true"
                         onClick={this.handleColor}
-                        // onMouseEnter={this.handleColor}
-                        // onMouseLeave={this.handleClose}
                     >
                         <img src={colorPalette} label="Color Palette" alt="color pallet" />
                     </IconButton>

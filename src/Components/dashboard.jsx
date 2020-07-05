@@ -103,7 +103,6 @@ export default function Dashboard() {
             <Tooltip title="Refresh">
               <RefreshOutlinedIcon />
             </Tooltip>
-            {/* {this.state.openImg  !== true ? ( */}
             <Tooltip title="Grid view " className="gridimage">
               <img
                 className="gridimage"
@@ -111,26 +110,12 @@ export default function Dashboard() {
                 width="22px"
                 height="22px"
                 alt="grid view"
-                //  onClick={this.handleToggle}
               ></img>
             </Tooltip>
-            {/* ) : (
-            <Tooltip title="Grid view ">
-              <img
-                src={keep1}
-                width="22px"
-                height="22px"
-                alt="grid view"
-                // onClick={this.handleToggle}
-              ></img>
-            </Tooltip>
-            {/* )} */}
           </div>
         <div className="tool">
           <div className="acoounts">
-            <Tooltip title="Fundoo Account">
               <Profile />
-            </Tooltip>
           </div>
         </div>
         </Toolbar>

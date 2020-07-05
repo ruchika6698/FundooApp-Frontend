@@ -24,9 +24,13 @@ class Notestitle extends Component {
       file: "",
       snackbarOpen: false,
       snackbarMsg: "",
+      checkList:"",
+      isCheckList:false,
+
       Data:[]
     };
   }
+
   handleChangeText = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
@@ -54,6 +58,28 @@ class Notestitle extends Component {
       anchorEl: null,
     });
   };
+  
+  AddCheckList=()=>{
+    let CheckListArray = [...this.state.checkList]; 
+        if(CheckListArray.length >=2 && CheckListArray[CheckListArray.length-2 !=='']){
+            let ListArray = CheckListArray[CheckListArray.length-1];
+            CheckListArray[CheckListArray.length -1] = "";       
+            CheckListArray[CheckListArray.length] = ListArray;
+            this.state.checkList(CheckListArray); 
+        }
+        else{
+            let ListArray = CheckListArray[CheckListArray.length-1];
+            CheckListArray[CheckListArray.length -1] = "";       
+            CheckListArray[CheckListArray.length] = ListArray;
+            this.state.checkList(CheckListArray); 
+        }
+  }
+  onChangeList = index => eve => {
+            let ListArray = [...this.state.checkList]; 
+            ListArray[index] = { value :  eve.target.value,
+                              isChecked : (ListArray[index].isChecked !== undefined) ? ListArray[index].isChecked : false}
+           this.state.checkList(ListArray); 
+    };
 
   Createnote = () => {
     console.log(this.state);
@@ -161,7 +187,7 @@ class Notestitle extends Component {
           </Paper>
           <Paper className="actionButtons">
             <div className="iconbutton">
-             <Icons />
+             <Icons CollaboratorIcon={this.props.onCollaborator} source="noteTitle"/>
               <Tooltip className="cancelButton" title="Close">
               <Button
                 margin="dense"

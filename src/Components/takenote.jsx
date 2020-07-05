@@ -26,6 +26,7 @@ class TakeNote extends Component {
                     <div className="takeNote">
                         <InputBase
                             className="miniNote"
+                            style={{ width: "80%" }}
                             placeholder="Take a Note..."
                             onClick={this.props.handleClick}
                         />
