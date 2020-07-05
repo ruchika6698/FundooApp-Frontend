@@ -57,6 +57,7 @@ export default class Display extends Component {
           <Card key={data.id} className="card" value={data} style={{
 												backgroundColor: `${data.color}`,
 											}}>
+            {/* <div ><img src="imgUrl/"/></div> */}
            <div className="title" onClick={()=>this.updatenote(data)}>
                 {data.title}
             </div>

@@ -19,7 +19,6 @@ export class Icons extends Component {
     this.state = {
       open: false,
       collaboratorOpen:false,
-      // data:this.prop.noteObject,
     };
     this.handlercollaborator = this.handlercollaborator.bind(this);
   }

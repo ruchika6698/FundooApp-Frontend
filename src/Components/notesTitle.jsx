@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../CSS/dashboard.css";
 import Paper from "@material-ui/core/Paper";
 import Tooltip from "@material-ui/core/Tooltip";
-import {Button,Snackbar} from "@material-ui/core";
+import {TextField,Button,Snackbar} from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import InputBase from "@material-ui/core/InputBase";
 import Icons from "./icons";
@@ -26,7 +26,7 @@ class Notestitle extends Component {
       snackbarMsg: "",
       checkList:"",
       isCheckList:false,
-
+      clearIcon:false,
       Data:[]
     };
   }
@@ -74,12 +74,19 @@ class Notestitle extends Component {
             this.state.checkList(CheckListArray); 
         }
   }
+
   onChangeList = index => eve => {
             let ListArray = [...this.state.checkList]; 
             ListArray[index] = { value :  eve.target.value,
                               isChecked : (ListArray[index].isChecked !== undefined) ? ListArray[index].isChecked : false}
            this.state.checkList(ListArray); 
     };
+  CheckBoxhandler = index => eve =>{
+        let ListArray = [...this.state.checkList]; 
+        ListArray[index] = {   value : ListArray[index].value,
+                            isChecked : !ListArray[index].isChecked }
+        this.state.checkList(ListArray);
+    }
 
   Createnote = () => {
     console.log(this.state);
@@ -174,6 +181,53 @@ class Notestitle extends Component {
           </Paper>
 
           <Paper>
+          {/* { this.state.isCheckList ? 
+                this.state.checkList.map((values,index)=>{
+                        if(index === this.state.checkList.length-1){
+                          return( <div>
+                                 <TextField
+                                    disabled
+                                    className='takeNote'
+                                    placeholder="+   List item"                            
+                                    textdecaration='none'
+                                    InputProps={{ classes }}  
+                                    onClick={AddList}           
+                                />     
+                            </div>
+                          )
+                        }
+                        else{
+                            return(     
+                                <ClickAwayListener onClickAway ={clarClickAway} className='ClickAwayListener'>
+                                <div className='CheckListFields' onMouseEnter = {this.clearIconOnHover} onMouseLeave={this.clearIconOffhover} onClick={this.clearIconClick} >                          
+                                    <div>
+                                        <Checkbox  checked={values.isChecked} onChange={this.CheckBoxhandler(index) }   style={{color : 'black'}}/>
+                                    </div>
+                                    
+                                    <div>
+                                        <TextField
+                                            className='takeNote'
+                                            fullWidth
+                                            multiline
+                                            placeholder='Take a Note'                            
+                                            textdecaration='none'
+                                            name={index}
+                                            InputProps={{ classes }}  
+                                            value={values.value}    
+                                            onChange={onListChange(index)}             
+                                        />          
+                                    </div>
+                                    <div>
+                                        <IconButton fontSize='small'>
+                                        {clearIcon ? <ClearOutlinedIcon fontSize='small'/> : undefined}
+                                        </IconButton>
+                                    </div>
+                                </div>
+                                </ClickAwayListener>
+                            );
+                        }
+                })                 
+                :   */}
             <InputBase
               className="wholeTitle"
               name="description"
@@ -185,6 +239,7 @@ class Notestitle extends Component {
               onChange={this.handleChangeText}
             />
           </Paper>
+        {/* } */}
           <Paper className="actionButtons">
             <div className="iconbutton">
              <Icons CollaboratorIcon={this.props.onCollaborator} source="noteTitle"/>
@@ -192,7 +247,6 @@ class Notestitle extends Component {
               <Button
                 margin="dense"
                 size="small"
-                color="primary"
                 onClick={this.Createnote}
               >
                 Close

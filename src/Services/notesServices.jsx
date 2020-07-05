@@ -84,7 +84,7 @@ class NoteService {
 
    AddCollaborator(id,token,data) {
      console.log("get axios services",data);
-    return axiosService.Post(apiUrl+'notes/'+id+'/AddcollaboratorsNotes', data, {
+    return axiosService.Post(`${apiUrl}notes/${id}/AddcollaboratorsNotes`, data, {
       headers: {
         Authorization: token
       },
