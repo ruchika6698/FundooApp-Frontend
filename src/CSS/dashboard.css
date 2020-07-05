@@ -229,10 +229,6 @@ body {
  .actionButtons{
      opacity:1;
 }
-.getdescription{
-    display:flex;
-    flex-wrap: wrap !important;
-}
  .display{
      margin-top:35px;
      width:90%;
@@ -251,7 +247,7 @@ body {
      /* padding-right:5px; */
      border-radius:5% !important;
      min-height:150px;
-     max-height:600px;
+     max-height:800px;
      font-size:16px;
      word-wrap: break-all;
 }
@@ -266,7 +262,7 @@ body {
     word-break: break-all !important;
     text-align: justify;
     text-justify: inter-word;
-     padding-left:10px;
+
 }
  .getdescription{
      padding-right:20px;
@@ -305,14 +301,26 @@ body {
      outline:none;
 }
 .collaboratorTitle{
+    display: flex;
+    justify-content: flex-start;
     font-weight:bold;
+    padding-top:20px;
+    padding-left:20px;
+    padding-right:20px;
+    padding-bottom:20px ;
+     font-size:20px;
+}
+.nameAndMail{
+    padding-left:15px;
 }
 .collaborationdialog{
-    /* padding-left:10px;
-    padding-right:10px; */
+    width:700px;
 }
 .dialogtext{
     width:500px !important;
+    padding-top:20px;
+    padding-left:20px;
+    padding-right:20px;
 }
 .ownerProfile{
     display:flex;
@@ -325,6 +333,9 @@ body {
     flex-direction:row;
     background-color:white;
     padding-bottom:30px ;
+    padding-top:20px;
+    padding-left:20px;
+    padding-right:20px;
 }
 .dialogimage{
     padding-top:18px;
@@ -336,6 +347,7 @@ body {
 .dialogbutton{
     padding-top:15px !important;
     padding-bottom:15px !important;
+    padding-left:550px !important;
     background-color:#E8E8E8;
 }
 .archivedisplay{
@@ -376,6 +388,10 @@ body {
     text-align: justify;
   text-justify: inter-word;
      height:auto !important;
+}
+.collaboratormenu{
+    max-height: 365px;
+    max-width:300px;
 }
 .masonry-grid {
   width: 100%;
@@ -577,12 +593,25 @@ body {
          width:310px !important;
          margin-left:80px !important;
     }
+    .acoounts{
+        margin-right:750px !important;
+    }
      .display{
          width:500px;
     }
      .card{
          margin-left:15px !important;
          width:310px !important;
+    }
+    .title{
+        padding-bottom:10px;
+     padding-right:10px !important;
+     padding-left:10px!important;
+    }
+    .getdescription{
+         padding-bottom:10px;
+     padding-right:10px !important;
+     padding-left:10px!important;
     }
 }
  @media screen and (max-width: 360px) {
