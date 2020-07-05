@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../CSS/dashboard.css";
 import Paper from "@material-ui/core/Paper";
 import Tooltip from "@material-ui/core/Tooltip";
-import {Button,Snackbar} from "@material-ui/core";
+import {Button} from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import InputBase from "@material-ui/core/InputBase";
 import Icons from "./icons";
@@ -12,7 +12,7 @@ import Blackpin from "../Assets/Blackpin.png";
 import NotesService from "../Services/notesServices";
 let services = new NotesService();
 
-class Notestitle extends Component {
+export class CheckList extends Component {
   constructor(props) {
     super(props);
 
@@ -31,7 +31,6 @@ class Notestitle extends Component {
     this.setState({
       [event.target.name]: event.target.value,
     });
-    console.log("notes", this.state);
   };
   snackbarClose = () => {
     this.setState({ snackbarOpen: false });
@@ -55,30 +54,30 @@ class Notestitle extends Component {
     });
   };
 
-  Createnote = () => {
-    console.log(this.state);
-    let token = localStorage.getItem("Token");
-    let requestData = {
-      title: this.state.title,
-      description: this.state.description,
-      file: this.state.file,
-    };
-    services
-      .CreateNote(token,requestData)
-      .then((json) => {
-        if (json.status === 200) {
-            this.setState({
-              snackbarOpen: true,
-              snackbarMsg: "Notes Created Suceesfully..!",
-            });
-          }
-        console.log(" Create notes Successful ", json);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-      this.props.UpdateNote();
-  };
+//   Createnote = () => {
+//     console.log(this.state);
+//     let token = localStorage.getItem("Token");
+//     let requestData = {
+//       title: this.state.title,
+//       description: this.state.description,
+//       file: this.state.file,
+//     };
+//     services
+//       .CreateNote(token,requestData)
+//       .then((json) => {
+//         if (json.status === 200) {
+//             this.setState({
+//               snackbarOpen: true,
+//               snackbarMsg: "Notes Created Suceesfully..!",
+//             });
+//           }
+//         console.log(" Create notes Successful ", json);
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//       });
+//       this.props.UpdateNote();
+//   };
 
   handleDrawer = (event) => {
     this.props.openDrawer();
@@ -92,21 +91,6 @@ class Notestitle extends Component {
   render() {
     return (
       <div className="wholeCard">
-      <Snackbar
-          anchorOrigin={{ vertical: "top", horizontal: "center" }}
-          open={this.state.snackbarOpen}
-          autoHideDuration={500}
-          onClose={this.snackbarClose}
-          message={<span class="Snackbar">{this.state.snackbarMsg}</span>}
-          action={
-            <IconButton
-              key="close"
-              arial-label="close"
-              color="inherit"
-              onClick={this.snackbarClose}
-            ></IconButton>
-          }
-        />
         <Card className="wholeNoteCard" >
           <Paper className="titleAndPin">
             <InputBase
@@ -114,8 +98,8 @@ class Notestitle extends Component {
               name="title"
               color="white"
               placeholder="Title"
-              multiline
               style={{ width: "80%" }}
+              multiline
               value={this.state.title}
               onChange={this.handleChangeText}
               InputProps={{
@@ -152,8 +136,7 @@ class Notestitle extends Component {
               className="wholeTitle"
               name="description"
               color="white"
-              multiline
-              style={{ width: "100%" }}
+              style={{ width: "80%" }}
               placeholder="Take a note..."
               value={this.state.description}
               onChange={this.handleChangeText}
@@ -161,7 +144,7 @@ class Notestitle extends Component {
           </Paper>
           <Paper className="actionButtons">
             <div className="iconbutton">
-             <Icons />
+             <Icons/>
               <Tooltip className="cancelButton" title="Close">
               <Button
                 margin="dense"
@@ -180,4 +163,4 @@ class Notestitle extends Component {
   }
 }
 
-export default Notestitle;
+export default CheckList;

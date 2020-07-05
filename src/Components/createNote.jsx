@@ -50,7 +50,7 @@ export class CreateNote extends React.Component {
               />
             ) : (
               <TakeNote handleClick={this.handleClick} />
-            )}
+            )} 
           </div>
         </ClickAwayListener>
       </Container>

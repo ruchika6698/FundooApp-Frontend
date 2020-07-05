@@ -65,7 +65,7 @@ export class UpdateNotes extends Component {
   render() {
     return (
       <div>
-        <Dialog open={this.props.Open} onClose={this.handleClose}>
+        <Dialog open={this.props.Open} onClose={this.handleClose}  maxWidth="lg">
           <Card className="updateCard" onClick={this.clickNote}>
             <Paper className="titleAndPin">
               <InputBase
@@ -73,6 +73,7 @@ export class UpdateNotes extends Component {
                 name="title"
                 color="white"
                 placeholder="Title"
+                multiline
                 style={{ width: "80%" }}
                 defaultValue={this.props.Data.title}
                 onChange={this.handleChange}
@@ -108,7 +109,8 @@ export class UpdateNotes extends Component {
                 className="wholeTitle"
                 name="description"
                 color="white"
-                style={{ width: "80%" }}
+                multiline
+                style={{ width: "100%" }}
                 placeholder="Take a note..."
                 defaultValue={this.props.Data.description}
                 onChange={this.handleChange}

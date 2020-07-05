@@ -1,6 +1,8 @@
 import React from "react";
+import "../CSS/dashboard.css";
 import addCollaborator from "../Assets/addCollaborator.svg";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import Card from "@material-ui/core/Card";
 import { Button, MenuList, Popover } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
@@ -68,6 +70,7 @@ export class Collaborator extends React.Component {
         console.log(err);
       });
   };
+
   OnSelect =(data)=>{
         this.setState({
             collabatorName : data.email,
@@ -80,7 +83,6 @@ export class Collaborator extends React.Component {
     let collaborators = this.state.userData
     let token = localStorage.getItem("Token");
     console.log("note id  " ,this.props.noteId.id);
-    console.log("note token  " ,token)
     services
       .AddCollaborator( this.props.noteId.id, token, collaborators)
       .then((json) => {
@@ -102,24 +104,18 @@ export class Collaborator extends React.Component {
     });
     return (
       <div>
-        <img
-          src={addCollaborator}
-          label="Collaborator"
-          alt="Add Person icon"
-          onClick={this.handleClickOpen}
-        />
-        <Dialog
+        <Card
           className="collaborationdialog"
-          open={this.state.open}
+          open={true}
           // onClose={this.handleClose}
           aria-labelledby="form-dialog-title"
         >
-          <DialogTitle id="form-dialog-title" className="collaboratorTitle">
+          <div id="form-dialog-title" className="collaboratorTitle">
             Collaborators
-          </DialogTitle>
+          </div>
           <Divider variant="middle" />
-          <DialogContent>
-            <DialogContentText className="dialogtext">
+          <div>
+            <div className="dialogtext">
               <div className="ownerProfile">
                 <div className="OwerProfileImage">
                   <AccountCircleIcon fontSize="large" />
@@ -135,7 +131,7 @@ export class Collaborator extends React.Component {
                   <div>{localStorage.Email}</div>
                 </div>
               </div>
-            </DialogContentText>
+            </div>
             <div className="dialogSearch">
               <div className="dialogimage">
                 <img
@@ -160,8 +156,7 @@ export class Collaborator extends React.Component {
                 />
                 <Popover
                   open={Boolean(this.state.anchorEl)}
-                  // onClose={this.handleClose}
-                  style={{'maxHeight': '365px', 'maxWeight': '200px'}}
+                  className="collaboratormenu"
                   anchorOrigin={{
                     vertical: "bottom",
                     horizontal: "center",
@@ -175,12 +170,12 @@ export class Collaborator extends React.Component {
                 </Popover>
               </div>
             </div>
-          </DialogContent>
-          <DialogActions className="dialogbutton">
+          </div>
+          <div className="dialogbutton">
             <Button onClick={()=>this.handleClose()}>Cancel</Button>
             <Button onClick={()=>this.Collaborator()}>Save</Button>
-          </DialogActions>
-        </Dialog>
+          </div>
+        </Card>
       </div>
     );
   }

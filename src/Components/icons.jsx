@@ -1,20 +1,32 @@
 import React, { Component } from "react";
 import "../CSS/dashboard.css";
 import archiveicon from "../Assets/archiveicon.svg";
+import Dialog from "@material-ui/core/Dialog";
 import addCollaborator from "../Assets/addCollaborator.svg";
 import addReminder from "../Assets/addReminder.svg";
+import image from "../Assets/image.svg";
 import Tooltip from "@material-ui/core/Tooltip";
 import IconButton from "@material-ui/core/IconButton";
 import MoreOptions from "./moreOptions";
 import Color from "./color";
 import Collaborator from "./collaborator"
-import UploadImage from "./imageUpload"
 import NotesService from "../Services/notesServices";
 let services = new NotesService();
 
 export class Icons extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: false,
+      collaboratorOpen:false,
+    };
+    this.handlercollaborator = this.handlercollaborator.bind(this);
+  }
   
-
+  handlercollaborator= (eve)=>{
+    this.setState({collaboratorOpen:true})
+    console.log("Collaborator open",this.state.collaboratorOpen);
+  }
 
   handleArchieveNotes = () => {
     let token = localStorage.getItem("Token");
@@ -33,6 +45,14 @@ export class Icons extends Component {
         this.props.UpdateNote();
   };
 
+  triggerInputFile=()=> {
+        try{
+        this.fileInput.click();
+        }catch(err){
+            console.log("error in file triggger");
+        }
+    }
+
   render() {
     return (
           <div >
@@ -44,7 +64,12 @@ export class Icons extends Component {
 
             <IconButton aria-label="Collaborator">
               <Tooltip title="Collaborator">
-                <Collaborator noteId={this.props.noteObject}/>
+               <img
+                  src={addCollaborator}
+                  label="Collaborator"
+                  alt="Add Person icon"
+                  onClick={()=>this.handlercollaborator()}
+              />
               </Tooltip>
             </IconButton>
 
@@ -56,7 +81,7 @@ export class Icons extends Component {
 
             <IconButton aria-label="Add image">
               <Tooltip title="Add image">
-                <UploadImage />
+                <img src={image} label="Image" alt="Image" onClick={this.triggerInputFile}/>
               </Tooltip>
             </IconButton>
 
@@ -71,6 +96,25 @@ export class Icons extends Component {
                 <MoreOptions noteId={this.props.noteObject} refreshID={this.props.UpdateNote}/>
               </Tooltip>
             </IconButton>
+            <div>
+
+                    {this.state.collaboratorOpen ? 
+
+                        ( Boolean(this.props.noteObject) ?                         
+                             <Dialog
+                                 id='collaboraterdilogBox'
+                             open={this.state.collaboratorOpen}
+                             maxWidth="lg"
+                          
+                             >
+                                 <Collaborator noteId={this.props.noteObject}/>
+                             </Dialog>
+                             :<Collaborator noteId={this.props.noteObject}/>
+                         )  
+                            :undefined 
+                    }
+                    
+                </div> 
         </div>
     );
   }

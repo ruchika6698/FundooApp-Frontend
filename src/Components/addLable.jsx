@@ -42,13 +42,6 @@ export class AddLabel extends React.Component {
     }
   };
 
-  showAllLabels = () => {};
-
-  componentDidMount() {
-
-    this.showAllLabels();
-  }
-
   state = {
     anchorEl: null,
   };
