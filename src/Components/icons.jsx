@@ -19,6 +19,7 @@ export class Icons extends Component {
     this.state = {
       open: false,
       collaboratorOpen:false,
+      file:null
     };
     this.handlercollaborator = this.handlercollaborator.bind(this);
   }
@@ -48,13 +49,10 @@ export class Icons extends Component {
         this.props.UpdateNote();
   };
 
-  triggerInputFile=()=> {
-        try{
-        this.fileInput.click();
-        }catch(err){
-            console.log("error in file triggger");
-        }
-    }
+  fileChangedHandler = (event) => {
+  event.preventDefault();
+		this.setState({ file: event.target.files[0] });
+}
 
   render() {
     return (
@@ -84,9 +82,25 @@ export class Icons extends Component {
             </IconButton>
 
             <IconButton aria-label="Add image">
-              <Tooltip title="Add image">
-                <img src={image} label="Image" alt="Image" onClick={this.triggerInputFile}/>
-              </Tooltip>
+              {/* <Tooltip title="Add image"> */}
+              <input
+												type="file"
+												style={{ display: "none" }}
+												onChange={this.fileChangedHandler}
+												ref={(fileUpload) =>
+													(this.fileUpload = fileUpload)
+												}
+											></input>
+											<img
+												onClick={() =>
+													this.fileUpload.click()
+												}
+												src={image}
+												label="New note with image"
+											/>
+                {/* <input type="file" onChange={this.fileChangedHandler} /> */}
+                {/* <img src={image} label="Image" alt="Image" onClick={(event)=>this.fileChangedHandler(event)}/> */}
+              {/* </Tooltip> */}
             </IconButton>
 
             <IconButton aria-label="Archive note">

@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import "../CSS/dashboard.css";
+import Config from "../Configuration/config"
 import Icons from "./icons";
 import Card from "@material-ui/core/Card";
+import IconButton from "@material-ui/core/IconButton";
+import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
 import UpdateNotes from "./updateNotes"
 import Collaborator from "./collaborator"
 import Masonry from 'react-masonry-css'
@@ -57,12 +60,26 @@ export default class Display extends Component {
           <Card key={data.id} className="card" value={data} style={{
 												backgroundColor: `${data.color}`,
 											}}>
-            {/* <div ><img src="imgUrl/"/></div> */}
+            <div className="displayimage"><img src={`${Config.imgUrl}${data.imageUrl}`}/></div>
            <div className="title" onClick={()=>this.updatenote(data)}>
                 {data.title}
             </div>
                 <div className="getdescription" onClick={()=>this.updatenote(data)}>
                     {data.description}
+                </div>
+                <div className="collaborator">
+                {
+                  (Boolean(data.collaborators))?
+                    data.collaborators.map((colabData,index)=>{
+                    return(
+                      <div>
+                      <IconButton >
+                        <PersonAddOutlinedIcon  collabaraterData = {colabData}/>
+                       </IconButton >
+                      </div>
+                    )})
+                  :undefined
+                }
                 </div>
                 <div className="geticon">
                   <Icons noteObject={data} UpdateNote={this.props.showNotes}/>
