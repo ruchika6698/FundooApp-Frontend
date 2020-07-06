@@ -82,7 +82,6 @@ export class Icons extends Component {
             </IconButton>
 
             <IconButton aria-label="Add image">
-              {/* <Tooltip title="Add image"> */}
               <input
 												type="file"
 												style={{ display: "none" }}
@@ -98,9 +97,6 @@ export class Icons extends Component {
 												src={image}
 												label="New note with image"
 											/>
-                {/* <input type="file" onChange={this.fileChangedHandler} /> */}
-                {/* <img src={image} label="Image" alt="Image" onClick={(event)=>this.fileChangedHandler(event)}/> */}
-              {/* </Tooltip> */}
             </IconButton>
 
             <IconButton aria-label="Archive note">
@@ -121,8 +117,10 @@ export class Icons extends Component {
                         ( Boolean(this.props.noteObject) ?                         
                              <Dialog
                                  id='collaboraterdilogBox'
+                                  // fullWidth = 'true'
+                                maxWidth='false'
                              open={this.state.collaboratorOpen}
-                             maxWidth="lg"
+                            //  maxWidth="lg"
                           
                              >
                                  <Collaborator noteId={this.props.noteObject}/>

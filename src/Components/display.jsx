@@ -60,7 +60,7 @@ export default class Display extends Component {
           <Card key={data.id} className="card" value={data} style={{
 												backgroundColor: `${data.color}`,
 											}}>
-            <div className="displayimage"><img src={`${Config.imgUrl}${data.imageUrl}`}/></div>
+            <div className="displayimage"><img src={`${Config.imgUrl}${data.imageUrl}`} width="280px" height="280px"/></div>
            <div className="title" onClick={()=>this.updatenote(data)}>
                 {data.title}
             </div>

@@ -15,6 +15,7 @@ export class CreateNote extends React.Component {
       description: "",
       pin: false,
       notes: null,
+      collaboratorData:'',
     };
   }
 
@@ -22,6 +23,13 @@ export class CreateNote extends React.Component {
     this.setState({
       collaboratorOpen: true,
     });
+  }
+  addcollaborator=(data)=>{
+     this.setState({
+      collaboratorOpen: (!this.state.collaboratorOpen),
+      collaboratorData:data
+    });
+    console.log("collab",this.state);
   }
 
   handleClick = () => {
@@ -48,9 +56,10 @@ export class CreateNote extends React.Component {
       <Container>
         <ClickAwayListener onClickAway={this.onHandleClickaway}>
           <div>
-            {this.state.clickAway ? ( this.state.collaboratorOpen ? <Collaborator />
+            {this.state.clickAway ? ( this.state.collaboratorOpen ? <Collaborator addcollaborator={this.addcollaborator}/>
               :<Notestitle
                 UpdateNote={this.props.showNotes}
+                collaboratorData={this.state.collaboratorData}
                 title={this.state.title}
                 description={this.state.description}
                 pin={this.state.pin}

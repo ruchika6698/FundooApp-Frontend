@@ -26,7 +26,7 @@ export class Collaborator extends React.Component {
       anchorEl: null,
       collabatorName: "",
       userData:'',
-      collaborators:''
+      collaborators:'',
     };
   }
 
@@ -79,7 +79,9 @@ export class Collaborator extends React.Component {
         })
     }
 
-  Collaborator = () => {
+  Collaborator = (data) => {
+    if(Boolean(this.props.noteId)){
+
     let collaborators = this.state.userData
     let token = localStorage.getItem("Token");
     console.log("note id  " ,this.props.noteId.id);
@@ -92,6 +94,10 @@ export class Collaborator extends React.Component {
         console.log(err);
       });
       this.handleClose();
+    }
+    else{
+      this.props.addcollaborator(data);
+    }
   };
 
   render() {
@@ -173,7 +179,7 @@ export class Collaborator extends React.Component {
           </div>
           <div className="dialogbutton">
             <Button onClick={()=>this.handleClose()}>Cancel</Button>
-            <Button onClick={()=>this.Collaborator()}>Save</Button>
+            <Button onClick={()=>this.Collaborator(this.state.userData)}>Save</Button>
           </div>
         </Card>
       </div>

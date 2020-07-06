@@ -25,6 +25,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import "../CSS/dashboard.css";
+import { GetAllNotes} from './getAllNotes'
 import Profile from "./profile";
 
 export default function Dashboard() {
@@ -162,9 +163,11 @@ export default function Dashboard() {
           </ListItem>         
         </List>  
       </Drawer>
-      {/* <div >
+      <div className={open? 'MainBodyOpen' : 'MainBodyClose'}>
+      <main>
       <GetAllNotes/>
-    </div> */}
+      </main>
+    </div>
     </div>
   );
 }
