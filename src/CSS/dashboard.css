@@ -171,7 +171,6 @@ body {
  .miniNote{
      display: flex;
      flex-Wrap: wrap;
-     justify-Content: center;
      flex-direction:row;
      border-radius:15px !important;
      border-color:grey;
@@ -441,7 +440,7 @@ body {
     }
     .wholeMiniNoteCard{
         margin-top:15% !important;
-        margin-left:35% !important;
+        margin-left:5% !important;
     }
     .wholeCard{
          margin-left:35% !important;
@@ -454,7 +453,7 @@ body {
          width: 700px;
     }
      .display{
-         margin-left:324px !important;
+         margin-left:44px !important;
     }
      .acoounts{
          margin-right:50px;
@@ -477,14 +476,29 @@ body {
 }
  @media only screen and (max-width: 768px) {
      .makeStyles-drawerOpen-6 {
-         width: 300px !important;
+         width: 200px !important;
     }
      .wholeMiniNoteCard{
+         width:550px;
          margin-top:90px;
-         margin-left: 70px!important;
+         margin-left: 150px!important;
+    }
+    .miniNote{
+        width:650px;
+    }
+    .miniIcons{
+        padding-left:190px !important;
+    }
+    .takeNote{
+        padding-right:0%;
     }
     .wholeCard{
-         margin-left: 70px!important;
+        width:550px;
+         margin-top:90px;
+         margin-left: 150px!important;
+    }
+    .pinImage{
+        margin-left:10% !important;
     }
      .notesbox{
          padding-left:130px;
@@ -497,9 +511,9 @@ body {
          background-color:white;
     }
      .display{
-         margin-left:94px !important;
+         margin-left:60px !important;
     }
-     .wholeMiniNoteCard{
+     .wholeCard{
          margin-left:104px;
     }
      .notes:hover{
@@ -523,6 +537,9 @@ body {
      .display{
          width:520px;
          margin-left:24px;
+    }
+    .cancelButton{
+        margin-left:30% !important;
     }
 }
  @media only screen and (max-width: 414px) {
@@ -553,6 +570,15 @@ body {
          margin-top:100px;
          width:320px;
          margin-left:130px !important;
+    }
+    .miniNote{
+        width:650px;
+    }
+    .miniIcons{
+        padding-left:0px !important;
+    }
+    .takeNote{
+        padding-right:0%;
     }
      .display{
          display:flex;
@@ -622,8 +648,18 @@ body {
  @media only screen and (max-width: 375px) {
      .wholeMiniNoteCard{
          margin-top:100px;
-         width:310px !important;
-         margin-left:130px !important;
+         width:320px !important;
+         margin-left:140px !important;
+    }
+    .miniNote{
+        width:550px;
+    }
+     .miniIcons{
+        padding-left:-60px !important;
+    }
+    .takeNote{
+        width:;
+        padding-right:0%;
     }
     .acoounts{
         margin-right:750px !important;
@@ -663,10 +699,10 @@ body {
      .wholeMiniNoteCard{
          margin-top:100px;
          width:290px;
-         margin-left:110px !important;
+         margin-left:124px !important;
     }
      .display{
-         margin-left:80px !important;
+         margin-left:90px !important;
     }
      .card{
          margin-left:30px !important;
@@ -677,6 +713,9 @@ body {
     }
     .search{
          display:none;
+    }
+    .searchbar{
+        padding-right:120px;
     }
     .archivetitle{
      padding-left:10px!important;
