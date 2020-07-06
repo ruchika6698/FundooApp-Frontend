@@ -9,7 +9,7 @@ import { ResetPassword} from './Components/resetpassword'
 import { GetAllNotes} from './Components/getAllNotes'
 import { GetTrashNotes} from './Components/getTrash'
 import { GetArchieved} from './Components/getArchieved'
-import { CheckList} from './Components/checklist'
+import CheckList from './Components/checkList'
 import {PrivateRoute} from "./Authguard/privateroute"
 
 class App extends Component {
@@ -27,11 +27,10 @@ class App extends Component {
 				component={Dashboard}
 			/>
       <Route path="/resetpassword/:token" component={ResetPassword} />
-      <Route path="/dashboard/notes" component={GetAllNotes} />
+      {/* <Route path="/dashboard/notes" component={GetAllNotes} /> */}
       <Route path="/dashboard/trash" component={GetTrashNotes} />
       <Route path="/dashboard/archive" component={GetArchieved} />
       <Route path="/checklist" component={CheckList} />
-
       </Router>
       </div>
     );

@@ -536,31 +536,32 @@ body {
      width:80% !important;
     }
     .takeNote {
-    padding-right: 39%;
+    padding-right: 0%;
     }
     .miniNote{
         flex-direction:row !important;
+        width:320px;
     }
     .miniIcons{
-        padding-right:40%;
+        padding-right:0% !important;
     }
      .card{
          width:320px;
-         margin-right:100px;
+         margin-right:100px !important;
     }
      .wholeMiniNoteCard{
          margin-top:100px;
          width:320px;
-         margin-left:60px !important;
+         margin-left:130px !important;
     }
      .display{
          display:flex;
          flex-direction:column !important;
          width:500px;
-         margin-left:50px !important;
+         margin-left:120px !important;
     }
     .wholeTitle{
-        width:50% !i;
+        width:50% ;
     }
      .wholeCard{
          margin-top:100px;
@@ -585,6 +586,7 @@ body {
     }
      .search{
          width:100px;
+         display:none;
     }
      .keep{
          font-size:14px !important;
@@ -621,13 +623,16 @@ body {
      .wholeMiniNoteCard{
          margin-top:100px;
          width:310px !important;
-         margin-left:70px !important;
+         margin-left:130px !important;
     }
     .acoounts{
         margin-right:750px !important;
     }
      .display{
          width:500px;
+    }
+    .search{
+         display:none;
     }
      .card{
          margin-left:10px !important;
@@ -657,11 +662,11 @@ body {
  @media only screen and (max-width: 360px) {
      .wholeMiniNoteCard{
          margin-top:100px;
-         width:300px;
-         margin-left:90px !important;
+         width:290px;
+         margin-left:110px !important;
     }
      .display{
-         margin-left:50px !important;
+         margin-left:80px !important;
     }
      .card{
          margin-left:30px !important;
@@ -669,6 +674,9 @@ body {
     .archivecard{
         width:290px;
         margin-right:5px !important;
+    }
+    .search{
+         display:none;
     }
     .archivetitle{
      padding-left:10px!important;
@@ -697,5 +705,8 @@ body {
     }
     .archivecard{
         width:250px;
+    }
+    .search{
+         display:none;
     }
 }
