@@ -178,7 +178,6 @@ body {
      font-weight: 50%;
 }
  .wholeMiniNoteCard{
-     /* margin-top:10%; */
      align-items:left;
      width:700px;
      padding-left:1%;
@@ -195,7 +194,6 @@ body {
      padding-right:40%;
 }
  .wholeCard{
-     /* margin-top:10%; */
      width:700px;
      margin-left:25%;
      word-wrap: break-word !important;
@@ -244,10 +242,9 @@ body {
      margin-top:8px;
      margin-left:8px;
      margin-right:8px;
-     /* padding-right:5px; */
      border-radius:5% !important;
      min-height:150px;
-     max-height:1500px;
+     max-height:2500px;
      font-size:16px;
      word-wrap: break-all;
 }
@@ -281,10 +278,9 @@ body {
      height:auto !important;
 }
 .displayimage{
-   /* padding-right:20px;
-    padding-left:20px;
-    width:200px !important;
-    height:200px !important; */
+    padding-bottom:15px;
+    padding-left:17px;
+    padding-right:15px;
 }
  .geticon{
      opacity:0;
@@ -351,6 +347,20 @@ body {
     padding-left:20px;
     padding-right:20px;
 }
+.MainBodyClose{
+    width:calc(100% -5em);
+    align-items:center;
+    overflow:hidden;
+    position:relative;
+    left:-30px;
+}
+.MainBodyOpen{
+    position:relative;
+    left:120px;
+    width:100% !important;
+    align-items:center;
+    overflow:hidden;
+}
 .dialogimage{
     padding-top:18px;
 }
@@ -374,7 +384,6 @@ body {
      margin-top:8px;
      margin-left:8px;
      margin-right:8px;
-     /* padding-right:5px; */
      border-radius:5% !important;
      min-height:150px;
      max-height:auto;
@@ -409,20 +418,19 @@ body {
 }
 .masonry-grid {
   width: 100%;
-    display: -webkit-box; /* Not needed if autoprefixing */
-    display: -ms-flexbox; /* Not needed if autoprefixing */
+    display: -webkit-box; 
+    display: -ms-flexbox; 
     display: flex;
     flex-grow: initial;
     overflow-wrap: initial;
-    margin-left: 10px; /* gutter size offset */
+    margin-left: 10px; 
     width: auto;
 }
 .masonry-grid_column {
-  padding-left: 15px; /* gutter size */
+  padding-left: 15px; 
   background-clip: padding-box;
 }
 
-/* Style your items */
 .masonry-grid_column > div {
   margin: 15px auto;
 }
@@ -577,7 +585,6 @@ body {
     }
      .search{
          width:100px;
-         /* display:none; */
     }
      .keep{
          font-size:14px !important;
