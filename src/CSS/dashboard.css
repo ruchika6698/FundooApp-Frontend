@@ -247,7 +247,7 @@ body {
      /* padding-right:5px; */
      border-radius:5% !important;
      min-height:150px;
-     max-height:800px;
+     max-height:1500px;
      font-size:16px;
      word-wrap: break-all;
 }
@@ -264,6 +264,13 @@ body {
     text-justify: inter-word;
 
 }
+.collaborator{
+    display:flex;
+    flex-direction:row;
+    padding-left:5px;
+    padding-right:5px;
+    opacity:1.0;
+}
  .getdescription{
      padding-right:20px;
      padding-left:20px;
@@ -272,6 +279,12 @@ body {
     text-align: justify;
   text-justify: inter-word;
      height:auto !important;
+}
+.displayimage{
+   /* padding-right:20px;
+    padding-left:20px;
+    width:200px !important;
+    height:200px !important; */
 }
  .geticon{
      opacity:0;
