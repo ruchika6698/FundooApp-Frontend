@@ -44,6 +44,7 @@ describe('Email input', () => {
     })
   })
 
+//negative test cases for login
 describe('Login Component', () => {
   //testing rendering of login component
     it('should render without throwing an error', () => {

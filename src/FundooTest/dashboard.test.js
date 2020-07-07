@@ -44,6 +44,7 @@ describe('Title input', () => {
     })
   })
 
+//Negative Test case for title
   describe('Notes Component', () => {
   //testing rendering of login component
     it('should render without throwing an error', () => {
@@ -67,7 +68,7 @@ describe('Title input', () => {
           value: 'Hiiiiiiiiiiiiiii'
         }
       });
-      expect(wrapper.state('title')).not.toEqual('hi');
+      expect(wrapper.state('title')).not.toEqual('');
     })
   })
   describe('Description input', () => {
@@ -85,6 +86,7 @@ describe('Title input', () => {
     })
   })
 
+//Negative Test case for description
    describe('Notes Component', () => {
   //testing rendering of login component
     it('should render without throwing an error', () => {
