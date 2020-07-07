@@ -39,9 +39,9 @@ class TakeNote extends Component {
 
                     <div className="miniIcons">
                         <IconButton >
-                            {/* <Tooltip title="New List"> */}
+                            <Tooltip title="New List">
                                 <CheckBoxOutlinedIcon onClick={this.props.handleCheckList} />
-                            {/* </Tooltip> */}
+                            </Tooltip>
                         </IconButton>
 
                         <IconButton >
@@ -57,9 +57,6 @@ class TakeNote extends Component {
                         </IconButton>
                     </div>
                 </div>
-                {/* <div className={this.state.checkListhide}>
-                <CheckList hide={this.state.checkListhide}/>
-                </div> */}
             </Card >
         );
     }

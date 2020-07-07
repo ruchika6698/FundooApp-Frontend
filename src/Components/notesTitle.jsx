@@ -32,7 +32,7 @@ class Notestitle extends Component {
       file: "",
       color:"",
       collaberators: [],
-      checkList: [],
+      checkList: [{       "itemName":"",       "status":"open",       "isDeleted":false,       "notesId":""    }],
       snackbarOpen: false,
       snackbarMsg: "",
       isCheckList:true,
@@ -42,6 +42,17 @@ class Notestitle extends Component {
       checkLists: [""],
     };
   }
+// [    {       "itemName":"test",       "status":"open",       "isDeleted":false,       "notesId":""    } ]
+// {
+//         itemName: string;
+//         status: string;
+//         isDeleted: boolean;
+//         notesId:string;    
+// }
+// apiInputData.set("title",title);          
+//    apiInputData.set("description", (Boolean(bodyText)) ? bodyText : "" );   
+//     apiInputData.set("collaberators", (Boolean (collaboraterData)) ? JSON.stringify( collaboraterData): '');             apiInputData.set('file' , (Boolean(selsectedImage)) ? selsectedImage : "" );                 checkList.pop();             apiInputData.set('checklist',JSON.stringify(checkList));
+
 
   handleChangeText = (event) => {
     this.setState({
@@ -134,10 +145,12 @@ class Notestitle extends Component {
       title: this.state.title,
       description: this.state.description,
       file: this.state.file,
-      // collaberators:JSON.Stringify(this.state.collaberators),
+      collaberators:JSON.stringify(this.state.collaberators),
+      checklist:JSON.stringify(this.state.checkList),
       noteCheckLists:this.state.checkList
       // color:this.state.color
     };
+    console.log("Request data",this.state);
     services
       .CreateNote(token, requestData)
       .then((json) => {
