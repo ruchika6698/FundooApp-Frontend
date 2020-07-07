@@ -16,7 +16,13 @@ export class CreateNote extends React.Component {
       pin: false,
       notes: null,
       collaboratorData:'',
+      openchecklist:false
     };
+  }
+ setCheckList=()=>{
+    this.setState({
+      openchecklist: true,
+    });
   }
 
   collaboratorOpen=()=>{
@@ -63,6 +69,7 @@ export class CreateNote extends React.Component {
           <div>
             {this.state.clickAway ? ( this.state.collaboratorOpen ? <Collaborator addcollaborator={this.addcollaborator}/>
               :<Notestitle
+                checkListOpen={this.state.openchecklist}
                 UpdateNote={this.props.showNotes}
                 collaboratorData={this.state.collaboratorData}
                 title={this.state.title}
@@ -72,7 +79,7 @@ export class CreateNote extends React.Component {
                 onCollaborator={this.collaboratorOpen}
               />
             ) : (
-              <TakeNote handleClick={this.handleClick} handleCheckList={this.handleCheckList}/>
+              <TakeNote handleClick={this.handleClick} setCheckList={()=>this.setCheckList()}/>
             )} 
           </div>
         </ClickAwayListener>

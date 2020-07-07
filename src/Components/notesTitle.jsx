@@ -32,27 +32,16 @@ class Notestitle extends Component {
       file: "",
       color:"",
       collaberators: [],
-      checkList: [{       "itemName":"",       "status":"open",       "isDeleted":false,       "notesId":""    }],
+      checkList: [""],
       snackbarOpen: false,
       snackbarMsg: "",
-      isCheckList:true,
+      isCheckList:false,
       clearIcon: false,
       clearIcon: false,
       isClickOn: false,
-      checkLists: [""],
+      checklist:"",
     };
   }
-// [    {       "itemName":"test",       "status":"open",       "isDeleted":false,       "notesId":""    } ]
-// {
-//         itemName: string;
-//         status: string;
-//         isDeleted: boolean;
-//         notesId:string;    
-// }
-// apiInputData.set("title",title);          
-//    apiInputData.set("description", (Boolean(bodyText)) ? bodyText : "" );   
-//     apiInputData.set("collaberators", (Boolean (collaboraterData)) ? JSON.stringify( collaboraterData): '');             apiInputData.set('file' , (Boolean(selsectedImage)) ? selsectedImage : "" );                 checkList.pop();             apiInputData.set('checklist',JSON.stringify(checkList));
-
 
   handleChangeText = (event) => {
     this.setState({
@@ -83,41 +72,31 @@ class Notestitle extends Component {
   };
 
   AddCheckList = () => {
-    let CheckListArray = [...this.state.checkLists];
-    if (
-      CheckListArray.length >= 2 &&
-      CheckListArray[CheckListArray.length - 2 !== ""]
-    ) {
-      let ListArray = CheckListArray[CheckListArray.length - 1];
-      CheckListArray[CheckListArray.length - 1] = "";
-      CheckListArray[CheckListArray.length] = ListArray;
-      this.setState({"checkLists":CheckListArray});
-    } else {
-      let ListArray = CheckListArray[CheckListArray.length - 1];
-      CheckListArray[CheckListArray.length - 1] = "";
-      CheckListArray[CheckListArray.length] = ListArray;
-      this.setState({"checkLists":CheckListArray});
-    }
+   
+    console.log('AddList');
+        let CheckListArray = [...this.state.checkList]; 
+        let ListArray = CheckListArray[CheckListArray.length-1];
+        CheckListArray[CheckListArray.length -1] = "";       
+        CheckListArray.push(ListArray);
+        this.setState({"checkList":CheckListArray});         
   };
 
   onChangeList = (index) => (eve) => {
-    let ListArray = [...this.state.checkLists];
-    ListArray[index] = {
-      value: eve.target.value,
-      isChecked:
-        ListArray[index].isChecked !== undefined
-          ? ListArray[index].isChecked
-          : false,
-    };
-    this.setState({"checkLists":ListArray});
+     let CheckListArray = [...this.state.checkList]; 
+            CheckListArray[index] = {   itemName : eve.target.value,
+                                status : (CheckListArray[index].isChecked !== undefined) ? CheckListArray[index].status : "open",
+                                isDeleted : 'false',
+                                noteId : ''
+                            }
+          this.setState({"checkList":CheckListArray}); 
   };
   CheckBoxhandler = (index) => (eve) => {
-    let ListArray = [...this.state.checkLists];
+    let ListArray = [...this.state.checkList];
     ListArray[index] = {
       value: ListArray[index].value,
       isChecked: !ListArray[index].isChecked,
     };
-    this.setState({"checkLists":ListArray});
+    this.setState({"checkList":ListArray});
   };
   clearIconOnHover = () => {
      this.setState({"ClearIcon":true});
@@ -139,20 +118,22 @@ class Notestitle extends Component {
   };
 
   Createnote = () => {
-    console.log(this.state);
     let token = localStorage.getItem("Token");
-    let requestData = {
-      title: this.state.title,
-      description: this.state.description,
-      file: this.state.file,
-      collaberators:JSON.stringify(this.state.collaberators),
-      checklist:JSON.stringify(this.state.checkList),
-      noteCheckLists:this.state.checkList
-      // color:this.state.color
-    };
-    console.log("Request data",this.state);
+    let apiInputData = new FormData();
+    
+    apiInputData.set("title",this.state.title);
+    console.log("title data",this.state.title);
+            apiInputData.set("description", (Boolean(this.state.description)) ? this.state.description : "" );    
+            console.log("description data",(Boolean(this.state.description)) ? this.state.description : "" );               
+            apiInputData.set("collaberators", (Boolean (this.state.collaberators)) ? JSON.stringify( this.state.collaberators): '');
+             console.log("description data",(Boolean (this.state.collaberators)) ? JSON.stringify( this.state.collaberators): '');
+            apiInputData.set('file' , (Boolean(this.state.file)) ? this.state.file : "" );
+             console.log("file data",(Boolean(this.state.file)) ? this.state.file : "" );
+                this.state.checkList.pop();
+            apiInputData.set('checklist',JSON.stringify(this.state.checkList));
+             console.log("checklist data",JSON.stringify(this.state.checkList) );
     services
-      .CreateNote(token, requestData)
+      .CreateNote(token, apiInputData)
       .then((json) => {
         if (json.status === 200) {
           this.setState({
@@ -242,9 +223,10 @@ class Notestitle extends Component {
           </Paper>
           <Paper>
             <div>
-              {this.state.isCheckList ? (
-                this.state.checkLists.map((values, index) => {
-                  if (index === this.state.checkLists.length - 1) {
+
+              {this.props.checkListOpen ? (
+                this.state.checkList.map((values, index) => {
+                  if (index === this.state.checkList.length - 1) {
                     return (
                       <div>
                         <TextField

@@ -40,7 +40,7 @@ class TakeNote extends Component {
                     <div className="miniIcons">
                         <IconButton >
                             <Tooltip title="New List">
-                                <CheckBoxOutlinedIcon onClick={this.props.handleCheckList} />
+                                <CheckBoxOutlinedIcon onClick={this.props.setCheckList} />
                             </Tooltip>
                         </IconButton>
 
