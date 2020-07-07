@@ -33,10 +33,10 @@ describe('Registration Component', () => {
             wrapper.find('#firstName').simulate('change', {
                 target: {
                     name: 'firstname',
-                    value: 'Rajeshwari'
+                    value: 'Raj'
                 }
             });
-            expect(wrapper.state('firstname')).toEqual('Rajeshwari');
+            expect(wrapper.state('firstname')).toEqual('Raj');
         })
     })
     describe('lastName input', () => {
@@ -46,10 +46,10 @@ describe('Registration Component', () => {
             wrapper.find('#lastName').simulate('change', {
                 target: {
                     name: 'lastName',
-                    value: 'Pathak'
+                    value: 'Patil'
                 }
             });
-            expect(wrapper.state('lastName')).toEqual('Pathak');
+            expect(wrapper.state('lastName')).toEqual('Patil');
         })
     })
     describe('Email input', () => {
@@ -58,10 +58,10 @@ describe('Registration Component', () => {
             wrapper.find('#outlined-required').simulate('change', {
                 target: {
                     name: 'email',
-                    value: 'Rajeshwari.Pathak12@gmail.com'
+                    value: 'sdbcndc@gmail.com'
                 }
             });
-            expect(wrapper.state('email')).toEqual('Rajeshwari.Pathak12@gmail.com');
+            expect(wrapper.state('email')).toEqual('sdbcndc@gmail.com');
         })
     })
     describe('Password input', () => {
@@ -71,10 +71,10 @@ describe('Registration Component', () => {
                 .simulate('change', {
                     target: {
                         name: 'password',
-                        value: 'Rajeshwari@1234'
+                        value: 'dxcvdfxvf'
                     }
                 });
-            expect(wrapper.state('password')).toEqual('Rajeshwari@1234');
+            expect(wrapper.state('password')).toEqual('dxcvdfxvf');
         })
     })
 })
