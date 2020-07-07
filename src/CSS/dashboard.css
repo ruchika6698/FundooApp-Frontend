@@ -214,6 +214,10 @@ body {
     text-align: justify;
   text-justify: inter-word;
 }
+.CheckListFields{
+    display:flex;
+    flex-direction:row;
+}
  .moreVertIcon{
      top: "4%" ;
      width:"50%" 
@@ -433,6 +437,14 @@ body {
 .masonry-grid_column > div {
   margin: 15px auto;
 }
+.checkhide{
+    display:hidden !important;
+    visibility:none !important;
+}
+.checkshow{
+    display:inline-block;
+    visibility:visible;
+}
 
  @media only screen and (max-width: 1024px) {
      .makeStyles-drawerOpen-6 {
@@ -443,7 +455,7 @@ body {
         margin-left:5% !important;
     }
     .wholeCard{
-         margin-left:35% !important;
+         margin-left:5% !important;
     }
      .notesbox{
          padding-left:0px;
@@ -541,6 +553,9 @@ body {
     .cancelButton{
         margin-left:30% !important;
     }
+    .dialogbutton{
+        padding-left:375px !important;
+    }
 }
  @media only screen and (max-width: 414px) {
      .makeStyles-drawerOpen-6 {
@@ -554,10 +569,11 @@ body {
     }
     .takeNote {
     padding-right: 0%;
+    width:50%!important
     }
     .miniNote{
         flex-direction:row !important;
-        width:320px;
+        width:320px !important;
     }
     .miniIcons{
         padding-right:0% !important;
@@ -589,14 +605,24 @@ body {
     .wholeTitle{
         width:50% ;
     }
-     .wholeCard{
-         margin-top:100px;
-         width:200px;
-         display:flex;
-         flex-direction:row;
+    .wholeCard{
+        width:390px;
+        padding-left:0%;
+        padding-right:0%;
+         margin-top:90px;
+         margin-left: 120px!important;
+    }
+    .pinImage{
+        margin-left:0% !important;
+    }
+    .cancelButton{
+        margin-left:0% !important;
     }
      .gridimage{
          display:none;
+    }
+    .iconbutton{
+        flex-direction:row;
     }
      .keepimage{
          margin-right:0px;
@@ -643,6 +669,13 @@ body {
     }
     .archivecard{
        margin-left:40px !important;
+    }
+    .collaborationdialog{
+        width:320px;
+        margin-left:120px !important;
+    }
+    .dialogbutton{
+        padding-left:155px !important;
     }
 }
  @media only screen and (max-width: 375px) {
