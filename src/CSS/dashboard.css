@@ -233,7 +233,7 @@ body {
  .display{
      margin-top:35px;
      width:90%;
-     margin-left:40px !important;
+     margin-left:70px !important;
      display:flex;
      align-items:flex-start;
      flex-direction:row !important;
@@ -492,12 +492,12 @@ body {
          width: 200px !important;
     }
      .wholeMiniNoteCard{
-         width:550px;
+         /* width:550px; */
          margin-top:90px;
          margin-left: 150px!important;
     }
     .miniNote{
-        width:650px;
+        width:850px;
     }
     .miniIcons{
         padding-left:190px !important;
@@ -524,7 +524,7 @@ body {
          background-color:white;
     }
      .display{
-         margin-left:60px !important;
+         margin-left:160px !important;
     }
      .wholeCard{
          margin-left:104px;
@@ -608,7 +608,7 @@ body {
         padding-left:0% !important; 
         padding-right:0% !important;
          margin-top:90px;
-         margin-left: 120px!important;
+         margin-left: 50px!important;
     }
     .pinImage{
         margin-left:0% !important;
@@ -686,8 +686,8 @@ body {
  @media only screen and (max-width: 375px) {
      .wholeMiniNoteCard{
          margin-top:100px;
-         width:320px !important;
-         margin-left:150px !important;
+         width:310px !important;
+         margin-left:70px !important;
     }
     .miniNote{
         width:550px;
@@ -704,11 +704,14 @@ body {
     }
      .display{
          width:500px;
-         margin-right:100px!important;
+         margin-left:50px!important;
     }
     .search{
          display:none;
-        margin-right:300px !important;
+        margin-right:280px !important;
+    }
+    .searchbar{
+        margin-right:100px;
     }
      .card{
          margin-left:10px !important;
@@ -739,10 +742,10 @@ body {
      .wholeMiniNoteCard{
          margin-top:100px;
          width:290px;
-         margin-left:127px !important;
+         margin-left:77px !important;
     }
      .display{
-         margin-left:90px !important;
+         margin-left:40px !important;
     }
      .card{
          margin-left:30px !important;
@@ -755,7 +758,7 @@ body {
          display:none;
     }
     .searchbar{
-        padding-right:120px;
+       margin-left:20px;
     }
     .archivetitle{
      padding-left:10px!important;
