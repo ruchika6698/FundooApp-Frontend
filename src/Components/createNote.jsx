@@ -37,6 +37,11 @@ export class CreateNote extends React.Component {
       clickAway: true,
     });
   };
+  handleCheckList=()=>{
+    this.setState({
+      clickAway: true,
+    });
+  }
 
   onHandleClickaway = () => {
     this.setState({
@@ -67,7 +72,7 @@ export class CreateNote extends React.Component {
                 onCollaborator={this.collaboratorOpen}
               />
             ) : (
-              <TakeNote handleClick={this.handleClick} />
+              <TakeNote handleClick={this.handleClick} handleCheckList={this.handleCheckList}/>
             )} 
           </div>
         </ClickAwayListener>

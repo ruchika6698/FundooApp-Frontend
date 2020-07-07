@@ -7,6 +7,7 @@ import CheckBoxOutlinedIcon from '@material-ui/icons/CheckBoxOutlined';
 import BrushOutlinedIcon from '@material-ui/icons/BrushOutlined';
 import PhotoLibraryOutlinedIcon from '@material-ui/icons/PhotoLibraryOutlined';
 import Tooltip from '@material-ui/core/Tooltip';
+import CheckList from './checkList'
 
 
 class TakeNote extends Component {
@@ -16,8 +17,12 @@ class TakeNote extends Component {
             open: false,
             title: "",
             description: "",
+            checkListhide:"checkhide",
+            checkListShow:"checkshow"
         };
     }
+
+
 
     render() {
         return (
@@ -34,9 +39,9 @@ class TakeNote extends Component {
 
                     <div className="miniIcons">
                         <IconButton >
-                            <Tooltip title="New List">
-                                <CheckBoxOutlinedIcon />
-                            </Tooltip>
+                            {/* <Tooltip title="New List"> */}
+                                <CheckBoxOutlinedIcon onClick={this.props.handleCheckList} />
+                            {/* </Tooltip> */}
                         </IconButton>
 
                         <IconButton >
@@ -52,6 +57,9 @@ class TakeNote extends Component {
                         </IconButton>
                     </div>
                 </div>
+                {/* <div className={this.state.checkListhide}>
+                <CheckList hide={this.state.checkListhide}/>
+                </div> */}
             </Card >
         );
     }

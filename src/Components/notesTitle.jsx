@@ -32,9 +32,14 @@ class Notestitle extends Component {
       file: "",
       color:"",
       collaberators: [],
+      checkList: [],
       snackbarOpen: false,
       snackbarMsg: "",
-      selsectedImage:""
+      isCheckList:true,
+      clearIcon: false,
+      clearIcon: false,
+      isClickOn: false,
+      checkLists: [""],
     };
   }
 
@@ -63,8 +68,63 @@ class Notestitle extends Component {
   handleClose = () => {
     this.setState({
       anchorEl: null,
-      openImg:false
     });
+  };
+
+  AddCheckList = () => {
+    let CheckListArray = [...this.state.checkLists];
+    if (
+      CheckListArray.length >= 2 &&
+      CheckListArray[CheckListArray.length - 2 !== ""]
+    ) {
+      let ListArray = CheckListArray[CheckListArray.length - 1];
+      CheckListArray[CheckListArray.length - 1] = "";
+      CheckListArray[CheckListArray.length] = ListArray;
+      this.setState({"checkLists":CheckListArray});
+    } else {
+      let ListArray = CheckListArray[CheckListArray.length - 1];
+      CheckListArray[CheckListArray.length - 1] = "";
+      CheckListArray[CheckListArray.length] = ListArray;
+      this.setState({"checkLists":CheckListArray});
+    }
+  };
+
+  onChangeList = (index) => (eve) => {
+    let ListArray = [...this.state.checkLists];
+    ListArray[index] = {
+      value: eve.target.value,
+      isChecked:
+        ListArray[index].isChecked !== undefined
+          ? ListArray[index].isChecked
+          : false,
+    };
+    this.setState({"checkLists":ListArray});
+  };
+  CheckBoxhandler = (index) => (eve) => {
+    let ListArray = [...this.state.checkLists];
+    ListArray[index] = {
+      value: ListArray[index].value,
+      isChecked: !ListArray[index].isChecked,
+    };
+    this.setState({"checkLists":ListArray});
+  };
+  clearIconOnHover = () => {
+     this.setState({"ClearIcon":true});
+  };
+  clearIconOffhover = () => {
+    if (!this.state.isClickOn) {
+      this.setState({"ClearIcon":false});
+    }
+  };
+  clearIconClick = () => {
+    if (!this.state.isClickOn) {
+       this.setState({"ClearIcon":false});
+    }
+  };
+  clarClickAway = () => {
+    if (this.state.isClickOn) {
+       this.setState({"ClearIcon":false});
+    }
   };
 
   Createnote = () => {
@@ -75,6 +135,7 @@ class Notestitle extends Component {
       description: this.state.description,
       file: this.state.file,
       // collaberators:JSON.Stringify(this.state.collaberators),
+      noteCheckLists:this.state.checkList
       // color:this.state.color
     };
     services
@@ -91,11 +152,9 @@ class Notestitle extends Component {
       .catch((err) => {
         console.log(err);
       });
-      this.handleClose();
     this.props.UpdateNote();
   };
 
-  
   handleDrawer = (event) => {
     this.props.openDrawer();
 
@@ -125,6 +184,12 @@ class Notestitle extends Component {
         />
         <Card className="wholeNoteCard">
           <Paper className="titleAndPin">
+             <div>
+                {Boolean(this.state.file) ? 
+                    <img src={this.state.file} alt='Curently image is not available' />
+                    : undefined
+                }
+            </div>
             <InputBase
               className="wholeTitle"
               name="title"
@@ -163,7 +228,70 @@ class Notestitle extends Component {
             )}
           </Paper>
           <Paper>
+            <div>
+              {this.state.isCheckList ? (
+                this.state.checkLists.map((values, index) => {
+                  if (index === this.state.checkLists.length - 1) {
+                    return (
+                      <div>
+                        <TextField
+                          disabled
+                          className="takeNote"
+                          placeholder="  +   List item"
+                          multiline
+                          textdecaration="none"
+                          onClick={this.AddCheckList}
+                          InputProps={{
+                    disableUnderline: true,
+                  }}
+                        />
+                      </div>
+                    );
+                  } else {
+                    return (
+                      <ClickAwayListener
+                        onClickAway={this.clarClickAway}
+                        className="ClickAwayListener"
+                      >
+                        <div
+                          className="CheckListFields"
+                          onMouseEnter={this.clearIconOnHover}
+                          onMouseLeave={this.clearIconOffhover}
+                          onClick={this.clearIconClick}
+                        >
+                          <div>
+                            <Checkbox
+                              checked={values.isChecked}
+                              onChange={this.CheckBoxhandler(index)}
+                              style={{ color: "black" }}
+                            />
+                          </div>
 
+                          <div>
+                            <TextField
+                              className="takeNote"
+                              fullWidth
+                              multiline
+                              placeholder="Take a Note"
+                              textdecaration="none"
+                              name={index}
+                              value={values.value}
+                              onChange={this.onChangeList(index)}
+                            />
+                          </div>
+                          <div>
+                            <IconButton fontSize="small">
+                              {this.state.clearIcon ? (
+                                <ClearOutlinedIcon fontSize="small" />
+                              ) : undefined}
+                            </IconButton>
+                          </div>
+                        </div>
+                      </ClickAwayListener>
+                    );
+                  }
+                })
+              ) : (
                 <InputBase
                   className="wholeTitle"
                   name="description"
@@ -174,6 +302,8 @@ class Notestitle extends Component {
                   value={this.state.description}
                   onChange={this.handleChangeText}
                 />
+              )}
+            </div>
             <div className="collaborator">
                 {
                   (Boolean(this.props.collaboratorData))?
