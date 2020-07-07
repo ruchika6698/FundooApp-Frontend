@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Display from "./display";
-import CreateNote from './createNote';
+import CreateNote from "./createNote";
 import NotesService from "../Services/notesServices";
 let services = new NotesService();
 
@@ -16,13 +16,14 @@ export class GetAllNotes extends Component {
     this.showAllNotes = this.showAllNotes.bind(this);
   }
 
+  //API services for the get all notes
   showAllNotes = () => {
     let token = localStorage.getItem("Token");
     services
       .getAllNotes(token)
       .then((data) => {
         this.setState({ AllNote: data.data.data.data.reverse() });
-        console.log("get note",this.state.AllNote);
+        console.log("get note", this.state.AllNote);
       })
       .catch((err) => {
         console.log(err);
@@ -35,12 +36,12 @@ export class GetAllNotes extends Component {
   render() {
     return (
       <div className="notesbox">
-      <div className="createNote">
-        <CreateNote showNotes={this.showAllNotes}/>
-      </div>
-      <div>
-        <Display Notes={this.state.AllNote} showNotes={this.showAllNotes}/>
-      </div>
+        <div className="createNote">
+          <CreateNote showNotes={this.showAllNotes} />
+        </div>
+        <div>
+          <Display Notes={this.state.AllNote} showNotes={this.showAllNotes} />
+        </div>
       </div>
     );
   }

@@ -2,7 +2,7 @@ import React from "react";
 import Container from "@material-ui/core/Container";
 import TakeNote from "./takenote";
 import Notestitle from "./notesTitle";
-import Collaborator from "./collaborator"
+import Collaborator from "./collaborator";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 
 export class CreateNote extends React.Component {
@@ -10,44 +10,44 @@ export class CreateNote extends React.Component {
     super(props);
     this.state = {
       clickAway: false,
-      collaboratorOpen:false,
+      collaboratorOpen: false,
       title: "",
       description: "",
       pin: false,
       notes: null,
-      collaboratorData:'',
-      openchecklist:false
+      collaboratorData: "",
+      openchecklist: false,
     };
   }
- setCheckList=()=>{
+  setCheckList = () => {
     this.setState({
       openchecklist: true,
     });
-  }
+  };
 
-  collaboratorOpen=()=>{
+  collaboratorOpen = () => {
     this.setState({
       collaboratorOpen: true,
     });
-  }
-  addcollaborator=(data)=>{
-     this.setState({
-      collaboratorOpen: (!this.state.collaboratorOpen),
-      collaboratorData:data
+  };
+  addcollaborator = (data) => {
+    this.setState({
+      collaboratorOpen: !this.state.collaboratorOpen,
+      collaboratorData: data,
     });
-    console.log("collab",this.state);
-  }
+    console.log("collab", this.state);
+  };
 
   handleClick = () => {
     this.setState({
       clickAway: true,
     });
   };
-  handleCheckList=()=>{
+  handleCheckList = () => {
     this.setState({
       clickAway: true,
     });
-  }
+  };
 
   onHandleClickaway = () => {
     this.setState({
@@ -67,20 +67,27 @@ export class CreateNote extends React.Component {
       <Container>
         <ClickAwayListener onClickAway={this.onHandleClickaway}>
           <div>
-            {this.state.clickAway ? ( this.state.collaboratorOpen ? <Collaborator addcollaborator={this.addcollaborator}/>
-              :<Notestitle
-                checkListOpen={this.state.openchecklist}
-                UpdateNote={this.props.showNotes}
-                collaboratorData={this.state.collaboratorData}
-                title={this.state.title}
-                description={this.state.description}
-                pin={this.state.pin}
-                onHandleClickaway={this.onHandleClickaway}
-                onCollaborator={this.collaboratorOpen}
-              />
+            {this.state.clickAway ? (
+              this.state.collaboratorOpen ? (
+                <Collaborator addcollaborator={this.addcollaborator} />
+              ) : (
+                <Notestitle
+                  checkListOpen={this.state.openchecklist}
+                  UpdateNote={this.props.showNotes}
+                  collaboratorData={this.state.collaboratorData}
+                  title={this.state.title}
+                  description={this.state.description}
+                  pin={this.state.pin}
+                  onHandleClickaway={this.onHandleClickaway}
+                  onCollaborator={this.collaboratorOpen}
+                />
+              )
             ) : (
-              <TakeNote handleClick={this.handleClick} setCheckList={()=>this.setCheckList()}/>
-            )} 
+              <TakeNote
+                handleClick={this.handleClick}
+                setCheckList={() => this.setCheckList()}
+              />
+            )}
           </div>
         </ClickAwayListener>
       </Container>

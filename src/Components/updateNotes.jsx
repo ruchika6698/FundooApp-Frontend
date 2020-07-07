@@ -19,8 +19,8 @@ export class UpdateNotes extends Component {
       noteId: "",
       title: "",
       description: "",
-      file:"",
-      color:""
+      file: "",
+      color: "",
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -30,8 +30,8 @@ export class UpdateNotes extends Component {
       noteId: Data.id,
       title: Data.title,
       description: Data.description,
-      file:Data.file,
-      color:Data.color
+      file: Data.file,
+      color: Data.color,
     });
   }
   handleChange = (e) => {
@@ -43,8 +43,8 @@ export class UpdateNotes extends Component {
       noteId: this.props.Data.id,
       title: this.state.title,
       description: this.state.description,
-      file:this.state.file,
-      color:this.state.color
+      file: JSON.stringify(this.state.file),
+      color: this.state.color,
     };
     let token = localStorage.getItem("Token");
     services
@@ -71,11 +71,20 @@ export class UpdateNotes extends Component {
   render() {
     return (
       <div>
-        <Dialog open={this.props.Open} onClose={this.handleClose}  maxWidth="lg" style={{
-												backgroundColor: `${this.state.color}`,
-											}}>
-          <Card className="updateCard" onClick={this.clickNote} >
-            <Paper className="titleAndPin" >
+        <Dialog open={this.props.Open} onClose={this.handleClose} maxWidth="lg">
+          <Card
+            className="updateCard"
+            onClick={this.clickNote}
+            style={{
+              backgroundColor: `${this.props.Data.color}`,
+            }}
+          >
+            <Paper
+              className="titleAndPin"
+              style={{
+                backgroundColor: `${this.props.Data.color}`,
+              }}
+            >
               <InputBase
                 className="wholeTitle"
                 name="title"
@@ -112,7 +121,11 @@ export class UpdateNotes extends Component {
               )}
             </Paper>
 
-            <Paper>
+            <Paper
+              style={{
+                backgroundColor: `${this.props.Data.color}`,
+              }}
+            >
               <InputBase
                 className="wholeTitle"
                 name="description"
@@ -124,7 +137,12 @@ export class UpdateNotes extends Component {
                 onChange={this.handleChange}
               />
             </Paper>
-            <Paper className="actionButtons">
+            <Paper
+              className="actionButtons"
+              style={{
+                backgroundColor: `${this.props.Data.color}`,
+              }}
+            >
               <div className="iconandcancel">
                 <div className="updateicon">
                   <Icons />

@@ -47,7 +47,6 @@ class Notestitle extends Component {
     this.setState({
       [event.target.name]: event.target.value,
     });
-    console.log("notes", this.state);
   };
   snackbarClose = () => {
     this.setState({ snackbarOpen: false });
@@ -70,10 +69,8 @@ class Notestitle extends Component {
       anchorEl: null,
     });
   };
-
+//Add checklist handler
   AddCheckList = () => {
-   
-    console.log('AddList');
         let CheckListArray = [...this.state.checkList]; 
         let ListArray = CheckListArray[CheckListArray.length-1];
         CheckListArray[CheckListArray.length -1] = "";       
@@ -90,6 +87,7 @@ class Notestitle extends Component {
                             }
           this.setState({"checkList":CheckListArray}); 
   };
+  //Checkbox handler for list is checked or not
   CheckBoxhandler = (index) => (eve) => {
     let ListArray = [...this.state.checkList];
     ListArray[index] = {
@@ -117,21 +115,17 @@ class Notestitle extends Component {
     }
   };
 
+// API for Create note and checklist
   Createnote = () => {
     let token = localStorage.getItem("Token");
     let apiInputData = new FormData();
     
     apiInputData.set("title",this.state.title);
-    console.log("title data",this.state.title);
-            apiInputData.set("description", (Boolean(this.state.description)) ? this.state.description : "" );    
-            console.log("description data",(Boolean(this.state.description)) ? this.state.description : "" );               
+            apiInputData.set("description", (Boolean(this.state.description)) ? this.state.description : "" );                 
             apiInputData.set("collaberators", (Boolean (this.state.collaberators)) ? JSON.stringify( this.state.collaberators): '');
-             console.log("description data",(Boolean (this.state.collaberators)) ? JSON.stringify( this.state.collaberators): '');
             apiInputData.set('file' , (Boolean(this.state.file)) ? this.state.file : "" );
-             console.log("file data",(Boolean(this.state.file)) ? this.state.file : "" );
                 this.state.checkList.pop();
             apiInputData.set('checklist',JSON.stringify(this.state.checkList));
-             console.log("checklist data",JSON.stringify(this.state.checkList) );
     services
       .CreateNote(token, apiInputData)
       .then((json) => {
@@ -186,6 +180,7 @@ class Notestitle extends Component {
             </div>
             <InputBase
               className="wholeTitle"
+              id="title"
               name="title"
               color="white"
               placeholder="Title"
@@ -289,6 +284,7 @@ class Notestitle extends Component {
               ) : (
                 <InputBase
                   className="wholeTitle"
+                  id="description"
                   name="description"
                   color="white"
                   multiline

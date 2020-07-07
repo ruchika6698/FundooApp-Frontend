@@ -42,6 +42,7 @@ class Profile extends Component {
       open: false,
     });
   }
+  //logout method for remove tokken from browser
   OnLogOut=()=>{
         localStorage.removeItem("Token");
         localStorage.removeItem("FirstName");

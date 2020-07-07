@@ -40,7 +40,6 @@ class NoteService {
   }
 
   changeColor(token,colorInput) {
-    console.log("note color", colorInput);
     return axiosService.Post(`${apiUrl}notes/changesColorNotes`,colorInput, {
         headers: {
             Authorization: token
@@ -57,7 +56,6 @@ class NoteService {
   }
 
   ArchieveNotes(token,data){
-    console.log(" Id in axios service ",data);
     return axiosService.Post(`${apiUrl}notes/archiveNotes`,data, {
         headers: {
             Authorization: token
@@ -74,7 +72,6 @@ class NoteService {
   }
 
   SearchUser(token,data) {
-    console.log("get axios services",data);
     return axiosService.Post(`${apiUrl}user/searchUserList`, data, {
       headers: {
         Authorization: token
@@ -83,7 +80,6 @@ class NoteService {
   }
 
    AddCollaborator(id,token,data) {
-     console.log("get axios services",data);
     return axiosService.Post(`${apiUrl}notes/${id}/AddcollaboratorsNotes`, data, {
       headers: {
         Authorization: token
