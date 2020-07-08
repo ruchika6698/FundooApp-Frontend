@@ -177,7 +177,9 @@ body {
 	font-weight: 50%;
 }
 .wholeMiniNoteCard {
-	align-items: left;
+	/* display:flex;
+	align-items: center;
+  justify-content: center; */
 	width: 700px;
 	padding-left: 1%;
 	margin-left: 25%;
@@ -226,6 +228,12 @@ body {
 	display: flex;
 	flex-direction: row;
 	background-color: white !important;
+	justify-content:space-between;
+	padding-left:15px;
+	padding-right:15px;
+}
+.notesicon{
+	justify-content:space-around;
 }
 .actionButtons {
 	opacity: 1;
@@ -290,8 +298,23 @@ body {
 	padding-left:15px;
 	padding-right:15px;
 }
+.icons{
+	display:flex;
+	flex-direction:row;
+	justify-content:space-between;
+}
+.more{
+	padding-top:13px;
+}
 .geticon {
+	padding-left:15px;
+	padding-right:15px;
+	padding-bottom:15px;
 	opacity: 0;
+}
+.getCollaborator{
+	padding-left:15px;
+	padding-right:15px;
 }
 .geticon:hover {
 	opacity: 0.7;
@@ -308,7 +331,7 @@ body {
 }
 .updatebutton {
 	margin-top: 20px !important;
-	margin-right: 10px !important
+	margin-left: 60px !important
 }
 .updateCard {
 	width: 100% !important;
@@ -370,6 +393,8 @@ body {
 	overflow: hidden;
 }
 .dialogimage {
+	/* width:315px;
+	height:315px; */
 	/* padding-top: 18px;
 	padding-right:30px; */
 }
@@ -749,10 +774,11 @@ body {
 		margin-left: 67px !important;
 	}
 	.display {
-		margin-left: 20px !important;
+		margin-left: 30px !important;
 	}
 	.card {
-		margin-left: 30px !important;
+		margin-left: 10px !important;
+		width: 240px !important;
 	}
 	.title {
 		padding-bottom: 7px;
@@ -763,6 +789,9 @@ body {
 		padding-bottom: 7px;
 		padding-right: 7px !important;
 		padding-left: 7px!important;
+	}
+	.geticon {
+		padding-left: 0px !important;
 	}
 	.archivecard {
 		width: 290px;
