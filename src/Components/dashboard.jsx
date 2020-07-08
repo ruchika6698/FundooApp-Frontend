@@ -1,6 +1,6 @@
 import React from "react";
 import clsx from "clsx";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -144,7 +144,7 @@ export default function Dashboard() {
          <List  onMouseEnter={handleDrawerMouseopen}
           onMouseLeave={handleDrawerMouseClose}>
           <ListItem button key={'Notes'} className="notes">
-            <Link to="/notes"><ListItemIcon>
+            <Link to="/dashboard/notes"><ListItemIcon>
             <img src={notes} label="Notes" alt="Notes"/> </ListItemIcon></Link>
             <ListItemText primary={'Notes'}/>
           </ListItem>
@@ -157,11 +157,11 @@ export default function Dashboard() {
             <ListItemText primary={'Edit labels'}/>
           </ListItem>
           <ListItem button key={'Archive'} className="archive">
-            <Link to="/archive"><ListItemIcon><img src={archiveDrawer} label="Archive" alt="Archive"/></ListItemIcon></Link>
+            <Link to="/dashboard/archive"><ListItemIcon><img src={archiveDrawer} label="Archive" alt="Archive"/></ListItemIcon></Link>
             <ListItemText primary={'Archive'}/>
           </ListItem>
           <ListItem button key={'Trash'} className="trash">
-            <Link to="/trash"><ListItemIcon><img src={trash} label="Trash" alt="Trash"/></ListItemIcon></Link>
+            <Link to="/dashboard/trash"><ListItemIcon><img src={trash} label="Trash" alt="Trash"/></ListItemIcon></Link>
             <ListItemText primary={'Trash'}/>
           </ListItem>         
         </List>  
@@ -169,15 +169,15 @@ export default function Dashboard() {
       <div className={open? 'MainBodyOpen' : 'MainBodyClose'}>
       <switch>
 									<PrivateRoute
-										path={"/notes"}
+										path={"/dashboard/notes"}
 										component={GetAllNotes}
 									/>
 									<PrivateRoute
-										path={"/trash"}
+										path={"/dashboard/trash"}
 										component={GetTrashNotes}
 									/>
 									<PrivateRoute
-										path={"/archive"}
+										path={"/dashboard/archive"}
 										component={GetArchieved}
 									/>
 								</switch>

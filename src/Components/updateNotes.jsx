@@ -23,7 +23,9 @@ export class UpdateNotes extends Component {
       file: "",
       imageUrl:"",
       color: "",
-      selsectedImage:""
+      selsectedImage:"",
+      checklistId:"",
+      checklistdata:""
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -35,6 +37,8 @@ export class UpdateNotes extends Component {
       description: Data.description,
       imageUrl: Data.imageUrl,
       color: Data.color,
+      checklistId:Data.checklistId,
+      checklistdata:Data.checklistdata
     });
     console.log("component did mount update",this.state);
   }
@@ -62,6 +66,29 @@ export class UpdateNotes extends Component {
     this.props.close();
     this.props.UpdateNote();
   };
+
+  updateChecklist = () => {
+    let data = {
+      noteId: this.props.Data.id,
+      title: this.state.title,
+      checklistId:this.state.checklistId,
+      checklistdata: this.state.checklistdata,
+      imageUrl : this.state.imageUrl,
+      color: this.state.color,
+    };
+    let token = localStorage.getItem("Token");
+    services
+      .updateChecklist(token, data)
+      .then((json) => {
+        console.log("Updated data", json);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    this.props.close();
+    this.props.UpdateNote();
+  };
+
 
   handleClickOpen = () => {
     this.setState({
@@ -155,7 +182,9 @@ export class UpdateNotes extends Component {
             >
               <div className="iconandcancel">
                 <div className="updateicon">
-                  <Icons />
+                  <Icons uploadImage={(data) => {
+                  this.setState({ file: data });
+                }}/>
                 </div>
                 <div>
                   <Tooltip title="Close">

@@ -95,7 +95,7 @@ class MoreOptions extends Component {
             ></IconButton>
           }
         />
-        <Tooltip title="More Options">
+        <Tooltip title="More Options" className="more">
           <img src={moreMenu} onClick={this.clickMoreOptions} alt="more menu" />
         </Tooltip>
 

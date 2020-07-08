@@ -7,10 +7,11 @@ import {
   Button,
   Snackbar,
   Checkbox,
+  Avatar,
   ClickAwayListener,
 } from "@material-ui/core";
 import ClearOutlinedIcon from "@material-ui/icons/ClearOutlined";
-import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
+import PersonAddOutlinedIcon from "@material-ui/icons/PersonAddOutlined";
 import IconButton from "@material-ui/core/IconButton";
 import InputBase from "@material-ui/core/InputBase";
 import Icons from "./icons";
@@ -20,28 +21,29 @@ import Blackpin from "../Assets/Blackpin.png";
 import NotesService from "../Services/notesServices";
 let services = new NotesService();
 
+const reader = new FileReader();
+
 class Notestitle extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       openImg: false,
-      open:false,
+      open: false,
       imagetrue: true,
       title: "",
       description: "",
       file: "",
-      color:"",
+      color: "",
       collaberators: [],
       checkList: [""],
       snackbarOpen: false,
-      selsectedImage:false,
+      selsectedImage: false,
       snackbarMsg: "",
-      isCheckList:false,
-      clearIcon: false,
+      isCheckList: false,
       clearIcon: false,
       isClickOn: false,
-      checklist:"",
+      checklist: "",
     };
   }
 
@@ -66,74 +68,92 @@ class Notestitle extends Component {
     });
   };
 
-  getImageData = (file) =>{
-this.setstate({image  : file})
-  }
+  getImageData = (file) => {
+    this.setstate({ image: file });
+  };
 
   handleClose = () => {
     this.setState({
       open: true,
     });
   };
-//Add checklist handler
+
+  //Add checklist handler
   AddCheckList = () => {
-        let CheckListArray = [...this.state.checkList]; 
-        let ListArray = CheckListArray[CheckListArray.length-1];
-        CheckListArray[CheckListArray.length -1] = "";       
-        CheckListArray.push(ListArray);
-        this.setState({"checkList":CheckListArray});         
+    let CheckListArray = [...this.state.checkList];
+    let ListArray = CheckListArray[CheckListArray.length - 1];
+    CheckListArray[CheckListArray.length - 1] = "";
+    CheckListArray.push(ListArray);
+    this.setState({ checkList: CheckListArray });
   };
 
   onChangeList = (index) => (eve) => {
-     let CheckListArray = [...this.state.checkList]; 
-            CheckListArray[index] = {   itemName : eve.target.value,
-                                status : (CheckListArray[index].isChecked !== undefined) ? CheckListArray[index].status : "open",
-                                isDeleted : 'false',
-                                noteId : ''
-                            }
-          this.setState({"checkList":CheckListArray}); 
+    let CheckListArray = [...this.state.checkList];
+    CheckListArray[index] = {
+      itemName: eve.target.value,
+      status:
+        CheckListArray[index].isChecked !== undefined
+          ? CheckListArray[index].status
+          : "open",
+      isDeleted: "false",
+      noteId: "",
+    };
+    this.setState({ checkList: CheckListArray });
   };
   //Checkbox handler for list is checked or not
   CheckBoxhandler = (index) => (eve) => {
-   let ListArray = [...this.state.checkList];
-        ListArray[index]  = {   itemName :ListArray[index].itemName,
-                            status : (ListArray[index] .status === undefined || ListArray[index] .status === 'open') ? 'close': "open" ,
-                            isDeleted : 'false',
-                            noteId : ''
-                        }
-    this.setState({"checkList":ListArray});
+    let ListArray = [...this.state.checkList];
+    ListArray[index] = {
+      itemName: ListArray[index].itemName,
+      status:
+        ListArray[index].status === undefined ||
+        ListArray[index].status === "open"
+          ? "close"
+          : "open",
+      isDeleted: "false",
+      noteId: "",
+    };
+    this.setState({ checkList: ListArray });
   };
   clearIconOnHover = () => {
-     this.setState({"ClearIcon":true});
+    this.setState({ ClearIcon: true });
   };
   clearIconOffhover = () => {
     if (!this.state.isClickOn) {
-      this.setState({"ClearIcon":false});
+      this.setState({ ClearIcon: false });
     }
   };
   clearIconClick = () => {
     if (!this.state.isClickOn) {
-       this.setState({"ClearIcon":false});
+      this.setState({ ClearIcon: false });
     }
   };
   clarClickAway = () => {
     if (this.state.isClickOn) {
-       this.setState({"ClearIcon":false});
+      this.setState({ ClearIcon: false });
     }
   };
 
-// API for Create note and checklist
+  // API for Create note and checklist
   Createnote = () => {
     let token = localStorage.getItem("Token");
     let apiInputData = new FormData();
-    
-    apiInputData.set("title",this.state.title);
-            apiInputData.set("description", (Boolean(this.state.description)) ? this.state.description : "" );                 
-            apiInputData.set("collaberators", (Boolean (this.state.collaberators)) ? JSON.stringify( this.state.collaberators): '');
-            apiInputData.set('file' , (Boolean(this.props.file)) ? this.props.file : "" );
-                this.state.checkList.pop();
-            apiInputData.set('checklist',JSON.stringify(this.state.checkList));
-            console.log("file image",this.props.file);
+
+    apiInputData.set("title", this.state.title);
+    apiInputData.set(
+      "description",
+      Boolean(this.state.description) ? this.state.description : ""
+    );
+    apiInputData.set(
+      "collaberators",
+      Boolean(this.state.collaberators)
+        ? JSON.stringify(this.state.collaberators)
+        : ""
+    );
+    apiInputData.set("file", Boolean(this.state.file) ? this.state.file : "");
+    this.state.checkList.pop();
+    apiInputData.set("checklist", JSON.stringify(this.state.checkList));
+    console.log("file image", this.state.file);
     services
       .CreateNote(token, apiInputData)
       .then((json) => {
@@ -181,12 +201,17 @@ this.setstate({image  : file})
         />
         <Card className="wholeNoteCard">
           <Paper className="titleAndPin">
-             <div>
-                {/* {Boolean(this.state.selsectedImage)?  */}
-                    <img src={`${URL.createObjectURL(this.state.file)}`} alt='Curently image is not available' width="700px" height="700px"/>
-                    {/* : undefined */}
-                {/* } */}
-                {/* {`${URL.createObjectURL(this.state.selsectedImage)}`} */}
+            <div>
+              {Boolean(this.state.file)? 
+              <img
+                src={`${(this.state.file)}`}
+                alt="Curently image is not available"
+                width="700px"
+                height="700px"
+              />
+              : undefined 
+              }
+              {/* {`${URL.createObjectURL(this.state.file)}`} */}
             </div>
             <InputBase
               className="wholeTitle"
@@ -228,7 +253,6 @@ this.setstate({image  : file})
           </Paper>
           <Paper>
             <div>
-
               {this.props.checkListOpen ? (
                 this.state.checkList.map((values, index) => {
                   if (index === this.state.checkList.length - 1) {
@@ -242,7 +266,7 @@ this.setstate({image  : file})
                           textdecaration="none"
                           onClick={this.AddCheckList}
                           InputProps={{
-                          disableUnderline: true,
+                            disableUnderline: true,
                           }}
                         />
                       </div>
@@ -309,24 +333,32 @@ this.setstate({image  : file})
               )}
             </div>
             <div className="collaborator">
-                {
-                  (Boolean(this.props.collaboratorData))?
-                      <div>
-                      <IconButton >
-                        <PersonAddOutlinedIcon  data = {this.props.collaboratorData} />
-                       </IconButton >
-                      </div>                    
-                  :undefined
-                }
-              </div>
+              {Boolean(this.props.collaboratorData) ? (
+                <div>
+                 <Tooltip title={this.props.collaboratorData.email} placement="bottom">
+                        <Avatar
+                          alt={this.props.collaboratorData.firstName}
+                          src="/"
+                        ></Avatar>
+                      </Tooltip>
+                  {/* <IconButton>
+                    <PersonAddOutlinedIcon data={this.props.collaboratorData} />
+                  </IconButton> */}
+                </div>
+              ) : undefined}
+            </div>
           </Paper>
           <Paper className="actionButtons">
             <div className="iconbutton">
+            <div className="notesicon">
               <Icons
                 CollaboratorIcon={this.props.onCollaborator}
-                uploadImage={(data)=>{this.setState({file:data})}}
+                uploadImage={(data) => {
+                  this.setState({ file: data });
+                }}
                 source="noteTitle"
               />
+              </div>
               <Tooltip className="cancelButton" title="Close">
                 <Button margin="dense" size="small" onClick={this.Createnote}>
                   Close

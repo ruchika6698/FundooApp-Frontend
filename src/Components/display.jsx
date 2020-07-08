@@ -3,12 +3,13 @@ import "../CSS/dashboard.css";
 import Config from "../Configuration/config"
 import Icons from "./icons";
 import Card from "@material-ui/core/Card";
+import Tooltip from "@material-ui/core/Tooltip";
+import {Avatar} from "@material-ui/core";
 import {Checkbox} from "@material-ui/core";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
 import UpdateNotes from "./updateNotes"
-import Collaborator from "./collaborator"
 import Masonry from 'react-masonry-css'
 
 export default class Display extends Component {
@@ -58,11 +59,12 @@ export default class Display extends Component {
   render() {
     let Getnotes = this.props.Notes;
     const notes = Getnotes.filter(item=>item.isDeleted===false).filter((item) =>item.isArchived===false).map((data, index) => {
+      if (String(data.imageUrl).includes("client")) { data.imageUrl = data.imageUrl.replace("client", "");                 }
           return(
           <Card key={data.id} className="card" value={data} style={{
 												backgroundColor: `${data.color}`,
 											}}>
-            <div className="displayimage"><img src={`${Config.imgUrl}${data.imageUrl}`} width="315px" height="315px"/></div>
+            <div className="displayimage"><img src={`${Config.imgUrl}${data.imageUrl}`} width="315px" height="315px" className="displayimage"/></div>
            <div className="title" onClick={()=>this.updatenote(data)}>
                 {data.title}
             </div>
@@ -75,7 +77,7 @@ export default class Display extends Component {
                     data.noteCheckLists.filter((checklist)=> checklist.status === 'open')
                                                           .map((checklist,index)=>{  
                       return(          
-                        <div className='checklistFileds'>      
+                        <div className='checklistFileds' onClick={()=>this.updatenote(data)}>      
                           <div key={checklist.id}>
                             <Checkbox fontSize='small' size='small'  checked={(checklist.status !== 'open') ? 'checked': null} style={{color : 'black'}}/>
                           </div>
@@ -87,12 +89,13 @@ export default class Display extends Component {
                     })                  
                   : undefined                                  
                 }
-                <Divider/>
                 { (Boolean(data.noteCheckLists)) ? 
                     data.noteCheckLists.filter((checklist)=> checklist.status === 'close')
                                                           .map((checklist,index)=>{  
-                      return(          
-                        <div className='checklistFileds'>      
+                      return(    
+                        <div>     
+                        <Divider/> 
+                        <div className='checklistFileds' onClick={()=>this.updatenote(data)}>      
                           <div key={checklist.id}>
                             <Checkbox fontSize='small' size='small'  checked={(checklist.status !== 'open') ? 'checked': null} style={{color : 'black'}}/>
                           </div>
@@ -100,6 +103,7 @@ export default class Display extends Component {
                             { checklist.itemName}
                           </div> 
                         </div> 
+                      </div>
                       );
                     })                  
                   : undefined                                  
@@ -111,10 +115,16 @@ export default class Display extends Component {
                   (Boolean(data.collaborators))?
                     data.collaborators.map((colabData,index)=>{
                     return(
-                      <div>
-                      <IconButton >
+                      <div className="getCollaborator">
+                      <Tooltip title={colabData.email} placement="bottom">
+                        <Avatar
+                          alt={colabData.firstName}
+                          src="/"
+                        ></Avatar>
+                      </Tooltip>
+                      {/* <IconButton >
                         <PersonAddOutlinedIcon  collabaraterData = {colabData}/>
-                       </IconButton >
+                       </IconButton > */}
                       </div>
                     )})
                   :undefined

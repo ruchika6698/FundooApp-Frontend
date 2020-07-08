@@ -51,7 +51,7 @@ export class GetTrashNotes extends Component {
          <Card key={data.id} className="archivecard" value={data} style={{
 												backgroundColor: `${data.color}`,
 											}}>
-           <div className="displayimage"><img src={`${Config.imgUrl}${data.imageUrl}`} width="280px" height="280px" /></div>
+           <div className="displayimage"><img src={`${Config.imgUrl}${data.imageUrl}`} width="280px" height="280px" alt="image"/></div>
            <div className="archivetitle">
                 {data.title}
             </div>
