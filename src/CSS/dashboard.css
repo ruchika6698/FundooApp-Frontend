@@ -183,14 +183,14 @@ body {
 	margin-left: 25%;
 }
 .notesbox {
-	margin-top: 10%;
+	margin-top: 8%;
 }
 .miniIcons {
 	padding-left: 0px;
 }
 .takeNote {
 	padding-top: 1.5%;
-	padding-right: 40%;
+	padding-right: 44%;
 }
 .wholeCard {
 	width: 700px;
@@ -240,7 +240,7 @@ body {
 }
 .card {
 	width: 315px;
-	padding-top: 20px;
+	/* padding-top: 20px; */
 	margin-bottom: 8px;
 	margin-top: 8px;
 	margin-left: 8px;
@@ -281,8 +281,14 @@ body {
 }
 .displayimage {
 	padding-bottom: 15px;
-	padding-left: 17px;
-	padding-right: 15px;
+	/* padding-left: 17px;
+	padding-right: 15px; */
+}
+.checklistFileds{
+	display:flex;
+	flex-direction:row;
+	padding-left:15px;
+	padding-right:15px;
 }
 .geticon {
 	opacity: 0;
@@ -302,13 +308,13 @@ body {
 }
 .updatebutton {
 	margin-top: 20px !important;
-	margin-right: 30px !important
+	margin-right: 10px !important
 }
 .updateCard {
 	width: 100% !important;
 	height: 100% !important;
 	border-radius: 10%;
-	padding-top: 30px;
+	/* padding-top: 30px; */
 	outline: none;
 }
 .collaboratorTitle {
@@ -354,17 +360,18 @@ body {
 	align-items: center;
 	overflow: hidden;
 	position: relative;
-	left: -30px;
+	left: -10px;
 }
 .MainBodyOpen {
 	position: relative;
-	left: 120px;
+	left: 100px;
 	width: 100% !important;
 	align-items: center;
 	overflow: hidden;
 }
 .dialogimage {
-	padding-top: 18px;
+	/* padding-top: 18px;
+	padding-right:30px; */
 }
 .dialogtextfield {
 	padding-left: 20px;
@@ -377,7 +384,7 @@ body {
 	background-color: #E8E8E8;
 }
 .archivedisplay {
-	margin-top: 100px;
+	margin-top: 80px;
 }
 .archivecard {
 	width: 315px;
@@ -388,7 +395,7 @@ body {
 	margin-right: 8px;
 	border-radius: 5% !important;
 	min-height: 150px;
-	max-height: auto;
+	max-height: 3000px;
 	font-size: 16px;
 	word-wrap: break-all;
 }
@@ -585,8 +592,8 @@ body {
 	}
 	.wholeMiniNoteCard {
 		margin-top: 100px;
-		width: 320px;
-		margin-left: 60px !important;
+		width: 315px;
+		margin-left: 50px !important;
 	}
 	.takeNote {
 		padding-right: 0%;
@@ -595,7 +602,7 @@ body {
 		display: flex;
 		flex-direction: column !important;
 		width: 500px;
-		margin-left: 50px !important;
+		margin-left: 40px !important;
 	}
 	.wholeTitle {
 		width: 50%;
@@ -605,7 +612,7 @@ body {
 		padding-left: 0% !important;
 		padding-right: 0% !important;
 		margin-top: 90px;
-		margin-left: 50px!important;
+		margin-left: 40px!important;
 	}
 	.pinImage {
 		margin-left: 0% !important;
@@ -701,7 +708,7 @@ body {
 	}
 	.display {
 		width: 500px;
-		margin-left: 50px!important;
+		margin-left: 70px!important;
 	}
 	.search {
 		display: none;
@@ -738,14 +745,24 @@ body {
 @media only screen and (max-width: 360px) {
 	.wholeMiniNoteCard {
 		margin-top: 100px;
-		width: 290px;
-		margin-left: 77px !important;
+		width: 288px !important;
+		margin-left: 67px !important;
 	}
 	.display {
-		margin-left: 40px !important;
+		margin-left: 20px !important;
 	}
 	.card {
 		margin-left: 30px !important;
+	}
+	.title {
+		padding-bottom: 7px;
+		padding-right: 7px !important;
+		padding-left: 7px!important;
+	}
+	.getdescription {
+		padding-bottom: 7px;
+		padding-right: 7px !important;
+		padding-left: 7px!important;
 	}
 	.archivecard {
 		width: 290px;
