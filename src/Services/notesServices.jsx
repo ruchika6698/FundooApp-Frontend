@@ -87,5 +87,14 @@ class NoteService {
     });
   }
 
+  updateChecklist(id,token,data){
+    console.log("get axios service",data);
+    return axiosService.Post(`${apiUrl}notes/${id}/checklist`, data, {
+      headers: {
+        Authorization: token
+      },
+    });
+  }
+
 }
 export default NoteService;

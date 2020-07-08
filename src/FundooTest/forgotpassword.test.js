@@ -3,7 +3,7 @@ import { shallow} from 'enzyme';
 import ForgotPassword from '../components/forgotpassword';
 import '../setupTests'
 
-describe('forgetpassword Component', () => {
+describe('forgotpassword Component', () => {
 
     // make our assertion and what we expect to happen 
     it('should render without throwing an error', () => {
@@ -13,7 +13,7 @@ describe('forgetpassword Component', () => {
 
 describe('Email input', () => {
   
-        it('should respond to change event and change the state of the Register Component', () => {
+        it('should respond to change event and change the state of the Forgot Password Component', () => {
          
          const wrapper = shallow( < ForgotPassword />);
          wrapper.find('#outlined-required').simulate('change', {target: {name: 'email', value: 'Diksha.Rane@gmail.com'}});

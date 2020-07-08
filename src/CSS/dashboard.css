@@ -247,7 +247,7 @@ body {
 	flex-direction: row !important;
 }
 .card {
-	width: 315px;
+	width: 300px;
 	/* padding-top: 20px; */
 	margin-bottom: 8px;
 	margin-top: 8px;
@@ -301,24 +301,43 @@ body {
 .icons{
 	display:flex;
 	flex-direction:row;
-	justify-content:space-between;
+	/* justify-content:space-between; */
+}
+.reminder{
+	padding-right:16px;
+}
+.collab{
+	/* padding-right:12px; */
+}
+.changecolor{
+	padding-right:7px;
+}
+.file{
+	padding-right:16px;
 }
 .more{
 	padding-top:13px;
+	padding-left:15px;
 }
 .geticon {
-	padding-left:15px;
-	padding-right:15px;
+	padding-left:40px;
+	padding-right:30px;
 	padding-bottom:15px;
 	opacity: 0;
 }
+/* .geticonhide{
+	display:none;
+} */
 .getCollaborator{
 	padding-left:15px;
 	padding-right:15px;
 }
-.geticon:hover {
+/* .iconclass{
+	display:none;
+} */
+/* .geticon:hover {
 	opacity: 0.7;
-}
+} */
 .updateicon {
 	width: 500px;
 }
@@ -395,8 +414,8 @@ body {
 .dialogimage {
 	/* width:315px;
 	height:315px; */
-	/* padding-top: 18px;
-	padding-right:30px; */
+	padding-top: 18px;
+	padding-right:15px;
 }
 .dialogtextfield {
 	padding-left: 20px;
@@ -494,6 +513,11 @@ body {
 		padding-left: 2%;
 		width: 700px;
 	}
+	.collaborationdialog {
+		width: 700px;
+		margin-top:15%;
+		margin-left:55px !important;
+	}
 	.display {
 		margin-left: 44px !important;
 	}
@@ -515,18 +539,24 @@ body {
 	.trash:hover {
 		width: 199px;
 	}
+	.dialogbutton {
+		padding-left: 505px !important;
+	}
 }
 @media only screen and (max-width: 768px) {
 	.makeStyles-drawerOpen-6 {
 		width: 200px !important;
 	}
 	.wholeMiniNoteCard {
-		width:650px;
-		margin-top: 90px;
-		margin-left: 90px!important;
+		width:550px;
+		margin-top: 90px !important;
+		margin-left: -80px!important;
+	}
+	.collaborationdialog {
+		width: 550px;
 	}
 	.miniNote {
-		width: 850px;
+		width: 650px;
 	}
 	.miniIcons {
 		padding-left: 190px !important;
@@ -537,7 +567,7 @@ body {
 	.wholeCard {
 		width: 550px;
 		margin-top: 90px;
-		margin-left:90px!important;
+		margin-left:-80px!important;
 	}
 	.pinImage {
 		margin-left: 10% !important;
@@ -552,8 +582,11 @@ body {
 	.dashboardSearch {
 		background-color: white;
 	}
+	.card {
+		width:280px;
+	}
 	.display {
-		margin-left: 90px !important;
+		margin-left: -80px !important;
 	}
 	.wholeCard {
 		margin-left: 104px;
@@ -575,10 +608,6 @@ body {
 	}
 	.Refresh {
 		padding-right: 30px;
-	}
-	.display {
-		width: 520px;
-		margin-left: 24px;
 	}
 	.cancelButton {
 		margin-left: 30% !important;
@@ -612,12 +641,12 @@ body {
 		padding-left: 0px !important;
 	}
 	.card {
-		width: 320px;
+		width: 295px;
 		margin-right: 100px !important;
 	}
 	.wholeMiniNoteCard {
 		margin-top: 100px;
-		width: 315px;
+		width: 290px;
 		margin-left: 50px !important;
 	}
 	.takeNote {
@@ -629,15 +658,18 @@ body {
 		width: 500px;
 		margin-left: 40px !important;
 	}
+	.dialogtextfield {
+	padding-left: 5px;
+	}
 	.wholeTitle {
 		width: 50%;
 	}
 	.wholeCard {
-		width: 390px;
+		width: 290px;
 		padding-left: 0% !important;
 		padding-right: 0% !important;
 		margin-top: 90px;
-		margin-left: 40px!important;
+		margin-left: 50px!important;
 	}
 	.pinImage {
 		margin-left: 0% !important;
@@ -650,7 +682,7 @@ body {
 	}
 	.iconbutton {
 		flex-direction: row;
-		width: 375px;
+		width: 250px !important;
 	}
 	.keepimage {
 		margin-right: 0px;
@@ -699,8 +731,9 @@ body {
 		margin-left: 40px !important;
 	}
 	.collaborationdialog {
-		width: 320px;
-		margin-left: 120px !important;
+		width: 300px;
+		margin-top:100px;
+		margin-left:50px !important;
 	}
 	.dialogbutton {
 		padding-left: 155px !important;
@@ -715,8 +748,12 @@ body {
 @media only screen and (max-width: 375px) {
 	.wholeMiniNoteCard {
 		margin-top: 100px;
-		width: 310px !important;
-		margin-left: 70px !important;
+		width: 300px !important;
+		margin-left: 80px !important;
+	}
+	.wholeCard {
+		width: 290px;
+		margin-left: 90px!important;
 	}
 	.miniNote {
 		width: 550px;
@@ -742,9 +779,13 @@ body {
 	.searchbar {
 		margin-right: 100px;
 	}
+	.collaborationdialog {
+		width: 300px;
+		margin-left:85px !important;
+	}
 	.card {
-		margin-left: 10px !important;
-		width: 310px !important;
+		margin-left: 5px !important;
+		width: 300px !important;
 	}
 	.title {
 		padding-bottom: 10px;
@@ -773,12 +814,16 @@ body {
 		width: 288px !important;
 		margin-left: 67px !important;
 	}
+	.wholeCard {
+		width: 288px;
+		margin-left: 70px!important;
+	}
 	.display {
 		margin-left: 30px !important;
 	}
 	.card {
-		margin-left: 10px !important;
-		width: 240px !important;
+		margin-left: 30px !important;
+		width: 280px !important;
 	}
 	.title {
 		padding-bottom: 7px;
@@ -789,6 +834,10 @@ body {
 		padding-bottom: 7px;
 		padding-right: 7px !important;
 		padding-left: 7px!important;
+	}
+	.collaborationdialog {
+		width: 288px;
+		margin-left:70px !important;
 	}
 	.geticon {
 		padding-left: 0px !important;
@@ -811,19 +860,28 @@ body {
 		padding-left: 10px;
 		padding-right: 10px!important;
 	}
+	.dialogbutton{
+		padding-left: 120px !important;
+	}
 }
 @media only screen and (max-width: 320px) {
 	.wholeMiniNoteCard {
 		margin-top: 100px;
 		width: 320px;
-		margin-left: 80px !important;
+		margin-left: 75px !important;
+	}
+	.wholeCard {
+		margin-left: 75px!important;
 	}
 	.display {
-		margin-left: 10px !important;
+		margin-left: 2px !important;
 	}
 	.card {
 		margin-left: 65px !important;
-		width: 300px !important;
+		width: 280px !important;
+	}
+	.collaborationdialog {
+		margin-left:80px !important;
 	}
 	.geticon {
 		padding-left: 0px !important;
