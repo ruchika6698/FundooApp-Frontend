@@ -88,13 +88,15 @@ export class Icons extends Component {
           <input
             type="file"
             style={{ display: "none" }}
-            onChange={this.fileChangedHandler}
+            onChange={(event)=>this.props.uploadImage(event.target.files[0])}
             ref={(fileUpload) => (this.fileUpload = fileUpload)}
           ></input>
           <img
             onClick={() => this.fileUpload.click()}
+            file={this.fileChangedHandler}
             src={image}
             label="New note with image"
+            alt="new note"
           />
         </IconButton>
 
@@ -122,10 +124,8 @@ export class Icons extends Component {
             Boolean(this.props.noteObject) ? (
               <Dialog
                 id="collaboraterdilogBox"
-                // fullWidth = 'true'
                 maxWidth="false"
                 open={this.state.collaboratorOpen}
-                //  maxWidth="lg"
               >
                 <Collaborator noteId={this.props.noteObject} />
               </Dialog>

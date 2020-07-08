@@ -3,6 +3,8 @@ import "../CSS/dashboard.css";
 import Config from "../Configuration/config"
 import Icons from "./icons";
 import Card from "@material-ui/core/Card";
+import {Checkbox} from "@material-ui/core";
+import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
 import UpdateNotes from "./updateNotes"
@@ -60,13 +62,50 @@ export default class Display extends Component {
           <Card key={data.id} className="card" value={data} style={{
 												backgroundColor: `${data.color}`,
 											}}>
-            <div className="displayimage"><img src={`${Config.imgUrl}${data.imageUrl}`} width="280px" height="280px"/></div>
+            <div className="displayimage"><img src={`${Config.imgUrl}${data.imageUrl}`} width="315px" height="315px"/></div>
            <div className="title" onClick={()=>this.updatenote(data)}>
                 {data.title}
             </div>
                 <div className="getdescription" onClick={()=>this.updatenote(data)}>
                     {data.description}
                 </div>
+
+                <div >
+                { (Boolean(data.noteCheckLists)) ? 
+                    data.noteCheckLists.filter((checklist)=> checklist.status === 'open')
+                                                          .map((checklist,index)=>{  
+                      return(          
+                        <div className='checklistFileds'>      
+                          <div key={checklist.id}>
+                            <Checkbox fontSize='small' size='small'  checked={(checklist.status !== 'open') ? 'checked': null} style={{color : 'black'}}/>
+                          </div>
+                          <div>
+                            { checklist.itemName}
+                          </div> 
+                        </div> 
+                      );
+                    })                  
+                  : undefined                                  
+                }
+                <Divider/>
+                { (Boolean(data.noteCheckLists)) ? 
+                    data.noteCheckLists.filter((checklist)=> checklist.status === 'close')
+                                                          .map((checklist,index)=>{  
+                      return(          
+                        <div className='checklistFileds'>      
+                          <div key={checklist.id}>
+                            <Checkbox fontSize='small' size='small'  checked={(checklist.status !== 'open') ? 'checked': null} style={{color : 'black'}}/>
+                          </div>
+                          <div>
+                            { checklist.itemName}
+                          </div> 
+                        </div> 
+                      );
+                    })                  
+                  : undefined                                  
+                }
+              </div>
+
                 <div className="collaborator">
                 {
                   (Boolean(data.collaborators))?

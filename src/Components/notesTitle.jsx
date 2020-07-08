@@ -26,6 +26,7 @@ class Notestitle extends Component {
 
     this.state = {
       openImg: false,
+      open:false,
       imagetrue: true,
       title: "",
       description: "",
@@ -34,6 +35,7 @@ class Notestitle extends Component {
       collaberators: [],
       checkList: [""],
       snackbarOpen: false,
+      selsectedImage:false,
       snackbarMsg: "",
       isCheckList:false,
       clearIcon: false,
@@ -64,9 +66,13 @@ class Notestitle extends Component {
     });
   };
 
+  getImageData = (file) =>{
+this.setstate({image  : file})
+  }
+
   handleClose = () => {
     this.setState({
-      anchorEl: null,
+      open: true,
     });
   };
 //Add checklist handler
@@ -89,11 +95,12 @@ class Notestitle extends Component {
   };
   //Checkbox handler for list is checked or not
   CheckBoxhandler = (index) => (eve) => {
-    let ListArray = [...this.state.checkList];
-    ListArray[index] = {
-      value: ListArray[index].value,
-      isChecked: !ListArray[index].isChecked,
-    };
+   let ListArray = [...this.state.checkList];
+        ListArray[index]  = {   itemName :ListArray[index].itemName,
+                            status : (ListArray[index] .status === undefined || ListArray[index] .status === 'open') ? 'close': "open" ,
+                            isDeleted : 'false',
+                            noteId : ''
+                        }
     this.setState({"checkList":ListArray});
   };
   clearIconOnHover = () => {
@@ -123,9 +130,10 @@ class Notestitle extends Component {
     apiInputData.set("title",this.state.title);
             apiInputData.set("description", (Boolean(this.state.description)) ? this.state.description : "" );                 
             apiInputData.set("collaberators", (Boolean (this.state.collaberators)) ? JSON.stringify( this.state.collaberators): '');
-            apiInputData.set('file' , (Boolean(this.state.file)) ? this.state.file : "" );
+            apiInputData.set('file' , (Boolean(this.props.file)) ? this.props.file : "" );
                 this.state.checkList.pop();
             apiInputData.set('checklist',JSON.stringify(this.state.checkList));
+            console.log("file image",this.props.file);
     services
       .CreateNote(token, apiInputData)
       .then((json) => {
@@ -141,6 +149,7 @@ class Notestitle extends Component {
         console.log(err);
       });
     this.props.UpdateNote();
+    this.handleClose();
   };
 
   handleDrawer = (event) => {
@@ -173,10 +182,11 @@ class Notestitle extends Component {
         <Card className="wholeNoteCard">
           <Paper className="titleAndPin">
              <div>
-                {Boolean(this.state.file) ? 
-                    <img src={this.state.file} alt='Curently image is not available' />
-                    : undefined
-                }
+                {/* {Boolean(this.state.selsectedImage)?  */}
+                    <img src={`${URL.createObjectURL(this.state.file)}`} alt='Curently image is not available' width="700px" height="700px"/>
+                    {/* : undefined */}
+                {/* } */}
+                {/* {`${URL.createObjectURL(this.state.selsectedImage)}`} */}
             </div>
             <InputBase
               className="wholeTitle"
@@ -232,8 +242,8 @@ class Notestitle extends Component {
                           textdecaration="none"
                           onClick={this.AddCheckList}
                           InputProps={{
-                    disableUnderline: true,
-                  }}
+                          disableUnderline: true,
+                          }}
                         />
                       </div>
                     );
@@ -267,6 +277,9 @@ class Notestitle extends Component {
                               name={index}
                               value={values.value}
                               onChange={this.onChangeList(index)}
+                              InputProps={{
+                                disableUnderline: true,
+                              }}
                             />
                           </div>
                           <div>
@@ -311,6 +324,7 @@ class Notestitle extends Component {
             <div className="iconbutton">
               <Icons
                 CollaboratorIcon={this.props.onCollaborator}
+                uploadImage={(data)=>{this.setState({file:data})}}
                 source="noteTitle"
               />
               <Tooltip className="cancelButton" title="Close">

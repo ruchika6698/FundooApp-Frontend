@@ -1,6 +1,6 @@
 import React from "react";
 import clsx from "clsx";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -26,13 +26,16 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import "../CSS/dashboard.css";
 import { GetAllNotes} from './getAllNotes'
+import { GetTrashNotes} from './getTrash'
+import { GetArchieved} from './getArchieved'
+import {PrivateRoute} from "../Authguard/privateroute"
 import Profile from "./profile";
 
 export default function Dashboard() {
   const classes = useStyles();
-  const theme = useTheme();
+  // const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const [openimage, setOpenimage] = React.useState(false);
+  // const [openimage, setOpenimage] = React.useState(false);
 
   const handleDrawerMouseopen=()=>{
     setOpen(true);
@@ -43,10 +46,10 @@ export default function Dashboard() {
   const handleDrawerOpen = () => {
     setOpen(true);
   };
-  const handleToggle = () => {
-    this.setState({ openImg: !this.state.openImg });
-    console.log(this.state.openImg);
-  };
+  // const handleToggle = () => {
+  //   this.setState({ openImg: !this.state.openImg });
+  //   console.log(this.state.openImg);
+  // };
   const handleDrawerClose = () => {
     setOpen(false);
   };
@@ -141,7 +144,7 @@ export default function Dashboard() {
          <List  onMouseEnter={handleDrawerMouseopen}
           onMouseLeave={handleDrawerMouseClose}>
           <ListItem button key={'Notes'} className="notes">
-            <Link to="/dashboard/notes"><ListItemIcon>
+            <Link to="/notes"><ListItemIcon>
             <img src={notes} label="Notes" alt="Notes"/> </ListItemIcon></Link>
             <ListItemText primary={'Notes'}/>
           </ListItem>
@@ -154,19 +157,30 @@ export default function Dashboard() {
             <ListItemText primary={'Edit labels'}/>
           </ListItem>
           <ListItem button key={'Archive'} className="archive">
-            <Link to="/dashboard/archive"><ListItemIcon><img src={archiveDrawer} label="Archive" alt="Archive"/></ListItemIcon></Link>
+            <Link to="/archive"><ListItemIcon><img src={archiveDrawer} label="Archive" alt="Archive"/></ListItemIcon></Link>
             <ListItemText primary={'Archive'}/>
           </ListItem>
           <ListItem button key={'Trash'} className="trash">
-            <Link to="/dashboard/trash"><ListItemIcon><img src={trash} label="Trash" alt="Trash"/></ListItemIcon></Link>
+            <Link to="/trash"><ListItemIcon><img src={trash} label="Trash" alt="Trash"/></ListItemIcon></Link>
             <ListItemText primary={'Trash'}/>
           </ListItem>         
         </List>  
       </Drawer>
       <div className={open? 'MainBodyOpen' : 'MainBodyClose'}>
-      <main>
-      <GetAllNotes/>
-      </main>
+      <switch>
+									<PrivateRoute
+										path={"/notes"}
+										component={GetAllNotes}
+									/>
+									<PrivateRoute
+										path={"/trash"}
+										component={GetTrashNotes}
+									/>
+									<PrivateRoute
+										path={"/archive"}
+										component={GetArchieved}
+									/>
+								</switch>
     </div>
     </div>
   );

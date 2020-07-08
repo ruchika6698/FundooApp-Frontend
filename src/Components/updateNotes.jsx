@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Dialog from "@material-ui/core/Dialog";
 import "../CSS/dashboard.css";
+import Config from "../Configuration/config"
 import Paper from "@material-ui/core/Paper";
 import Tooltip from "@material-ui/core/Tooltip";
 import { Button } from "@material-ui/core";
@@ -20,7 +21,9 @@ export class UpdateNotes extends Component {
       title: "",
       description: "",
       file: "",
+      imageUrl:"",
       color: "",
+      selsectedImage:""
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -30,9 +33,10 @@ export class UpdateNotes extends Component {
       noteId: Data.id,
       title: Data.title,
       description: Data.description,
-      file: Data.file,
+      imageUrl: Data.imageUrl,
       color: Data.color,
     });
+    console.log("component did mount update",this.state);
   }
   handleChange = (e) => {
     console.log(e.target.value);
@@ -43,7 +47,7 @@ export class UpdateNotes extends Component {
       noteId: this.props.Data.id,
       title: this.state.title,
       description: this.state.description,
-      file: JSON.stringify(this.state.file),
+      imageUrl : this.state.imageUrl,
       color: this.state.color,
     };
     let token = localStorage.getItem("Token");
@@ -79,6 +83,12 @@ export class UpdateNotes extends Component {
               backgroundColor: `${this.props.Data.color}`,
             }}
           >
+            <div>
+            {Boolean(this.props.Data.imageUrl) ? 
+              <img src={`${Config.imgUrl}this.props.Data.imageUrl`} style={{ height: '250px' , width: '660px' }} />
+              : undefined
+            }
+        </div>
             <Paper
               className="titleAndPin"
               style={{

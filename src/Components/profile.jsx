@@ -8,13 +8,8 @@ import {
   Tooltip,
   ClickAwayListener,
 } from "@material-ui/core";
-import moreMenu from "../Assets/moreMenu.svg";
-import IconButton from "@material-ui/core/IconButton";
 import "../CSS/dashboard.css";
-import { Snackbar } from "@material-ui/core";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import NotesService from "../Services/notesServices";
-let services = new NotesService();
 
 class Profile extends Component {
  constructor(props) {

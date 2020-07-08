@@ -7,7 +7,6 @@ import CheckBoxOutlinedIcon from '@material-ui/icons/CheckBoxOutlined';
 import BrushOutlinedIcon from '@material-ui/icons/BrushOutlined';
 import PhotoLibraryOutlinedIcon from '@material-ui/icons/PhotoLibraryOutlined';
 import Tooltip from '@material-ui/core/Tooltip';
-import CheckList from './checkList'
 
 
 class TakeNote extends Component {
