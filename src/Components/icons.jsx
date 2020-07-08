@@ -59,13 +59,13 @@ export class Icons extends Component {
     return (
       <div className="icons"> 
         {/* <IconButton aria-label="Remind me"> */}
-          <Tooltip title="Reminde me">
+          <Tooltip title="Reminde me" className="reminder">
             <img src={addReminder} label="Add Reminder" alt="Add Reminder" />
           </Tooltip>
         {/* </IconButton> */}
 
         {/* <IconButton aria-label="Collaborator"> */}
-          <Tooltip title="Collaborator">
+          <Tooltip title="Collaborator" className="collab">
             <img
               src={addCollaborator}
               label="Collaborator"
@@ -76,7 +76,7 @@ export class Icons extends Component {
         {/* </IconButton> */}
 
         {/* <IconButton aria-label="Change color"> */}
-          <Tooltip title="Change color">
+          <Tooltip title="Change color" className="changecolor">
             <Color
               noteId={this.props.noteObject}
               refreshID={this.props.UpdateNote}
@@ -92,6 +92,7 @@ export class Icons extends Component {
             ref={(fileUpload) => (this.fileUpload = fileUpload)}
           ></input>
           <img
+            className="file"
             onClick={() => this.fileUpload.click()}
             file={this.fileChangedHandler}
             src={image}
@@ -101,7 +102,7 @@ export class Icons extends Component {
         {/* </IconButton> */}
 
         {/* <IconButton aria-label="Archive note"> */}
-          <Tooltip title="Archive">
+          <Tooltip title="Archive" className="archieve">
             <img
               src={archiveicon}
               label="Archive note"
@@ -112,7 +113,7 @@ export class Icons extends Component {
         {/* </IconButton> */}
 
         {/* <IconButton aria-label="More"> */}
-          <Tooltip title="More">
+          <Tooltip title="More" className="moreop">
             <MoreOptions
               noteId={this.props.noteObject}
               refreshID={this.props.UpdateNote}

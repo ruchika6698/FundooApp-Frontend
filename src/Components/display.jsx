@@ -131,7 +131,7 @@ export default class Display extends Component {
                 }
                 </div>
                 <div className="geticon">
-                  <Icons noteObject={data} UpdateNote={this.props.showNotes}/>
+                  <Icons className="iconclass" noteObject={data} UpdateNote={this.props.showNotes}/>
                 </div>
           </Card>
           )
