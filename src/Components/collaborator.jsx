@@ -20,8 +20,8 @@ export class Collaborator extends React.Component {
       userList: [],
       anchorEl: null,
       collabatorName: "",
-      userData:'',
-      collaborators:'',
+      userData: "",
+      collaborators: "",
     };
   }
 
@@ -31,19 +31,20 @@ export class Collaborator extends React.Component {
 
   handleClose = () => {
     this.setState({ open: false });
+    console.log("cancel button", this.state.open);
   };
-   onSearchClickClick = (event) => {
-        this.setState({
-            anchorEl : event.currentTarget
-        });
-      };
+  onSearchClickClick = (event) => {
+    this.setState({
+      anchorEl: event.currentTarget,
+    });
+  };
 
   // user searching data
   UserList = (event) => {
     this.setState({
       collabatorName: event.target.value,
     });
-    console.log("collaborator name",this.state);
+    console.log("collaborator name", this.state);
     let token = localStorage.getItem("Token");
     let requestData = {
       searchWord: event.target.value,
@@ -66,31 +67,29 @@ export class Collaborator extends React.Component {
       });
   };
 
-  OnSelect =(data)=>{
-        this.setState({
-            collabatorName : data.email,
-            userData : data,
-            anchorEl:""
-        })
-    }
+  OnSelect = (data) => {
+    this.setState({
+      collabatorName: data.email,
+      userData: data,
+      anchorEl: "",
+    });
+  };
 
   Collaborator = (data) => {
-    if(Boolean(this.props.noteId)){
-
-    let collaborators = this.state.userData
-    let token = localStorage.getItem("Token");
-    console.log("note id  " ,this.props.noteId.id);
-    services
-      .AddCollaborator( this.props.noteId.id, token, collaborators)
-      .then((json) => {
-        console.log("Collaborator Data", json);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (Boolean(this.props.noteId)) {
+      let collaborators = this.state.userData;
+      let token = localStorage.getItem("Token");
+      console.log("note id  ", this.props.noteId.id);
+      services
+        .AddCollaborator(this.props.noteId.id, token, collaborators)
+        .then((json) => {
+          console.log("Collaborator Data", json);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
       this.handleClose();
-    }
-    else{
+    } else {
       this.props.addcollaborator(data);
     }
   };
@@ -173,8 +172,10 @@ export class Collaborator extends React.Component {
             </div>
           </div>
           <div className="dialogbutton">
-            <Button onClick={()=>this.handleClose()}>Cancel</Button>
-            <Button onClick={()=>this.Collaborator(this.state.userData)}>Save</Button>
+            <Button onClick={() => this.handleClose()}>Cancel</Button>
+            <Button onClick={() => this.Collaborator(this.state.userData)}>
+              Save
+            </Button>
           </div>
         </Card>
       </div>

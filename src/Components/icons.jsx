@@ -57,69 +57,58 @@ export class Icons extends Component {
 
   render() {
     return (
-      <div className="icons"> 
-        {/* <IconButton aria-label="Remind me"> */}
-          <Tooltip title="Reminde me" className="reminder">
-            <img src={addReminder} label="Add Reminder" alt="Add Reminder" />
-          </Tooltip>
-        {/* </IconButton> */}
+      <div className="icons">
+        <Tooltip title="Reminde me" className="reminder">
+          <img src={addReminder} label="Add Reminder" alt="Add Reminder" />
+        </Tooltip>
 
-        {/* <IconButton aria-label="Collaborator"> */}
-          <Tooltip title="Collaborator" className="collab">
-            <img
-              src={addCollaborator}
-              label="Collaborator"
-              alt="Add Person icon"
-              onClick={() => this.handlercollaborator()}
-            />
-          </Tooltip>
-        {/* </IconButton> */}
-
-        {/* <IconButton aria-label="Change color"> */}
-          <Tooltip title="Change color" className="changecolor">
-            <Color
-              noteId={this.props.noteObject}
-              refreshID={this.props.UpdateNote}
-            />
-          </Tooltip>
-        {/* </IconButton> */}
-
-        {/* <IconButton aria-label="Add image"> */}
-          <input
-            type="file"
-            style={{ display: "none" }}
-            onChange={(event)=>this.props.uploadImage(event.target.files[0])}
-            ref={(fileUpload) => (this.fileUpload = fileUpload)}
-          ></input>
+        <Tooltip title="Collaborator" className="collab">
           <img
-            className="file"
-            onClick={() => this.fileUpload.click()}
-            file={this.fileChangedHandler}
-            src={image}
-            label="New note with image"
-            alt="new note"
+            src={addCollaborator}
+            label="Collaborator"
+            alt="Add Person icon"
+            onClick={() => this.handlercollaborator()}
           />
-        {/* </IconButton> */}
+        </Tooltip>
 
-        {/* <IconButton aria-label="Archive note"> */}
-          <Tooltip title="Archive" className="archieve">
-            <img
-              src={archiveicon}
-              label="Archive note"
-              onClick={this.handleArchieveNotes}
-              alt="Archive note"
-            />
-          </Tooltip>
-        {/* </IconButton> */}
+        <Tooltip title="Change color" className="changecolor">
+          <Color
+            noteId={this.props.noteObject}
+            refreshID={this.props.UpdateNote}
+          />
+        </Tooltip>
 
-        {/* <IconButton aria-label="More"> */}
-          <Tooltip title="More" className="moreop">
-            <MoreOptions
-              noteId={this.props.noteObject}
-              refreshID={this.props.UpdateNote}
-            />
-          </Tooltip>
-        {/* </IconButton> */}
+        <input
+          type="file"
+          style={{ display: "none" }}
+          onChange={(event) => this.props.uploadImage(event.target.files[0])}
+          ref={(fileUpload) => (this.fileUpload = fileUpload)}
+        ></input>
+        <img
+          className="file"
+          onClick={() => this.fileUpload.click()}
+          file={this.fileChangedHandler}
+          src={image}
+          label="New note with image"
+          alt="new note"
+        />
+
+        <Tooltip title="Archive" className="archieve">
+          <img
+            src={archiveicon}
+            label="Archive note"
+            onClick={this.handleArchieveNotes}
+            alt="Archive note"
+          />
+        </Tooltip>
+
+        <Tooltip title="More" className="moreop">
+          <MoreOptions
+            noteId={this.props.noteObject}
+            refreshID={this.props.UpdateNote}
+          />
+        </Tooltip>
+
         <div>
           {this.state.collaboratorOpen ? (
             Boolean(this.props.noteObject) ? (

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Dialog from "@material-ui/core/Dialog";
 import "../CSS/dashboard.css";
-import Config from "../Configuration/config"
+import Config from "../Configuration/config";
 import Paper from "@material-ui/core/Paper";
 import Tooltip from "@material-ui/core/Tooltip";
 import { Button } from "@material-ui/core";
@@ -21,11 +21,11 @@ export class UpdateNotes extends Component {
       title: "",
       description: "",
       file: "",
-      imageUrl:"",
+      imageUrl: "",
       color: "",
-      selsectedImage:"",
-      checklistId:"",
-      checklistdata:""
+      selsectedImage: "",
+      checklistId: "",
+      checklistdata: "",
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -37,10 +37,10 @@ export class UpdateNotes extends Component {
       description: Data.description,
       imageUrl: Data.imageUrl,
       color: Data.color,
-      checklistId:Data.checklistId,
-      checklistdata:Data.checklistdata
+      checklistId: Data.checklistId,
+      checklistdata: Data.checklistdata,
     });
-    console.log("component did mount update",this.state);
+    console.log("component did mount update", this.state);
   }
   handleChange = (e) => {
     console.log(e.target.value);
@@ -51,7 +51,7 @@ export class UpdateNotes extends Component {
       noteId: this.props.Data.id,
       title: this.state.title,
       description: this.state.description,
-      imageUrl : this.state.imageUrl,
+      imageUrl: this.state.imageUrl,
       color: this.state.color,
     };
     let token = localStorage.getItem("Token");
@@ -71,10 +71,8 @@ export class UpdateNotes extends Component {
     let data = {
       noteId: this.props.Data.id,
       title: this.state.title,
-      checklistId:this.state.checklistId,
+      checklistId: this.state.checklistId,
       checklistdata: this.state.checklistdata,
-      imageUrl : this.state.imageUrl,
-      color: this.state.color,
     };
     let token = localStorage.getItem("Token");
     services
@@ -88,7 +86,6 @@ export class UpdateNotes extends Component {
     this.props.close();
     this.props.UpdateNote();
   };
-
 
   handleClickOpen = () => {
     this.setState({
@@ -111,11 +108,13 @@ export class UpdateNotes extends Component {
             }}
           >
             <div>
-            {Boolean(this.props.Data.imageUrl) ? 
-              <img src={`${Config.imgUrl}this.props.Data.imageUrl`} style={{ height: '250px' , width: '660px' }} />
-              : undefined
-            }
-        </div>
+              {Boolean(this.props.Data.imageUrl) ? (
+                <img
+                  src={`${Config.imgUrl}${this.props.Data.imageUrl}`}
+                  style={{ height: "250px", width: "640px" }}
+                />
+              ) : undefined}
+            </div>
             <Paper
               className="titleAndPin"
               style={{
@@ -182,9 +181,11 @@ export class UpdateNotes extends Component {
             >
               <div className="iconandcancel">
                 <div className="updateicon">
-                  <Icons uploadImage={(data) => {
-                  this.setState({ file: data });
-                }}/>
+                  <Icons
+                    uploadImage={(data) => {
+                      this.setState({ file: data });
+                    }}
+                  />
                 </div>
                 <div>
                   <Tooltip title="Close">

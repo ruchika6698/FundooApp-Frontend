@@ -33,9 +33,7 @@ import Profile from "./profile";
 
 export default function Dashboard() {
   const classes = useStyles();
-  // const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  // const [openimage, setOpenimage] = React.useState(false);
 
   const handleDrawerMouseopen=()=>{
     setOpen(true);
@@ -46,10 +44,7 @@ export default function Dashboard() {
   const handleDrawerOpen = () => {
     setOpen(true);
   };
-  // const handleToggle = () => {
-  //   this.setState({ openImg: !this.state.openImg });
-  //   console.log(this.state.openImg);
-  // };
+
   const handleDrawerClose = () => {
     setOpen(false);
   };

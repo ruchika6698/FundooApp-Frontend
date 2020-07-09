@@ -35,7 +35,7 @@ class Notestitle extends Component {
       description: "",
       file: "",
       color: "",
-      collaberators: [],
+      collaberators: [this.props.collaboratorData],
       checkList: [""],
       snackbarOpen: false,
       selsectedImage: false,
@@ -163,7 +163,6 @@ class Notestitle extends Component {
             snackbarMsg: "Notes Created Suceesfully..!",
           });
         }
-        console.log(" Create notes Successful ", json);
       })
       .catch((err) => {
         console.log(err);
@@ -181,6 +180,7 @@ class Notestitle extends Component {
       open: !this.state.open,
     });
   };
+  
   render() {
     return (
       <div className="wholeCard">
@@ -204,14 +204,13 @@ class Notestitle extends Component {
             <div>
               {Boolean(this.state.file)? 
               <img
-                src={`${(this.state.file)}`}
+                src={`${URL.createObjectURL(this.state.file)}`}
                 alt="Curently image is not available"
                 width="700px"
-                height="700px"
+                height="400px"
               />
               : undefined 
               }
-              {/* {`${URL.createObjectURL(this.state.file)}`} */}
             </div>
             <InputBase
               className="wholeTitle"
@@ -341,9 +340,7 @@ class Notestitle extends Component {
                           src="/"
                         ></Avatar>
                       </Tooltip>
-                  {/* <IconButton>
-                    <PersonAddOutlinedIcon data={this.props.collaboratorData} />
-                  </IconButton> */}
+
                 </div>
               ) : undefined}
             </div>
