@@ -197,7 +197,7 @@ body {
 }
 .takeNote {
 	padding-top: 1.5%;
-	padding-right: 44%;
+	padding-right: 42%;
 }
 .wholeCard {
 	width: 700px;
@@ -253,7 +253,6 @@ body {
 }
 .card {
 	width: 300px;
-	/* padding-top: 20px; */
 	margin-bottom: 8px;
 	margin-top: 8px;
 	margin-left: 8px;
@@ -352,7 +351,7 @@ body {
 	flex-direction: row;
 }
 .updatepin {
-	margin-left: 50px !important;
+	margin-left: 70px !important;
 }
 .updatebutton {
 	margin-top: 10px !important;

@@ -63,19 +63,6 @@ export class CreateNote extends React.Component {
     }
   };
 
-  onHandleClickawaychecklist = () => {
-    this.setState({
-      clickAway: false,
-    });
-    if (this.state.title !== "" || this.state.checkList !== "") {
-      this.setState({
-        title: "",
-        checkList: [""],
-        pin: false,
-      });
-    }
-  };
-
   render() {
     return (
       <Container>
@@ -99,7 +86,6 @@ export class CreateNote extends React.Component {
             ) : (
               <TakeNote
                 handleClick={this.handleClick}
-                onHandleClickawaychecklist={this.onHandleClickawaychecklist}
                 setCheckList={() => this.setCheckList()}
               />
             )}

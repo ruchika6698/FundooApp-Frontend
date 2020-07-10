@@ -40,7 +40,6 @@ export class UpdateNotes extends Component {
       checklistId: Data.checklistId,
       checklistdata: Data.checklistdata,
     });
-    console.log("component did mount update", this.state);
   }
   handleChange = (e) => {
     console.log(e.target.value);
@@ -67,25 +66,25 @@ export class UpdateNotes extends Component {
     this.props.UpdateNote();
   };
 
-  updateChecklist = () => {
-    let data = {
-      noteId: this.props.Data.id,
-      title: this.state.title,
-      checklistId: this.state.checklistId,
-      checklistdata: this.state.checklistdata,
-    };
-    let token = localStorage.getItem("Token");
-    services
-      .updateChecklist(token, data)
-      .then((json) => {
-        console.log("Updated data", json);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    this.props.close();
-    this.props.UpdateNote();
-  };
+  // updateChecklist = () => {
+  //   let data = {
+  //     noteId: this.props.Data.id,
+  //     title: this.state.title,
+  //     checklistId: this.state.checklistId,
+  //     checklistdata: this.state.checklistdata,
+  //   };
+  //   let token = localStorage.getItem("Token");
+  //   services
+  //     .updateChecklist(token, data)
+  //     .then((json) => {
+  //       console.log("Updated data", json);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  //   this.props.close();
+  //   this.props.UpdateNote();
+  // };
 
   handleClickOpen = () => {
     this.setState({

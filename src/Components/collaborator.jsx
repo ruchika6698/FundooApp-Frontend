@@ -31,7 +31,6 @@ export class Collaborator extends React.Component {
 
   handleClose = () => {
     this.setState({ open: false });
-    console.log("cancel button", this.state.open);
   };
   onSearchClickClick = (event) => {
     this.setState({
@@ -44,7 +43,6 @@ export class Collaborator extends React.Component {
     this.setState({
       collabatorName: event.target.value,
     });
-    console.log("collaborator name", this.state);
     let token = localStorage.getItem("Token");
     let requestData = {
       searchWord: event.target.value,
@@ -59,7 +57,6 @@ export class Collaborator extends React.Component {
             open: true,
           });
           this.setState({ userList: json.data.data.details });
-          console.log(" User list found ", this.state.userList);
         }
       })
       .catch((err) => {
@@ -79,7 +76,6 @@ export class Collaborator extends React.Component {
     if (Boolean(this.props.noteId)) {
       let collaborators = this.state.userData;
       let token = localStorage.getItem("Token");
-      console.log("note id  ", this.props.noteId.id);
       services
         .AddCollaborator(this.props.noteId.id, token, collaborators)
         .then((json) => {

@@ -69,7 +69,6 @@ class ColorComponent extends Component {
           noteIdList: [this.props.noteId.id],
           color: this.state.selected,
         };
-        console.log("Color data", colorData);
         let token = localStorage.getItem("Token");
         services
           .changeColor(token, colorData)
