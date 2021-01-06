@@ -11,7 +11,7 @@
     "@material/snackbar": "^6.0.0",
     "@material/textfield": "^6.0.0",
     "@material/toolbar": "^2.3.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "cra-template": "1.0.3",
     "material-ui-form": "^1.0.0-alpha.26",
     "material-ui-responsive-drawer": "^1.19.4",
